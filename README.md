@@ -1,2 +1,2 @@
 # WinEI
-WinEI brings back a UI for the Windows Experience Index.
+This project is a much needed rewrite of my popular application Xiret, in early development. More information will come in time.
