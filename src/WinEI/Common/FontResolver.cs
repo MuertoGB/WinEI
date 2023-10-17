@@ -13,6 +13,16 @@ using System.Runtime.InteropServices;
 
 namespace WinEI.Common
 {
+
+    #region Enum
+    enum FontStatus
+    {
+        Available,
+        Missing,
+        Unknown
+    }
+    #endregion
+
     internal class FontResolver
     {
         private static PrivateFontCollection _privateFontCollection = new PrivateFontCollection();
@@ -52,7 +62,7 @@ namespace WinEI.Common
             }
             catch (Exception e)
             {
-                //Logger.WriteExceptionToAppLog(e);
+                Logger.WriteExceptionToAppLog(e);
                 return null;
             }
             finally
@@ -61,6 +71,23 @@ namespace WinEI.Common
                 if (pFileView != IntPtr.Zero)
                     Marshal.FreeCoTaskMem(pFileView);
             }
+        }
+
+        internal static FontStatus IsFontStyleAvailable(string fontFamily, FontStyle fontStyle)
+        {
+            try
+            {
+                using (FontFamily family = new FontFamily(fontFamily))
+                    if (family.IsStyleAvailable(fontStyle))
+                        return FontStatus.Available;
+            }
+            catch (Exception e)
+            {
+                Logger.WriteExceptionToAppLog(e);
+                return FontStatus.Unknown;
+            }
+
+            return FontStatus.Missing;
         }
     }
 }

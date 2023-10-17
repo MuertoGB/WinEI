@@ -763,70 +763,70 @@
             // 
             this.lblSubscoreGraphics.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.lblSubscoreGraphics.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblSubscoreGraphics.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubscoreGraphics.ForeColor = System.Drawing.Color.White;
+            this.lblSubscoreGraphics.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubscoreGraphics.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
             this.lblSubscoreGraphics.Location = new System.Drawing.Point(0, 78);
             this.lblSubscoreGraphics.Margin = new System.Windows.Forms.Padding(0);
             this.lblSubscoreGraphics.Name = "lblSubscoreGraphics";
             this.lblSubscoreGraphics.Size = new System.Drawing.Size(100, 38);
             this.lblSubscoreGraphics.TabIndex = 99;
-            this.lblSubscoreGraphics.Text = "...";
+            this.lblSubscoreGraphics.Text = "9.9";
             this.lblSubscoreGraphics.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblSubscoreMemory
             // 
-            this.lblSubscoreMemory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.lblSubscoreMemory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.lblSubscoreMemory.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblSubscoreMemory.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubscoreMemory.ForeColor = System.Drawing.Color.White;
+            this.lblSubscoreMemory.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubscoreMemory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
             this.lblSubscoreMemory.Location = new System.Drawing.Point(0, 39);
             this.lblSubscoreMemory.Margin = new System.Windows.Forms.Padding(0);
             this.lblSubscoreMemory.Name = "lblSubscoreMemory";
             this.lblSubscoreMemory.Size = new System.Drawing.Size(100, 38);
             this.lblSubscoreMemory.TabIndex = 99;
-            this.lblSubscoreMemory.Text = "...";
+            this.lblSubscoreMemory.Text = "9.3";
             this.lblSubscoreMemory.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblSubscoreProcessor
             // 
-            this.lblSubscoreProcessor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.lblSubscoreProcessor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.lblSubscoreProcessor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblSubscoreProcessor.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubscoreProcessor.ForeColor = System.Drawing.Color.White;
+            this.lblSubscoreProcessor.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubscoreProcessor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
             this.lblSubscoreProcessor.Location = new System.Drawing.Point(0, 0);
             this.lblSubscoreProcessor.Margin = new System.Windows.Forms.Padding(0);
             this.lblSubscoreProcessor.Name = "lblSubscoreProcessor";
             this.lblSubscoreProcessor.Size = new System.Drawing.Size(100, 38);
             this.lblSubscoreProcessor.TabIndex = 1;
-            this.lblSubscoreProcessor.Text = "...";
+            this.lblSubscoreProcessor.Text = "9.3";
             this.lblSubscoreProcessor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblSubscoreGaming
             // 
             this.lblSubscoreGaming.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.lblSubscoreGaming.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblSubscoreGaming.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubscoreGaming.ForeColor = System.Drawing.Color.White;
+            this.lblSubscoreGaming.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubscoreGaming.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
             this.lblSubscoreGaming.Location = new System.Drawing.Point(0, 117);
             this.lblSubscoreGaming.Margin = new System.Windows.Forms.Padding(0);
             this.lblSubscoreGaming.Name = "lblSubscoreGaming";
             this.lblSubscoreGaming.Size = new System.Drawing.Size(100, 38);
             this.lblSubscoreGaming.TabIndex = 99;
-            this.lblSubscoreGaming.Text = "...";
+            this.lblSubscoreGaming.Text = "9.9";
             this.lblSubscoreGaming.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblSubscoreDisk
             // 
             this.lblSubscoreDisk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.lblSubscoreDisk.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblSubscoreDisk.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubscoreDisk.ForeColor = System.Drawing.Color.White;
+            this.lblSubscoreDisk.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubscoreDisk.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
             this.lblSubscoreDisk.Location = new System.Drawing.Point(0, 156);
             this.lblSubscoreDisk.Margin = new System.Windows.Forms.Padding(0);
             this.lblSubscoreDisk.Name = "lblSubscoreDisk";
             this.lblSubscoreDisk.Size = new System.Drawing.Size(100, 38);
             this.lblSubscoreDisk.TabIndex = 99;
-            this.lblSubscoreDisk.Text = "...";
+            this.lblSubscoreDisk.Text = "9.4";
             this.lblSubscoreDisk.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tlpMainNestedBaseScore
@@ -869,7 +869,7 @@
             this.lblBaseScore.Name = "lblBaseScore";
             this.lblBaseScore.Size = new System.Drawing.Size(154, 116);
             this.lblBaseScore.TabIndex = 99;
-            this.lblBaseScore.Text = "...";
+            this.lblBaseScore.Text = "9.3";
             this.lblBaseScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tlpBottom
@@ -955,7 +955,7 @@
             this.lblScoreValidity.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
             this.lblScoreValidity.Size = new System.Drawing.Size(392, 38);
             this.lblScoreValidity.TabIndex = 99;
-            this.lblScoreValidity.Text = "...";
+            this.lblScoreValidity.Text = "Experience Index scores are valid";
             this.lblScoreValidity.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblTextOperatingSystem
@@ -1015,7 +1015,7 @@
             this.lblLastAssessment.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
             this.lblLastAssessment.Size = new System.Drawing.Size(392, 38);
             this.lblLastAssessment.TabIndex = 99;
-            this.lblLastAssessment.Text = "...";
+            this.lblLastAssessment.Text = "Sunday, Jan 8 2023 11:14 PM";
             this.lblLastAssessment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label1

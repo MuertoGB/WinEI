@@ -6,6 +6,7 @@
 // Released under the GNU GLP v3.0
 
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -67,11 +68,11 @@ namespace WinEI
 
         private void mainWindow_Activated(object sender, EventArgs e) =>
             SetActivatedStatusControlForeColor(
-                tlpTitle, Colours.ACTIVATED_WINDOW_TEXT);
+                tlpTitle, AppColours.ACTIVATED_WINDOW_TEXT);
 
         private void mainWindow_Deactivate(object sender, EventArgs e) =>
             SetActivatedStatusControlForeColor(
-                tlpTitle, Colours.DEACTIVATED_WINDOW_TEXT);
+                tlpTitle, AppColours.DEACTIVATED_WINDOW_TEXT);
         #endregion
 
         #region Mouse Events

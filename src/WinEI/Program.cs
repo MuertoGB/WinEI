@@ -23,6 +23,8 @@ namespace WinEI
         internal static readonly string CurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
         internal static readonly string FriendlyName = AppDomain.CurrentDomain.FriendlyName;
         internal static readonly string UnhandledLog = Path.Combine(CurrentDirectory, "unhandled.log");
+        internal static readonly string ErrorLog = Path.Combine(CurrentDirectory, "error.log");
+        internal static readonly string ApplicationLog = Path.Combine(CurrentDirectory, "application.log");
     }
 
     internal readonly struct WEIVersion
@@ -55,6 +57,27 @@ namespace WinEI
         [STAThread]
         static void Main()
         {
+            // Check winsat capability.
+            if (!OSUtils.IsWinSatExePresent())
+            {
+                Logger.WriteToAppLog(
+                    $"{Strings.FILE_NOT_FOUND}: {OSUtils.WinsatExePath}");
+
+                HandleWinsatIncapableExit(
+                    Strings.WINSAT_INCAPABLE_EXE,
+                    ExitCodes.NOT_WINSAT_CAPABLE_EXE);
+            }
+
+            if (!OSUtils.IsWinsatApiPresent())
+            {
+                Logger.WriteToAppLog(
+                    $"{Strings.FILE_NOT_FOUND}: {OSUtils.WinsatApiPath}");
+
+                HandleWinsatIncapableExit(
+                    Strings.WINSAT_INCAPABLE_API,
+                    ExitCodes.NOT_WINSAT_CAPABLE_API);
+            }
+
             // Register exception handler events early.
             Application.SetUnhandledExceptionMode(
                 UnhandledExceptionMode.CatchException);
@@ -93,16 +116,16 @@ namespace WinEI
                         10.0F,
                         FontStyle.Regular);
                 FONT_MDL2_REG_12 =
-            new Font(
-                FontResolver.LoadFontFromResource(fontData),
-                12.0F,
-                FontStyle.Regular);
+                    new Font(
+                        FontResolver.LoadFontFromResource(fontData),
+                        12.0F,
+                        FontStyle.Regular);
             }
             else
             {
                 MessageBox.Show(
-                    "Segoe MDL2 Assets font failed to load, see ./mefit.log for more details.",
-                    "Error",
+                    $"{Strings.SEGOE_MDL2} {Strings.FAILED_TO_LOAD}",
+                    Strings.ERROR,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
@@ -112,6 +135,18 @@ namespace WinEI
 
             // Run main window instance.
             Application.Run(mWindow);
+        }
+
+        private static void HandleWinsatIncapableExit(string message, int exitCode)
+        {
+            MessageBox.Show(
+                message + $"\r\n\r\n{Strings.APPLICATION_WILL_EXIT}",
+                Strings.ERROR,
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+
+            // No need to clean up. Fonts, etc, have not been loaded yet.
+            Environment.Exit(exitCode);
         }
         #endregion
 
@@ -149,17 +184,17 @@ namespace WinEI
         {
             DialogResult result;
 
-            //File.WriteAllText(
-            //    WEIPath.UnhandledLog,
-            //    Debug.GenerateDebugReport(e));
+            File.WriteAllText(
+                WEIPath.UnhandledLog,
+                Debug.GenerateDebugReport(e));
 
             if (File.Exists(WEIPath.UnhandledLog))
             {
                 result =
                     MessageBox.Show(
-                        $"{e.Message}\r\n\r\nDetails were saved to {WEIPath.UnhandledLog.Replace(" ", Chars.NB_SPACE)}" +
-                        $"'\r\n\r\nForce quit application?",
-                        $"MET Exception Handler",
+                        $"{e.Message}\r\n\r\n{Strings.ERROR_SAVED_TO_LOG} {WEIPath.UnhandledLog.Replace(" ", Chars.NB_SPACE)}" +
+                        $"'\r\n\r\n{Strings.APPLICATION_FORCE_QUIT}",
+                        $"{e.GetType()}",
                         MessageBoxButtons.YesNo,
                         MessageBoxIcon.Error);
             }
@@ -167,7 +202,7 @@ namespace WinEI
             {
                 result =
                     MessageBox.Show(
-                        $"{e.Message}\r\n\r\n{e}\r\n\r\nForce quit application?",
+                        $"{e.Message}\r\n\r\n{e}\r\n\r\n{Strings.APPLICATION_FORCE_QUIT}",
                         $"{e.GetType()}",
                         MessageBoxButtons.YesNo,
                         MessageBoxIcon.Error);

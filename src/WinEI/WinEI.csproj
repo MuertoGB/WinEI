@@ -49,18 +49,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppColours.cs" />
     <Compile Include="Common\FontResolver.cs" />
     <Compile Include="Common\KeyboardHookManager.cs" />
+    <Compile Include="Common\Logger.cs" />
+    <Compile Include="Debug.cs" />
     <Compile Include="ExitCodes.cs" />
+    <Compile Include="Strings.cs" />
     <Compile Include="UI\Colours.cs" />
     <Compile Include="UI\Design\WEISwitchDesigner.cs" />
     <Compile Include="UI\Renderers\WEIMenuRenderer.cs" />
-    <Compile Include="UI\WEIContextMenuStrip.cs">
+    <Compile Include="UI\Controls\WEIContextMenuStrip.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="UI\WEISwitch.cs">
+    <Compile Include="UI\Controls\WEISwitch.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Utils\CryptoUtils.cs" />
     <Compile Include="Utils\OSUtils.cs" />
     <Compile Include="WinForms\mainWindow.cs">
       <SubType>Form</SubType>

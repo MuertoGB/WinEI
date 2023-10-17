@@ -11,9 +11,6 @@ namespace WinEI.UI
 {
     class Colours
     {
-        internal static readonly Color DEACTIVATED_WINDOW_TEXT = Color.FromArgb(100, 100, 100);
-        internal static readonly Color ACTIVATED_WINDOW_TEXT = Color.FromArgb(255,255,255);
-
         internal static readonly Color BORDER_INACTIVE = Color.FromArgb(120, 120, 120);
         internal static readonly Color BORDER_ACTIVE = Color.FromArgb(200, 200, 200);
         internal static readonly Color DISABLED_CONTROL = Color.FromArgb(80, 80, 80);
