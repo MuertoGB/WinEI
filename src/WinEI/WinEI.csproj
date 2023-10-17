@@ -68,6 +68,7 @@
     </Compile>
     <Compile Include="Utils\CryptoUtils.cs" />
     <Compile Include="Utils\OSUtils.cs" />
+    <Compile Include="Utils\PowerUtils.cs" />
     <Compile Include="WinForms\mainWindow.cs">
       <SubType>Form</SubType>
     </Compile>

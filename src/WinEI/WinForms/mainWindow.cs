@@ -138,10 +138,5 @@ namespace WinEI
         }
         #endregion
 
-        private void cmdAssessment_Click(object sender, EventArgs e)
-        {
-            // Debug
-            Process.Start("file.exe");
-        }
     }
 }
