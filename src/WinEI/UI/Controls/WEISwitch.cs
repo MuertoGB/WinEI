@@ -2,7 +2,7 @@
 // https://github.com/MuertoGB/WinEI
 
 // UI Components
-// WEICheckbox.cs
+// WEISwitch.cs
 // Released under the GNU GLP v3.0
 
 using System;

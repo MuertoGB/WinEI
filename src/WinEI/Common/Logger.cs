@@ -5,12 +5,8 @@
 // Released under the GNU GLP v3.0
 
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WinEI.Common
@@ -42,8 +38,8 @@ namespace WinEI.Common
             }
 
             MessageBox.Show(
-                "The application log has not been created.",
-                "Error",
+                $"{Strings.LOG_NOT_FOUND}",
+                Strings.ERROR,
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Error);
         }

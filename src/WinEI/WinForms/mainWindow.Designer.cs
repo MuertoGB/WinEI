@@ -927,6 +927,7 @@
             this.cmdAssessment.TabIndex = 0;
             this.cmdAssessment.Text = "RUN";
             this.cmdAssessment.UseVisualStyleBackColor = false;
+            this.cmdAssessment.Click += new System.EventHandler(this.cmdAssessment_Click);
             // 
             // lblTextScoreValidity
             // 

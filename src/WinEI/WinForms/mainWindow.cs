@@ -63,7 +63,7 @@ namespace WinEI
 
             lblOperatingSystem.Text =
                 $"{OSUtils.GetWindowsName} " +
-                $"{OSUtils.GetBitness(false)}";
+                $"{OSUtils.GetSystemArchitecture(false)}";
         }
 
         private void mainWindow_Activated(object sender, EventArgs e) =>
@@ -138,5 +138,10 @@ namespace WinEI
         }
         #endregion
 
+        private void cmdAssessment_Click(object sender, EventArgs e)
+        {
+            // Debug
+            Process.Start("file.exe");
+        }
     }
 }

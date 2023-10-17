@@ -6,7 +6,6 @@
 // Released under the GNU GLP v3.0
 
 using System.Collections;
-using System.ComponentModel.Design;
 using System.Windows.Forms.Design;
 
 namespace WinEI.UI.Design

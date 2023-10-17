@@ -5,7 +5,7 @@
 // Chars.cs
 // Released under the GNU GLP v3.0
 
-namespace WinEI.UI
+namespace WinEI
 {
     class Chars
     {

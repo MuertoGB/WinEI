@@ -4,12 +4,12 @@
 // FontResolver.cs
 // Released under the GNU GLP v3.0
 
-using WinEI.WIN32;
 using System;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Linq;
 using System.Runtime.InteropServices;
+using WinEI.WIN32;
 
 namespace WinEI.Common
 {

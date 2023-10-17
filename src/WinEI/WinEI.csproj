@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="AppColours.cs" />
     <Compile Include="Common\FontResolver.cs" />
+    <Compile Include="Common\WinsatBugChecker.cs" />
     <Compile Include="Common\KeyboardHookManager.cs" />
     <Compile Include="Common\Logger.cs" />
     <Compile Include="Debug.cs" />
@@ -75,8 +76,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UI\Chars.cs" />
+    <Compile Include="Chars.cs" />
     <Compile Include="WIN32\NativeMethods.cs" />
+    <Compile Include="WinSAT\WinsatApi.cs" />
     <EmbeddedResource Include="WinForms\mainWindow.resx">
       <DependentUpon>mainWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -114,6 +116,16 @@
   <ItemGroup>
     <None Include="Resources\icon32px.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <COMReference Include="WINSATLib">
+      <Guid>{15AE3A36-E53B-454D-A816-A7C61CBAB8A4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

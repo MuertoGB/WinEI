@@ -23,8 +23,11 @@ namespace WinEI.Utils
         private static readonly string _winsatApiName =
             "WinSATAPI.dll";
 
+        private static readonly string _kernelName =
+            "kernel32.dll";
+
         private static readonly string _systemPath =
-            Environment.GetFolderPath(Environment.SpecialFolder.System);
+            Environment.SystemDirectory;
         #endregion
 
         #region Internal Members
@@ -33,23 +36,23 @@ namespace WinEI.Utils
 
         internal static readonly string WinsatApiPath =
             Path.Combine(_systemPath, _winsatApiName);
+
+        internal static readonly string KernelPath =
+            Path.Combine(_systemPath, _kernelName);
         #endregion
 
+        #region Strings
         internal static string GetWindowsName =>
             new Microsoft.VisualBasic.Devices.ComputerInfo().OSFullName.Replace(
                 "Microsoft ", string.Empty);
 
-        internal static string GetBitness(bool shortString = false) =>
+        internal static string GetSystemArchitecture(bool shortString = false) =>
             Environment.Is64BitOperatingSystem
             ? (shortString ? "x64" : "64-Bit")
             : (shortString ? "x86" : "32-Bit");
+        #endregion
 
-        internal static FileVersionInfo GetKernelVersion =>
-            FileVersionInfo.GetVersionInfo(
-                Path.Combine(
-                    Environment.SystemDirectory,
-                    "kernel32.dll"));
-
+        #region Bools
         internal static bool IsElevated()
         {
             return new WindowsPrincipal(
@@ -67,6 +70,33 @@ namespace WinEI.Utils
             return File.Exists(WinsatApiPath);
         }
 
+        internal static bool IsWindowsSeven()
+        {
+            if (GetWinsatExeVersion.ProductMajorPart == 6
+                && GetWinsatExeVersion.ProductMinorPart == 1)
+            {
+                return true;
+            }
+
+            return false;
+        }
+        #endregion
+
+        #region File Version
+        internal static FileVersionInfo GetWinsatExeVersion =>
+            FileVersionInfo.GetVersionInfo(
+                Path.Combine(WinsatExePath));
+
+        internal static FileVersionInfo GetWinsatApiVersion =>
+            FileVersionInfo.GetVersionInfo(
+                Path.Combine(WinsatApiPath));
+
+        internal static FileVersionInfo GetKernelVersion =>
+            FileVersionInfo.GetVersionInfo(
+                Path.Combine(KernelPath));
+        #endregion
+
+        #region Elevation
         internal static void RestartElevated()
         {
             var psiInfo = new ProcessStartInfo
@@ -101,6 +131,7 @@ namespace WinEI.Utils
                     MessageBoxIcon.Error);
             }
         }
+        #endregion
 
     }
 }

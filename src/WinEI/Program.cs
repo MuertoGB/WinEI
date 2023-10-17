@@ -11,7 +11,6 @@ using System.IO;
 using System.Net;
 using System.Windows.Forms;
 using WinEI.Common;
-using WinEI.UI;
 using WinEI.Utils;
 
 namespace WinEI
@@ -29,7 +28,7 @@ namespace WinEI
 
     internal readonly struct WEIVersion
     {
-        internal const string Build = "231015.2315";
+        internal const string Build = "231017.0337";
         internal const string Channel = "N/A";
     }
     #endregion

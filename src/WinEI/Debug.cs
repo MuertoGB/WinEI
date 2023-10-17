@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿// WinEI
+// https://github.com/MuertoGB/WinEI
+
+// Debug.cs
+// Released under the GNU GLP v3.0
+
+using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Security.Principal;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinEI.Common;
 using WinEI.Utils;
@@ -49,7 +51,8 @@ namespace WinEI
                     File.ReadAllBytes(
                         exePath);
 
-                builder.AppendLine($"# // WinEI Toolkit Debug Log - {DateTime.Now}\r\n");
+                builder.AppendLine($"WinEI Debug Log - {DateTime.Now}");
+                builder.AppendLine("------------------------------------------------------\r\n");
 
                 builder.AppendLine("<-- Application -->\r\n");
                 builder.AppendLine($"Name:     {Application.ProductName}");
@@ -62,13 +65,16 @@ namespace WinEI
 
                 builder.AppendLine("<-- Operating System -->\r\n");
                 builder.AppendLine($"Name:     {OSUtils.GetWindowsName}");
-                builder.AppendLine($"Bitness:  {OSUtils.GetBitness()}");
-                builder.AppendLine($"Kernel:   {OSUtils.GetKernelVersion.ProductVersion}\r\n");
+                builder.AppendLine($"Bitness:  {OSUtils.GetSystemArchitecture()}");
+                builder.AppendLine($"Kernel:   {OSUtils.GetKernelVersion.ProductVersion}");
+                builder.AppendLine($"WinSAT:   {OSUtils.GetWinsatExeVersion.ProductVersion}");
+                builder.AppendLine($"API:      {OSUtils.GetWinsatApiVersion.ProductVersion}");
+                builder.AppendLine($"Bugged:   {WinsatBugChecker.IsBuggedVersion()}\r\n");
 
                 builder.AppendLine("<-- Fonts -->\r\n");
                 builder.AppendLine($"Segoe UI Reg: {FontResolver.IsFontStyleAvailable("Segoe UI", FontStyle.Regular)}");
-                builder.AppendLine($"Segoe UI Bol: {FontResolver.IsFontStyleAvailable("Segoe UI", FontStyle.Bold)}");
-                builder.AppendLine($"Segoe UI Sem: {FontResolver.IsFontStyleAvailable("Segoe UI Semibold", FontStyle.Regular)}\r\n");
+                builder.AppendLine($"Segoe UI Sem: {FontResolver.IsFontStyleAvailable("Segoe UI Semibold", FontStyle.Regular)}");
+                builder.AppendLine($"Segoe UI Bol: {FontResolver.IsFontStyleAvailable("Segoe UI", FontStyle.Bold)}\r\n");
 
                 builder.AppendLine("<-- Exception Data -->\r\n");
                 builder.AppendLine(GetExceptionData(e));

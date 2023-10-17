@@ -1,4 +1,10 @@
-﻿using System.Drawing;
+﻿// WinEI
+// https://github.com/MuertoGB/WinEI
+
+// AppColours.cs
+// Released under the GNU GLP v3.0
+
+using System.Drawing;
 
 namespace WinEI
 {

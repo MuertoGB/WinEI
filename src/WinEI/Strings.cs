@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Dynamic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// WinEI
+// https://github.com/MuertoGB/WinEI
+
+// Strings.cs
+// Released under the GNU GLP v3.0
 
 namespace WinEI
 {
@@ -13,10 +12,10 @@ namespace WinEI
             "Segoe MDL2 Assets";
 
         internal const string WINSAT_INCAPABLE_EXE =
-            "This system is not WinSAT capable, the WinSAT executable was not found.";
+            "This system is not WinSAT capable as the WinSAT executable was not found.";
 
         internal const string WINSAT_INCAPABLE_API =
-            "This system is not WinSAT capable, the WinSAT API was not found.";
+            "This system is not WinSAT capable as the WinSAT API Dynamic Link Library was not found.";
 
         internal const string ERROR =
             "Error";
@@ -41,5 +40,8 @@ namespace WinEI
 
         internal const string ERROR_SAVED_TO_LOG =
             "Error saved to log:";
+
+        internal const string LOG_NOT_FOUND =
+            "The application log was not found.";
     }
 }

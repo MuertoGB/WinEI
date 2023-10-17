@@ -1,4 +1,10 @@
-﻿using System;
+﻿// WinEI
+// https://github.com/MuertoGB/WinEI
+
+// CryptoUtils.cs
+// Released under the GNU GLP v3.0
+
+using System;
 using System.Security.Cryptography;
 
 namespace WinEI.Utils
