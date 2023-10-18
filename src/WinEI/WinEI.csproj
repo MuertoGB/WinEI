@@ -36,6 +36,9 @@
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Assets\winei.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
@@ -123,7 +126,7 @@
     <None Include="Resources\segmdl2.ttf" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\imgSprite.png" />
@@ -147,6 +150,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icon24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\winei.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
