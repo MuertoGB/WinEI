@@ -37,6 +37,7 @@
             this.cmdAbout = new System.Windows.Forms.Button();
             this.pnlMenuSeperator2 = new System.Windows.Forms.Panel();
             this.cmdSettings = new System.Windows.Forms.Button();
+            this.cmdMore = new System.Windows.Forms.Button();
             this.tlpTitle = new System.Windows.Forms.TableLayoutPanel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.cmdMinimize = new System.Windows.Forms.Button();
@@ -88,6 +89,12 @@
             this.cmdShareOnImgur = new System.Windows.Forms.Button();
             this.tlpBottomNestedShowHardware = new System.Windows.Forms.TableLayoutPanel();
             this.swShowHardware = new WinEI.UI.WEISwitch();
+            this.cmsApplication = new WinEI.UI.WEIContextMenuStrip();
+            this.minimizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.resetPositionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmsTools = new WinEI.UI.WEIContextMenuStrip();
+            this.resetWinSATToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tlpMenu.SuspendLayout();
             this.tlpTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
@@ -102,6 +109,8 @@
             this.tlpMainNestedBaseScore.SuspendLayout();
             this.tlpBottom.SuspendLayout();
             this.tlpBottomNestedShowHardware.SuspendLayout();
+            this.cmsApplication.SuspendLayout();
+            this.cmsTools.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlpSplit1
@@ -121,13 +130,14 @@
             // 
             this.tlpMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.tlpMenu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tlpMenu.BackgroundImage")));
-            this.tlpMenu.ColumnCount = 7;
+            this.tlpMenu.ColumnCount = 8;
             this.tlpMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tlpMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 5F));
             this.tlpMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
             this.tlpMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 5F));
             this.tlpMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
             this.tlpMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tlpMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 38F));
             this.tlpMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpMenu.Controls.Add(this.cmdTools, 0, 0);
             this.tlpMenu.Controls.Add(this.pnlMenuSeperator1, 0, 0);
@@ -135,6 +145,7 @@
             this.tlpMenu.Controls.Add(this.cmdAbout, 5, 0);
             this.tlpMenu.Controls.Add(this.pnlMenuSeperator2, 3, 0);
             this.tlpMenu.Controls.Add(this.cmdSettings, 4, 0);
+            this.tlpMenu.Controls.Add(this.cmdMore, 6, 0);
             this.tlpMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.tlpMenu.Location = new System.Drawing.Point(1, 51);
             this.tlpMenu.Name = "tlpMenu";
@@ -241,6 +252,25 @@
             this.cmdSettings.Text = "SETTINGS";
             this.cmdSettings.UseVisualStyleBackColor = false;
             // 
+            // cmdMore
+            // 
+            this.cmdMore.BackColor = System.Drawing.Color.Transparent;
+            this.cmdMore.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cmdMore.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.cmdMore.FlatAppearance.BorderSize = 0;
+            this.cmdMore.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.cmdMore.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.cmdMore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdMore.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdMore.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
+            this.cmdMore.Location = new System.Drawing.Point(331, 1);
+            this.cmdMore.Margin = new System.Windows.Forms.Padding(1);
+            this.cmdMore.Name = "cmdMore";
+            this.cmdMore.Size = new System.Drawing.Size(36, 36);
+            this.cmdMore.TabIndex = 4;
+            this.cmdMore.Text = "...";
+            this.cmdMore.UseVisualStyleBackColor = false;
+            // 
             // tlpTitle
             // 
             this.tlpTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
@@ -278,6 +308,7 @@
             this.lblTitle.TabIndex = 99;
             this.lblTitle.Text = "WinEI";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTitle.Click += new System.EventHandler(this.lblTitle_Click);
             // 
             // cmdMinimize
             // 
@@ -335,6 +366,7 @@
             this.pbxLogo.Size = new System.Drawing.Size(32, 32);
             this.pbxLogo.TabIndex = 103;
             this.pbxLogo.TabStop = false;
+            this.pbxLogo.Click += new System.EventHandler(this.pbxLogo_Click);
             // 
             // tlpTitleVersion
             // 
@@ -364,7 +396,7 @@
             this.lblAppVersion.Margin = new System.Windows.Forms.Padding(0, 0, 5, 0);
             this.lblAppVersion.Name = "lblAppVersion";
             this.lblAppVersion.Size = new System.Drawing.Size(23, 22);
-            this.lblAppVersion.TabIndex = 100;
+            this.lblAppVersion.TabIndex = 99;
             this.lblAppVersion.Text = "...";
             this.lblAppVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -402,7 +434,7 @@
             this.lblRatingScale.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.lblRatingScale.Size = new System.Drawing.Size(805, 38);
             this.lblRatingScale.TabIndex = 99;
-            this.lblRatingScale.Text = "The Experience Index assesses key system components on a scale of 1.0 to 9.9.";
+            this.lblRatingScale.Text = "The Experience Index assesses key system components.";
             this.lblRatingScale.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tlpMainNestedWinsat
@@ -1112,6 +1144,66 @@
             this.swShowHardware.SwitchHeadColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.swShowHardware.TabIndex = 0;
             // 
+            // cmsApplication
+            // 
+            this.cmsApplication.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.cmsApplication.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmsApplication.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.cmsApplication.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.cmsApplication.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.minimizeToolStripMenuItem,
+            this.resetPositionToolStripMenuItem,
+            this.exitToolStripMenuItem});
+            this.cmsApplication.Name = "weiContextMenuStrip1";
+            this.cmsApplication.ShowImageMargin = false;
+            this.cmsApplication.Size = new System.Drawing.Size(162, 88);
+            // 
+            // minimizeToolStripMenuItem
+            // 
+            this.minimizeToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.minimizeToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.minimizeToolStripMenuItem.Name = "minimizeToolStripMenuItem";
+            this.minimizeToolStripMenuItem.ShortcutKeyDisplayString = "";
+            this.minimizeToolStripMenuItem.Size = new System.Drawing.Size(161, 28);
+            this.minimizeToolStripMenuItem.Text = "Minimize";
+            this.minimizeToolStripMenuItem.Click += new System.EventHandler(this.minimizeToolStripMenuItem_Click);
+            // 
+            // resetPositionToolStripMenuItem
+            // 
+            this.resetPositionToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resetPositionToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.resetPositionToolStripMenuItem.Name = "resetPositionToolStripMenuItem";
+            this.resetPositionToolStripMenuItem.Size = new System.Drawing.Size(161, 28);
+            this.resetPositionToolStripMenuItem.Text = "Reset Position";
+            this.resetPositionToolStripMenuItem.Click += new System.EventHandler(this.resetPositionToolStripMenuItem_Click);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exitToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(70)))), ((int)(((byte)(50)))));
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(161, 28);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // cmsTools
+            // 
+            this.cmsTools.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.cmsTools.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.cmsTools.ForeColor = System.Drawing.Color.White;
+            this.cmsTools.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.cmsTools.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.resetWinSATToolStripMenuItem});
+            this.cmsTools.Name = "weiContextMenuStrip1";
+            this.cmsTools.ShowImageMargin = false;
+            this.cmsTools.Size = new System.Drawing.Size(160, 32);
+            // 
+            // resetWinSATToolStripMenuItem
+            // 
+            this.resetWinSATToolStripMenuItem.Name = "resetWinSATToolStripMenuItem";
+            this.resetWinSATToolStripMenuItem.Size = new System.Drawing.Size(159, 28);
+            this.resetWinSATToolStripMenuItem.Text = "Reset WinSAT";
+            // 
             // mainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -1149,6 +1241,8 @@
             this.tlpBottom.ResumeLayout(false);
             this.tlpBottomNestedShowHardware.ResumeLayout(false);
             this.tlpBottomNestedShowHardware.PerformLayout();
+            this.cmsApplication.ResumeLayout(false);
+            this.cmsTools.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1214,6 +1308,13 @@
         private System.Windows.Forms.TableLayoutPanel tlpBottomNestedShowHardware;
         private WinEI.UI.WEISwitch swShowHardware;
         private System.Windows.Forms.Label lblRatingScale;
+        private UI.WEIContextMenuStrip cmsApplication;
+        private System.Windows.Forms.ToolStripMenuItem minimizeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem resetPositionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private UI.WEIContextMenuStrip cmsTools;
+        private System.Windows.Forms.ToolStripMenuItem resetWinSATToolStripMenuItem;
+        private System.Windows.Forms.Button cmdMore;
     }
 }
 

@@ -10,6 +10,7 @@ namespace WinEI
     {
         internal const string EXIT_CROSS = "\uE947";
         internal const string FORWARD = "\uE72A";
+        internal const string MORE = "\uE712";
 
         // Non line-breaking space
         internal const string NB_SPACE = "\u00A0";

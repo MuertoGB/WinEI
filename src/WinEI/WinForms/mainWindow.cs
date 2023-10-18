@@ -6,9 +6,11 @@
 // Released under the GNU GLP v3.0
 
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using WinEI.UI;
 using WinEI.Utils;
 using WinEI.WIN32;
 using WinEI.Winsat;
@@ -47,6 +49,8 @@ namespace WinEI
             Deactivate += mainWindow_Deactivate;
             Activated += mainWindow_Activated;
             KeyDown += mainWindow_KeyDown;
+            tlpTitleVersion.Click += tlpTitleVersion_Click;
+            lblAppVersion.MouseClick += lblAppVersion_MouseClick;
 
             // Set mouse move event handlers.
             SetMouseMoveEventHandlers();
@@ -67,6 +71,23 @@ namespace WinEI
                 $"{OSUtils.GetSystemArchitecture(false)}";
 
             UpdateUI();
+
+            CheckForNewVersion();
+        }
+
+        internal async void CheckForNewVersion()
+        {
+            // Check for a new version using the specified URL.
+            VersionResult result =
+                await AppUpdate.CheckForNewVersion(
+                    WEIUrl.VersionManifest);
+
+            // If a new version is available and update the UI.
+            if (result == VersionResult.NewVersionAvailable)
+            {
+                lblAppVersion.ForeColor = Color.FromArgb(255, 128, 128);
+                lblAppVersion.Text += " (OUTDATED)";
+            }
         }
 
         private void mainWindow_Activated(object sender, EventArgs e) =>
@@ -85,8 +106,32 @@ namespace WinEI
             {
                 switch (e.KeyCode)
                 {
+                    case Keys.E:
+                        cmdExport.PerformClick();
+                        break;
+                    case Keys.T:
+                        cmdTools.PerformClick();
+                        break;
+                    case Keys.S:
+                        cmdSettings.PerformClick();
+                        break;
                     case Keys.A:
                         cmdAbout.PerformClick();
+                        break;
+                }
+            }
+            else if (e.Modifiers == Keys.Alt)
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.A:
+                        cmdAssessment.PerformClick();
+                        break;
+                    case Keys.I:
+                        cmdShareOnImgur.PerformClick();
+                        break;
+                    case Keys.H:
+                        swShowHardware.Checked = !swShowHardware.Checked;
                         break;
                 }
             }
@@ -105,6 +150,7 @@ namespace WinEI
 
             UpdateValidityControls();
             UpdateAssessmentDateControls();
+            UpdateRatingScaleControls();
         }
 
         private void UpdateBaseScoreControls()
@@ -192,11 +238,11 @@ namespace WinEI
         {
             lblScoreValidity.Text =
                 WinsatReader.GetAssessmentStateString(
-                    (int)WinsatReader.CurrentSate);
+                    (int)WinsatReader.AssessmentSate);
 
             cmdAssessment.Text =
                 WinsatReader.GetAssessmentStateButtonString(
-                    (int)WinsatReader.CurrentSate);
+                    (int)WinsatReader.AssessmentSate);
         }
 
         private void UpdateAssessmentDateControls()
@@ -204,6 +250,12 @@ namespace WinEI
             lblLastAssessment.Text =
                 WinsatAPI.QueryLatestFormalDate().ToString(
                     "dddd, MMM d yyyy hh:mm tt");
+        }
+
+        private void UpdateRatingScaleControls()
+        {
+            lblRatingScale.Text =
+                WinsatReader.GetRatingScaleString();
         }
         #endregion
 
@@ -240,7 +292,7 @@ namespace WinEI
             WindowState = FormWindowState.Minimized;
 
         private void cmdClose_Click(object sender, EventArgs e) =>
-            Close();
+            Program.Exit();
 
         private void cmdAbout_Click(object sender, EventArgs e)
         {
@@ -262,7 +314,10 @@ namespace WinEI
                     Text = Chars.EXIT_CROSS },
                 new { Button = cmdShareOnImgur,
                     Font = Program.FONT_MDL2_REG_10,
-                    Text = Chars.FORWARD }
+                    Text = Chars.FORWARD },
+                new { Button = cmdMore,
+                    Font = Program.FONT_MDL2_REG_12,
+                    Text = Chars.MORE }
             };
 
             foreach (var buttonData in buttons)
@@ -271,6 +326,42 @@ namespace WinEI
                 buttonData.Button.Text = buttonData.Text;
             }
         }
+        #endregion
+
+        #region Label Events
+        private void lblTitle_Click(object sender, EventArgs e) =>
+            InterfaceUtils.ShowContextMenuAtCursor(sender, e, cmsApplication, false);
+
+        private void lblAppVersion_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+                Process.Start(
+                    WEIUrl.LatestRelease);
+        }
+        #endregion
+
+        #region ToolStrip Events
+        private void minimizeToolStripMenuItem_Click(object sender, EventArgs e) =>
+            WindowState = FormWindowState.Minimized;
+
+        private void resetPositionToolStripMenuItem_Click(object sender, EventArgs e) =>
+            CenterToScreen();
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e) =>
+            Program.Exit();
+        #endregion
+
+        #region PictureBox Events
+        private void pbxLogo_Click(object sender, EventArgs e) =>
+            InterfaceUtils.ShowContextMenuAtControlPoint(
+                sender,
+                cmsApplication,
+                MenuPosition.BottomLeft);
+        #endregion
+
+        #region TableLayoutPanel Events
+        private void tlpTitleVersion_Click(object sender, EventArgs e) =>
+            InterfaceUtils.ShowContextMenuAtCursor(sender, e, cmsApplication, false);
         #endregion
 
         #region UI Events

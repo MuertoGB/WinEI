@@ -60,6 +60,7 @@
     <Compile Include="Strings.cs" />
     <Compile Include="UI\Colours.cs" />
     <Compile Include="UI\Design\WEISwitchDesigner.cs" />
+    <Compile Include="UI\InterfaceUtils.cs" />
     <Compile Include="UI\Renderers\WEIMenuRenderer.cs" />
     <Compile Include="UI\Controls\WEIContextMenuStrip.cs">
       <SubType>Component</SubType>
@@ -67,7 +68,7 @@
     <Compile Include="UI\Controls\WEISwitch.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Update.cs" />
+    <Compile Include="AppUpdate.cs" />
     <Compile Include="Utils\CryptoUtils.cs" />
     <Compile Include="Utils\FileUtils.cs" />
     <Compile Include="Utils\OSUtils.cs" />

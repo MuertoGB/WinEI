@@ -17,7 +17,7 @@ namespace WinEI.WinSAT
 {
 
     #region Structs
-    internal struct ApiHardwarePool
+    internal struct ApiHardwareTypes
     {
         internal string Processor { get; set; }
         internal string Memory { get; set; }
@@ -26,7 +26,7 @@ namespace WinEI.WinSAT
         internal string Disk { get; set; }
     }
 
-    internal struct XmlHardwarePool
+    internal struct XmlHardwareTypes
     {
         internal string Processor { get; set; }
         internal string Memory { get; set; }
@@ -68,7 +68,7 @@ namespace WinEI.WinSAT
         VIRTUAL_MACHINE
     }
 
-    internal enum AssessmentState
+    internal enum WinsatAssessmentState
     {
         UNKNOWN,
         VALID,
@@ -93,36 +93,42 @@ namespace WinEI.WinSAT
 
         internal static string FORMAL_XML_PATH = null;
 
+        internal static WinsatAssessmentState AssessmentSate;
+
+        internal static ApiHardwareTypes ApiHardware;
+        internal static XmlHardwareTypes XmlHardware;
         internal static WinsatScores ScorePool;
-        internal static ApiHardwarePool ApiPool;
-        internal static XmlHardwarePool XmlPool;
-        internal static AssessmentState CurrentSate;
+
+        internal static bool XmlHardwareEnabled = false;
         #endregion
 
         internal static void LoadWinsatData()
         {
             // Get assessment validity
-            CurrentSate = (AssessmentState)WinsatAPI.QueryAssessmentState();
+            AssessmentSate = (WinsatAssessmentState)WinsatAPI.QueryAssessmentState();
 
             // Get WinSPR
             ScorePool = GetWinSPR();
 
             // Load the latest winsat formal/inital xml path.
-            FORMAL_XML_PATH = GetFormalXmlPath();
+            FORMAL_XML_PATH = GetFormalXmlPath(OSUtils.IsWindowsVista());
 
             // Load any API generated hardware details.
-            ApiPool = GetWinsatApiHardware();
+            ApiHardware = GetWinsatApiHardware();
 
             // Load any XML generated hardware details.
-            XmlPool = GetWinsatXmlHardware(FORMAL_XML_PATH);
+            XmlHardware = GetWinsatXmlHardware(FORMAL_XML_PATH);
         }
 
-        internal static string GetFormalXmlPath()
+        internal static string GetFormalXmlPath(bool isWindowsVista)
         {
             DirectoryInfo dataStore = new DirectoryInfo(WinsatDataStorePath);
 
-            // Determine the search pattern based on the OS version.
-            string searchPattern = OSUtils.IsWindowsVista() ? "*Initial*.xml" : "*Formal*.xml";
+            // Determine the search pattern, Vista uses a different naming structure.
+            string searchPattern =
+                isWindowsVista
+                ? "*Initial*.xml"
+                : "*Formal*.xml";
 
             // Get the latest score file.
             FileInfo latestFormal =
@@ -143,12 +149,18 @@ namespace WinEI.WinSAT
                 XmlNode node;
 
                 xmlDoc.Load(filePath);
+
                 node = xmlDoc.SelectSingleNode(nodeName);
 
                 if (node != null)
                 {
-                    XmlNode innerNode = node.SelectSingleNode(innerNodeName);
-                    return innerNode != null ? innerNode.InnerText : null;
+                    XmlNode innerNode =
+                        node.SelectSingleNode(
+                            innerNodeName);
+
+                    return innerNode != null
+                        ? innerNode.InnerText
+                        : null;
                 }
 
                 return null;
@@ -235,7 +247,7 @@ namespace WinEI.WinSAT
         #endregion
 
         #region API Hardware
-        internal static ApiHardwarePool GetWinsatApiHardware()
+        internal static ApiHardwareTypes GetWinsatApiHardware()
         {
             try
             {
@@ -265,7 +277,7 @@ namespace WinEI.WinSAT
                     INFO_TYPE.Description);
 
                 // Return new ApiHardwarePool object.
-                return new ApiHardwarePool
+                return new ApiHardwareTypes
                 {
                     Processor = string.IsNullOrEmpty(processor) ? null : processor,
                     Memory = string.IsNullOrEmpty(memory) ? null : memory,
@@ -277,13 +289,13 @@ namespace WinEI.WinSAT
             catch (Exception e)
             {
                 Logger.WriteExceptionToAppLog(e);
-                return DefaultApiHardwarePool();
+                return DefaultApiHardware();
             }
         }
 
-        internal static ApiHardwarePool DefaultApiHardwarePool()
+        internal static ApiHardwareTypes DefaultApiHardware()
         {
-            return new ApiHardwarePool
+            return new ApiHardwareTypes
             {
                 Processor = null,
                 Memory = null,
@@ -295,9 +307,18 @@ namespace WinEI.WinSAT
         #endregion
 
         #region XML Hardware
-
-        internal static XmlHardwarePool GetWinsatXmlHardware(string filePath)
+        internal static XmlHardwareTypes GetWinsatXmlHardware(string filePath)
         {
+            if (string.IsNullOrEmpty(filePath))
+            {
+                Logger.WriteToAppLog(
+                    "GetWinsatXmlHardware: Bad filepath argument.");
+
+                XmlHardwareEnabled = false;
+
+                return DefaultXmlHardware();
+            }
+
             // Parse processor model.
             string processor =
                 ParseXmlData(
@@ -328,7 +349,9 @@ namespace WinEI.WinSAT
                 ParseXmlData(
                     "WinSAT/SystemConfig/Disk/SystemDisk", "Model", filePath);
 
-            return new XmlHardwarePool
+            XmlHardwareEnabled = true;
+
+            return new XmlHardwareTypes
             {
                 Processor = string.IsNullOrEmpty(processor) ? null : processor,
                 Memory = string.IsNullOrEmpty(memory) ? null : memory,
@@ -339,9 +362,9 @@ namespace WinEI.WinSAT
             };
         }
 
-        internal static XmlHardwarePool DefaultXmlHardwarePool()
+        internal static XmlHardwareTypes DefaultXmlHardware()
         {
-            return new XmlHardwarePool
+            return new XmlHardwareTypes
             {
                 Processor = null,
                 Memory = null,
@@ -394,17 +417,17 @@ namespace WinEI.WinSAT
 
         internal static string GetAssessmentStateString(int state)
         {
-            switch ((AssessmentState)state)
+            switch ((WinsatAssessmentState)state)
             {
-                case AssessmentState.UNKNOWN:
+                case WinsatAssessmentState.UNKNOWN:
                     return "Could not retrieve assessment validity.";
-                case AssessmentState.VALID:
+                case WinsatAssessmentState.VALID:
                     return "Experience Index scores are valid.";
-                case AssessmentState.INCOHERENT:
+                case WinsatAssessmentState.INCOHERENT:
                     return "Incoherent with hardware";
-                case AssessmentState.UNAVAILABLE:
+                case WinsatAssessmentState.UNAVAILABLE:
                     return "Experience Index has not yet been established.";
-                case AssessmentState.INVALID:
+                case WinsatAssessmentState.INVALID:
                     return "Experience Index scores are outdated or invalid.";
                 default:
                     return "Could not retrieve assessment validity.";
@@ -413,21 +436,41 @@ namespace WinEI.WinSAT
 
         internal static string GetAssessmentStateButtonString(int state)
         {
-            switch ((AssessmentState)state)
+            switch ((WinsatAssessmentState)state)
             {
-                case AssessmentState.UNKNOWN:
+                case WinsatAssessmentState.UNKNOWN:
                     return "RUN";
-                case AssessmentState.VALID:
+                case WinsatAssessmentState.VALID:
                     return "REPEAT";
-                case AssessmentState.INCOHERENT:
+                case WinsatAssessmentState.INCOHERENT:
                     return "UPDATE";
-                case AssessmentState.UNAVAILABLE:
+                case WinsatAssessmentState.UNAVAILABLE:
                     return "RUN";
-                case AssessmentState.INVALID:
+                case WinsatAssessmentState.INVALID:
                     return "UPDATE";
                 default:
                     return "RUN";
             }
+        }
+
+        internal static string GetRatingScaleString()
+        {
+            string defaultString =
+                "The Experience Index assesses key system components";
+
+            if (OSUtils.IsWindowsVista())
+                return $"{defaultString} on a scale of 1.0 to 5.9.";
+
+            if (OSUtils.IsWindowsSeven())
+                return $"{defaultString} on a scale of 1.0 to 7.9.";
+
+            if (OSUtils.IsWindowsEight())
+                return $"{defaultString} on a scale of 1.0 to 9.9.";
+
+            if (OSUtils.IsWindowsTenPlus())
+                return $"{defaultString} on a scale of 1.0 to 9.9.";
+
+            return $"{defaultString}.";
         }
         #endregion
 

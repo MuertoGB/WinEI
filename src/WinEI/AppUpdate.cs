@@ -1,7 +1,7 @@
 ﻿// WinEI
 // https://github.com/MuertoGB/WinEI
 
-// Update.cs - Provides a simple version check
+// AppUpdate.cs - Provides a simple version check
 // Released under the GNU GLP v3.0
 
 using System;
@@ -24,7 +24,7 @@ namespace WinEI
     }
     #endregion
 
-    class Update
+    class AppUpdate
     {
         internal static async Task<VersionResult> CheckForNewVersion(string versionUrl)
         {

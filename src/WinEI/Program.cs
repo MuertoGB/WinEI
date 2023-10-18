@@ -6,6 +6,8 @@
 // WinEI uses embedded font resource "Segoe MDL2 Assets" which is copyright Microsoft Corp.
 
 using System;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Net;
@@ -30,12 +32,13 @@ namespace WinEI
     internal readonly struct WEIUrl
     {
         internal const string VersionManifest = "https://raw.githubusercontent.com/MuertoGB/WinEI/main/stream/manifests/version.xml";
+        internal const string LatestRelease = "https://github.com/MuertoGB/WinEI/releases/latest";
     }
 
     internal readonly struct WEIVersion
     {
-        internal const string Build = "231018.0210";
-        internal const string Channel = "Alpha";
+        internal const string Build = "231018.2110";
+        internal const string Channel = "Pre-Alpha";
     }
     #endregion
 
@@ -144,6 +147,11 @@ namespace WinEI
             Application.Run(mWindow);
         }
 
+        private static void mWindow_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
         private static void HandleWinsatIncapableExit(string message, int exitCode)
         {
             MessageBox.Show(
@@ -227,6 +235,21 @@ namespace WinEI
             // Fix for mainWindow opacity getting stuck at 0.5.
             if (mWindow.Opacity != 1.0)
                 mWindow.Opacity = 1.0;
+        }
+        #endregion
+
+        #region Exit Actions
+        internal static void Exit() =>
+            Application.Exit();
+
+        internal static void Restart()
+        {
+            try
+            {
+                Process.Start(Application.ExecutablePath);
+                Application.Exit();
+            }
+            catch (Win32Exception) { return; }
         }
         #endregion
 

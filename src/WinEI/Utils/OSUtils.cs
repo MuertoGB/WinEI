@@ -94,6 +94,27 @@ namespace WinEI.Utils
 
             return false;
         }
+
+        internal static bool IsWindowsEight()
+        {
+            if (GetWinsatExeVersion.ProductMajorPart == 6
+                && GetWinsatExeVersion.ProductMinorPart > 1)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        internal static bool IsWindowsTenPlus()
+        {
+            if (GetWinsatExeVersion.ProductMajorPart == 10)
+            {
+                return true;
+            }
+
+            return false;
+        }
         #endregion
 
         #region File Version

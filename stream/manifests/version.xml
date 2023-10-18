@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <data>
  <WEI>
-    <Version>0.1.0</Version>
+    <Version>0.2.0</Version>
     <Build>231015.2315</Build>
     <ReleaseDate>NA</ReleaseDate>
-    <Channel>NA</Channel>
+    <Channel>PRE-ALPHA</Channel>
     <SHA256>NA</SHA256>
     <VT>NA</VT>>
  </MET>
