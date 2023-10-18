@@ -63,9 +63,29 @@ namespace WinEI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icon24px {
+            get {
+                object obj = ResourceManager.GetObject("icon24px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icon32px {
             get {
                 object obj = ResourceManager.GetObject("icon32px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap imgmuerto64px {
+            get {
+                object obj = ResourceManager.GetObject("imgmuerto64px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

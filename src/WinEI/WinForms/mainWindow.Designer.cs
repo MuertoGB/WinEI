@@ -210,6 +210,7 @@
             this.cmdAbout.TabIndex = 3;
             this.cmdAbout.Text = "ABOUT";
             this.cmdAbout.UseVisualStyleBackColor = false;
+            this.cmdAbout.Click += new System.EventHandler(this.cmdAbout_Click);
             // 
             // pnlMenuSeperator2
             // 
@@ -1125,6 +1126,8 @@
             this.Controls.Add(this.tlpTitle);
             this.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.KeyPreview = true;
+            this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(807, 485);
             this.Name = "mainWindow";
             this.Padding = new System.Windows.Forms.Padding(1);

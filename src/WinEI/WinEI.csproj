@@ -40,6 +40,7 @@
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Design" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Microsoft.CSharp" />
@@ -71,6 +72,12 @@
     <Compile Include="Utils\FileUtils.cs" />
     <Compile Include="Utils\OSUtils.cs" />
     <Compile Include="Utils\PowerUtils.cs" />
+    <Compile Include="WinForms\aboutWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\aboutWindow.Designer.cs">
+      <DependentUpon>aboutWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="WinForms\mainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +90,9 @@
     <Compile Include="WIN32\NativeMethods.cs" />
     <Compile Include="WinSAT\WinsatApi.cs" />
     <Compile Include="WinSAT\WinsatReader.cs" />
+    <EmbeddedResource Include="WinForms\aboutWindow.resx">
+      <DependentUpon>aboutWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WinForms\mainWindow.resx">
       <DependentUpon>mainWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -130,6 +140,12 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgmuerto64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon24px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

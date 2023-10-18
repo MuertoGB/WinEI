@@ -6,11 +6,9 @@
 // Released under the GNU GLP v3.0
 
 using System;
-using System.Diagnostics;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using WinEI.UI;
 using WinEI.Utils;
 using WinEI.WIN32;
 using WinEI.Winsat;
@@ -48,6 +46,7 @@ namespace WinEI
             Load += mainWindow_Load;
             Deactivate += mainWindow_Deactivate;
             Activated += mainWindow_Activated;
+            KeyDown += mainWindow_KeyDown;
 
             // Set mouse move event handlers.
             SetMouseMoveEventHandlers();
@@ -77,6 +76,21 @@ namespace WinEI
         private void mainWindow_Deactivate(object sender, EventArgs e) =>
             SetActivatedStatusControlForeColor(
                 tlpTitle, AppColours.DEACTIVATED_WINDOW_TEXT);
+        #endregion
+
+        #region KeyDown Events
+        private void mainWindow_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Modifiers == Keys.Control)
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.A:
+                        cmdAbout.PerformClick();
+                        break;
+                }
+            }
+        }
         #endregion
 
         #region Update UI
@@ -109,7 +123,7 @@ namespace WinEI
 
             label.BackColor =
                 string.Equals(
-                    WinsatReader.ScorePool.ProcessorScore, WinsatReader.ScorePool.BaseScore) 
+                    WinsatReader.ScorePool.ProcessorScore, WinsatReader.ScorePool.BaseScore)
                     ? AppColours.SUBSCORE_MATCH_BACKCOLOR
                     : AppColours.SUBSCORE_MISMATCH_BACKCOLOR;
         }
@@ -228,6 +242,17 @@ namespace WinEI
         private void cmdClose_Click(object sender, EventArgs e) =>
             Close();
 
+        private void cmdAbout_Click(object sender, EventArgs e)
+        {
+            SetHalfOpacity();
+
+            using (Form formWindow = new aboutWindow())
+            {
+                formWindow.FormClosed += ChildWindowClosed;
+                formWindow.ShowDialog();
+            }
+        }
+
         private void SetButtonProperties()
         {
             var buttons = new[]
@@ -254,6 +279,12 @@ namespace WinEI
             foreach (Control ctrl in parentControl.Controls)
                 ctrl.ForeColor = foreColor;
         }
+
+        internal void SetHalfOpacity() =>
+            Opacity = 0.5;
+
+        private void ChildWindowClosed(object sender, EventArgs e) =>
+            Opacity = 1.0;
         #endregion
 
     }
