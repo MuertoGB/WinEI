@@ -15,5 +15,6 @@ namespace WinEI
         internal static readonly Color THEME_PASTEL_BLUE = Color.FromArgb(55, 170, 255);
         internal static readonly Color SUBSCORE_MISMATCH_BACKCOLOR = Color.FromArgb(45, 45, 45);
         internal static readonly Color SUBSCORE_MATCH_BACKCOLOR = Color.FromArgb(35, 35, 35);
+        internal static readonly Color OUTDATED_VERSION = Color.FromArgb(255, 128, 128);
     }
 }

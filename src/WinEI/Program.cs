@@ -37,7 +37,7 @@ namespace WinEI
 
     internal readonly struct WEIVersion
     {
-        internal const string Build = "231018.2110";
+        internal const string Build = "231018.2120";
         internal const string Channel = "Pre-Alpha";
     }
     #endregion

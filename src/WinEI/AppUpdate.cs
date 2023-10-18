@@ -45,7 +45,7 @@ namespace WinEI
 
                         XmlNode node =
                             doc.SelectSingleNode(
-                                "data/WEI/VersionString");
+                                "data/WEI/Version");
 
                         if (node == null)
                             return VersionResult.Error;

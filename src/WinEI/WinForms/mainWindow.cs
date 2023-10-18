@@ -85,8 +85,7 @@ namespace WinEI
             // If a new version is available and update the UI.
             if (result == VersionResult.NewVersionAvailable)
             {
-                lblAppVersion.ForeColor = Color.FromArgb(255, 128, 128);
-                lblAppVersion.Text += " (OUTDATED)";
+                lblAppVersion.ForeColor = AppColours.OUTDATED_VERSION;
             }
         }
 
