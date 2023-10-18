@@ -66,7 +66,9 @@
     <Compile Include="UI\Controls\WEISwitch.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Update.cs" />
     <Compile Include="Utils\CryptoUtils.cs" />
+    <Compile Include="Utils\FileUtils.cs" />
     <Compile Include="Utils\OSUtils.cs" />
     <Compile Include="Utils\PowerUtils.cs" />
     <Compile Include="WinForms\mainWindow.cs">
@@ -80,6 +82,7 @@
     <Compile Include="Chars.cs" />
     <Compile Include="WIN32\NativeMethods.cs" />
     <Compile Include="WinSAT\WinsatApi.cs" />
+    <Compile Include="WinSAT\WinsatReader.cs" />
     <EmbeddedResource Include="WinForms\mainWindow.resx">
       <DependentUpon>mainWindow.cs</DependentUpon>
     </EmbeddedResource>

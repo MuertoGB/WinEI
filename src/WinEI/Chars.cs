@@ -1,7 +1,6 @@
 ﻿// WinEI
 // https://github.com/MuertoGB/WinEI
 
-// UI Components
 // Chars.cs
 // Released under the GNU GLP v3.0
 

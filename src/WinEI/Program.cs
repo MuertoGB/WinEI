@@ -12,6 +12,7 @@ using System.Net;
 using System.Windows.Forms;
 using WinEI.Common;
 using WinEI.Utils;
+using WinEI.WinSAT;
 
 namespace WinEI
 {
@@ -26,9 +27,14 @@ namespace WinEI
         internal static readonly string ApplicationLog = Path.Combine(CurrentDirectory, "application.log");
     }
 
+    internal readonly struct WEIUrl
+    {
+        internal const string VersionManifest = "https://raw.githubusercontent.com/MuertoGB/WinEI/main/stream/manifests/version.xml";
+    }
+
     internal readonly struct WEIVersion
     {
-        internal const string Build = "231017.0337";
+        internal const string Build = "231018.0210";
         internal const string Channel = "N/A";
     }
     #endregion
@@ -128,6 +134,8 @@ namespace WinEI
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
+
+            WinsatReader.LoadWinsatData();
 
             // Create main window instance.
             mWindow = new mainWindow();

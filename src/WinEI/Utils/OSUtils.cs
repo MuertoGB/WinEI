@@ -25,20 +25,23 @@ namespace WinEI.Utils
 
         private static readonly string _kernelName =
             "kernel32.dll";
-
-        private static readonly string _systemPath =
-            Environment.SystemDirectory;
         #endregion
 
         #region Internal Members
+        internal static readonly string SystemPath =
+            Environment.SystemDirectory;
+
+        internal static readonly string WindowsPath =
+            Environment.GetFolderPath(Environment.SpecialFolder.Windows);
+
         internal static readonly string WinsatExePath =
-            Path.Combine(_systemPath, _winsatExeName);
+            Path.Combine(SystemPath, _winsatExeName);
 
         internal static readonly string WinsatApiPath =
-            Path.Combine(_systemPath, _winsatApiName);
+            Path.Combine(SystemPath, _winsatApiName);
 
         internal static readonly string KernelPath =
-            Path.Combine(_systemPath, _kernelName);
+            Path.Combine(SystemPath, _kernelName);
         #endregion
 
         #region Strings
@@ -68,6 +71,17 @@ namespace WinEI.Utils
         internal static bool IsWinsatApiPresent()
         {
             return File.Exists(WinsatApiPath);
+        }
+
+        internal static bool IsWindowsVista()
+        {
+            if (GetWinsatExeVersion.ProductMajorPart == 6
+                && GetWinsatExeVersion.ProductMinorPart == 0)
+            {
+                return true;
+            }
+
+            return false;
         }
 
         internal static bool IsWindowsSeven()

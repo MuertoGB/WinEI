@@ -6,6 +6,7 @@
 
 using System;
 using System.Windows.Forms;
+using WinEI.Common;
 using WINSATLib;
 
 namespace WinEI.Winsat
@@ -22,7 +23,7 @@ namespace WinEI.Winsat
 
     internal class WinsatAPI
     {
-        internal static int GetAssessmentValidityInteger()
+        internal static int QueryAssessmentState()
         {
             CQueryWinSAT cQuery = new CQueryWinSAT();
 
@@ -30,10 +31,12 @@ namespace WinEI.Winsat
             {
                 return (int)cQuery.Info.AssessmentState;
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
+                Logger.WriteExceptionToAppLog(e);
+
                 MessageBox.Show(
-                    ex.Message,
+                    e.Message,
                     "WinsatApi.GetAssessmentValidityInteger()",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
@@ -42,7 +45,7 @@ namespace WinEI.Winsat
             }
         }
 
-        internal static string GetApiHardwareInfo(WINSAT_ASSESSMENT_TYPE WinType, INFO_TYPE InfType)
+        internal static string QueryApiInfo(WINSAT_ASSESSMENT_TYPE WinType, INFO_TYPE InfType)
         {
             CQueryWinSAT query =
                 new CQueryWinSAT();
@@ -69,6 +72,8 @@ namespace WinEI.Winsat
             }
             catch (Exception e)
             {
+                Logger.WriteExceptionToAppLog(e);
+
                 MessageBox.Show(e.Message,
                     "WinsatApi.GetApiHardwareInfo()",
                     MessageBoxButtons.OK,
@@ -78,7 +83,7 @@ namespace WinEI.Winsat
             return result;
         }
 
-        internal static float GetBaseScore()
+        internal static float QueryBaseScore()
         {
             CQueryWinSAT query =
                 new CQueryWinSAT();
@@ -87,10 +92,12 @@ namespace WinEI.Winsat
             {
                 return query.Info.SystemRating;
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
+                Logger.WriteExceptionToAppLog(e);
+
                 MessageBox.Show(
-                    ex.Message,
+                    e.Message,
                     "WinsatApi.GetBaseScore()",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
@@ -99,20 +106,21 @@ namespace WinEI.Winsat
             }
         }
 
-        internal static DateTime GetLatestFormalDate()
+        internal static DateTime QueryLatestFormalDate()
         {
             CQueryWinSAT query =
                 new CQueryWinSAT();
 
             try
             {
-                return DateTime.Parse(
-                    query.Info.AssessmentDateTime);
+                return query.Info.AssessmentDateTime;
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
+                Logger.WriteExceptionToAppLog(e);
+
                 MessageBox.Show(
-                    ex.Message,
+                    e.Message,
                     "WinsatApi.GetLatestFormalDate()",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);

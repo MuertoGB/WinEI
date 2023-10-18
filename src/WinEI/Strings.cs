@@ -4,6 +4,8 @@
 // Strings.cs
 // Released under the GNU GLP v3.0
 
+using System.Dynamic;
+
 namespace WinEI
 {
     internal class Strings
@@ -43,5 +45,8 @@ namespace WinEI
 
         internal const string LOG_NOT_FOUND =
             "The application log was not found.";
+
+        internal const string UNRATED =
+            "Unrated";
     }
 }

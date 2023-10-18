@@ -13,6 +13,8 @@ using System.Windows.Forms;
 using WinEI.UI;
 using WinEI.Utils;
 using WinEI.WIN32;
+using WinEI.Winsat;
+using WinEI.WinSAT;
 
 namespace WinEI
 {
@@ -64,6 +66,8 @@ namespace WinEI
             lblOperatingSystem.Text =
                 $"{OSUtils.GetWindowsName} " +
                 $"{OSUtils.GetSystemArchitecture(false)}";
+
+            UpdateUI();
         }
 
         private void mainWindow_Activated(object sender, EventArgs e) =>
@@ -73,6 +77,120 @@ namespace WinEI
         private void mainWindow_Deactivate(object sender, EventArgs e) =>
             SetActivatedStatusControlForeColor(
                 tlpTitle, AppColours.DEACTIVATED_WINDOW_TEXT);
+        #endregion
+
+        #region Update UI
+        private void UpdateUI()
+        {
+            UpdateBaseScoreControls();
+            UpdateProcessorScoreControls();
+            UpdateMemoryScoreControls();
+            UpdateGraphicsScoreControls();
+            UpdateD3dScoreControls();
+            UpdateDiskScoreControls();
+
+            UpdateValidityControls();
+            UpdateAssessmentDateControls();
+        }
+
+        private void UpdateBaseScoreControls()
+        {
+            lblBaseScore.Text =
+                WinsatReader.ScorePool.BaseScore;
+        }
+
+        private void UpdateProcessorScoreControls()
+        {
+            Control label =
+                (Control)lblSubscoreProcessor;
+
+            label.Text =
+                WinsatReader.ScorePool.ProcessorScore;
+
+            label.BackColor =
+                string.Equals(
+                    WinsatReader.ScorePool.ProcessorScore, WinsatReader.ScorePool.BaseScore) 
+                    ? AppColours.SUBSCORE_MATCH_BACKCOLOR
+                    : AppColours.SUBSCORE_MISMATCH_BACKCOLOR;
+        }
+
+        private void UpdateMemoryScoreControls()
+        {
+            Control label =
+                (Control)lblSubscoreMemory;
+
+            label.Text =
+                WinsatReader.ScorePool.MemoryScore;
+
+            label.BackColor =
+                string.Equals(
+                    WinsatReader.ScorePool.MemoryScore, WinsatReader.ScorePool.BaseScore)
+                    ? AppColours.SUBSCORE_MATCH_BACKCOLOR
+                    : AppColours.SUBSCORE_MISMATCH_BACKCOLOR;
+        }
+
+        private void UpdateGraphicsScoreControls()
+        {
+            Control label =
+                (Control)lblSubscoreGraphics;
+
+            label.Text =
+                WinsatReader.ScorePool.GraphicsScore;
+
+            label.BackColor =
+                string.Equals(
+                    WinsatReader.ScorePool.GraphicsScore, WinsatReader.ScorePool.BaseScore)
+                    ? AppColours.SUBSCORE_MATCH_BACKCOLOR
+                    : AppColours.SUBSCORE_MISMATCH_BACKCOLOR;
+        }
+
+        private void UpdateD3dScoreControls()
+        {
+            Control label =
+                (Control)lblSubscoreD3d;
+
+            label.Text =
+                WinsatReader.ScorePool.D3DScore;
+
+            label.BackColor =
+                string.Equals(
+                    WinsatReader.ScorePool.D3DScore, WinsatReader.ScorePool.BaseScore)
+                    ? AppColours.SUBSCORE_MATCH_BACKCOLOR
+                    : AppColours.SUBSCORE_MISMATCH_BACKCOLOR;
+        }
+
+        private void UpdateDiskScoreControls()
+        {
+            Control label =
+                (Control)lblSubscoreDisk;
+
+            label.Text =
+                WinsatReader.ScorePool.DiskScore;
+
+            label.BackColor =
+                string.Equals(
+                    WinsatReader.ScorePool.DiskScore, WinsatReader.ScorePool.BaseScore)
+                    ? AppColours.SUBSCORE_MATCH_BACKCOLOR
+                    : AppColours.SUBSCORE_MISMATCH_BACKCOLOR;
+        }
+
+        private void UpdateValidityControls()
+        {
+            lblScoreValidity.Text =
+                WinsatReader.GetAssessmentStateString(
+                    (int)WinsatReader.CurrentSate);
+
+            cmdAssessment.Text =
+                WinsatReader.GetAssessmentStateButtonString(
+                    (int)WinsatReader.CurrentSate);
+        }
+
+        private void UpdateAssessmentDateControls()
+        {
+            lblLastAssessment.Text =
+                WinsatAPI.QueryLatestFormalDate().ToString(
+                    "dddd, MMM d yyyy hh:mm tt");
+        }
         #endregion
 
         #region Mouse Events
