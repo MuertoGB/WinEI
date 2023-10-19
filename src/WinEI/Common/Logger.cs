@@ -11,29 +11,53 @@ using System.Windows.Forms;
 
 namespace WinEI.Common
 {
+
+    internal enum LogType
+    {
+        ApplicationLog,
+        ImgurLog
+    }
+
     internal class Logger
     {
-        internal static void WriteToAppLog(string logMessage)
+
+        internal static void WriteToLog(string message, LogType logType)
         {
-            using (StreamWriter writer = new StreamWriter(
-                WEIPath.ApplicationLog, true))
+            string logPath = GetLogPath(logType);
+
+            using (StreamWriter writer = new StreamWriter(logPath, true))
             {
-                writer.WriteLine(
-                    $"{DateTime.Now} : {logMessage}");
+                writer.WriteLine($"{DateTime.Now}: {message}");
             }
         }
 
         internal static void WriteExceptionToAppLog(Exception e)
         {
-            WriteToAppLog(
-                $"{e.GetType().Name}:- {e.Message}\r\n\r\n{e}\r\n\r\n -------------------");
+            WriteToLog(
+                $"{e.GetType().Name}:- {e.Message}\r\n\r\n{e}\r\n\r\n -------------------",
+                LogType.ApplicationLog);
         }
 
-        internal static void ViewAppLog()
+        internal static string GetLogPath(LogType logType)
         {
-            if (File.Exists(WEIPath.ApplicationLog))
+            switch (logType)
             {
-                Process.Start(WEIPath.ApplicationLog);
+                case LogType.ApplicationLog:
+                    return WEIPath.ApplicationLog;
+                case LogType.ImgurLog:
+                    return WEIPath.ImgurLinksFile;
+                default:
+                    throw new ArgumentException("Invalid log type");
+            }
+        }
+
+        internal static void ViewAppLog(LogType logType)
+        {
+            string logPath = GetLogPath(logType);
+
+            if (File.Exists(logPath))
+            {
+                Process.Start(logPath);
                 return;
             }
 

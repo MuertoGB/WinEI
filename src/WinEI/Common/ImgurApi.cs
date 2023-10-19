@@ -16,6 +16,11 @@ namespace WinEI.Common
 {
     internal class ImgurApi
     {
+
+        #region Internal Members
+        internal const string API_KEY = "35e23362c1eb67c";
+        #endregion
+
         internal static string UploadToImgur(string clientId, string imagePath, bool showInBrowser)
         {
             try

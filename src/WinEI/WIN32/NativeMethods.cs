@@ -7,6 +7,7 @@
 using System;
 using System.Runtime.InteropServices;
 using System.Runtime.Versioning;
+using System.Text;
 
 namespace WinEI.WIN32
 {
@@ -72,5 +73,38 @@ namespace WinEI.WIN32
         [DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         internal static extern IntPtr GetModuleHandleA(
             string lpModuleName);
+
+        // https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-getprivateprofilestring
+        [DllImport("kernel32.dll")]
+        internal static extern bool GetPrivateProfileString(
+            string lpAppName,
+            string lpKeyName,
+            string lpDefault,
+            StringBuilder lpReturnedString,
+            int nSize,
+            string lpFilename);
+
+        // https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-writeprivateprofilestringa
+        [DllImport("kernel32.dll")]
+        internal static extern bool WritePrivateProfileString(
+            string lpAppName,
+            string lpKeyName,
+            string lpString,
+            string lpFilename);
+
+        // https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-getprivateprofilesectionnames
+        [DllImport("kernel32.dll")]
+        internal static extern uint GetPrivateProfileSectionNames(
+            IntPtr lpszReturnBuffer,
+            uint nSize,
+            string lpFileName);
+
+        // https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-getprivateprofilesection
+        [DllImport("kernel32.dll")]
+        internal static extern uint GetPrivateProfileSection(
+            string lpAppName,
+            IntPtr lpReturnedString,
+            uint nSize,
+            string lpFileName);
     }
 }

@@ -15,7 +15,6 @@ using WinEI.UI;
 using WinEI.Utils;
 using WinEI.WIN32;
 using WinEI.Winsat;
-using WinEI.WinSAT;
 
 namespace WinEI
 {
@@ -69,7 +68,7 @@ namespace WinEI
 
             lblOperatingSystem.Text =
                 $"{OSUtils.GetWindowsName} " +
-                $"Build {OSUtils.GetWindowsBuild} " +
+                $"{Strings.BUILD} {OSUtils.GetWindowsBuild} " +
                 $"{OSUtils.GetSystemArchitecture(false)}";
 
             UpdateUI();
@@ -111,7 +110,7 @@ namespace WinEI
                         cmdExport.PerformClick();
                         break;
                     case Keys.T:
-                        cmdTools.PerformClick();
+                        cmdOptions.PerformClick();
                         break;
                     case Keys.S:
                         cmdSettings.PerformClick();
@@ -241,21 +240,41 @@ namespace WinEI
                 WinsatReader.GetAssessmentStateString(
                     (int)WinsatReader.AssessmentSate);
 
-            cmdAssessment.Text =
-                WinsatReader.GetAssessmentStateButtonString(
-                    (int)WinsatReader.AssessmentSate);
-
-            pnlValidityColour.BackColor =
+            pnlValidityStatus.BackColor =
                 WinsatReader.AssessmentSate == WinsatAssessmentState.VALID
                 ? AppColours.PANEL_VALID
                 : AppColours.PANEL_INVALID;
+
+            Control[] controls =
+            {
+                cmdShareOnImgur,
+                swShowHardware
+            };
+
+            foreach (Control control in controls)
+                control.Enabled =
+                    WinsatReader.AssessmentSate
+                    != WinsatAssessmentState.UNAVAILABLE;
         }
 
         private void UpdateAssessmentDateControls()
         {
-            lblLastAssessment.Text =
+            string stateText =
+                WinsatReader.GetAssessmentStateButtonString(
+                    (int)WinsatReader.AssessmentSate);
+
+            string assessmentDate =
                 WinsatAPI.QueryLatestFormalDate().ToString(
-                    "dddd, MMM d yyyy hh:mm tt");
+                    Strings.WINSAT_DATE_FORMAT);
+
+            lblAssessmentDate.Text =
+                assessmentDate.Contains("1999") ? Strings.NEVER : assessmentDate;
+
+            cmdAssessment.Text =
+                stateText.ToUpper();
+
+            runAssessmentToolStripMenuItem.Text =
+                $"{stateText} {Strings.ASSESSMENT}";
         }
 
         private void UpdateRatingScaleControls()
@@ -300,6 +319,14 @@ namespace WinEI
         private void cmdClose_Click(object sender, EventArgs e) =>
             Program.Exit();
 
+        private void cmdOptions_Click(object sender, EventArgs e)
+        {
+            InterfaceUtils.ShowContextMenuAtControlPoint(
+                sender,
+                cmsOptions,
+                MenuPosition.BottomLeft);
+        }
+
         private void cmdAbout_Click(object sender, EventArgs e)
         {
             SetHalfOpacity();
@@ -311,15 +338,71 @@ namespace WinEI
             }
         }
 
+        private void cmdAssessment_Click(object sender, EventArgs e)
+        {
+            // Perform sanity checks.
+            if (!PowerUtils.IsExternalPowerSourceConnected())
+            {
+                WEIMessageBox.Show(
+                        this,
+                        Strings.WARNING,
+                        Strings.ERROR_POWER_ADAPTER,
+                        WEIMessageBoxType.Error,
+                        WEIMessageBoxButtons.Okay);
+
+                return;
+            }
+
+            if (!OSUtils.IsElevated())
+            {
+                DialogResult result =
+                    WEIMessageBox.Show(
+                        this,
+                        Strings.WARNING,
+                        Strings.FEATURE_REQUIRES_ELEVATION,
+                        WEIMessageBoxType.Warning,
+                        WEIMessageBoxButtons.YesNo);
+
+                if (result == DialogResult.Yes)
+                {
+                    OSUtils.RestartElevated();
+                }
+
+                return;
+            }
+
+            // Assess system.
+
+        }
+
         private void cmdShareOnImgur_Click(object sender, EventArgs e)
         {
             if (WinsatReader.AssessmentSate == WinsatAssessmentState.UNAVAILABLE)
             {
-                MessageBox.Show(
-                    "The system must be rated to use this feature",
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                DialogResult result =
+                    WEIMessageBox.Show(
+                        this,
+                        Strings.WARNING,
+                        $"{Strings.SYSTEM_MUST_BE_RATED} {Strings.QUESTION_RATE_SYSTEM}",
+                        WEIMessageBoxType.Warning,
+                        WEIMessageBoxButtons.YesNo);
+
+                if (result == DialogResult.Yes)
+                {
+                    cmdAssessment.PerformClick();
+                }
+
+                return;
+            }
+
+            if (!NetworkUtils.GetIsWebsiteAvailable(WEIUrl.ImgurAddress))
+            {
+                WEIMessageBox.Show(
+                       this,
+                       Strings.ERROR,
+                       Strings.ERROR_IMGUR_CONNECTION,
+                       WEIMessageBoxType.Warning,
+                       WEIMessageBoxButtons.YesNo);
 
                 return;
             }
@@ -330,12 +413,16 @@ namespace WinEI
 
             string url =
                 ImgurApi.UploadToImgur(
-                    "35e23362c1eb67c",
+                    ImgurApi.API_KEY,
                     WEIPath.ImgurTempFile,
                     true);
 
-            if (url != null)
+            if (!string.IsNullOrEmpty(url))
+            {
+                Logger.WriteToImgurLog(url);
                 Process.Start(url);
+            }
+
         }
 
         private void SetButtonProperties()
@@ -382,6 +469,52 @@ namespace WinEI
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e) =>
             Program.Exit();
+
+        private void clearWinSATDataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!OSUtils.IsElevated())
+            {
+                DialogResult result =
+                    WEIMessageBox.Show(
+                        this,
+                        Strings.WARNING,
+                        Strings.FEATURE_REQUIRES_ELEVATION,
+                        WEIMessageBoxType.Warning,
+                        WEIMessageBoxButtons.YesNo);
+
+                if (result == DialogResult.Yes)
+                {
+                    OSUtils.RestartElevated();
+                }
+
+                return;
+            }
+
+            try
+            {
+                FileUtils.RemoveFilesbyExtension("*.xml", WinsatReader.WinsatDataStorePath);
+                FileUtils.RemoveFilesbyExtension("*.log", WinsatReader.WinsatFilesPath);
+
+                ReloadData();
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteExceptionToAppLog(ex);
+
+                WEIMessageBox.Show(
+                    this,
+                    Strings.ERROR,
+                    $"{Strings.EXCEPTION_OCCURED} {Strings.DETAILS_SAVED_TO_LOG}",
+                    WEIMessageBoxType.Error,
+                    WEIMessageBoxButtons.Okay);
+            }
+        }
+
+        private void runAssessmentToolStripMenuItem_Click(object sender, EventArgs e) =>
+            cmdAssessment.PerformClick();
+
+        private void reloadDataToolStripMenuItem_Click(object sender, EventArgs e) =>
+            ReloadData();
         #endregion
 
         #region PictureBox Events
@@ -409,6 +542,12 @@ namespace WinEI
 
         private void ChildWindowClosed(object sender, EventArgs e) =>
             Opacity = 1.0;
+
+        internal void ReloadData()
+        {
+            WinsatReader.LoadWinsatData();
+            UpdateUI();
+        }
         #endregion
 
     }

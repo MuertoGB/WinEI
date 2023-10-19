@@ -5,6 +5,7 @@
 // Released under the GNU GLP v3.0
 
 using System;
+using System.IO;
 
 namespace WinEI.Utils
 {
@@ -26,6 +27,22 @@ namespace WinEI.Utils
 
             // Return the formatted string.
             return $"{sizeInSuffix:N2} {suffixes[suffixIndex]}";
+        }
+
+        internal static void RemoveFilesbyExtension(string extension, string path)
+        {
+            string[] files =
+                Directory.GetFileSystemEntries(
+                    path,
+                    extension);
+
+            foreach (string file in files)
+            {
+                File.Delete(
+                    Path.Combine(
+                        path,
+                        Path.GetFileName(file)));
+            }
         }
     }
 }

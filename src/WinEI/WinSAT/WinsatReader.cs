@@ -11,9 +11,8 @@ using System.Linq;
 using System.Xml;
 using WinEI.Common;
 using WinEI.Utils;
-using WinEI.Winsat;
 
-namespace WinEI.WinSAT
+namespace WinEI.Winsat
 {
 
     #region Structs
@@ -102,6 +101,7 @@ namespace WinEI.WinSAT
         internal static bool XmlHardwareEnabled = false;
         #endregion
 
+        #region Load WinSAT data
         internal static void LoadWinsatData()
         {
             // Get assessment validity
@@ -171,6 +171,7 @@ namespace WinEI.WinSAT
                 return null;
             }
         }
+        #endregion
 
         #region WinSPR
 
@@ -222,7 +223,7 @@ namespace WinEI.WinSAT
         {
             return new WinsatScores
             {
-                BaseScore = $"0{CultureSeperator}0",
+                BaseScore = $"NA",
                 ProcessorScore = Strings.UNRATED,
                 MemoryScore = Strings.UNRATED,
                 GraphicsScore = Strings.UNRATED,
@@ -439,17 +440,17 @@ namespace WinEI.WinSAT
             switch ((WinsatAssessmentState)state)
             {
                 case WinsatAssessmentState.UNKNOWN:
-                    return "RUN";
+                    return "Run";
                 case WinsatAssessmentState.VALID:
-                    return "REPEAT";
+                    return "Repeat";
                 case WinsatAssessmentState.INCOHERENT:
-                    return "UPDATE";
+                    return "Update";
                 case WinsatAssessmentState.UNAVAILABLE:
-                    return "RUN";
+                    return "Run";
                 case WinsatAssessmentState.INVALID:
-                    return "UPDATE";
+                    return "Update";
                 default:
-                    return "RUN";
+                    return "Run";
             }
         }
 

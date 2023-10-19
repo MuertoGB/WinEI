@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainWindow));
             this.tlpSplit1 = new System.Windows.Forms.TableLayoutPanel();
             this.tlpMenu = new System.Windows.Forms.TableLayoutPanel();
-            this.cmdTools = new System.Windows.Forms.Button();
+            this.cmdOptions = new System.Windows.Forms.Button();
             this.pnlMenuSeperator1 = new System.Windows.Forms.Panel();
             this.cmdExport = new System.Windows.Forms.Button();
             this.cmdAbout = new System.Windows.Forms.Button();
@@ -80,23 +80,31 @@
             this.lblScoreValidity = new System.Windows.Forms.Label();
             this.lblTextOperatingSystem = new System.Windows.Forms.Label();
             this.lblOperatingSystem = new System.Windows.Forms.Label();
-            this.lblTextLastAssessment = new System.Windows.Forms.Label();
-            this.lblLastAssessment = new System.Windows.Forms.Label();
+            this.lblTextAssessmentDate = new System.Windows.Forms.Label();
+            this.lblAssessmentDate = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cmdShareOnImgur = new System.Windows.Forms.Button();
             this.tlpBottomNestedShowHardware = new System.Windows.Forms.TableLayoutPanel();
             this.swShowHardware = new WinEI.UI.WEISwitch();
-            this.tlpBottomNestedScoreValidity = new System.Windows.Forms.TableLayoutPanel();
-            this.lblTextScoreValidity = new System.Windows.Forms.Label();
-            this.pnlValidityColour = new System.Windows.Forms.Panel();
+            this.tlpBottomNestedValidity = new System.Windows.Forms.TableLayoutPanel();
+            this.lblTextValidity = new System.Windows.Forms.Label();
+            this.pnlValidityStatus = new System.Windows.Forms.Panel();
             this.cmsApplication = new WinEI.UI.WEIContextMenuStrip();
             this.minimizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resetPositionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmsTools = new WinEI.UI.WEIContextMenuStrip();
-            this.resetWinSATToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmsOptions = new WinEI.UI.WEIContextMenuStrip();
+            this.clearWinSATDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.runAssessmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.reloadDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.viewAssessmentLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewImgurLinksFileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewWinSATLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.systemDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tlpMenu.SuspendLayout();
             this.tlpTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
@@ -111,9 +119,9 @@
             this.tlpMainNestedBaseScore.SuspendLayout();
             this.tlpBottom.SuspendLayout();
             this.tlpBottomNestedShowHardware.SuspendLayout();
-            this.tlpBottomNestedScoreValidity.SuspendLayout();
+            this.tlpBottomNestedValidity.SuspendLayout();
             this.cmsApplication.SuspendLayout();
-            this.cmsTools.SuspendLayout();
+            this.cmsOptions.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlpSplit1
@@ -136,13 +144,13 @@
             this.tlpMenu.ColumnCount = 8;
             this.tlpMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tlpMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 5F));
-            this.tlpMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tlpMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 92F));
             this.tlpMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 5F));
-            this.tlpMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
+            this.tlpMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 92F));
             this.tlpMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tlpMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 38F));
             this.tlpMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpMenu.Controls.Add(this.cmdTools, 0, 0);
+            this.tlpMenu.Controls.Add(this.cmdOptions, 0, 0);
             this.tlpMenu.Controls.Add(this.pnlMenuSeperator1, 0, 0);
             this.tlpMenu.Controls.Add(this.cmdExport, 0, 0);
             this.tlpMenu.Controls.Add(this.cmdAbout, 5, 0);
@@ -158,24 +166,25 @@
             this.tlpMenu.TabIndex = 0;
             this.tlpMenu.TabStop = true;
             // 
-            // cmdTools
+            // cmdOptions
             // 
-            this.cmdTools.BackColor = System.Drawing.Color.Transparent;
-            this.cmdTools.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmdTools.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.cmdTools.FlatAppearance.BorderSize = 0;
-            this.cmdTools.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.cmdTools.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.cmdTools.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdTools.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdTools.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
-            this.cmdTools.Location = new System.Drawing.Point(86, 1);
-            this.cmdTools.Margin = new System.Windows.Forms.Padding(1);
-            this.cmdTools.Name = "cmdTools";
-            this.cmdTools.Size = new System.Drawing.Size(68, 36);
-            this.cmdTools.TabIndex = 1;
-            this.cmdTools.Text = "TOOLS";
-            this.cmdTools.UseVisualStyleBackColor = false;
+            this.cmdOptions.BackColor = System.Drawing.Color.Transparent;
+            this.cmdOptions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cmdOptions.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.cmdOptions.FlatAppearance.BorderSize = 0;
+            this.cmdOptions.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.cmdOptions.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.cmdOptions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdOptions.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdOptions.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
+            this.cmdOptions.Location = new System.Drawing.Point(86, 1);
+            this.cmdOptions.Margin = new System.Windows.Forms.Padding(1);
+            this.cmdOptions.Name = "cmdOptions";
+            this.cmdOptions.Size = new System.Drawing.Size(90, 36);
+            this.cmdOptions.TabIndex = 1;
+            this.cmdOptions.Text = "OPTIONS";
+            this.cmdOptions.UseVisualStyleBackColor = false;
+            this.cmdOptions.Click += new System.EventHandler(this.cmdOptions_Click);
             // 
             // pnlMenuSeperator1
             // 
@@ -217,7 +226,7 @@
             this.cmdAbout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdAbout.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdAbout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
-            this.cmdAbout.Location = new System.Drawing.Point(251, 1);
+            this.cmdAbout.Location = new System.Drawing.Point(275, 1);
             this.cmdAbout.Margin = new System.Windows.Forms.Padding(1);
             this.cmdAbout.Name = "cmdAbout";
             this.cmdAbout.Size = new System.Drawing.Size(78, 36);
@@ -230,7 +239,7 @@
             // 
             this.pnlMenuSeperator2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlMenuSeperator2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(85)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
-            this.pnlMenuSeperator2.Location = new System.Drawing.Point(157, 11);
+            this.pnlMenuSeperator2.Location = new System.Drawing.Point(179, 11);
             this.pnlMenuSeperator2.Margin = new System.Windows.Forms.Padding(0);
             this.pnlMenuSeperator2.Name = "pnlMenuSeperator2";
             this.pnlMenuSeperator2.Size = new System.Drawing.Size(1, 16);
@@ -247,10 +256,10 @@
             this.cmdSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdSettings.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdSettings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
-            this.cmdSettings.Location = new System.Drawing.Point(161, 1);
+            this.cmdSettings.Location = new System.Drawing.Point(183, 1);
             this.cmdSettings.Margin = new System.Windows.Forms.Padding(1);
             this.cmdSettings.Name = "cmdSettings";
-            this.cmdSettings.Size = new System.Drawing.Size(88, 36);
+            this.cmdSettings.Size = new System.Drawing.Size(90, 36);
             this.cmdSettings.TabIndex = 2;
             this.cmdSettings.Text = "SETTINGS";
             this.cmdSettings.UseVisualStyleBackColor = false;
@@ -266,7 +275,7 @@
             this.cmdMore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdMore.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdMore.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
-            this.cmdMore.Location = new System.Drawing.Point(331, 1);
+            this.cmdMore.Location = new System.Drawing.Point(355, 1);
             this.cmdMore.Margin = new System.Windows.Forms.Padding(1);
             this.cmdMore.Name = "cmdMore";
             this.cmdMore.Size = new System.Drawing.Size(36, 36);
@@ -919,14 +928,14 @@
             this.tlpBottom.Controls.Add(this.lblScoreValidity, 2, 0);
             this.tlpBottom.Controls.Add(this.lblTextOperatingSystem, 0, 4);
             this.tlpBottom.Controls.Add(this.lblOperatingSystem, 2, 4);
-            this.tlpBottom.Controls.Add(this.lblTextLastAssessment, 0, 2);
-            this.tlpBottom.Controls.Add(this.lblLastAssessment, 2, 2);
+            this.tlpBottom.Controls.Add(this.lblTextAssessmentDate, 0, 2);
+            this.tlpBottom.Controls.Add(this.lblAssessmentDate, 2, 2);
             this.tlpBottom.Controls.Add(this.label1, 4, 0);
             this.tlpBottom.Controls.Add(this.label3, 4, 2);
             this.tlpBottom.Controls.Add(this.label2, 4, 4);
             this.tlpBottom.Controls.Add(this.cmdShareOnImgur, 6, 2);
             this.tlpBottom.Controls.Add(this.tlpBottomNestedShowHardware, 6, 4);
-            this.tlpBottom.Controls.Add(this.tlpBottomNestedScoreValidity, 0, 0);
+            this.tlpBottom.Controls.Add(this.tlpBottomNestedValidity, 0, 0);
             this.tlpBottom.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpBottom.Location = new System.Drawing.Point(0, 277);
             this.tlpBottom.Margin = new System.Windows.Forms.Padding(0);
@@ -960,6 +969,7 @@
             this.cmdAssessment.TabIndex = 0;
             this.cmdAssessment.Text = "RUN";
             this.cmdAssessment.UseVisualStyleBackColor = false;
+            this.cmdAssessment.Click += new System.EventHandler(this.cmdAssessment_Click);
             // 
             // lblScoreValidity
             // 
@@ -1006,35 +1016,35 @@
             this.lblOperatingSystem.Text = "...";
             this.lblOperatingSystem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblTextLastAssessment
+            // lblTextAssessmentDate
             // 
-            this.lblTextLastAssessment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.lblTextLastAssessment.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTextLastAssessment.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTextLastAssessment.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(225)))), ((int)(((byte)(240)))));
-            this.lblTextLastAssessment.Location = new System.Drawing.Point(0, 39);
-            this.lblTextLastAssessment.Margin = new System.Windows.Forms.Padding(0);
-            this.lblTextLastAssessment.Name = "lblTextLastAssessment";
-            this.lblTextLastAssessment.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
-            this.lblTextLastAssessment.Size = new System.Drawing.Size(150, 38);
-            this.lblTextLastAssessment.TabIndex = 99;
-            this.lblTextLastAssessment.Text = "Last Assessment";
-            this.lblTextLastAssessment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTextAssessmentDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.lblTextAssessmentDate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTextAssessmentDate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTextAssessmentDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(225)))), ((int)(((byte)(240)))));
+            this.lblTextAssessmentDate.Location = new System.Drawing.Point(0, 39);
+            this.lblTextAssessmentDate.Margin = new System.Windows.Forms.Padding(0);
+            this.lblTextAssessmentDate.Name = "lblTextAssessmentDate";
+            this.lblTextAssessmentDate.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.lblTextAssessmentDate.Size = new System.Drawing.Size(150, 38);
+            this.lblTextAssessmentDate.TabIndex = 99;
+            this.lblTextAssessmentDate.Text = "Assessment Date";
+            this.lblTextAssessmentDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblLastAssessment
+            // lblAssessmentDate
             // 
-            this.lblLastAssessment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.lblLastAssessment.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblLastAssessment.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLastAssessment.ForeColor = System.Drawing.Color.White;
-            this.lblLastAssessment.Location = new System.Drawing.Point(151, 39);
-            this.lblLastAssessment.Margin = new System.Windows.Forms.Padding(0);
-            this.lblLastAssessment.Name = "lblLastAssessment";
-            this.lblLastAssessment.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
-            this.lblLastAssessment.Size = new System.Drawing.Size(392, 38);
-            this.lblLastAssessment.TabIndex = 99;
-            this.lblLastAssessment.Text = "...";
-            this.lblLastAssessment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblAssessmentDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.lblAssessmentDate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblAssessmentDate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAssessmentDate.ForeColor = System.Drawing.Color.White;
+            this.lblAssessmentDate.Location = new System.Drawing.Point(151, 39);
+            this.lblAssessmentDate.Margin = new System.Windows.Forms.Padding(0);
+            this.lblAssessmentDate.Name = "lblAssessmentDate";
+            this.lblAssessmentDate.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.lblAssessmentDate.Size = new System.Drawing.Size(392, 38);
+            this.lblAssessmentDate.TabIndex = 99;
+            this.lblAssessmentDate.Text = "...";
+            this.lblAssessmentDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label1
             // 
@@ -1133,47 +1143,47 @@
             this.swShowHardware.SwitchHeadColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.swShowHardware.TabIndex = 0;
             // 
-            // tlpBottomNestedScoreValidity
+            // tlpBottomNestedValidity
             // 
-            this.tlpBottomNestedScoreValidity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.tlpBottomNestedScoreValidity.ColumnCount = 2;
-            this.tlpBottomNestedScoreValidity.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpBottomNestedScoreValidity.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 4F));
-            this.tlpBottomNestedScoreValidity.Controls.Add(this.lblTextScoreValidity, 0, 0);
-            this.tlpBottomNestedScoreValidity.Controls.Add(this.pnlValidityColour, 1, 0);
-            this.tlpBottomNestedScoreValidity.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpBottomNestedScoreValidity.Location = new System.Drawing.Point(0, 0);
-            this.tlpBottomNestedScoreValidity.Margin = new System.Windows.Forms.Padding(0);
-            this.tlpBottomNestedScoreValidity.Name = "tlpBottomNestedScoreValidity";
-            this.tlpBottomNestedScoreValidity.RowCount = 1;
-            this.tlpBottomNestedScoreValidity.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpBottomNestedScoreValidity.Size = new System.Drawing.Size(150, 38);
-            this.tlpBottomNestedScoreValidity.TabIndex = 101;
+            this.tlpBottomNestedValidity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.tlpBottomNestedValidity.ColumnCount = 2;
+            this.tlpBottomNestedValidity.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpBottomNestedValidity.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 4F));
+            this.tlpBottomNestedValidity.Controls.Add(this.lblTextValidity, 0, 0);
+            this.tlpBottomNestedValidity.Controls.Add(this.pnlValidityStatus, 1, 0);
+            this.tlpBottomNestedValidity.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpBottomNestedValidity.Location = new System.Drawing.Point(0, 0);
+            this.tlpBottomNestedValidity.Margin = new System.Windows.Forms.Padding(0);
+            this.tlpBottomNestedValidity.Name = "tlpBottomNestedValidity";
+            this.tlpBottomNestedValidity.RowCount = 1;
+            this.tlpBottomNestedValidity.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpBottomNestedValidity.Size = new System.Drawing.Size(150, 38);
+            this.tlpBottomNestedValidity.TabIndex = 101;
             // 
-            // lblTextScoreValidity
+            // lblTextValidity
             // 
-            this.lblTextScoreValidity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.lblTextScoreValidity.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTextScoreValidity.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTextScoreValidity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(225)))), ((int)(((byte)(240)))));
-            this.lblTextScoreValidity.Location = new System.Drawing.Point(0, 0);
-            this.lblTextScoreValidity.Margin = new System.Windows.Forms.Padding(0);
-            this.lblTextScoreValidity.Name = "lblTextScoreValidity";
-            this.lblTextScoreValidity.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
-            this.lblTextScoreValidity.Size = new System.Drawing.Size(146, 38);
-            this.lblTextScoreValidity.TabIndex = 99;
-            this.lblTextScoreValidity.Text = "Score Validity";
-            this.lblTextScoreValidity.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTextValidity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.lblTextValidity.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTextValidity.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTextValidity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(225)))), ((int)(((byte)(240)))));
+            this.lblTextValidity.Location = new System.Drawing.Point(0, 0);
+            this.lblTextValidity.Margin = new System.Windows.Forms.Padding(0);
+            this.lblTextValidity.Name = "lblTextValidity";
+            this.lblTextValidity.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.lblTextValidity.Size = new System.Drawing.Size(146, 38);
+            this.lblTextValidity.TabIndex = 99;
+            this.lblTextValidity.Text = "Validity";
+            this.lblTextValidity.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // pnlValidityColour
+            // pnlValidityStatus
             // 
-            this.pnlValidityColour.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.pnlValidityColour.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlValidityColour.Location = new System.Drawing.Point(147, 1);
-            this.pnlValidityColour.Margin = new System.Windows.Forms.Padding(1);
-            this.pnlValidityColour.Name = "pnlValidityColour";
-            this.pnlValidityColour.Size = new System.Drawing.Size(2, 36);
-            this.pnlValidityColour.TabIndex = 99;
+            this.pnlValidityStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.pnlValidityStatus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlValidityStatus.Location = new System.Drawing.Point(147, 1);
+            this.pnlValidityStatus.Margin = new System.Windows.Forms.Padding(1);
+            this.pnlValidityStatus.Name = "pnlValidityStatus";
+            this.pnlValidityStatus.Size = new System.Drawing.Size(2, 36);
+            this.pnlValidityStatus.TabIndex = 99;
             // 
             // cmsApplication
             // 
@@ -1217,23 +1227,80 @@
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
-            // cmsTools
+            // cmsOptions
             // 
-            this.cmsTools.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.cmsTools.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.cmsTools.ForeColor = System.Drawing.Color.White;
-            this.cmsTools.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.cmsTools.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.resetWinSATToolStripMenuItem});
-            this.cmsTools.Name = "weiContextMenuStrip1";
-            this.cmsTools.ShowImageMargin = false;
-            this.cmsTools.Size = new System.Drawing.Size(160, 32);
+            this.cmsOptions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.cmsOptions.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.cmsOptions.ForeColor = System.Drawing.Color.White;
+            this.cmsOptions.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.cmsOptions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.clearWinSATDataToolStripMenuItem,
+            this.runAssessmentToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.reloadDataToolStripMenuItem,
+            this.systemDetailsToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.viewAssessmentLogToolStripMenuItem,
+            this.viewImgurLinksFileToolStripMenuItem1,
+            this.viewWinSATLogToolStripMenuItem});
+            this.cmsOptions.Name = "weiContextMenuStrip1";
+            this.cmsOptions.ShowImageMargin = false;
+            this.cmsOptions.Size = new System.Drawing.Size(218, 212);
             // 
-            // resetWinSATToolStripMenuItem
+            // clearWinSATDataToolStripMenuItem
             // 
-            this.resetWinSATToolStripMenuItem.Name = "resetWinSATToolStripMenuItem";
-            this.resetWinSATToolStripMenuItem.Size = new System.Drawing.Size(159, 28);
-            this.resetWinSATToolStripMenuItem.Text = "Reset WinSAT";
+            this.clearWinSATDataToolStripMenuItem.Name = "clearWinSATDataToolStripMenuItem";
+            this.clearWinSATDataToolStripMenuItem.Size = new System.Drawing.Size(217, 28);
+            this.clearWinSATDataToolStripMenuItem.Text = "Clear WinSAT Data";
+            this.clearWinSATDataToolStripMenuItem.Click += new System.EventHandler(this.clearWinSATDataToolStripMenuItem_Click);
+            // 
+            // runAssessmentToolStripMenuItem
+            // 
+            this.runAssessmentToolStripMenuItem.Name = "runAssessmentToolStripMenuItem";
+            this.runAssessmentToolStripMenuItem.Size = new System.Drawing.Size(217, 28);
+            this.runAssessmentToolStripMenuItem.Text = "Run Assessment";
+            this.runAssessmentToolStripMenuItem.Click += new System.EventHandler(this.runAssessmentToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(214, 6);
+            // 
+            // reloadDataToolStripMenuItem
+            // 
+            this.reloadDataToolStripMenuItem.Name = "reloadDataToolStripMenuItem";
+            this.reloadDataToolStripMenuItem.Size = new System.Drawing.Size(217, 28);
+            this.reloadDataToolStripMenuItem.Text = "Reload Data";
+            this.reloadDataToolStripMenuItem.Click += new System.EventHandler(this.reloadDataToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(214, 6);
+            // 
+            // viewAssessmentLogToolStripMenuItem
+            // 
+            this.viewAssessmentLogToolStripMenuItem.Name = "viewAssessmentLogToolStripMenuItem";
+            this.viewAssessmentLogToolStripMenuItem.Size = new System.Drawing.Size(217, 28);
+            this.viewAssessmentLogToolStripMenuItem.Text = "View Assessment Log";
+            // 
+            // viewImgurLinksFileToolStripMenuItem1
+            // 
+            this.viewImgurLinksFileToolStripMenuItem1.Name = "viewImgurLinksFileToolStripMenuItem1";
+            this.viewImgurLinksFileToolStripMenuItem1.Size = new System.Drawing.Size(217, 28);
+            this.viewImgurLinksFileToolStripMenuItem1.Text = "View Imgur Links File";
+            // 
+            // viewWinSATLogToolStripMenuItem
+            // 
+            this.viewWinSATLogToolStripMenuItem.Name = "viewWinSATLogToolStripMenuItem";
+            this.viewWinSATLogToolStripMenuItem.Size = new System.Drawing.Size(217, 28);
+            this.viewWinSATLogToolStripMenuItem.Text = "View WinSAT Log";
+            // 
+            // systemDetailsToolStripMenuItem
+            // 
+            this.systemDetailsToolStripMenuItem.Name = "systemDetailsToolStripMenuItem";
+            this.systemDetailsToolStripMenuItem.Size = new System.Drawing.Size(217, 28);
+            this.systemDetailsToolStripMenuItem.Text = "System Details";
             // 
             // mainWindow
             // 
@@ -1273,9 +1340,9 @@
             this.tlpBottom.ResumeLayout(false);
             this.tlpBottomNestedShowHardware.ResumeLayout(false);
             this.tlpBottomNestedShowHardware.PerformLayout();
-            this.tlpBottomNestedScoreValidity.ResumeLayout(false);
+            this.tlpBottomNestedValidity.ResumeLayout(false);
             this.cmsApplication.ResumeLayout(false);
-            this.cmsTools.ResumeLayout(false);
+            this.cmsOptions.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1323,15 +1390,15 @@
         private System.Windows.Forms.TableLayoutPanel tlpMainNestedBaseScore;
         private System.Windows.Forms.Label lblBaseScore;
         internal System.Windows.Forms.Label lblTextLowestSubscore;
-        private System.Windows.Forms.Button cmdTools;
+        private System.Windows.Forms.Button cmdOptions;
         private System.Windows.Forms.Panel pnlMenuSeperator2;
         private System.Windows.Forms.TableLayoutPanel tlpBottom;
         private System.Windows.Forms.Label lblTextOperatingSystem;
-        private System.Windows.Forms.Label lblTextScoreValidity;
-        private System.Windows.Forms.Label lblTextLastAssessment;
+        private System.Windows.Forms.Label lblTextValidity;
+        private System.Windows.Forms.Label lblTextAssessmentDate;
         private System.Windows.Forms.Label lblScoreValidity;
         private System.Windows.Forms.Label lblOperatingSystem;
-        private System.Windows.Forms.Label lblLastAssessment;
+        private System.Windows.Forms.Label lblAssessmentDate;
         private System.Windows.Forms.TableLayoutPanel tlpTitleVersion;
         private System.Windows.Forms.Label lblAppVersion;
         private System.Windows.Forms.Label label1;
@@ -1345,11 +1412,19 @@
         private System.Windows.Forms.ToolStripMenuItem minimizeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem resetPositionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private UI.WEIContextMenuStrip cmsTools;
-        private System.Windows.Forms.ToolStripMenuItem resetWinSATToolStripMenuItem;
+        private UI.WEIContextMenuStrip cmsOptions;
         private System.Windows.Forms.Button cmdMore;
-        private System.Windows.Forms.TableLayoutPanel tlpBottomNestedScoreValidity;
-        private System.Windows.Forms.Panel pnlValidityColour;
+        private System.Windows.Forms.TableLayoutPanel tlpBottomNestedValidity;
+        private System.Windows.Forms.Panel pnlValidityStatus;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem reloadDataToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem viewAssessmentLogToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewWinSATLogToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem runAssessmentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clearWinSATDataToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewImgurLinksFileToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem systemDetailsToolStripMenuItem;
     }
 }
 

@@ -5,6 +5,7 @@
 // Released under the GNU GLP v3.0
 
 using System;
+using System.Reflection;
 using System.Windows.Forms;
 using WinEI.Common;
 using WINSATLib;
@@ -37,7 +38,7 @@ namespace WinEI.Winsat
 
                 MessageBox.Show(
                     e.Message,
-                    "WinsatApi.GetAssessmentValidityInteger()",
+                    MethodBase.GetCurrentMethod().Name,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
 
@@ -75,7 +76,7 @@ namespace WinEI.Winsat
                 Logger.WriteExceptionToAppLog(e);
 
                 MessageBox.Show(e.Message,
-                    "WinsatApi.GetApiHardwareInfo()",
+                    MethodBase.GetCurrentMethod().Name,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
@@ -98,7 +99,7 @@ namespace WinEI.Winsat
 
                 MessageBox.Show(
                     e.Message,
-                    "WinsatApi.GetBaseScore()",
+                    MethodBase.GetCurrentMethod().Name,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
 
@@ -121,7 +122,7 @@ namespace WinEI.Winsat
 
                 MessageBox.Show(
                     e.Message,
-                    "WinsatApi.GetLatestFormalDate()",
+                    MethodBase.GetCurrentMethod().Name,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
 

@@ -14,7 +14,7 @@ using System.Net;
 using System.Windows.Forms;
 using WinEI.Common;
 using WinEI.Utils;
-using WinEI.WinSAT;
+using WinEI.Winsat;
 
 namespace WinEI
 {
@@ -24,8 +24,10 @@ namespace WinEI
     {
         internal static readonly string CurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
         internal static readonly string FriendlyName = AppDomain.CurrentDomain.FriendlyName;
-        internal static readonly string UnhandledLog = Path.Combine(CurrentDirectory, "unhandled.log");
+        internal static readonly string SettingsIni = Path.Combine(CurrentDirectory, "settings.ini");
+        internal static readonly string DebugLog = Path.Combine(CurrentDirectory, "debug.log");
         internal static readonly string ApplicationLog = Path.Combine(CurrentDirectory, "application.log");
+        internal static readonly string ImgurLinksFile = Path.Combine(CurrentDirectory, "imgur.log");
         internal static readonly string ImgurTempFile =
             Path.Combine(Environment.GetFolderPath(
                 Environment.SpecialFolder.LocalApplicationData),
@@ -41,7 +43,7 @@ namespace WinEI
 
     internal readonly struct WEIVersion
     {
-        internal const string Build = "231019.0800";
+        internal const string Build = "231019.2120";
         internal const string Channel = "Pre-Alpha";
     }
     #endregion
@@ -55,6 +57,7 @@ namespace WinEI
 
         internal static Font FONT_MDL2_REG_10;
         internal static Font FONT_MDL2_REG_12;
+        internal static Font FONT_MDL2_REG_20;
         #endregion
 
         #region Const Members
@@ -69,30 +72,30 @@ namespace WinEI
         [STAThread]
         static void Main()
         {
-            // Check Operating System
+            // Check Operating System is not < Vista.
             if (OSUtils.GetKernelVersion.ProductMajorPart < 5)
             {
                 HandleCodeExit(
-                    Strings.WINSAT_ERROR_OS,
+                    Strings.ERROR_WINSAT_OS,
                     ExitCodes.INCOMPATIBLE_OS);
             }
 
-            // Check winsat capability.
+            // Check winsat capability by looking for the executable and API.
             if (!OSUtils.IsWinSatExePresent())
             {
                 HandleCodeExit(
-                    Strings.WINSAT_ERROR_EXE,
+                    Strings.ERROR_WINSAT_EXE,
                     ExitCodes.NOT_WINSAT_CAPABLE_EXE);
             }
 
             if (!OSUtils.IsWinsatApiPresent())
             {
                 HandleCodeExit(
-                    Strings.WINSAT_ERROR_API,
+                    Strings.ERROR_WINSAT_API,
                     ExitCodes.NOT_WINSAT_CAPABLE_API);
             }
 
-            // Register exception handler events early.
+            // Register exception handler events.
             Application.SetUnhandledExceptionMode(
                 UnhandledExceptionMode.CatchException);
 
@@ -116,9 +119,6 @@ namespace WinEI
             // Register application exit event.
             Application.ApplicationExit += OnExiting;
 
-            // Register low level keyboard hook that disables Win+Up.
-            KeyboardHookManager.Hook();
-
             // Create any memory font instances.
             byte[] fontData = Properties.Resources.segmdl2;
 
@@ -134,18 +134,29 @@ namespace WinEI
                         FontResolver.LoadFontFromResource(fontData),
                         12.0F,
                         FontStyle.Regular);
+                FONT_MDL2_REG_20 =
+                    new Font(
+                        FontResolver.LoadFontFromResource(fontData),
+                        20.0F,
+                        FontStyle.Regular);
             }
             else
             {
                 MessageBox.Show(
-                    $"{Strings.SEGOE_MDL2} {Strings.FAILED_TO_LOAD}",
+                    Strings.SEGOE_MDL2_FAILED_TO_LOAD,
                     Strings.ERROR,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
 
+            // Initialize settings ini.
+            Settings.Initialize();
+
             // Load WinSAT data.
             WinsatReader.LoadWinsatData();
+
+            // Register low level keyboard hook that disables Win+Up.
+            KeyboardHookManager.Hook();
 
             // Create main window instance.
             mWindow = new mainWindow();
@@ -162,7 +173,7 @@ namespace WinEI
         private static void HandleCodeExit(string message, int exitCode)
         {
             Logger.WriteToAppLog(
-                $"{Strings.EXITED_CODE} ({exitCode}). {message}");
+                $"{Strings.EXITED_WITH_CODE} ({exitCode}). {message}");
 
             MessageBox.Show(
                 message + $"\r\n\r\n{Strings.APPLICATION_WILL_EXIT}",
@@ -184,6 +195,7 @@ namespace WinEI
             // Dispose of memory fonts.
             FONT_MDL2_REG_10?.Dispose();
             FONT_MDL2_REG_12?.Dispose();
+            FONT_MDL2_REG_20?.Dispose();
 
             // Unhook the low level keyboard hook.
             KeyboardHookManager.Unhook();
@@ -210,16 +222,16 @@ namespace WinEI
             DialogResult result;
 
             File.WriteAllText(
-                WEIPath.UnhandledLog,
+                WEIPath.DebugLog,
                 Debug.GenerateDebugReport(e));
 
-            if (File.Exists(WEIPath.UnhandledLog))
+            if (File.Exists(WEIPath.DebugLog))
             {
                 result =
                     MessageBox.Show(
-                        $"{e.Message}\r\n\r\n{Strings.ERROR_SAVED_TO_LOG} {WEIPath.UnhandledLog.Replace(" ", Chars.NB_SPACE)}" +
-                        $"'\r\n\r\n{Strings.APPLICATION_FORCE_QUIT}",
-                        $"{e.GetType()}",
+                        $"{e.Message}\r\n\r\n{Strings.DETAILS_SAVED_TO} {WEIPath.DebugLog.Replace(" ", Chars.NB_SPACE)}" +
+                        $"\r\n\r\n{Strings.APPLICATION_FORCE_QUIT}",
+                        Strings.EXCEPTION_HANDLER,
                         MessageBoxButtons.YesNo,
                         MessageBoxIcon.Error);
             }

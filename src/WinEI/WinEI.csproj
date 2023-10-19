@@ -56,7 +56,9 @@
     <Compile Include="AppColours.cs" />
     <Compile Include="Common\FontResolver.cs" />
     <Compile Include="Common\ImgurApi.cs" />
-    <Compile Include="Common\WinsatBugChecker.cs" />
+    <Compile Include="Common\IniFile.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="WinSAT\WinsatBugChecker.cs" />
     <Compile Include="Common\KeyboardHookManager.cs" />
     <Compile Include="Common\Logger.cs" />
     <Compile Include="Debug.cs" />
@@ -73,6 +75,13 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="AppUpdate.cs" />
+    <Compile Include="UI\WEIMessageBox\Enums.cs" />
+    <Compile Include="UI\WEIMessageBox\WEIMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\WEIMessageBox\WEIMessageBox.Designer.cs">
+      <DependentUpon>WEIMessageBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils\CryptoUtils.cs" />
     <Compile Include="Utils\FileUtils.cs" />
     <Compile Include="Utils\ImageUtils.cs" />
@@ -97,6 +106,9 @@
     <Compile Include="WIN32\NativeMethods.cs" />
     <Compile Include="WinSAT\WinsatApi.cs" />
     <Compile Include="WinSAT\WinsatReader.cs" />
+    <EmbeddedResource Include="UI\WEIMessageBox\WEIMessageBox.resx">
+      <DependentUpon>WEIMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WinForms\aboutWindow.resx">
       <DependentUpon>aboutWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -138,6 +150,15 @@
     <None Include="Resources\icon32px.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\imgmuerto64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\winei.ico" />
+  </ItemGroup>
+  <ItemGroup>
     <COMReference Include="WINSATLib">
       <Guid>{15AE3A36-E53B-454D-A816-A7C61CBAB8A4}</Guid>
       <VersionMajor>1</VersionMajor>
@@ -147,15 +168,6 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\imgmuerto64px.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon24px.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Assets\winei.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
