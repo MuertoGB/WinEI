@@ -77,7 +77,6 @@
             this.lblBaseScore = new System.Windows.Forms.Label();
             this.tlpBottom = new System.Windows.Forms.TableLayoutPanel();
             this.cmdAssessment = new System.Windows.Forms.Button();
-            this.lblTextScoreValidity = new System.Windows.Forms.Label();
             this.lblScoreValidity = new System.Windows.Forms.Label();
             this.lblTextOperatingSystem = new System.Windows.Forms.Label();
             this.lblOperatingSystem = new System.Windows.Forms.Label();
@@ -89,6 +88,9 @@
             this.cmdShareOnImgur = new System.Windows.Forms.Button();
             this.tlpBottomNestedShowHardware = new System.Windows.Forms.TableLayoutPanel();
             this.swShowHardware = new WinEI.UI.WEISwitch();
+            this.tlpBottomNestedScoreValidity = new System.Windows.Forms.TableLayoutPanel();
+            this.lblTextScoreValidity = new System.Windows.Forms.Label();
+            this.pnlValidityColour = new System.Windows.Forms.Panel();
             this.cmsApplication = new WinEI.UI.WEIContextMenuStrip();
             this.minimizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resetPositionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -109,6 +111,7 @@
             this.tlpMainNestedBaseScore.SuspendLayout();
             this.tlpBottom.SuspendLayout();
             this.tlpBottomNestedShowHardware.SuspendLayout();
+            this.tlpBottomNestedScoreValidity.SuspendLayout();
             this.cmsApplication.SuspendLayout();
             this.cmsTools.SuspendLayout();
             this.SuspendLayout();
@@ -534,7 +537,7 @@
             this.lblTextWhatIsRated.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
             this.lblTextWhatIsRated.Size = new System.Drawing.Size(392, 38);
             this.lblTextWhatIsRated.TabIndex = 99;
-            this.lblTextWhatIsRated.Text = "WHAT IS RATED";
+            this.lblTextWhatIsRated.Text = "WHAT IS RATED?";
             this.lblTextWhatIsRated.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tlpMainNestedBottom
@@ -589,7 +592,7 @@
             // 
             // lblGraphics
             // 
-            this.lblGraphics.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.lblGraphics.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.lblGraphics.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblGraphics.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGraphics.ForeColor = System.Drawing.Color.White;
@@ -604,7 +607,7 @@
             // 
             // lblMemory
             // 
-            this.lblMemory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.lblMemory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.lblMemory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblMemory.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMemory.ForeColor = System.Drawing.Color.White;
@@ -619,7 +622,7 @@
             // 
             // lblProcessor
             // 
-            this.lblProcessor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.lblProcessor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.lblProcessor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblProcessor.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProcessor.ForeColor = System.Drawing.Color.White;
@@ -634,7 +637,7 @@
             // 
             // lblD3d
             // 
-            this.lblD3d.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.lblD3d.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.lblD3d.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblD3d.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblD3d.ForeColor = System.Drawing.Color.White;
@@ -649,7 +652,7 @@
             // 
             // lblDisk
             // 
-            this.lblDisk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.lblDisk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.lblDisk.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblDisk.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDisk.ForeColor = System.Drawing.Color.White;
@@ -791,7 +794,7 @@
             // 
             // lblSubscoreGraphics
             // 
-            this.lblSubscoreGraphics.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.lblSubscoreGraphics.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.lblSubscoreGraphics.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblSubscoreGraphics.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSubscoreGraphics.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
@@ -805,7 +808,7 @@
             // 
             // lblSubscoreMemory
             // 
-            this.lblSubscoreMemory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.lblSubscoreMemory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.lblSubscoreMemory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblSubscoreMemory.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSubscoreMemory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
@@ -819,7 +822,7 @@
             // 
             // lblSubscoreProcessor
             // 
-            this.lblSubscoreProcessor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.lblSubscoreProcessor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.lblSubscoreProcessor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblSubscoreProcessor.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSubscoreProcessor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
@@ -833,7 +836,7 @@
             // 
             // lblSubscoreD3d
             // 
-            this.lblSubscoreD3d.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.lblSubscoreD3d.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.lblSubscoreD3d.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblSubscoreD3d.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSubscoreD3d.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
@@ -847,7 +850,7 @@
             // 
             // lblSubscoreDisk
             // 
-            this.lblSubscoreDisk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.lblSubscoreDisk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.lblSubscoreDisk.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblSubscoreDisk.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSubscoreDisk.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
@@ -913,7 +916,6 @@
             this.tlpBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 1F));
             this.tlpBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpBottom.Controls.Add(this.cmdAssessment, 6, 0);
-            this.tlpBottom.Controls.Add(this.lblTextScoreValidity, 0, 0);
             this.tlpBottom.Controls.Add(this.lblScoreValidity, 2, 0);
             this.tlpBottom.Controls.Add(this.lblTextOperatingSystem, 0, 4);
             this.tlpBottom.Controls.Add(this.lblOperatingSystem, 2, 4);
@@ -924,6 +926,7 @@
             this.tlpBottom.Controls.Add(this.label2, 4, 4);
             this.tlpBottom.Controls.Add(this.cmdShareOnImgur, 6, 2);
             this.tlpBottom.Controls.Add(this.tlpBottomNestedShowHardware, 6, 4);
+            this.tlpBottom.Controls.Add(this.tlpBottomNestedScoreValidity, 0, 0);
             this.tlpBottom.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpBottom.Location = new System.Drawing.Point(0, 277);
             this.tlpBottom.Margin = new System.Windows.Forms.Padding(0);
@@ -958,24 +961,9 @@
             this.cmdAssessment.Text = "RUN";
             this.cmdAssessment.UseVisualStyleBackColor = false;
             // 
-            // lblTextScoreValidity
-            // 
-            this.lblTextScoreValidity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.lblTextScoreValidity.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTextScoreValidity.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTextScoreValidity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(225)))), ((int)(((byte)(240)))));
-            this.lblTextScoreValidity.Location = new System.Drawing.Point(0, 0);
-            this.lblTextScoreValidity.Margin = new System.Windows.Forms.Padding(0);
-            this.lblTextScoreValidity.Name = "lblTextScoreValidity";
-            this.lblTextScoreValidity.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
-            this.lblTextScoreValidity.Size = new System.Drawing.Size(150, 38);
-            this.lblTextScoreValidity.TabIndex = 99;
-            this.lblTextScoreValidity.Text = "Score Validity";
-            this.lblTextScoreValidity.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // lblScoreValidity
             // 
-            this.lblScoreValidity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.lblScoreValidity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.lblScoreValidity.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblScoreValidity.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblScoreValidity.ForeColor = System.Drawing.Color.White;
@@ -1005,7 +993,7 @@
             // 
             // lblOperatingSystem
             // 
-            this.lblOperatingSystem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.lblOperatingSystem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.lblOperatingSystem.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblOperatingSystem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOperatingSystem.ForeColor = System.Drawing.Color.White;
@@ -1035,7 +1023,7 @@
             // 
             // lblLastAssessment
             // 
-            this.lblLastAssessment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.lblLastAssessment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.lblLastAssessment.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblLastAssessment.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLastAssessment.ForeColor = System.Drawing.Color.White;
@@ -1112,6 +1100,7 @@
             this.cmdShareOnImgur.TabIndex = 1;
             this.cmdShareOnImgur.Text = "...";
             this.cmdShareOnImgur.UseVisualStyleBackColor = false;
+            this.cmdShareOnImgur.Click += new System.EventHandler(this.cmdShareOnImgur_Click);
             // 
             // tlpBottomNestedShowHardware
             // 
@@ -1143,6 +1132,48 @@
             this.swShowHardware.Size = new System.Drawing.Size(34, 20);
             this.swShowHardware.SwitchHeadColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.swShowHardware.TabIndex = 0;
+            // 
+            // tlpBottomNestedScoreValidity
+            // 
+            this.tlpBottomNestedScoreValidity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.tlpBottomNestedScoreValidity.ColumnCount = 2;
+            this.tlpBottomNestedScoreValidity.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpBottomNestedScoreValidity.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 4F));
+            this.tlpBottomNestedScoreValidity.Controls.Add(this.lblTextScoreValidity, 0, 0);
+            this.tlpBottomNestedScoreValidity.Controls.Add(this.pnlValidityColour, 1, 0);
+            this.tlpBottomNestedScoreValidity.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpBottomNestedScoreValidity.Location = new System.Drawing.Point(0, 0);
+            this.tlpBottomNestedScoreValidity.Margin = new System.Windows.Forms.Padding(0);
+            this.tlpBottomNestedScoreValidity.Name = "tlpBottomNestedScoreValidity";
+            this.tlpBottomNestedScoreValidity.RowCount = 1;
+            this.tlpBottomNestedScoreValidity.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpBottomNestedScoreValidity.Size = new System.Drawing.Size(150, 38);
+            this.tlpBottomNestedScoreValidity.TabIndex = 101;
+            // 
+            // lblTextScoreValidity
+            // 
+            this.lblTextScoreValidity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.lblTextScoreValidity.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTextScoreValidity.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTextScoreValidity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(225)))), ((int)(((byte)(240)))));
+            this.lblTextScoreValidity.Location = new System.Drawing.Point(0, 0);
+            this.lblTextScoreValidity.Margin = new System.Windows.Forms.Padding(0);
+            this.lblTextScoreValidity.Name = "lblTextScoreValidity";
+            this.lblTextScoreValidity.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.lblTextScoreValidity.Size = new System.Drawing.Size(146, 38);
+            this.lblTextScoreValidity.TabIndex = 99;
+            this.lblTextScoreValidity.Text = "Score Validity";
+            this.lblTextScoreValidity.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // pnlValidityColour
+            // 
+            this.pnlValidityColour.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.pnlValidityColour.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlValidityColour.Location = new System.Drawing.Point(147, 1);
+            this.pnlValidityColour.Margin = new System.Windows.Forms.Padding(1);
+            this.pnlValidityColour.Name = "pnlValidityColour";
+            this.pnlValidityColour.Size = new System.Drawing.Size(2, 36);
+            this.pnlValidityColour.TabIndex = 99;
             // 
             // cmsApplication
             // 
@@ -1242,6 +1273,7 @@
             this.tlpBottom.ResumeLayout(false);
             this.tlpBottomNestedShowHardware.ResumeLayout(false);
             this.tlpBottomNestedShowHardware.PerformLayout();
+            this.tlpBottomNestedScoreValidity.ResumeLayout(false);
             this.cmsApplication.ResumeLayout(false);
             this.cmsTools.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -1316,6 +1348,8 @@
         private UI.WEIContextMenuStrip cmsTools;
         private System.Windows.Forms.ToolStripMenuItem resetWinSATToolStripMenuItem;
         private System.Windows.Forms.Button cmdMore;
+        private System.Windows.Forms.TableLayoutPanel tlpBottomNestedScoreValidity;
+        private System.Windows.Forms.Panel pnlValidityColour;
     }
 }
 

@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="AppColours.cs" />
     <Compile Include="Common\FontResolver.cs" />
+    <Compile Include="Common\ImgurApi.cs" />
     <Compile Include="Common\WinsatBugChecker.cs" />
     <Compile Include="Common\KeyboardHookManager.cs" />
     <Compile Include="Common\Logger.cs" />
@@ -74,6 +75,8 @@
     <Compile Include="AppUpdate.cs" />
     <Compile Include="Utils\CryptoUtils.cs" />
     <Compile Include="Utils\FileUtils.cs" />
+    <Compile Include="Utils\ImageUtils.cs" />
+    <Compile Include="Utils\NetworkUtils.cs" />
     <Compile Include="Utils\OSUtils.cs" />
     <Compile Include="Utils\PowerUtils.cs" />
     <Compile Include="WinForms\aboutWindow.cs">

@@ -13,5 +13,6 @@ namespace WinEI
         internal const int ERROR_HANDLER_FORCED = 2;
         internal const int NOT_WINSAT_CAPABLE_EXE = 3;
         internal const int NOT_WINSAT_CAPABLE_API = 4;
+        internal const int INCOMPATIBLE_OS = 5;
     }
 }

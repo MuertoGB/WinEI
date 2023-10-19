@@ -10,6 +10,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using WinEI.Common;
 using WinEI.UI;
 using WinEI.Utils;
 using WinEI.WIN32;
@@ -68,6 +69,7 @@ namespace WinEI
 
             lblOperatingSystem.Text =
                 $"{OSUtils.GetWindowsName} " +
+                $"Build {OSUtils.GetWindowsBuild} " +
                 $"{OSUtils.GetSystemArchitecture(false)}";
 
             UpdateUI();
@@ -242,6 +244,11 @@ namespace WinEI
             cmdAssessment.Text =
                 WinsatReader.GetAssessmentStateButtonString(
                     (int)WinsatReader.AssessmentSate);
+
+            pnlValidityColour.BackColor =
+                WinsatReader.AssessmentSate == WinsatAssessmentState.VALID
+                ? AppColours.PANEL_VALID
+                : AppColours.PANEL_INVALID;
         }
 
         private void UpdateAssessmentDateControls()
@@ -302,6 +309,33 @@ namespace WinEI
                 formWindow.FormClosed += ChildWindowClosed;
                 formWindow.ShowDialog();
             }
+        }
+
+        private void cmdShareOnImgur_Click(object sender, EventArgs e)
+        {
+            if (WinsatReader.AssessmentSate == WinsatAssessmentState.UNAVAILABLE)
+            {
+                MessageBox.Show(
+                    "The system must be rated to use this feature",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return;
+            }
+
+            ImageUtils.CaptureControl(
+                WEIPath.ImgurTempFile,
+                this);
+
+            string url =
+                ImgurApi.UploadToImgur(
+                    "35e23362c1eb67c",
+                    WEIPath.ImgurTempFile,
+                    true);
+
+            if (url != null)
+                Process.Start(url);
         }
 
         private void SetButtonProperties()

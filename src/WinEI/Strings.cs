@@ -4,8 +4,6 @@
 // Strings.cs
 // Released under the GNU GLP v3.0
 
-using System.Dynamic;
-
 namespace WinEI
 {
     internal class Strings
@@ -13,11 +11,14 @@ namespace WinEI
         internal const string SEGOE_MDL2 =
             "Segoe MDL2 Assets";
 
-        internal const string WINSAT_INCAPABLE_EXE =
-            "This system is not WinSAT capable as the WinSAT executable was not found.";
+        internal const string WINSAT_ERROR_EXE =
+            "The WinSAT executable could not be found.";
 
-        internal const string WINSAT_INCAPABLE_API =
-            "This system is not WinSAT capable as the WinSAT API Dynamic Link Library was not found.";
+        internal const string WINSAT_ERROR_API =
+            "The WinSAT API Dynamic Link Library could not be found.";
+
+        internal const string WINSAT_ERROR_OS =
+            "Incompatible Operating System.";
 
         internal const string ERROR =
             "Error";
@@ -48,5 +49,8 @@ namespace WinEI
 
         internal const string UNRATED =
             "Unrated";
+
+        internal const string EXITED_CODE =
+            "Foced exit with code";
     }
 }

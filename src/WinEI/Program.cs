@@ -25,19 +25,23 @@ namespace WinEI
         internal static readonly string CurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
         internal static readonly string FriendlyName = AppDomain.CurrentDomain.FriendlyName;
         internal static readonly string UnhandledLog = Path.Combine(CurrentDirectory, "unhandled.log");
-        internal static readonly string ErrorLog = Path.Combine(CurrentDirectory, "error.log");
         internal static readonly string ApplicationLog = Path.Combine(CurrentDirectory, "application.log");
+        internal static readonly string ImgurTempFile =
+            Path.Combine(Environment.GetFolderPath(
+                Environment.SpecialFolder.LocalApplicationData),
+                "Temp\\imgur.png");
     }
 
     internal readonly struct WEIUrl
     {
         internal const string VersionManifest = "https://raw.githubusercontent.com/MuertoGB/WinEI/main/stream/manifests/version.xml";
         internal const string LatestRelease = "https://github.com/MuertoGB/WinEI/releases/latest";
+        internal const string ImgurAddress = "http://www.imgur.com";
     }
 
     internal readonly struct WEIVersion
     {
-        internal const string Build = "231018.2120";
+        internal const string Build = "231019.0800";
         internal const string Channel = "Pre-Alpha";
     }
     #endregion
@@ -65,24 +69,26 @@ namespace WinEI
         [STAThread]
         static void Main()
         {
+            // Check Operating System
+            if (OSUtils.GetKernelVersion.ProductMajorPart < 5)
+            {
+                HandleCodeExit(
+                    Strings.WINSAT_ERROR_OS,
+                    ExitCodes.INCOMPATIBLE_OS);
+            }
+
             // Check winsat capability.
             if (!OSUtils.IsWinSatExePresent())
             {
-                Logger.WriteToAppLog(
-                    $"{Strings.FILE_NOT_FOUND}: {OSUtils.WinsatExePath}");
-
-                HandleWinsatIncapableExit(
-                    Strings.WINSAT_INCAPABLE_EXE,
+                HandleCodeExit(
+                    Strings.WINSAT_ERROR_EXE,
                     ExitCodes.NOT_WINSAT_CAPABLE_EXE);
             }
 
             if (!OSUtils.IsWinsatApiPresent())
             {
-                Logger.WriteToAppLog(
-                    $"{Strings.FILE_NOT_FOUND}: {OSUtils.WinsatApiPath}");
-
-                HandleWinsatIncapableExit(
-                    Strings.WINSAT_INCAPABLE_API,
+                HandleCodeExit(
+                    Strings.WINSAT_ERROR_API,
                     ExitCodes.NOT_WINSAT_CAPABLE_API);
             }
 
@@ -138,6 +144,7 @@ namespace WinEI
                     MessageBoxIcon.Error);
             }
 
+            // Load WinSAT data.
             WinsatReader.LoadWinsatData();
 
             // Create main window instance.
@@ -152,8 +159,11 @@ namespace WinEI
             Application.Exit();
         }
 
-        private static void HandleWinsatIncapableExit(string message, int exitCode)
+        private static void HandleCodeExit(string message, int exitCode)
         {
+            Logger.WriteToAppLog(
+                $"{Strings.EXITED_CODE} ({exitCode}). {message}");
+
             MessageBox.Show(
                 message + $"\r\n\r\n{Strings.APPLICATION_WILL_EXIT}",
                 Strings.ERROR,

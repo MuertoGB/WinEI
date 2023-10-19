@@ -55,6 +55,11 @@ namespace WinEI.Utils
             : (shortString ? "x86" : "32-Bit");
         #endregion
 
+        #region Integers
+        internal static int GetWindowsBuild =>
+            Environment.OSVersion.Version.Build;
+        #endregion
+
         #region Bools
         internal static bool IsElevated()
         {

@@ -420,17 +420,17 @@ namespace WinEI.WinSAT
             switch ((WinsatAssessmentState)state)
             {
                 case WinsatAssessmentState.UNKNOWN:
-                    return "Could not retrieve assessment validity.";
+                    return "Could not retrieve assessment validity";
                 case WinsatAssessmentState.VALID:
-                    return "Experience Index scores are valid.";
+                    return "Experience Index scores are valid";
                 case WinsatAssessmentState.INCOHERENT:
                     return "Incoherent with hardware";
                 case WinsatAssessmentState.UNAVAILABLE:
-                    return "Experience Index has not yet been established.";
+                    return "Experience Index has not yet been established";
                 case WinsatAssessmentState.INVALID:
-                    return "Experience Index scores are outdated or invalid.";
+                    return "Experience Index scores are outdated or invalid";
                 default:
-                    return "Could not retrieve assessment validity.";
+                    return "Could not retrieve assessment validity";
             }
         }
 
