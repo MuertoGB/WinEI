@@ -90,10 +90,10 @@ namespace WinEI
             "dddd, MMM d yyyy hh:mm tt";
 
         internal const string WINSAT_LOG_NOT_FOUND =
-            "The WinSAT log file was not found and could not be opened.";
+            "The WinSAT log file has not been created yet.";
 
         internal const string IMGUR_LOG_NOT_FOUND =
-            "The Imgur links file was not found and could not be opened.";
+            "The Imgur links file has not been created yet.";
 
         internal const string IMGUR_UPLOAD_CONFIRM =
             "This will capture an image of the application, and upload it to Imgur. Are you sure you want to continue?";

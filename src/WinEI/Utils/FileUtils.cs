@@ -5,6 +5,7 @@
 // Released under the GNU GLP v3.0
 
 using System;
+using System.Diagnostics;
 using System.IO;
 
 namespace WinEI.Utils
@@ -29,9 +30,8 @@ namespace WinEI.Utils
             return $"{sizeInSuffix:N2} {suffixes[suffixIndex]}";
         }
 
-        public static string ConvertBytesToMB(long bytes) =>
+        internal static string ConvertBytesToMB(long bytes) =>
             $"{Math.Ceiling((double)bytes / (1024 * 1024))} MB";
-
 
         internal static void RemoveFilesbyExtension(string extension, string path)
         {
@@ -48,5 +48,12 @@ namespace WinEI.Utils
                         Path.GetFileName(file)));
             }
         }
+
+        /// <summary>
+        /// Navigate to, and highlight a path in Windows Explorer.
+        /// </summary>
+        /// <param name="path">The path of the file to open in Windows Explorer.</param>
+        internal static void HighlightPathInExplorer(string path) =>
+            Process.Start("explorer.exe", $"/select,\"{path}\"");
     }
 }

@@ -36,14 +36,18 @@ namespace WinEI
 
     internal readonly struct WEIUrl
     {
-        internal const string VersionManifest = "https://raw.githubusercontent.com/MuertoGB/WinEI/main/stream/manifests/version.xml";
-        internal const string LatestRelease = "https://github.com/MuertoGB/WinEI/releases/latest";
-        internal const string ImgurAddress = "http://www.imgur.com";
+        internal const string GithubVersionManifest = "https://raw.githubusercontent.com/MuertoGB/WinEI/main/stream/manifests/version.xml";
+        internal const string GithubChangelog = "https://github.com/MuertoGB/WinEI/blob/main/CHANGELOG.md";
+        internal const string GithubHomepage = "https://github.com/MuertoGB/WinEI";
+        internal const string GithubLatestRelease = "https://github.com/MuertoGB/WinEI/releases/latest";
+        internal const string GithubIssues = "https://github.com/MuertoGB/WinEI/issues";
+        internal const string ImgurAddress = "https://www.imgur.com";
+        internal const string MediaFeaturePackAddress = "http://windows.microsoft.com/en-gb/windows/download-windows-media-player";
     }
 
     internal readonly struct WEIVersion
     {
-        internal const string Build = "231020.1430";
+        internal const string Build = "231020.2045";
         internal const string Channel = "Pre-Alpha";
     }
     #endregion

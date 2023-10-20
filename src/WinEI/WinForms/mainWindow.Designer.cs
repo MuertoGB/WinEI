@@ -96,14 +96,28 @@
             this.resetPositionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsOptions = new WinEI.UI.WEIContextMenuStrip();
-            this.clearWinSATDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteWinSATDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.runAssessmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.reloadDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.systemDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toggleShowHardwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.viewImgurLinksFileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.viewWinSATLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmsMore = new WinEI.UI.WEIContextMenuStrip();
+            this.workingDirectoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.changelogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.homepageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportAnIssueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.mediaFeaturePackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.viewApplicationLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.elevatedRestartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.restartApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tlpMenu.SuspendLayout();
             this.tlpTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
@@ -121,6 +135,7 @@
             this.tlpBottomNestedValidity.SuspendLayout();
             this.cmsApplication.SuspendLayout();
             this.cmsOptions.SuspendLayout();
+            this.cmsMore.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlpSplit
@@ -213,6 +228,7 @@
             this.cmdExport.TabIndex = 0;
             this.cmdExport.Text = "EXPORT";
             this.cmdExport.UseVisualStyleBackColor = false;
+            this.cmdExport.Click += new System.EventHandler(this.cmdExport_Click);
             // 
             // cmdAbout
             // 
@@ -282,6 +298,7 @@
             this.cmdMore.TabIndex = 4;
             this.cmdMore.Text = "...";
             this.cmdMore.UseVisualStyleBackColor = false;
+            this.cmdMore.Click += new System.EventHandler(this.cmdMore_Click);
             // 
             // tlpTitle
             // 
@@ -1235,68 +1252,181 @@
             this.cmsOptions.ForeColor = System.Drawing.Color.White;
             this.cmsOptions.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.cmsOptions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.clearWinSATDataToolStripMenuItem,
+            this.deleteWinSATDataToolStripMenuItem,
             this.runAssessmentToolStripMenuItem,
             this.toolStripSeparator1,
             this.reloadDataToolStripMenuItem,
             this.systemDetailsToolStripMenuItem,
+            this.toggleShowHardwareToolStripMenuItem,
             this.toolStripSeparator2,
             this.viewImgurLinksFileToolStripMenuItem1,
             this.viewWinSATLogToolStripMenuItem});
             this.cmsOptions.Name = "weiContextMenuStrip1";
             this.cmsOptions.ShowImageMargin = false;
-            this.cmsOptions.Size = new System.Drawing.Size(215, 212);
+            this.cmsOptions.Size = new System.Drawing.Size(301, 212);
             // 
-            // clearWinSATDataToolStripMenuItem
+            // deleteWinSATDataToolStripMenuItem
             // 
-            this.clearWinSATDataToolStripMenuItem.Name = "clearWinSATDataToolStripMenuItem";
-            this.clearWinSATDataToolStripMenuItem.Size = new System.Drawing.Size(214, 28);
-            this.clearWinSATDataToolStripMenuItem.Text = "Clear WinSAT Data";
-            this.clearWinSATDataToolStripMenuItem.Click += new System.EventHandler(this.clearWinSATDataToolStripMenuItem_Click);
+            this.deleteWinSATDataToolStripMenuItem.Name = "deleteWinSATDataToolStripMenuItem";
+            this.deleteWinSATDataToolStripMenuItem.ShortcutKeyDisplayString = "ALT + S";
+            this.deleteWinSATDataToolStripMenuItem.Size = new System.Drawing.Size(300, 28);
+            this.deleteWinSATDataToolStripMenuItem.Text = "Delete WinSAT Data";
+            this.deleteWinSATDataToolStripMenuItem.Click += new System.EventHandler(this.deleteWinSATDataToolStripMenuItem_Click);
             // 
             // runAssessmentToolStripMenuItem
             // 
             this.runAssessmentToolStripMenuItem.Name = "runAssessmentToolStripMenuItem";
-            this.runAssessmentToolStripMenuItem.Size = new System.Drawing.Size(214, 28);
+            this.runAssessmentToolStripMenuItem.ShortcutKeyDisplayString = "ALT + A";
+            this.runAssessmentToolStripMenuItem.Size = new System.Drawing.Size(300, 28);
             this.runAssessmentToolStripMenuItem.Text = "Run Assessment";
             this.runAssessmentToolStripMenuItem.Click += new System.EventHandler(this.runAssessmentToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(211, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(297, 6);
             // 
             // reloadDataToolStripMenuItem
             // 
             this.reloadDataToolStripMenuItem.Name = "reloadDataToolStripMenuItem";
-            this.reloadDataToolStripMenuItem.Size = new System.Drawing.Size(214, 28);
+            this.reloadDataToolStripMenuItem.ShortcutKeyDisplayString = "F5";
+            this.reloadDataToolStripMenuItem.Size = new System.Drawing.Size(300, 28);
             this.reloadDataToolStripMenuItem.Text = "Reload Data";
             this.reloadDataToolStripMenuItem.Click += new System.EventHandler(this.reloadDataToolStripMenuItem_Click);
             // 
             // systemDetailsToolStripMenuItem
             // 
             this.systemDetailsToolStripMenuItem.Name = "systemDetailsToolStripMenuItem";
-            this.systemDetailsToolStripMenuItem.Size = new System.Drawing.Size(214, 28);
+            this.systemDetailsToolStripMenuItem.ShortcutKeyDisplayString = "ALT + S";
+            this.systemDetailsToolStripMenuItem.Size = new System.Drawing.Size(300, 28);
             this.systemDetailsToolStripMenuItem.Text = "System Details";
+            this.systemDetailsToolStripMenuItem.Click += new System.EventHandler(this.systemDetailsToolStripMenuItem_Click);
+            // 
+            // toggleShowHardwareToolStripMenuItem
+            // 
+            this.toggleShowHardwareToolStripMenuItem.Name = "toggleShowHardwareToolStripMenuItem";
+            this.toggleShowHardwareToolStripMenuItem.ShortcutKeyDisplayString = "ALT + H";
+            this.toggleShowHardwareToolStripMenuItem.Size = new System.Drawing.Size(300, 28);
+            this.toggleShowHardwareToolStripMenuItem.Text = "Toggle Show Hardware";
+            this.toggleShowHardwareToolStripMenuItem.Click += new System.EventHandler(this.toggleShowHardwareToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(211, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(297, 6);
             // 
             // viewImgurLinksFileToolStripMenuItem1
             // 
             this.viewImgurLinksFileToolStripMenuItem1.Name = "viewImgurLinksFileToolStripMenuItem1";
-            this.viewImgurLinksFileToolStripMenuItem1.Size = new System.Drawing.Size(214, 28);
+            this.viewImgurLinksFileToolStripMenuItem1.Size = new System.Drawing.Size(300, 28);
             this.viewImgurLinksFileToolStripMenuItem1.Text = "View Imgur Links File";
             this.viewImgurLinksFileToolStripMenuItem1.Click += new System.EventHandler(this.viewImgurLinksFileToolStripMenuItem1_Click);
             // 
             // viewWinSATLogToolStripMenuItem
             // 
             this.viewWinSATLogToolStripMenuItem.Name = "viewWinSATLogToolStripMenuItem";
-            this.viewWinSATLogToolStripMenuItem.Size = new System.Drawing.Size(214, 28);
+            this.viewWinSATLogToolStripMenuItem.Size = new System.Drawing.Size(300, 28);
             this.viewWinSATLogToolStripMenuItem.Text = "View WinSAT Log";
             this.viewWinSATLogToolStripMenuItem.Click += new System.EventHandler(this.viewWinSATLogToolStripMenuItem_Click);
+            // 
+            // cmsMore
+            // 
+            this.cmsMore.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.cmsMore.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.cmsMore.ForeColor = System.Drawing.Color.White;
+            this.cmsMore.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.cmsMore.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.workingDirectoryToolStripMenuItem,
+            this.toolStripSeparator4,
+            this.changelogToolStripMenuItem,
+            this.homepageToolStripMenuItem,
+            this.reportAnIssueToolStripMenuItem,
+            this.toolStripSeparator3,
+            this.mediaFeaturePackToolStripMenuItem,
+            this.toolStripSeparator6,
+            this.viewApplicationLogToolStripMenuItem,
+            this.toolStripSeparator5,
+            this.elevatedRestartToolStripMenuItem,
+            this.restartApplicationToolStripMenuItem});
+            this.cmsMore.Name = "cmsMore";
+            this.cmsMore.ShowImageMargin = false;
+            this.cmsMore.Size = new System.Drawing.Size(239, 252);
+            // 
+            // workingDirectoryToolStripMenuItem
+            // 
+            this.workingDirectoryToolStripMenuItem.Name = "workingDirectoryToolStripMenuItem";
+            this.workingDirectoryToolStripMenuItem.Size = new System.Drawing.Size(238, 28);
+            this.workingDirectoryToolStripMenuItem.Text = "Show Working Directory";
+            this.workingDirectoryToolStripMenuItem.Click += new System.EventHandler(this.workingDirectoryToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(235, 6);
+            // 
+            // changelogToolStripMenuItem
+            // 
+            this.changelogToolStripMenuItem.Name = "changelogToolStripMenuItem";
+            this.changelogToolStripMenuItem.Size = new System.Drawing.Size(238, 28);
+            this.changelogToolStripMenuItem.Text = "Changelog";
+            this.changelogToolStripMenuItem.Click += new System.EventHandler(this.changelogToolStripMenuItem_Click);
+            // 
+            // homepageToolStripMenuItem
+            // 
+            this.homepageToolStripMenuItem.Name = "homepageToolStripMenuItem";
+            this.homepageToolStripMenuItem.Size = new System.Drawing.Size(238, 28);
+            this.homepageToolStripMenuItem.Text = "Homepage";
+            this.homepageToolStripMenuItem.Click += new System.EventHandler(this.homepageToolStripMenuItem_Click);
+            // 
+            // reportAnIssueToolStripMenuItem
+            // 
+            this.reportAnIssueToolStripMenuItem.Name = "reportAnIssueToolStripMenuItem";
+            this.reportAnIssueToolStripMenuItem.Size = new System.Drawing.Size(238, 28);
+            this.reportAnIssueToolStripMenuItem.Text = "Report an Issue";
+            this.reportAnIssueToolStripMenuItem.Click += new System.EventHandler(this.reportAnIssueToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(235, 6);
+            // 
+            // mediaFeaturePackToolStripMenuItem
+            // 
+            this.mediaFeaturePackToolStripMenuItem.Name = "mediaFeaturePackToolStripMenuItem";
+            this.mediaFeaturePackToolStripMenuItem.Size = new System.Drawing.Size(238, 28);
+            this.mediaFeaturePackToolStripMenuItem.Text = "Media Feature Pack";
+            this.mediaFeaturePackToolStripMenuItem.Click += new System.EventHandler(this.mediaFeaturePackToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(235, 6);
+            // 
+            // viewApplicationLogToolStripMenuItem
+            // 
+            this.viewApplicationLogToolStripMenuItem.Name = "viewApplicationLogToolStripMenuItem";
+            this.viewApplicationLogToolStripMenuItem.Size = new System.Drawing.Size(238, 28);
+            this.viewApplicationLogToolStripMenuItem.Text = "View Application Log";
+            this.viewApplicationLogToolStripMenuItem.Click += new System.EventHandler(this.viewApplicationLogToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(235, 6);
+            // 
+            // elevatedRestartToolStripMenuItem
+            // 
+            this.elevatedRestartToolStripMenuItem.Name = "elevatedRestartToolStripMenuItem";
+            this.elevatedRestartToolStripMenuItem.Size = new System.Drawing.Size(238, 28);
+            this.elevatedRestartToolStripMenuItem.Text = "Elevated Restart";
+            this.elevatedRestartToolStripMenuItem.Click += new System.EventHandler(this.elevatedRestartToolStripMenuItem_Click);
+            // 
+            // restartApplicationToolStripMenuItem
+            // 
+            this.restartApplicationToolStripMenuItem.Name = "restartApplicationToolStripMenuItem";
+            this.restartApplicationToolStripMenuItem.Size = new System.Drawing.Size(238, 28);
+            this.restartApplicationToolStripMenuItem.Text = "Restart Application";
+            this.restartApplicationToolStripMenuItem.Click += new System.EventHandler(this.restartApplicationToolStripMenuItem_Click);
             // 
             // mainWindow
             // 
@@ -1339,6 +1469,7 @@
             this.tlpBottomNestedValidity.ResumeLayout(false);
             this.cmsApplication.ResumeLayout(false);
             this.cmsOptions.ResumeLayout(false);
+            this.cmsMore.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1417,9 +1548,23 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem viewWinSATLogToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem runAssessmentToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem clearWinSATDataToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteWinSATDataToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewImgurLinksFileToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem systemDetailsToolStripMenuItem;
+        private UI.WEIContextMenuStrip cmsMore;
+        private System.Windows.Forms.ToolStripMenuItem homepageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem changelogToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mediaFeaturePackToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewApplicationLogToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem restartApplicationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem workingDirectoryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripMenuItem reportAnIssueToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripMenuItem toggleShowHardwareToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem elevatedRestartToolStripMenuItem;
     }
 }
 
