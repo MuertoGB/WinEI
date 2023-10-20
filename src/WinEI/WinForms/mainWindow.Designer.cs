@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainWindow));
-            this.tlpSplit1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tlpSplit = new System.Windows.Forms.TableLayoutPanel();
             this.tlpMenu = new System.Windows.Forms.TableLayoutPanel();
             this.cmdOptions = new System.Windows.Forms.Button();
             this.pnlMenuSeperator1 = new System.Windows.Forms.Panel();
@@ -100,11 +100,10 @@
             this.runAssessmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.reloadDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.systemDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.viewAssessmentLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewImgurLinksFileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.viewWinSATLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.systemDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tlpMenu.SuspendLayout();
             this.tlpTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
@@ -124,18 +123,18 @@
             this.cmsOptions.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tlpSplit1
+            // tlpSplit
             // 
-            this.tlpSplit1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
-            this.tlpSplit1.ColumnCount = 1;
-            this.tlpSplit1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpSplit1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tlpSplit1.Location = new System.Drawing.Point(1, 89);
-            this.tlpSplit1.Name = "tlpSplit1";
-            this.tlpSplit1.RowCount = 1;
-            this.tlpSplit1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpSplit1.Size = new System.Drawing.Size(805, 2);
-            this.tlpSplit1.TabIndex = 2;
+            this.tlpSplit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
+            this.tlpSplit.ColumnCount = 1;
+            this.tlpSplit.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpSplit.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tlpSplit.Location = new System.Drawing.Point(1, 89);
+            this.tlpSplit.Name = "tlpSplit";
+            this.tlpSplit.RowCount = 1;
+            this.tlpSplit.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpSplit.Size = new System.Drawing.Size(805, 2);
+            this.tlpSplit.TabIndex = 2;
             // 
             // tlpMenu
             // 
@@ -189,7 +188,7 @@
             // pnlMenuSeperator1
             // 
             this.pnlMenuSeperator1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlMenuSeperator1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(85)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
+            this.pnlMenuSeperator1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.pnlMenuSeperator1.Location = new System.Drawing.Point(82, 11);
             this.pnlMenuSeperator1.Margin = new System.Windows.Forms.Padding(0);
             this.pnlMenuSeperator1.Name = "pnlMenuSeperator1";
@@ -238,7 +237,7 @@
             // pnlMenuSeperator2
             // 
             this.pnlMenuSeperator2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlMenuSeperator2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(85)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
+            this.pnlMenuSeperator2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.pnlMenuSeperator2.Location = new System.Drawing.Point(179, 11);
             this.pnlMenuSeperator2.Margin = new System.Windows.Forms.Padding(0);
             this.pnlMenuSeperator2.Name = "pnlMenuSeperator2";
@@ -263,6 +262,7 @@
             this.cmdSettings.TabIndex = 2;
             this.cmdSettings.Text = "SETTINGS";
             this.cmdSettings.UseVisualStyleBackColor = false;
+            this.cmdSettings.Click += new System.EventHandler(this.cmdSettings_Click);
             // 
             // cmdMore
             // 
@@ -806,7 +806,7 @@
             this.lblSubscoreGraphics.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.lblSubscoreGraphics.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblSubscoreGraphics.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubscoreGraphics.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
+            this.lblSubscoreGraphics.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
             this.lblSubscoreGraphics.Location = new System.Drawing.Point(0, 78);
             this.lblSubscoreGraphics.Margin = new System.Windows.Forms.Padding(0);
             this.lblSubscoreGraphics.Name = "lblSubscoreGraphics";
@@ -820,7 +820,7 @@
             this.lblSubscoreMemory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.lblSubscoreMemory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblSubscoreMemory.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubscoreMemory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
+            this.lblSubscoreMemory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
             this.lblSubscoreMemory.Location = new System.Drawing.Point(0, 39);
             this.lblSubscoreMemory.Margin = new System.Windows.Forms.Padding(0);
             this.lblSubscoreMemory.Name = "lblSubscoreMemory";
@@ -834,7 +834,7 @@
             this.lblSubscoreProcessor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.lblSubscoreProcessor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblSubscoreProcessor.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubscoreProcessor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
+            this.lblSubscoreProcessor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
             this.lblSubscoreProcessor.Location = new System.Drawing.Point(0, 0);
             this.lblSubscoreProcessor.Margin = new System.Windows.Forms.Padding(0);
             this.lblSubscoreProcessor.Name = "lblSubscoreProcessor";
@@ -848,7 +848,7 @@
             this.lblSubscoreD3d.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.lblSubscoreD3d.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblSubscoreD3d.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubscoreD3d.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
+            this.lblSubscoreD3d.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
             this.lblSubscoreD3d.Location = new System.Drawing.Point(0, 117);
             this.lblSubscoreD3d.Margin = new System.Windows.Forms.Padding(0);
             this.lblSubscoreD3d.Name = "lblSubscoreD3d";
@@ -862,7 +862,7 @@
             this.lblSubscoreDisk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.lblSubscoreDisk.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblSubscoreDisk.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubscoreDisk.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
+            this.lblSubscoreDisk.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
             this.lblSubscoreDisk.Location = new System.Drawing.Point(0, 156);
             this.lblSubscoreDisk.Margin = new System.Windows.Forms.Padding(0);
             this.lblSubscoreDisk.Name = "lblSubscoreDisk";
@@ -906,7 +906,7 @@
             // 
             this.lblBaseScore.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblBaseScore.Font = new System.Drawing.Font("Segoe UI", 34.2F, System.Drawing.FontStyle.Bold);
-            this.lblBaseScore.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
+            this.lblBaseScore.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
             this.lblBaseScore.Location = new System.Drawing.Point(3, 0);
             this.lblBaseScore.Name = "lblBaseScore";
             this.lblBaseScore.Size = new System.Drawing.Size(154, 116);
@@ -1142,6 +1142,7 @@
             this.swShowHardware.Size = new System.Drawing.Size(34, 20);
             this.swShowHardware.SwitchHeadColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.swShowHardware.TabIndex = 0;
+            this.swShowHardware.CheckedChanged += new System.EventHandler(this.swShowHardware_CheckedChanged);
             // 
             // tlpBottomNestedValidity
             // 
@@ -1240,67 +1241,62 @@
             this.reloadDataToolStripMenuItem,
             this.systemDetailsToolStripMenuItem,
             this.toolStripSeparator2,
-            this.viewAssessmentLogToolStripMenuItem,
             this.viewImgurLinksFileToolStripMenuItem1,
             this.viewWinSATLogToolStripMenuItem});
             this.cmsOptions.Name = "weiContextMenuStrip1";
             this.cmsOptions.ShowImageMargin = false;
-            this.cmsOptions.Size = new System.Drawing.Size(218, 212);
+            this.cmsOptions.Size = new System.Drawing.Size(215, 212);
             // 
             // clearWinSATDataToolStripMenuItem
             // 
             this.clearWinSATDataToolStripMenuItem.Name = "clearWinSATDataToolStripMenuItem";
-            this.clearWinSATDataToolStripMenuItem.Size = new System.Drawing.Size(217, 28);
+            this.clearWinSATDataToolStripMenuItem.Size = new System.Drawing.Size(214, 28);
             this.clearWinSATDataToolStripMenuItem.Text = "Clear WinSAT Data";
             this.clearWinSATDataToolStripMenuItem.Click += new System.EventHandler(this.clearWinSATDataToolStripMenuItem_Click);
             // 
             // runAssessmentToolStripMenuItem
             // 
             this.runAssessmentToolStripMenuItem.Name = "runAssessmentToolStripMenuItem";
-            this.runAssessmentToolStripMenuItem.Size = new System.Drawing.Size(217, 28);
+            this.runAssessmentToolStripMenuItem.Size = new System.Drawing.Size(214, 28);
             this.runAssessmentToolStripMenuItem.Text = "Run Assessment";
             this.runAssessmentToolStripMenuItem.Click += new System.EventHandler(this.runAssessmentToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(214, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(211, 6);
             // 
             // reloadDataToolStripMenuItem
             // 
             this.reloadDataToolStripMenuItem.Name = "reloadDataToolStripMenuItem";
-            this.reloadDataToolStripMenuItem.Size = new System.Drawing.Size(217, 28);
+            this.reloadDataToolStripMenuItem.Size = new System.Drawing.Size(214, 28);
             this.reloadDataToolStripMenuItem.Text = "Reload Data";
             this.reloadDataToolStripMenuItem.Click += new System.EventHandler(this.reloadDataToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(214, 6);
-            // 
-            // viewAssessmentLogToolStripMenuItem
-            // 
-            this.viewAssessmentLogToolStripMenuItem.Name = "viewAssessmentLogToolStripMenuItem";
-            this.viewAssessmentLogToolStripMenuItem.Size = new System.Drawing.Size(217, 28);
-            this.viewAssessmentLogToolStripMenuItem.Text = "View Assessment Log";
-            // 
-            // viewImgurLinksFileToolStripMenuItem1
-            // 
-            this.viewImgurLinksFileToolStripMenuItem1.Name = "viewImgurLinksFileToolStripMenuItem1";
-            this.viewImgurLinksFileToolStripMenuItem1.Size = new System.Drawing.Size(217, 28);
-            this.viewImgurLinksFileToolStripMenuItem1.Text = "View Imgur Links File";
-            // 
-            // viewWinSATLogToolStripMenuItem
-            // 
-            this.viewWinSATLogToolStripMenuItem.Name = "viewWinSATLogToolStripMenuItem";
-            this.viewWinSATLogToolStripMenuItem.Size = new System.Drawing.Size(217, 28);
-            this.viewWinSATLogToolStripMenuItem.Text = "View WinSAT Log";
             // 
             // systemDetailsToolStripMenuItem
             // 
             this.systemDetailsToolStripMenuItem.Name = "systemDetailsToolStripMenuItem";
-            this.systemDetailsToolStripMenuItem.Size = new System.Drawing.Size(217, 28);
+            this.systemDetailsToolStripMenuItem.Size = new System.Drawing.Size(214, 28);
             this.systemDetailsToolStripMenuItem.Text = "System Details";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(211, 6);
+            // 
+            // viewImgurLinksFileToolStripMenuItem1
+            // 
+            this.viewImgurLinksFileToolStripMenuItem1.Name = "viewImgurLinksFileToolStripMenuItem1";
+            this.viewImgurLinksFileToolStripMenuItem1.Size = new System.Drawing.Size(214, 28);
+            this.viewImgurLinksFileToolStripMenuItem1.Text = "View Imgur Links File";
+            this.viewImgurLinksFileToolStripMenuItem1.Click += new System.EventHandler(this.viewImgurLinksFileToolStripMenuItem1_Click);
+            // 
+            // viewWinSATLogToolStripMenuItem
+            // 
+            this.viewWinSATLogToolStripMenuItem.Name = "viewWinSATLogToolStripMenuItem";
+            this.viewWinSATLogToolStripMenuItem.Size = new System.Drawing.Size(214, 28);
+            this.viewWinSATLogToolStripMenuItem.Text = "View WinSAT Log";
+            this.viewWinSATLogToolStripMenuItem.Click += new System.EventHandler(this.viewWinSATLogToolStripMenuItem_Click);
             // 
             // mainWindow
             // 
@@ -1311,7 +1307,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
             this.ClientSize = new System.Drawing.Size(807, 485);
             this.Controls.Add(this.tlpMain);
-            this.Controls.Add(this.tlpSplit1);
+            this.Controls.Add(this.tlpSplit);
             this.Controls.Add(this.tlpMenu);
             this.Controls.Add(this.tlpTitle);
             this.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1354,7 +1350,7 @@
         internal System.Windows.Forms.Label lblTitle;
         internal System.Windows.Forms.Button cmdMinimize;
         internal System.Windows.Forms.Button cmdClose;
-        private System.Windows.Forms.TableLayoutPanel tlpSplit1;
+        private System.Windows.Forms.TableLayoutPanel tlpSplit;
         private System.Windows.Forms.Button cmdExport;
         private System.Windows.Forms.PictureBox pbxLogo;
         private System.Windows.Forms.TableLayoutPanel tlpMain;
@@ -1419,7 +1415,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem reloadDataToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripMenuItem viewAssessmentLogToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewWinSATLogToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem runAssessmentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clearWinSATDataToolStripMenuItem;

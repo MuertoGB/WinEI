@@ -109,8 +109,8 @@ namespace WinEI.UI
 
         private void METMessageBox_Shown(object sender, EventArgs e)
         {
-            //if (!Settings.SettingsGetBool(SettingsBoolType.DisableMessageSounds))
-            //    ssMmbSound.Play();
+            if (!Settings.ReadBool(SettingsBool.DisableSounds))
+                ssMmbSound.Play();
 
             InterfaceUtils.FlashForecolor(lblTitle);
             InterfaceUtils.FlashForecolor(cmdClose);

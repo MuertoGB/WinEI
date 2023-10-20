@@ -8,6 +8,7 @@ using System;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Xml;
 using WinEI.Common;
 using WinEI.Utils;
@@ -29,10 +30,9 @@ namespace WinEI.Winsat
     {
         internal string Processor { get; set; }
         internal string Memory { get; set; }
-        internal string MemorySizeBytes { get; set; }
+        internal long MemorySizeBytes { get; set; }
         internal string Graphics { get; set; }
-        internal string VramSizeMegabytes { get; set; }
-        internal string D3D { get; set; }
+        internal long VramSizeMegabytes { get; set; }
         internal string Disk { get; set; }
     }
 
@@ -87,6 +87,9 @@ namespace WinEI.Winsat
         internal static readonly string WinsatDataStorePath =
             Path.Combine(WinsatFilesPath, "DataStore");
 
+        internal static readonly string WinsatLog =
+            Path.Combine(WinsatFilesPath, "winsat.log");
+
         internal static readonly string CultureSeperator =
             CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
 
@@ -98,6 +101,7 @@ namespace WinEI.Winsat
         internal static XmlHardwareTypes XmlHardware;
         internal static WinsatScores ScorePool;
 
+        internal static bool ApiHardwareEnabled = false;
         internal static bool XmlHardwareEnabled = false;
         #endregion
 
@@ -277,6 +281,8 @@ namespace WinEI.Winsat
                     WINSATLib.WINSAT_ASSESSMENT_TYPE.WINSAT_ASSESSMENT_DISK,
                     INFO_TYPE.Description);
 
+                ApiHardwareEnabled = true;
+
                 // Return new ApiHardwarePool object.
                 return new ApiHardwareTypes
                 {
@@ -290,6 +296,7 @@ namespace WinEI.Winsat
             catch (Exception e)
             {
                 Logger.WriteExceptionToAppLog(e);
+                ApiHardwareEnabled = false;
                 return DefaultApiHardware();
             }
         }
@@ -312,8 +319,9 @@ namespace WinEI.Winsat
         {
             if (string.IsNullOrEmpty(filePath))
             {
-                Logger.WriteToAppLog(
-                    "GetWinsatXmlHardware: Bad filepath argument.");
+                Logger.WriteToLog(
+                    $"{MethodBase.GetCurrentMethod().Name}: Bad filepath argument.",
+                    LogType.ApplicationLog);
 
                 XmlHardwareEnabled = false;
 
@@ -323,32 +331,54 @@ namespace WinEI.Winsat
             // Parse processor model.
             string processor =
                 ParseXmlData(
-                    "WinSAT/SystemConfig/Processor/Instance", "ProcessorName", filePath);
+                    "WinSAT/SystemConfig/Processor/Instance",
+                    "ProcessorName",
+                    filePath);
 
             // Parse memory size.
             string memory =
                 ParseXmlData(
-                    "WinSAT/SystemConfig/Memory/DIMM", "MemoryType", filePath);
+                    "WinSAT/SystemConfig/Memory/DIMM",
+                    "MemoryType",
+                    filePath);
 
             // Parse memory size.
-            string memorySize =
+            string memorySizeString =
                 ParseXmlData(
-                    "WinSAT/SystemConfig/Memory/TotalPhysical", "Bytes", filePath);
+                    "WinSAT/SystemConfig/Memory/TotalPhysical",
+                    "Bytes",
+                    filePath);
+
+            long memorySize;
+
+            if (!long.TryParse(memorySizeString, out memorySize))
+                memorySize = 0;
 
             // Parse graphics card model.
             string graphics =
                 ParseXmlData(
-                    "WinSAT/SystemConfig/Graphics", "AdapterDescription", filePath);
+                    "WinSAT/SystemConfig/Graphics",
+                    "AdapterDescription",
+                    filePath);
 
             // Parse VRAM size.
-            string vramSizeMb =
+            string vramSizeMegaBytes =
                 ParseXmlData(
-                    "WinSAT/SystemConfig/Graphics", "DedicatedVideoMemory", filePath);
+                    "WinSAT/SystemConfig/Graphics",
+                    "DedicatedVideoMemory",
+                    filePath);
+
+            long vramSize;
+
+            if (!long.TryParse(vramSizeMegaBytes, out vramSize))
+                vramSize = 0;
 
             // Parse disk model.
             string disk =
                 ParseXmlData(
-                    "WinSAT/SystemConfig/Disk/SystemDisk", "Model", filePath);
+                    "WinSAT/SystemConfig/Disk/SystemDisk",
+                    "Model",
+                    filePath);
 
             XmlHardwareEnabled = true;
 
@@ -356,9 +386,9 @@ namespace WinEI.Winsat
             {
                 Processor = string.IsNullOrEmpty(processor) ? null : processor,
                 Memory = string.IsNullOrEmpty(memory) ? null : memory,
-                MemorySizeBytes = string.IsNullOrEmpty(memorySize) ? null : memorySize,
+                MemorySizeBytes = memorySize,
                 Graphics = string.IsNullOrEmpty(graphics) ? null : graphics,
-                VramSizeMegabytes = string.IsNullOrEmpty(vramSizeMb) ? null : vramSizeMb,
+                VramSizeMegabytes = vramSize,
                 Disk = string.IsNullOrEmpty(disk) ? null : disk,
             };
         }
@@ -369,10 +399,9 @@ namespace WinEI.Winsat
             {
                 Processor = null,
                 Memory = null,
-                MemorySizeBytes = null,
+                MemorySizeBytes = 0,
                 Graphics = null,
-                VramSizeMegabytes = null,
-                D3D = null,
+                VramSizeMegabytes = 0,
                 Disk = null
             };
         }

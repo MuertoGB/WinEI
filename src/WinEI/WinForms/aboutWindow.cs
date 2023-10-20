@@ -7,6 +7,7 @@
 
 using System;
 using System.Diagnostics;
+using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using WinEI.WIN32;
@@ -52,11 +53,23 @@ namespace WinEI
         #region Window Events
         private void aboutWindow_Load(object sender, EventArgs e)
         {
+            SetAccentColour();
+
             lblBuild.Text =
                 $"{Application.ProductVersion}.{WEIVersion.Build}";
 
             lblChannel.Text =
                 WEIVersion.Channel.ToUpper();
+        }
+
+        private void SetAccentColour()
+        {
+            Color accentColor =
+                Settings.GetAccentColour(
+                    Settings.ReadInteger(
+                        SettingsInteger.AccentColor));
+
+            pnlSplit1.BackColor = accentColor;
         }
         #endregion
 

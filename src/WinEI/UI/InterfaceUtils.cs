@@ -63,16 +63,15 @@ namespace WinEI.UI
             MouseEventArgs mouseEventArgs =
                 e as MouseEventArgs;
 
-            if (mouseEventArgs != null
-                && (mouseEventArgs.Button == MouseButtons.Right
+            if (mouseEventArgs != null && (mouseEventArgs.Button == MouseButtons.Right
                 || (showOnLeftClick && mouseEventArgs.Button == MouseButtons.Left)))
                 menu.Show(Cursor.Position);
         }
 
         internal static async void FlashForecolor(Control control)
         {
-            //if (!Settings.SettingsGetBool(SettingsBoolType.DisableFlashingUI))
-            //{
+            if (!Settings.ReadBool(SettingsBool.DisableFlashing))
+            {
                 Color originalColor = control.ForeColor;
 
                 for (int i = 0; i < 3; i++)
@@ -90,7 +89,7 @@ namespace WinEI.UI
 
                     await Task.Delay(70);
                 }
-            //}
+            }
         }
 
     }

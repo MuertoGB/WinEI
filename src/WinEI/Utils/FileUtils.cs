@@ -29,6 +29,10 @@ namespace WinEI.Utils
             return $"{sizeInSuffix:N2} {suffixes[suffixIndex]}";
         }
 
+        public static string ConvertBytesToMB(long bytes) =>
+            $"{Math.Ceiling((double)bytes / (1024 * 1024))} MB";
+
+
         internal static void RemoveFilesbyExtension(string extension, string path)
         {
             string[] files =

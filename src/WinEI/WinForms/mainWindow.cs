@@ -8,12 +8,14 @@
 using System;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using WinEI.Common;
 using WinEI.UI;
 using WinEI.Utils;
 using WinEI.WIN32;
+using WinEI.WinForms;
 using WinEI.Winsat;
 
 namespace WinEI
@@ -71,9 +73,15 @@ namespace WinEI
                 $"{Strings.BUILD} {OSUtils.GetWindowsBuild} " +
                 $"{OSUtils.GetSystemArchitecture(false)}";
 
+            SetAccentColour();
+
+            if (Settings.ReadBool(SettingsBool.ShowHardware))
+                swShowHardware.Checked = true;
+
             UpdateUI();
 
-            CheckForNewVersion();
+            if (!Settings.ReadBool(SettingsBool.DisableVersionCheck))
+                CheckForNewVersion();
         }
 
         internal async void CheckForNewVersion()
@@ -97,6 +105,32 @@ namespace WinEI
         private void mainWindow_Deactivate(object sender, EventArgs e) =>
             SetActivatedStatusControlForeColor(
                 tlpTitle, AppColours.DEACTIVATED_WINDOW_TEXT);
+
+        internal void SetAccentColour()
+        {
+            Color accentColor =
+                Settings.GetAccentColour(
+                    Settings.ReadInteger(
+                        SettingsInteger.AccentColor));
+
+            Label[] labels =
+            {
+                lblSubscoreProcessor,
+                lblSubscoreMemory,
+                lblSubscoreGraphics,
+                lblSubscoreD3d,
+                lblSubscoreDisk,
+                lblBaseScore
+            };
+
+            foreach (Label label in labels)
+            {
+                label.ForeColor = accentColor;
+            }
+
+            tlpSplit.BackColor = accentColor;
+            swShowHardware.CheckedColor = accentColor;
+        }
         #endregion
 
         #region KeyDown Events
@@ -317,7 +351,7 @@ namespace WinEI
             WindowState = FormWindowState.Minimized;
 
         private void cmdClose_Click(object sender, EventArgs e) =>
-            Program.Exit();
+            Close();
 
         private void cmdOptions_Click(object sender, EventArgs e)
         {
@@ -325,6 +359,17 @@ namespace WinEI
                 sender,
                 cmsOptions,
                 MenuPosition.BottomLeft);
+        }
+
+        private void cmdSettings_Click(object sender, EventArgs e)
+        {
+            SetHalfOpacity();
+
+            using (Form formWindow = new settingsWindow())
+            {
+                formWindow.FormClosed += ChildWindowClosed;
+                formWindow.ShowDialog();
+            }
         }
 
         private void cmdAbout_Click(object sender, EventArgs e)
@@ -377,6 +422,7 @@ namespace WinEI
 
         private void cmdShareOnImgur_Click(object sender, EventArgs e)
         {
+            // Check if the system is rated.
             if (WinsatReader.AssessmentSate == WinsatAssessmentState.UNAVAILABLE)
             {
                 DialogResult result =
@@ -395,34 +441,81 @@ namespace WinEI
                 return;
             }
 
-            if (!NetworkUtils.GetIsWebsiteAvailable(WEIUrl.ImgurAddress))
-            {
+            // Confirm upload to imgur.
+            DialogResult uploadResult =
                 WEIMessageBox.Show(
                        this,
-                       Strings.ERROR,
-                       Strings.ERROR_IMGUR_CONNECTION,
-                       WEIMessageBoxType.Warning,
+                       Strings.INFORMATION,
+                       Strings.IMGUR_UPLOAD_CONFIRM,
+                       WEIMessageBoxType.Question,
                        WEIMessageBoxButtons.YesNo);
 
-                return;
-            }
-
-            ImageUtils.CaptureControl(
-                WEIPath.ImgurTempFile,
-                this);
-
-            string url =
-                ImgurApi.UploadToImgur(
-                    ImgurApi.API_KEY,
-                    WEIPath.ImgurTempFile,
-                    true);
-
-            if (!string.IsNullOrEmpty(url))
+            if (uploadResult == DialogResult.Yes)
             {
-                Logger.WriteToImgurLog(url);
-                Process.Start(url);
-            }
+                // Check Imgur website is available.
+                if (!NetworkUtils.GetIsWebsiteAvailable(WEIUrl.ImgurAddress))
+                {
+                    WEIMessageBox.Show(
+                           this,
+                           Strings.ERROR,
+                           Strings.ERROR_IMGUR_CONNECTION,
+                           WEIMessageBoxType.Error,
+                           WEIMessageBoxButtons.YesNo);
 
+                    return;
+                }
+
+                // Capture window bitmap
+                ImageUtils.CaptureControl(
+                    WEIPath.ImgurTempFile,
+                    this);
+
+                // Attempt Imgur upload.
+                string url =
+                    ImgurApi.UploadToImgur(
+                        ImgurApi.API_KEY,
+                        WEIPath.ImgurTempFile,
+                        true);
+
+                // Imgur upload returned a URL.
+                if (!string.IsNullOrEmpty(url))
+                {
+                    // Check whether we should log the URL.
+                    if (Settings.ReadBool(SettingsBool.LogImgurUrls))
+                    {
+                        Logger.WriteToLog(url, LogType.ImgurLog);
+                    }
+
+                    // Check whether we should open a browser window, or show a message.
+                    if (Settings.ReadBool(SettingsBool.OpenImgurUrls))
+                    {
+                        Process.Start(url);
+                    }
+                    else
+                    {
+                        DialogResult copyResult =
+                            WEIMessageBox.Show(
+                                this,
+                                Strings.INFORMATION,
+                                $"{Strings.IMGUR_UPLOAD_COMPLETE} {url}\r\n{Strings.QUESTION_COPY_URL_TO_CLIPBOARD}",
+                                WEIMessageBoxType.Question,
+                                WEIMessageBoxButtons.YesNo);
+
+                        if (copyResult == DialogResult.Yes)
+                            Clipboard.SetText(url);
+
+                        return;
+                    }
+                }
+
+                // Imgur upload returned an empty or null string.
+                WEIMessageBox.Show(
+                           this,
+                           Strings.ERROR,
+                           Strings.ERROR_IMGUR_RESPONSE,
+                           WEIMessageBoxType.Error,
+                           WEIMessageBoxButtons.Okay);
+            }
         }
 
         private void SetButtonProperties()
@@ -448,6 +541,15 @@ namespace WinEI
         }
         #endregion
 
+        #region Switch Events
+        private void swShowHardware_CheckedChanged(object sender, EventArgs e)
+        {
+            WEISwitch control = (WEISwitch)sender;
+
+            ToggleHardwareStrings(control.Checked);
+        }
+        #endregion
+
         #region Label Events
         private void lblTitle_Click(object sender, EventArgs e) =>
             InterfaceUtils.ShowContextMenuAtCursor(sender, e, cmsApplication, false);
@@ -468,7 +570,7 @@ namespace WinEI
             CenterToScreen();
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e) =>
-            Program.Exit();
+            Close();
 
         private void clearWinSATDataToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -515,6 +617,38 @@ namespace WinEI
 
         private void reloadDataToolStripMenuItem_Click(object sender, EventArgs e) =>
             ReloadData();
+
+        private void viewImgurLinksFileToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(WEIPath.ImgurLinksFile))
+            {
+                Process.Start(WEIPath.ImgurLinksFile);
+                return;
+            }
+
+            WEIMessageBox.Show(
+                this,
+                Strings.WARNING,
+                Strings.IMGUR_LOG_NOT_FOUND,
+                WEIMessageBoxType.Warning,
+                WEIMessageBoxButtons.Okay);
+        }
+
+        private void viewWinSATLogToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(WinsatReader.WinsatLog))
+            {
+                Process.Start(WinsatReader.WinsatLog);
+                return;
+            }
+
+            WEIMessageBox.Show(
+                this,
+                Strings.WARNING,
+                Strings.WINSAT_LOG_NOT_FOUND,
+                WEIMessageBoxType.Warning,
+                WEIMessageBoxButtons.Okay);
+        }
         #endregion
 
         #region PictureBox Events
@@ -547,6 +681,94 @@ namespace WinEI
         {
             WinsatReader.LoadWinsatData();
             UpdateUI();
+        }
+
+        private void ToggleHardwareStrings(bool showHardware)
+        {
+            // Show default strings
+            if (!showHardware)
+            {
+                SetDefaultHardwareStrings();
+
+                return;
+            }
+
+            if (!Settings.ReadBool(SettingsBool.ApiHardwareMode))
+            {
+                if (WinsatReader.XmlHardwareEnabled)
+                {
+                    lblProcessor.Text =
+                        WinsatReader.XmlHardware.Processor;
+
+                    lblMemory.Text =
+                        $"{MemoryType.Convert(WinsatReader.XmlHardware.Memory)} " +
+                        $"{FileUtils.GetBytesReadableSize(WinsatReader.XmlHardware.MemorySizeBytes)}";
+
+                    lblGraphics.Text =
+                        WinsatReader.XmlHardware.Graphics;
+
+                    lblD3d.Text =
+                        $"{FileUtils.ConvertBytesToMB(WinsatReader.XmlHardware.VramSizeMegabytes)} VRAM";
+
+                    lblDisk.Text =
+                        WinsatReader.XmlHardware.Disk;
+
+                    return;
+                }
+                else
+                {
+                    WEIMessageBox.Show(
+                        this,
+                        Strings.ERROR,
+                        "XML Hardware Mode was disabled by the WinsatReader.",
+                        WEIMessageBoxType.Error,
+                        WEIMessageBoxButtons.Okay);
+
+                    swShowHardware.Checked = false;
+
+                    return;
+                }
+            }
+
+            if (WinsatReader.ApiHardwareEnabled)
+            {
+                lblProcessor.Text =
+                    WinsatReader.ApiHardware.Processor;
+
+                lblMemory.Text =
+                    WinsatReader.ApiHardware.Memory;
+
+                lblGraphics.Text =
+                    WinsatReader.ApiHardware.Graphics;
+
+                lblD3d.Text =
+                    WinsatReader.ApiHardware.D3D;
+
+                lblDisk.Text =
+                    WinsatReader.ApiHardware.Disk;
+            }
+            else
+            {
+                WEIMessageBox.Show(
+                    this,
+                    Strings.ERROR,
+                    "API Hardware Mode was disabled by the WinsatReader.",
+                    WEIMessageBoxType.Error,
+                    WEIMessageBoxButtons.Okay);
+
+                swShowHardware.Checked = false;
+
+                return;
+            }
+        }
+
+        private void SetDefaultHardwareStrings()
+        {
+            lblProcessor.Text = Strings.DEFAULT_PROCESSOR;
+            lblMemory.Text = Strings.DEFAULT_MEMORY;
+            lblGraphics.Text = Strings.DEFAULT_GRAPHICS;
+            lblD3d.Text = Strings.DEFAULT_D3D;
+            lblDisk.Text = Strings.DEFAULT_DISK;
         }
         #endregion
 

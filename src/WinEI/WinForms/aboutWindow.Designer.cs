@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(aboutWindow));
-            this.pnlSeperator = new System.Windows.Forms.Panel();
+            this.pnlSplit1 = new System.Windows.Forms.Panel();
             this.cmdClose = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.cmdDonate = new System.Windows.Forms.Button();
@@ -43,7 +43,7 @@
             this.lblChannel = new System.Windows.Forms.Label();
             this.lblInfo = new System.Windows.Forms.Label();
             this.lblBuild = new System.Windows.Forms.Label();
-            this.pnlSplit = new System.Windows.Forms.Panel();
+            this.pnlSplit2 = new System.Windows.Forms.Panel();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.tlpTop = new System.Windows.Forms.TableLayoutPanel();
             this.tlpTopLabels = new System.Windows.Forms.TableLayoutPanel();
@@ -56,15 +56,15 @@
             this.tlpTopLabels.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pnlSeperator
+            // pnlSplit1
             // 
-            this.pnlSeperator.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
-            this.pnlSeperator.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlSeperator.Location = new System.Drawing.Point(1, 41);
-            this.pnlSeperator.Margin = new System.Windows.Forms.Padding(2);
-            this.pnlSeperator.Name = "pnlSeperator";
-            this.pnlSeperator.Size = new System.Drawing.Size(438, 2);
-            this.pnlSeperator.TabIndex = 97;
+            this.pnlSplit1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
+            this.pnlSplit1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlSplit1.Location = new System.Drawing.Point(1, 41);
+            this.pnlSplit1.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlSplit1.Name = "pnlSplit1";
+            this.pnlSplit1.Size = new System.Drawing.Size(438, 2);
+            this.pnlSplit1.TabIndex = 97;
             // 
             // cmdClose
             // 
@@ -311,21 +311,21 @@
             this.lblBuild.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblBuild.UseMnemonic = false;
             // 
-            // pnlSplit
+            // pnlSplit2
             // 
-            this.pnlSplit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.pnlSplit.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlSplit.Location = new System.Drawing.Point(0, 92);
-            this.pnlSplit.Margin = new System.Windows.Forms.Padding(2);
-            this.pnlSplit.Name = "pnlSplit";
-            this.pnlSplit.Size = new System.Drawing.Size(438, 1);
-            this.pnlSplit.TabIndex = 88;
+            this.pnlSplit2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.pnlSplit2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlSplit2.Location = new System.Drawing.Point(0, 92);
+            this.pnlSplit2.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlSplit2.Name = "pnlSplit2";
+            this.pnlSplit2.Size = new System.Drawing.Size(438, 1);
+            this.pnlSplit2.TabIndex = 88;
             // 
             // pnlMain
             // 
             this.pnlMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.pnlMain.Controls.Add(this.lblInfo);
-            this.pnlMain.Controls.Add(this.pnlSplit);
+            this.pnlMain.Controls.Add(this.pnlSplit2);
             this.pnlMain.Controls.Add(this.tlpTop);
             this.pnlMain.Controls.Add(this.tableLayoutPanel1);
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -378,7 +378,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
             this.ClientSize = new System.Drawing.Size(440, 280);
-            this.Controls.Add(this.pnlSeperator);
+            this.Controls.Add(this.pnlSplit1);
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.tlpTitle);
             this.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -406,7 +406,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel pnlSeperator;
+        private System.Windows.Forms.Panel pnlSplit1;
         internal System.Windows.Forms.Button cmdClose;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button cmdDonate;
@@ -420,7 +420,7 @@
         internal System.Windows.Forms.Label lblChannel;
         private System.Windows.Forms.Label lblInfo;
         internal System.Windows.Forms.Label lblBuild;
-        private System.Windows.Forms.Panel pnlSplit;
+        private System.Windows.Forms.Panel pnlSplit2;
         internal System.Windows.Forms.Panel pnlMain;
         private System.Windows.Forms.TableLayoutPanel tlpTop;
         internal System.Windows.Forms.TableLayoutPanel tlpTopLabels;

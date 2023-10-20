@@ -19,9 +19,11 @@ namespace WinEI.UI
         internal static readonly Color CHECKED = Color.FromArgb(85, 170, 255);
         internal static readonly Color SWITCH_HEAD_ENABLED = Color.FromArgb(170, 170, 170);
         internal static readonly Color SWITCH_HEAD_DISABLED = Color.FromArgb(100, 100, 100);
-
         internal static readonly Color WARNING_BOX = Color.Tomato;
         internal static readonly Color ERROR_BOX = Color.FromArgb(240, 70, 80);
         internal static readonly Color INFO_BOX = Color.FromArgb(85, 170, 255);
+        internal static readonly Color CONTROL_DISABLED_TEXT = Color.FromArgb(140, 140, 140);
+        internal static readonly Color CONTROL_WHITE_TEXT = Color.FromArgb(255, 255, 255);
+        internal static readonly Color FOCUS_RECTANGLE = Color.FromArgb(150, 150, 150);
     }
 }

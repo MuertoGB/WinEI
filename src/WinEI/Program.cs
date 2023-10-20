@@ -43,7 +43,7 @@ namespace WinEI
 
     internal readonly struct WEIVersion
     {
-        internal const string Build = "231019.2120";
+        internal const string Build = "231020.1430";
         internal const string Channel = "Pre-Alpha";
     }
     #endregion
@@ -165,15 +165,14 @@ namespace WinEI
             Application.Run(mWindow);
         }
 
-        private static void mWindow_FormClosed(object sender, FormClosedEventArgs e)
-        {
+        private static void mWindow_FormClosed(object sender, FormClosedEventArgs e) =>
             Application.Exit();
-        }
 
         private static void HandleCodeExit(string message, int exitCode)
         {
-            Logger.WriteToAppLog(
-                $"{Strings.EXITED_WITH_CODE} ({exitCode}). {message}");
+            Logger.WriteToLog(
+                $"{Strings.EXITED_WITH_CODE} ({exitCode}). {message}",
+                LogType.ApplicationLog);
 
             MessageBox.Show(
                 message + $"\r\n\r\n{Strings.APPLICATION_WILL_EXIT}",
@@ -261,9 +260,6 @@ namespace WinEI
         #endregion
 
         #region Exit Actions
-        internal static void Exit() =>
-            Application.Exit();
-
         internal static void Restart()
         {
             try

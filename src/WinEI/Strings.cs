@@ -50,6 +50,9 @@ namespace WinEI
         internal const string ERROR_IMGUR_CONNECTION =
             "A connection to Imgur could not be established.";
 
+        internal const string ERROR_IMGUR_RESPONSE =
+            "Did not get a URL back from Imgur. The upload was not successful.";
+
         internal const string FEATURE_REQUIRES_ELEVATION =
             "This feature requires elevated privilages, would you like to restart as administrator?";
 
@@ -74,6 +77,9 @@ namespace WinEI
         internal const string QUESTION_RATE_SYSTEM =
             "Would you like to perform the initial assessment?";
 
+        internal const string QUESTION_COPY_URL_TO_CLIPBOARD =
+            "Copy URL text to clipboard?";
+
         internal const string DETAILS_SAVED_TO_LOG =
             "Details were saved to the application log.";
 
@@ -82,5 +88,32 @@ namespace WinEI
 
         internal const string WINSAT_DATE_FORMAT =
             "dddd, MMM d yyyy hh:mm tt";
+
+        internal const string WINSAT_LOG_NOT_FOUND =
+            "The WinSAT log file was not found and could not be opened.";
+
+        internal const string IMGUR_LOG_NOT_FOUND =
+            "The Imgur links file was not found and could not be opened.";
+
+        internal const string IMGUR_UPLOAD_CONFIRM =
+            "This will capture an image of the application, and upload it to Imgur. Are you sure you want to continue?";
+
+        internal const string IMGUR_UPLOAD_COMPLETE =
+            "Image uploaded to Imgur:";
+
+        internal const string DEFAULT_PROCESSOR =
+            "Calculations per Second";
+
+        internal const string DEFAULT_MEMORY =
+            "Memory Operations per Second";
+
+        internal const string DEFAULT_GRAPHICS =
+            "Desktop Graphics Performance";
+
+        internal const string DEFAULT_D3D =
+            "3D Business and Gaming Graphics Performance";
+
+        internal const string DEFAULT_DISK =
+            "Disk Data Transfer Rate";
     }
 }

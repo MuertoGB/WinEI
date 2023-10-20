@@ -57,7 +57,18 @@
     <Compile Include="Common\FontResolver.cs" />
     <Compile Include="Common\ImgurApi.cs" />
     <Compile Include="Common\IniFile.cs" />
+    <Compile Include="Common\MemoryType.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="UI\Controls\WEIRadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Design\WEIRadioButtonDesigner.cs" />
+    <Compile Include="WinForms\settingsWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\settingsWindow.Designer.cs">
+      <DependentUpon>settingsWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="WinSAT\WinsatBugChecker.cs" />
     <Compile Include="Common\KeyboardHookManager.cs" />
     <Compile Include="Common\Logger.cs" />
@@ -125,6 +136,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="WinForms\settingsWindow.resx">
+      <DependentUpon>settingsWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="..\.editorconfig">
       <Link>.editorconfig</Link>
     </None>
