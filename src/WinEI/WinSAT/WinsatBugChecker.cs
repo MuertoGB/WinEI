@@ -3,7 +3,7 @@
 
 // WinsatBugChecker.cs
 // Released under the GNU GLP v3.0
-// MS released a bugged version of the WinSAT executable back on WIndows 7,
+// MS released a bugged version of the WinSAT executable back on Windows 7,
 // this code looks for the bugged versions.
 
 using System.Diagnostics;
@@ -14,8 +14,9 @@ namespace WenEI.Winsat
 {
     public class WinsatBugChecker
     {
-        // List of affected WinSAT versions (Failed to properly assess the disk. The parameter is incorrect.)
-        internal static string[] WinsatBuggedVersions =
+        // List of affected WinSAT versions
+        // ERROR: Failed to properly assess the disk. The parameter is incorrect.
+        internal static string[] Matches =
         {
             "6.1.7600.16976",
             "6.1.7600.21167",
@@ -32,18 +33,18 @@ namespace WenEI.Winsat
                 FileVersionInfo fvi =
                     OSUtils.GetWinsatExeVersion;
 
-                string winsatVersion =
+                // Build version string with the private part, we cannot
+                // do it with ProductVersion alone.
+                string installedVersion =
                     $"{fvi.FileMajorPart}." +
                     $"{fvi.FileMinorPart}." +
                     $"{fvi.FileBuildPart}." +
                     $"{fvi.FilePrivatePart}";
 
                 // Check the list of affected versions against the current executable.
-                if (WinsatBuggedVersions.Contains(winsatVersion))
-                {
+                if (Matches.Contains(installedVersion))
                     // A bugged winsat executable was found.
                     return true;
-                }
             }
 
             // A bugged version was not found.

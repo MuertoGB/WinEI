@@ -36,8 +36,8 @@
             this.pnlSplit = new System.Windows.Forms.Panel();
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
             this.cmdExportImage = new System.Windows.Forms.Button();
-            this.lblTextExportAsImage = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblExportImage = new System.Windows.Forms.Label();
+            this.lblExportText = new System.Windows.Forms.Label();
             this.cmdExportText = new System.Windows.Forms.Button();
             this.tlpTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
@@ -134,8 +134,8 @@
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 1F));
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tlpMain.Controls.Add(this.cmdExportImage, 2, 0);
-            this.tlpMain.Controls.Add(this.lblTextExportAsImage, 0, 0);
-            this.tlpMain.Controls.Add(this.label4, 0, 2);
+            this.tlpMain.Controls.Add(this.lblExportImage, 0, 0);
+            this.tlpMain.Controls.Add(this.lblExportText, 0, 2);
             this.tlpMain.Controls.Add(this.cmdExportText, 2, 2);
             this.tlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpMain.Location = new System.Drawing.Point(1, 43);
@@ -173,35 +173,35 @@
             this.cmdExportImage.UseVisualStyleBackColor = false;
             this.cmdExportImage.Click += new System.EventHandler(this.cmdExportImage_Click);
             // 
-            // lblTextExportAsImage
+            // lblExportImage
             // 
-            this.lblTextExportAsImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.lblTextExportAsImage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTextExportAsImage.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTextExportAsImage.ForeColor = System.Drawing.Color.White;
-            this.lblTextExportAsImage.Location = new System.Drawing.Point(0, 0);
-            this.lblTextExportAsImage.Margin = new System.Windows.Forms.Padding(0);
-            this.lblTextExportAsImage.Name = "lblTextExportAsImage";
-            this.lblTextExportAsImage.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
-            this.lblTextExportAsImage.Size = new System.Drawing.Size(293, 52);
-            this.lblTextExportAsImage.TabIndex = 99;
-            this.lblTextExportAsImage.Text = "Export WinEI Printscreen";
-            this.lblTextExportAsImage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblExportImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.lblExportImage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblExportImage.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblExportImage.ForeColor = System.Drawing.Color.White;
+            this.lblExportImage.Location = new System.Drawing.Point(0, 0);
+            this.lblExportImage.Margin = new System.Windows.Forms.Padding(0);
+            this.lblExportImage.Name = "lblExportImage";
+            this.lblExportImage.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
+            this.lblExportImage.Size = new System.Drawing.Size(293, 52);
+            this.lblExportImage.TabIndex = 99;
+            this.lblExportImage.Text = "Export WinEI Printscreen";
+            this.lblExportImage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label4
+            // lblExportText
             // 
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(0, 53);
-            this.label4.Margin = new System.Windows.Forms.Padding(0);
-            this.label4.Name = "label4";
-            this.label4.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
-            this.label4.Size = new System.Drawing.Size(293, 52);
-            this.label4.TabIndex = 99;
-            this.label4.Text = "Export WinSAT Information to a Text File";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblExportText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.lblExportText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblExportText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblExportText.ForeColor = System.Drawing.Color.White;
+            this.lblExportText.Location = new System.Drawing.Point(0, 53);
+            this.lblExportText.Margin = new System.Windows.Forms.Padding(0);
+            this.lblExportText.Name = "lblExportText";
+            this.lblExportText.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
+            this.lblExportText.Size = new System.Drawing.Size(293, 52);
+            this.lblExportText.TabIndex = 99;
+            this.lblExportText.Text = "Export WinSAT Information to a Text File";
+            this.lblExportText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // cmdExportText
             // 
@@ -262,8 +262,8 @@
         internal System.Windows.Forms.Label lblTitle;
         internal System.Windows.Forms.Panel pnlSplit;
         private System.Windows.Forms.TableLayoutPanel tlpMain;
-        private System.Windows.Forms.Label lblTextExportAsImage;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblExportImage;
+        private System.Windows.Forms.Label lblExportText;
         private System.Windows.Forms.Button cmdExportImage;
         private System.Windows.Forms.Button cmdExportText;
     }

@@ -77,6 +77,7 @@
             this.lblBaseScore = new System.Windows.Forms.Label();
             this.tlpBottom = new System.Windows.Forms.TableLayoutPanel();
             this.cmdAssessment = new System.Windows.Forms.Button();
+            this.lblTextValidity = new System.Windows.Forms.Label();
             this.lblTextOperatingSystem = new System.Windows.Forms.Label();
             this.lblOperatingSystem = new System.Windows.Forms.Label();
             this.lblTextAssessmentDate = new System.Windows.Forms.Label();
@@ -87,9 +88,8 @@
             this.cmdShareOnImgur = new System.Windows.Forms.Button();
             this.tlpBottomNestedShowHardware = new System.Windows.Forms.TableLayoutPanel();
             this.tlpBottomNestedValidity = new System.Windows.Forms.TableLayoutPanel();
-            this.lblTextValidity = new System.Windows.Forms.Label();
-            this.pnlValidityStatus = new System.Windows.Forms.Panel();
             this.lblScoreValidity = new System.Windows.Forms.Label();
+            this.pnlValidityStatus = new System.Windows.Forms.Panel();
             this.swShowHardware = new WinEI.UI.WEISwitch();
             this.cmsApplication = new WinEI.UI.WEIContextMenuStrip();
             this.minimizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -460,7 +460,7 @@
             this.lblRatingScale.Location = new System.Drawing.Point(0, 0);
             this.lblRatingScale.Margin = new System.Windows.Forms.Padding(0);
             this.lblRatingScale.Name = "lblRatingScale";
-            this.lblRatingScale.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.lblRatingScale.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
             this.lblRatingScale.Size = new System.Drawing.Size(805, 38);
             this.lblRatingScale.TabIndex = 99;
             this.lblRatingScale.Text = "The Experience Index assesses key system components.";
@@ -625,7 +625,7 @@
             this.lblGraphics.Location = new System.Drawing.Point(0, 78);
             this.lblGraphics.Margin = new System.Windows.Forms.Padding(0);
             this.lblGraphics.Name = "lblGraphics";
-            this.lblGraphics.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.lblGraphics.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.lblGraphics.Size = new System.Drawing.Size(392, 38);
             this.lblGraphics.TabIndex = 99;
             this.lblGraphics.Text = "Desktop Graphics Performance";
@@ -640,7 +640,7 @@
             this.lblMemory.Location = new System.Drawing.Point(0, 39);
             this.lblMemory.Margin = new System.Windows.Forms.Padding(0);
             this.lblMemory.Name = "lblMemory";
-            this.lblMemory.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.lblMemory.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.lblMemory.Size = new System.Drawing.Size(392, 38);
             this.lblMemory.TabIndex = 99;
             this.lblMemory.Text = "Memory Operations per Second";
@@ -655,7 +655,7 @@
             this.lblProcessor.Location = new System.Drawing.Point(0, 0);
             this.lblProcessor.Margin = new System.Windows.Forms.Padding(0);
             this.lblProcessor.Name = "lblProcessor";
-            this.lblProcessor.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.lblProcessor.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.lblProcessor.Size = new System.Drawing.Size(392, 38);
             this.lblProcessor.TabIndex = 1;
             this.lblProcessor.Text = "Calculations per Second";
@@ -670,7 +670,7 @@
             this.lblD3d.Location = new System.Drawing.Point(0, 117);
             this.lblD3d.Margin = new System.Windows.Forms.Padding(0);
             this.lblD3d.Name = "lblD3d";
-            this.lblD3d.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.lblD3d.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.lblD3d.Size = new System.Drawing.Size(392, 38);
             this.lblD3d.TabIndex = 99;
             this.lblD3d.Text = "3D Business and Gaming Graphics Performance";
@@ -685,7 +685,7 @@
             this.lblDisk.Location = new System.Drawing.Point(0, 156);
             this.lblDisk.Margin = new System.Windows.Forms.Padding(0);
             this.lblDisk.Name = "lblDisk";
-            this.lblDisk.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.lblDisk.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.lblDisk.Size = new System.Drawing.Size(392, 38);
             this.lblDisk.TabIndex = 99;
             this.lblDisk.Text = "Disk Data Transfer Rate";
@@ -726,7 +726,7 @@
             this.lblTextGraphics.Location = new System.Drawing.Point(0, 78);
             this.lblTextGraphics.Margin = new System.Windows.Forms.Padding(0);
             this.lblTextGraphics.Name = "lblTextGraphics";
-            this.lblTextGraphics.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.lblTextGraphics.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.lblTextGraphics.Size = new System.Drawing.Size(150, 38);
             this.lblTextGraphics.TabIndex = 99;
             this.lblTextGraphics.Text = "Graphics";
@@ -741,7 +741,7 @@
             this.lblTextMemory.Location = new System.Drawing.Point(0, 39);
             this.lblTextMemory.Margin = new System.Windows.Forms.Padding(0);
             this.lblTextMemory.Name = "lblTextMemory";
-            this.lblTextMemory.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.lblTextMemory.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.lblTextMemory.Size = new System.Drawing.Size(150, 38);
             this.lblTextMemory.TabIndex = 100;
             this.lblTextMemory.Text = "Memory (RAM)";
@@ -756,7 +756,7 @@
             this.lblTextProcessor.Location = new System.Drawing.Point(0, 0);
             this.lblTextProcessor.Margin = new System.Windows.Forms.Padding(0);
             this.lblTextProcessor.Name = "lblTextProcessor";
-            this.lblTextProcessor.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.lblTextProcessor.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.lblTextProcessor.Size = new System.Drawing.Size(150, 38);
             this.lblTextProcessor.TabIndex = 99;
             this.lblTextProcessor.Text = "Processor";
@@ -771,7 +771,7 @@
             this.lblTextD3d.Location = new System.Drawing.Point(0, 117);
             this.lblTextD3d.Margin = new System.Windows.Forms.Padding(0);
             this.lblTextD3d.Name = "lblTextD3d";
-            this.lblTextD3d.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.lblTextD3d.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.lblTextD3d.Size = new System.Drawing.Size(150, 38);
             this.lblTextD3d.TabIndex = 99;
             this.lblTextD3d.Text = "Gaming Graphics";
@@ -786,7 +786,7 @@
             this.lblTextDisk.Location = new System.Drawing.Point(0, 156);
             this.lblTextDisk.Margin = new System.Windows.Forms.Padding(0);
             this.lblTextDisk.Name = "lblTextDisk";
-            this.lblTextDisk.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.lblTextDisk.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.lblTextDisk.Size = new System.Drawing.Size(150, 38);
             this.lblTextDisk.TabIndex = 99;
             this.lblTextDisk.Text = "Primary Disk";
@@ -988,6 +988,21 @@
             this.cmdAssessment.UseVisualStyleBackColor = false;
             this.cmdAssessment.Click += new System.EventHandler(this.cmdAssessment_Click);
             // 
+            // lblTextValidity
+            // 
+            this.lblTextValidity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.lblTextValidity.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTextValidity.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTextValidity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(225)))), ((int)(((byte)(240)))));
+            this.lblTextValidity.Location = new System.Drawing.Point(0, 0);
+            this.lblTextValidity.Margin = new System.Windows.Forms.Padding(0);
+            this.lblTextValidity.Name = "lblTextValidity";
+            this.lblTextValidity.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.lblTextValidity.Size = new System.Drawing.Size(150, 38);
+            this.lblTextValidity.TabIndex = 99;
+            this.lblTextValidity.Text = "Validity";
+            this.lblTextValidity.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // lblTextOperatingSystem
             // 
             this.lblTextOperatingSystem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
@@ -997,7 +1012,7 @@
             this.lblTextOperatingSystem.Location = new System.Drawing.Point(0, 78);
             this.lblTextOperatingSystem.Margin = new System.Windows.Forms.Padding(0);
             this.lblTextOperatingSystem.Name = "lblTextOperatingSystem";
-            this.lblTextOperatingSystem.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.lblTextOperatingSystem.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.lblTextOperatingSystem.Size = new System.Drawing.Size(150, 38);
             this.lblTextOperatingSystem.TabIndex = 99;
             this.lblTextOperatingSystem.Text = "Operating System";
@@ -1012,7 +1027,7 @@
             this.lblOperatingSystem.Location = new System.Drawing.Point(151, 78);
             this.lblOperatingSystem.Margin = new System.Windows.Forms.Padding(0);
             this.lblOperatingSystem.Name = "lblOperatingSystem";
-            this.lblOperatingSystem.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.lblOperatingSystem.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.lblOperatingSystem.Size = new System.Drawing.Size(392, 38);
             this.lblOperatingSystem.TabIndex = 99;
             this.lblOperatingSystem.Text = "...";
@@ -1027,7 +1042,7 @@
             this.lblTextAssessmentDate.Location = new System.Drawing.Point(0, 39);
             this.lblTextAssessmentDate.Margin = new System.Windows.Forms.Padding(0);
             this.lblTextAssessmentDate.Name = "lblTextAssessmentDate";
-            this.lblTextAssessmentDate.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.lblTextAssessmentDate.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.lblTextAssessmentDate.Size = new System.Drawing.Size(150, 38);
             this.lblTextAssessmentDate.TabIndex = 99;
             this.lblTextAssessmentDate.Text = "Assessment Date";
@@ -1042,7 +1057,7 @@
             this.lblAssessmentDate.Location = new System.Drawing.Point(151, 39);
             this.lblAssessmentDate.Margin = new System.Windows.Forms.Padding(0);
             this.lblAssessmentDate.Name = "lblAssessmentDate";
-            this.lblAssessmentDate.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.lblAssessmentDate.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.lblAssessmentDate.Size = new System.Drawing.Size(392, 38);
             this.lblAssessmentDate.TabIndex = 99;
             this.lblAssessmentDate.Text = "...";
@@ -1146,20 +1161,20 @@
             this.tlpBottomNestedValidity.Size = new System.Drawing.Size(392, 38);
             this.tlpBottomNestedValidity.TabIndex = 101;
             // 
-            // lblTextValidity
+            // lblScoreValidity
             // 
-            this.lblTextValidity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.lblTextValidity.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTextValidity.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTextValidity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(225)))), ((int)(((byte)(240)))));
-            this.lblTextValidity.Location = new System.Drawing.Point(0, 0);
-            this.lblTextValidity.Margin = new System.Windows.Forms.Padding(0);
-            this.lblTextValidity.Name = "lblTextValidity";
-            this.lblTextValidity.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
-            this.lblTextValidity.Size = new System.Drawing.Size(150, 38);
-            this.lblTextValidity.TabIndex = 99;
-            this.lblTextValidity.Text = "Validity";
-            this.lblTextValidity.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblScoreValidity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.lblScoreValidity.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblScoreValidity.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblScoreValidity.ForeColor = System.Drawing.Color.White;
+            this.lblScoreValidity.Location = new System.Drawing.Point(0, 0);
+            this.lblScoreValidity.Margin = new System.Windows.Forms.Padding(0);
+            this.lblScoreValidity.Name = "lblScoreValidity";
+            this.lblScoreValidity.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.lblScoreValidity.Size = new System.Drawing.Size(389, 38);
+            this.lblScoreValidity.TabIndex = 100;
+            this.lblScoreValidity.Text = "...";
+            this.lblScoreValidity.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pnlValidityStatus
             // 
@@ -1170,21 +1185,6 @@
             this.pnlValidityStatus.Name = "pnlValidityStatus";
             this.pnlValidityStatus.Size = new System.Drawing.Size(3, 38);
             this.pnlValidityStatus.TabIndex = 99;
-            // 
-            // lblScoreValidity
-            // 
-            this.lblScoreValidity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.lblScoreValidity.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblScoreValidity.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblScoreValidity.ForeColor = System.Drawing.Color.White;
-            this.lblScoreValidity.Location = new System.Drawing.Point(0, 0);
-            this.lblScoreValidity.Margin = new System.Windows.Forms.Padding(0);
-            this.lblScoreValidity.Name = "lblScoreValidity";
-            this.lblScoreValidity.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
-            this.lblScoreValidity.Size = new System.Drawing.Size(389, 38);
-            this.lblScoreValidity.TabIndex = 100;
-            this.lblScoreValidity.Text = "...";
-            this.lblScoreValidity.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // swShowHardware
             // 
