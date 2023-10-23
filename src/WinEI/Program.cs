@@ -45,7 +45,7 @@ namespace WinEI
 
     internal readonly struct WEIVersion
     {
-        internal const string Build = "231023.0155";
+        internal const string Build = "231023.0345";
         internal const string Channel = "Pre-Alpha";
     }
     #endregion
@@ -54,9 +54,7 @@ namespace WinEI
     internal enum ExportType
     {
         None,
-        JPEG,
-        PNG,
-        Bitmap,
+        Image,
         Text
     }
     #endregion

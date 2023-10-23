@@ -8,6 +8,7 @@
 using System;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -384,6 +385,19 @@ namespace WinEI
 
         private void cmdExport_Click(object sender, EventArgs e)
         {
+
+            if (WinsatReader.AssessmentSate == WinsatAssessmentState.UNAVAILABLE)
+            {
+                WEIMessageBox.Show(
+                    this,
+                    Strings.ERROR,
+                    Strings.SYSTEM_MUST_BE_RATED,
+                    WEIMessageBoxType.Error,
+                    WEIMessageBoxButtons.Okay);
+
+                return;
+            }
+
             SetHalfOpacity();
 
             DialogResult result =
@@ -397,8 +411,14 @@ namespace WinEI
 
             if (result == DialogResult.OK)
             {
-                MessageBox.Show(
-                    Program.EXPORT_TYPE.ToString());
+                if (Program.EXPORT_TYPE == ExportType.Image)
+                {
+                    Bitmap bitmap =
+                        ImageUtils.GetBitmapOfControl(
+                            this);
+
+                    SaveAsImageWithDialog(bitmap);
+                }
             }
 
             // Reset export type.
@@ -937,6 +957,59 @@ namespace WinEI
             lblDisk.Text = Strings.DEFAULT_DISK;
         }
         #endregion
+
+        internal void SaveAsImageWithDialog(Bitmap bitmap)
+        {
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                InitialDirectory =
+                    Environment.GetFolderPath(
+                        Environment.SpecialFolder.MyPictures),
+
+                Filter = "JPEG Image|*.jpg|PNG Image|*.png|Bitmap Image|*.bmp",
+                FileName = "WinEI",
+            })
+            {
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string fileName =
+                        saveFileDialog.FileName;
+
+                    ImageFormat format = ImageFormat.Jpeg;
+
+                    if (saveFileDialog.FilterIndex == 2)
+                    {
+                        format = ImageFormat.Png;
+                    }
+                    else if (saveFileDialog.FilterIndex == 3)
+                    {
+                        format = ImageFormat.Bmp;
+                    }
+
+                    bitmap.Save(
+                        fileName,
+                        format);
+                }
+            }
+        }
+
+        internal void SaveAsTextWithDialog(string text)
+        {
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                InitialDirectory =
+                Environment.GetFolderPath(
+                    Environment.SpecialFolder.MyDocuments),
+                Filter = "Text File|*.txt",
+            })
+            {
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string fileName = saveFileDialog.FileName;
+                    // Set text and output.
+                }
+            }
+        }
 
     }
 }

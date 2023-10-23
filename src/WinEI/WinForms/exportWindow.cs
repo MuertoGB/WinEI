@@ -82,21 +82,9 @@ namespace WinEI
         #endregion
 
         #region Button Events
-        private void cmdExportJpeg_Click(object sender, EventArgs e)
+        private void cmdExportImage_Click(object sender, EventArgs e)
         {
-            Program.EXPORT_TYPE = ExportType.JPEG;
-            DialogResult = DialogResult.OK;
-        }
-
-        private void cmdExportPng_Click(object sender, EventArgs e)
-        {
-            Program.EXPORT_TYPE = ExportType.PNG;
-            DialogResult = DialogResult.OK;
-        }
-
-        private void cmdExportBitmap_Click(object sender, EventArgs e)
-        {
-            Program.EXPORT_TYPE = ExportType.Bitmap;
+            Program.EXPORT_TYPE = ExportType.Image;
             DialogResult = DialogResult.OK;
         }
 
@@ -134,13 +122,7 @@ namespace WinEI
                 new { Button = cmdClose,
                     Font = Program.FONT_MDL2_REG_12,
                     Text = Chars.EXIT_CROSS },
-                new { Button = cmdExportJpeg,
-                    Font = Program.FONT_MDL2_REG_10,
-                    Text = Chars.FORWARD },
-                new { Button = cmdExportPng,
-                    Font = Program.FONT_MDL2_REG_10,
-                    Text = Chars.FORWARD },
-                new { Button = cmdExportBitmap,
+                new { Button = cmdExportImage,
                     Font = Program.FONT_MDL2_REG_10,
                     Text = Chars.FORWARD },
                 new { Button = cmdExportText,

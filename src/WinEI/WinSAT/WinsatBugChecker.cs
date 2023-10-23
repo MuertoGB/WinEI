@@ -6,6 +6,7 @@
 // MS released a bugged version of the WinSAT executable back on WIndows 7,
 // this code looks for the bugged versions.
 
+using System.Diagnostics;
 using System.Linq;
 using WinEI.Utils;
 
@@ -19,7 +20,7 @@ namespace WenEI.Winsat
             "6.1.7600.16976",
             "6.1.7600.21167",
             "6.1.7601.17793",
-            "6.1.7601.21940"
+            "6.1.7601.21940",
         };
 
         internal static bool IsBuggedVersion()
@@ -28,7 +29,14 @@ namespace WenEI.Winsat
             if (OSUtils.IsWindowsSeven())
             {
                 // Get the current winsat executable version.
-                string winsatVersion = $"{OSUtils.GetWinsatExeVersion.ProductVersion}";
+                FileVersionInfo fvi =
+                    OSUtils.GetWinsatExeVersion;
+
+                string winsatVersion =
+                    $"{fvi.FileMajorPart}." +
+                    $"{fvi.FileMinorPart}." +
+                    $"{fvi.FileBuildPart}." +
+                    $"{fvi.FilePrivatePart}";
 
                 // Check the list of affected versions against the current executable.
                 if (WinsatBuggedVersions.Contains(winsatVersion))

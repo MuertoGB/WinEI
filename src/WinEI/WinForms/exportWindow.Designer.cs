@@ -35,13 +35,9 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlSplit = new System.Windows.Forms.Panel();
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
-            this.cmdExportJpeg = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.cmdExportImage = new System.Windows.Forms.Button();
+            this.lblTextExportAsImage = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.cmdExportPng = new System.Windows.Forms.Button();
-            this.cmdExportBitmap = new System.Windows.Forms.Button();
             this.cmdExportText = new System.Windows.Forms.Button();
             this.tlpTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
@@ -137,94 +133,60 @@
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 1F));
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tlpMain.Controls.Add(this.cmdExportJpeg, 2, 0);
-            this.tlpMain.Controls.Add(this.label1, 0, 0);
-            this.tlpMain.Controls.Add(this.label2, 0, 2);
-            this.tlpMain.Controls.Add(this.label3, 0, 4);
-            this.tlpMain.Controls.Add(this.label4, 0, 6);
-            this.tlpMain.Controls.Add(this.cmdExportPng, 2, 2);
-            this.tlpMain.Controls.Add(this.cmdExportBitmap, 2, 4);
-            this.tlpMain.Controls.Add(this.cmdExportText, 2, 6);
+            this.tlpMain.Controls.Add(this.cmdExportImage, 2, 0);
+            this.tlpMain.Controls.Add(this.lblTextExportAsImage, 0, 0);
+            this.tlpMain.Controls.Add(this.label4, 0, 2);
+            this.tlpMain.Controls.Add(this.cmdExportText, 2, 2);
             this.tlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpMain.Location = new System.Drawing.Point(1, 43);
             this.tlpMain.Name = "tlpMain";
-            this.tlpMain.RowCount = 7;
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tlpMain.RowCount = 3;
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1F));
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1F));
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1F));
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tlpMain.Size = new System.Drawing.Size(368, 171);
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpMain.Size = new System.Drawing.Size(368, 105);
             this.tlpMain.TabIndex = 0;
             this.tlpMain.TabStop = true;
             // 
-            // cmdExportJpeg
+            // cmdExportImage
             // 
-            this.cmdExportJpeg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(40)))));
-            this.cmdExportJpeg.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmdExportJpeg.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(40)))));
-            this.cmdExportJpeg.FlatAppearance.BorderSize = 0;
-            this.cmdExportJpeg.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
-            this.cmdExportJpeg.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
-            this.cmdExportJpeg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdExportJpeg.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdExportJpeg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(220)))), ((int)(((byte)(230)))));
-            this.cmdExportJpeg.Location = new System.Drawing.Point(294, 0);
-            this.cmdExportJpeg.Margin = new System.Windows.Forms.Padding(0);
-            this.cmdExportJpeg.Name = "cmdExportJpeg";
-            this.cmdExportJpeg.Padding = new System.Windows.Forms.Padding(1, 0, 0, 0);
-            this.cmdExportJpeg.Size = new System.Drawing.Size(74, 42);
-            this.cmdExportJpeg.TabIndex = 0;
-            this.cmdExportJpeg.Text = "...";
-            this.cmdExportJpeg.UseVisualStyleBackColor = false;
-            this.cmdExportJpeg.Click += new System.EventHandler(this.cmdExportJpeg_Click);
+            this.cmdExportImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(40)))));
+            this.cmdExportImage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cmdExportImage.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(40)))));
+            this.cmdExportImage.FlatAppearance.BorderSize = 0;
+            this.cmdExportImage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
+            this.cmdExportImage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
+            this.cmdExportImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdExportImage.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdExportImage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(220)))), ((int)(((byte)(230)))));
+            this.cmdExportImage.Location = new System.Drawing.Point(294, 0);
+            this.cmdExportImage.Margin = new System.Windows.Forms.Padding(0);
+            this.cmdExportImage.Name = "cmdExportImage";
+            this.cmdExportImage.Padding = new System.Windows.Forms.Padding(1, 0, 0, 0);
+            this.cmdExportImage.Size = new System.Drawing.Size(74, 52);
+            this.cmdExportImage.TabIndex = 0;
+            this.cmdExportImage.Text = "...";
+            this.cmdExportImage.UseVisualStyleBackColor = false;
+            this.cmdExportImage.Click += new System.EventHandler(this.cmdExportImage_Click);
             // 
-            // label1
+            // lblTextExportAsImage
             // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Margin = new System.Windows.Forms.Padding(0);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
-            this.label1.Size = new System.Drawing.Size(293, 42);
-            this.label1.TabIndex = 99;
-            this.label1.Text = "Export as JPEG (Lower Quality)";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(0, 43);
-            this.label2.Margin = new System.Windows.Forms.Padding(0);
-            this.label2.Name = "label2";
-            this.label2.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
-            this.label2.Size = new System.Drawing.Size(293, 42);
-            this.label2.TabIndex = 99;
-            this.label2.Text = "Export as PNG (Medium Quality)";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label3
-            // 
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(0, 86);
-            this.label3.Margin = new System.Windows.Forms.Padding(0);
-            this.label3.Name = "label3";
-            this.label3.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
-            this.label3.Size = new System.Drawing.Size(293, 42);
-            this.label3.TabIndex = 99;
-            this.label3.Text = "Export a Bitmap (Highest Quality)";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTextExportAsImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.lblTextExportAsImage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTextExportAsImage.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTextExportAsImage.ForeColor = System.Drawing.Color.White;
+            this.lblTextExportAsImage.Location = new System.Drawing.Point(0, 0);
+            this.lblTextExportAsImage.Margin = new System.Windows.Forms.Padding(0);
+            this.lblTextExportAsImage.Name = "lblTextExportAsImage";
+            this.lblTextExportAsImage.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
+            this.lblTextExportAsImage.Size = new System.Drawing.Size(293, 52);
+            this.lblTextExportAsImage.TabIndex = 99;
+            this.lblTextExportAsImage.Text = "Export WinEI Printscreen";
+            this.lblTextExportAsImage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label4
             // 
@@ -232,56 +194,14 @@
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(0, 129);
+            this.label4.Location = new System.Drawing.Point(0, 53);
             this.label4.Margin = new System.Windows.Forms.Padding(0);
             this.label4.Name = "label4";
             this.label4.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
-            this.label4.Size = new System.Drawing.Size(293, 42);
+            this.label4.Size = new System.Drawing.Size(293, 52);
             this.label4.TabIndex = 99;
-            this.label4.Text = "Export WinSAT information to a text file";
+            this.label4.Text = "Export WinSAT Information to a Text File";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // cmdExportPng
-            // 
-            this.cmdExportPng.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(40)))));
-            this.cmdExportPng.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmdExportPng.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(40)))));
-            this.cmdExportPng.FlatAppearance.BorderSize = 0;
-            this.cmdExportPng.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
-            this.cmdExportPng.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
-            this.cmdExportPng.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdExportPng.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdExportPng.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(220)))), ((int)(((byte)(230)))));
-            this.cmdExportPng.Location = new System.Drawing.Point(294, 43);
-            this.cmdExportPng.Margin = new System.Windows.Forms.Padding(0);
-            this.cmdExportPng.Name = "cmdExportPng";
-            this.cmdExportPng.Padding = new System.Windows.Forms.Padding(1, 0, 0, 0);
-            this.cmdExportPng.Size = new System.Drawing.Size(74, 42);
-            this.cmdExportPng.TabIndex = 1;
-            this.cmdExportPng.Text = "...";
-            this.cmdExportPng.UseVisualStyleBackColor = false;
-            this.cmdExportPng.Click += new System.EventHandler(this.cmdExportPng_Click);
-            // 
-            // cmdExportBitmap
-            // 
-            this.cmdExportBitmap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(40)))));
-            this.cmdExportBitmap.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmdExportBitmap.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(40)))));
-            this.cmdExportBitmap.FlatAppearance.BorderSize = 0;
-            this.cmdExportBitmap.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
-            this.cmdExportBitmap.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
-            this.cmdExportBitmap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdExportBitmap.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdExportBitmap.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(220)))), ((int)(((byte)(230)))));
-            this.cmdExportBitmap.Location = new System.Drawing.Point(294, 86);
-            this.cmdExportBitmap.Margin = new System.Windows.Forms.Padding(0);
-            this.cmdExportBitmap.Name = "cmdExportBitmap";
-            this.cmdExportBitmap.Padding = new System.Windows.Forms.Padding(1, 0, 0, 0);
-            this.cmdExportBitmap.Size = new System.Drawing.Size(74, 42);
-            this.cmdExportBitmap.TabIndex = 2;
-            this.cmdExportBitmap.Text = "...";
-            this.cmdExportBitmap.UseVisualStyleBackColor = false;
-            this.cmdExportBitmap.Click += new System.EventHandler(this.cmdExportBitmap_Click);
             // 
             // cmdExportText
             // 
@@ -294,11 +214,11 @@
             this.cmdExportText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdExportText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdExportText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(220)))), ((int)(((byte)(230)))));
-            this.cmdExportText.Location = new System.Drawing.Point(294, 129);
+            this.cmdExportText.Location = new System.Drawing.Point(294, 53);
             this.cmdExportText.Margin = new System.Windows.Forms.Padding(0);
             this.cmdExportText.Name = "cmdExportText";
             this.cmdExportText.Padding = new System.Windows.Forms.Padding(1, 0, 0, 0);
-            this.cmdExportText.Size = new System.Drawing.Size(74, 42);
+            this.cmdExportText.Size = new System.Drawing.Size(74, 52);
             this.cmdExportText.TabIndex = 3;
             this.cmdExportText.Text = "...";
             this.cmdExportText.UseVisualStyleBackColor = false;
@@ -311,7 +231,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
-            this.ClientSize = new System.Drawing.Size(370, 215);
+            this.ClientSize = new System.Drawing.Size(370, 149);
             this.Controls.Add(this.tlpMain);
             this.Controls.Add(this.pnlSplit);
             this.Controls.Add(this.tlpTitle);
@@ -321,9 +241,10 @@
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(370, 215);
+            this.MinimumSize = new System.Drawing.Size(370, 149);
             this.Name = "exportWindow";
             this.Padding = new System.Windows.Forms.Padding(1);
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Export";
             this.tlpTitle.ResumeLayout(false);
@@ -341,13 +262,9 @@
         internal System.Windows.Forms.Label lblTitle;
         internal System.Windows.Forms.Panel pnlSplit;
         private System.Windows.Forms.TableLayoutPanel tlpMain;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblTextExportAsImage;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button cmdExportJpeg;
-        private System.Windows.Forms.Button cmdExportPng;
-        private System.Windows.Forms.Button cmdExportBitmap;
+        private System.Windows.Forms.Button cmdExportImage;
         private System.Windows.Forms.Button cmdExportText;
     }
 }

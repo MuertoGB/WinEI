@@ -1,4 +1,10 @@
-﻿namespace WinEI.Common
+﻿// WinEI
+// https://github.com/MuertoGB/WinEI
+
+// MemoryType.cs
+// Released under the GNU GLP v3.0
+
+namespace WinEI.Common
 {
     internal class MemoryType
     {
@@ -60,16 +66,8 @@
                 case "26":
                     return "DDR4";
                 default:
-                    if (typeValue == null)
-                    {
-                        return "Unknown Memory";
-                    }
-                    else
-                    {
-                        return typeValue; // Return what was passed
-                    }
+                    return typeValue != null ? typeValue : "Unknown";
             }
         }
-
     }
 }
