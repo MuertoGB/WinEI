@@ -117,7 +117,7 @@
             // 
             // cmdDonate
             // 
-            this.cmdDonate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
+            this.cmdDonate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(40)))));
             this.cmdDonate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cmdDonate.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
             this.cmdDonate.FlatAppearance.BorderSize = 0;
@@ -138,7 +138,7 @@
             // 
             // cmdIssues
             // 
-            this.cmdIssues.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
+            this.cmdIssues.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(40)))));
             this.cmdIssues.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cmdIssues.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
             this.cmdIssues.FlatAppearance.BorderSize = 0;
@@ -159,7 +159,7 @@
             // 
             // cmdEmail
             // 
-            this.cmdEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
+            this.cmdEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(40)))));
             this.cmdEmail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cmdEmail.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
             this.cmdEmail.FlatAppearance.BorderSize = 0;
@@ -180,7 +180,7 @@
             // 
             // cmdSource
             // 
-            this.cmdSource.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
+            this.cmdSource.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(40)))));
             this.cmdSource.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cmdSource.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
             this.cmdSource.FlatAppearance.BorderSize = 0;

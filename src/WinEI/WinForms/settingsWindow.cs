@@ -12,7 +12,7 @@ using WinEI.UI;
 using WinEI.UI.Controls;
 using WinEI.WIN32;
 
-namespace WinEI.WinForms
+namespace WinEI
 {
     public partial class settingsWindow : Form
     {
@@ -61,10 +61,10 @@ namespace WinEI.WinForms
             rbnAccent0Default.CheckedChanged += Accent_CheckedChanged;
             rbnAccent1Mint.CheckedChanged += Accent_CheckedChanged;
             rbnAccent2Green.CheckedChanged += Accent_CheckedChanged;
-            rbnAccent3Pink.CheckedChanged += Accent_CheckedChanged;
+            rbnAccent3Purple.CheckedChanged += Accent_CheckedChanged;
             rbnAccent4Gold.CheckedChanged += Accent_CheckedChanged;
             rbnAccent5Red.CheckedChanged += Accent_CheckedChanged;
-            rbnAccent6Orange.CheckedChanged += Accent_CheckedChanged;
+            rbnAccent6White.CheckedChanged += Accent_CheckedChanged;
         }
         #endregion
 
@@ -287,7 +287,7 @@ namespace WinEI.WinForms
                     rbnAccent2Green.Checked = true;
                     break;
                 case 3:
-                    rbnAccent3Pink.Checked = true;
+                    rbnAccent3Purple.Checked = true;
                     break;
                 case 4:
                     rbnAccent4Gold.Checked = true;
@@ -296,7 +296,7 @@ namespace WinEI.WinForms
                     rbnAccent5Red.Checked = true;
                     break;
                 case 6:
-                    rbnAccent6Orange.Checked = true;
+                    rbnAccent6White.Checked = true;
                     break;
                 default:
                     rbnAccent0Default.Checked = true;

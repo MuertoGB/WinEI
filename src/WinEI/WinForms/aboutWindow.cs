@@ -107,8 +107,7 @@ namespace WinEI
                 "mailto:muertogb@proton.me");
 
         private void cmdSource_Click(object sender, EventArgs e) =>
-            Process.Start(
-                "https://github.com/MuertoGB/WinEI");
+            Process.Start(WEIUrl.GithubSource);
 
         private void cmdIssues_Click(object sender, EventArgs e) =>
             Process.Start(

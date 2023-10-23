@@ -4,6 +4,7 @@
 // OSUtils.cs
 // Released under the GNU GLP v3.0
 
+using Microsoft.Win32;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -45,9 +46,24 @@ namespace WinEI.Utils
         #endregion
 
         #region Strings
-        internal static string GetWindowsName =>
-            new Microsoft.VisualBasic.Devices.ComputerInfo().OSFullName.Replace(
-                "Microsoft ", string.Empty);
+        internal static string GetWindowsName
+        {
+            get
+            {
+                string name =
+                    string.Empty;
+
+                using (RegistryKey key =
+                    Registry.LocalMachine.OpenSubKey(
+                        @"SOFTWARE\Microsoft\Windows NT\CurrentVersion"))
+                {
+                    if (key != null)
+                        name = key.GetValue("ProductName") as string;
+                }
+
+                return name.Replace(" (TM)", string.Empty);
+            }
+        }
 
         internal static string GetSystemArchitecture(bool shortString = false) =>
             Environment.Is64BitOperatingSystem

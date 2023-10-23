@@ -1,11 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿// WinEI
+// https://github.com/MuertoGB/WinEI
+
+// UI Components
+// WEIRadioButton.cs
+// Released under the GNU GLP v3.0
+
+using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinEI.UI.Design;
 
@@ -329,20 +332,6 @@ namespace WinEI.UI.Controls
         {
             base.OnLostFocus(e);
             Invalidate();
-        }
-
-        protected override void OnKeyDown(KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                Checked = !Checked;
-                e.Handled = true;
-                e.SuppressKeyPress = true;
-            }
-            else
-            {
-                base.OnKeyDown(e);
-            }
         }
         #endregion
 

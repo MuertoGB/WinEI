@@ -6,11 +6,10 @@
 
 using System;
 using System.Collections.Specialized;
-using System.IO;
+using System.Drawing;
 using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
-using WinEI.Utils;
 
 namespace WinEI.Common
 {
@@ -21,49 +20,62 @@ namespace WinEI.Common
         internal const string API_KEY = "35e23362c1eb67c";
         #endregion
 
-        internal static string UploadToImgur(string clientId, string imagePath, bool showInBrowser)
+        internal static string UploadBitmapToImgur(string clientId, Bitmap bitmap, bool showInBrowser)
         {
             try
             {
                 using (WebClient webClient = new WebClient())
                 {
-                    webClient.Headers.Add("Authorization", $"Client-ID {clientId}");
+                    // Set the API authorization header with the provided client ID.
+                    webClient.Headers.Add(
+                        "Authorization",
+                        $"Client-ID {clientId}");
 
-                    if (!ImageUtils.WaitForImageCreation(imagePath))
-                        return null;
+                    // Convert the Bitmap to a byte array.
+                    ImageConverter converter =
+                        new ImageConverter();
 
-                    byte[] imageBytes = File.ReadAllBytes(imagePath);
-                    string base64Image = Convert.ToBase64String(imageBytes);
+                    byte[] imageBytes =
+                        (byte[])converter.ConvertTo(
+                            bitmap,
+                            typeof(byte[]));
 
+                    string base64Image =
+                        Convert.ToBase64String(
+                            imageBytes);
+
+                    // Create a collection of name-value pairs for the HTTP request.
                     NameValueCollection nameValueCollection = new NameValueCollection
                     {
                         { "image", base64Image }
                     };
 
+                    // Upload the image data to Imgur.
                     byte[] responseBytes =
                         webClient.UploadValues(
                             "https://api.imgur.com/3/image",
                             nameValueCollection);
 
+                    // Convert the response bytes to a string.
                     string responseString =
                         Encoding.ASCII.GetString(
                             responseBytes);
 
-                    Regex regex = new Regex("link\":\"(.*?)\"");
-                    Match match = regex.Match(responseString);
+                    // Use regular expressions to extract the uploaded image URL from the response.
+                    Regex regex =
+                        new Regex("link\":\"(.*?)\"");
 
-                    // Delete the temporary file.
-                    if (File.Exists(imagePath))
-                    {
-                        File.Delete(imagePath);
-                    }
+                    Match match =
+                        regex.Match(responseString);
 
                     if (match.Success)
                     {
+                        // Extract and return the URL of the uploaded image.
                         return match.Groups[1].Value.Replace(
                             "link\":\"", "").Replace("\"", "").Replace("\\/", "/");
                     }
 
+                    // Return null if the match was not successful.
                     return null;
                 }
             }

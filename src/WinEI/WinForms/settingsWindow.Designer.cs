@@ -1,4 +1,4 @@
-﻿namespace WinEI.WinForms
+﻿namespace WinEI
 {
     partial class settingsWindow
     {
@@ -68,11 +68,11 @@
             this.swShowHardware = new WinEI.UI.WEISwitch();
             this.rbnAccent5Red = new WinEI.UI.Controls.WEIRadioButton();
             this.rbnAccent4Gold = new WinEI.UI.Controls.WEIRadioButton();
-            this.rbnAccent3Pink = new WinEI.UI.Controls.WEIRadioButton();
+            this.rbnAccent3Purple = new WinEI.UI.Controls.WEIRadioButton();
             this.rbnAccent2Green = new WinEI.UI.Controls.WEIRadioButton();
             this.rbnAccent0Default = new WinEI.UI.Controls.WEIRadioButton();
             this.rbnAccent1Mint = new WinEI.UI.Controls.WEIRadioButton();
-            this.rbnAccent6Orange = new WinEI.UI.Controls.WEIRadioButton();
+            this.rbnAccent6White = new WinEI.UI.Controls.WEIRadioButton();
             this.swApiHardwareMode = new WinEI.UI.WEISwitch();
             this.swDisableFlashingUiElements = new WinEI.UI.WEISwitch();
             this.swDisableMessageWindowSounds = new WinEI.UI.WEISwitch();
@@ -336,12 +336,12 @@
             this.tlpAccentColour.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 6F));
             this.tlpAccentColour.Controls.Add(this.rbnAccent5Red, 6, 0);
             this.tlpAccentColour.Controls.Add(this.rbnAccent4Gold, 5, 0);
-            this.tlpAccentColour.Controls.Add(this.rbnAccent3Pink, 4, 0);
+            this.tlpAccentColour.Controls.Add(this.rbnAccent3Purple, 4, 0);
             this.tlpAccentColour.Controls.Add(this.rbnAccent2Green, 3, 0);
             this.tlpAccentColour.Controls.Add(this.lblAccentColour, 0, 0);
             this.tlpAccentColour.Controls.Add(this.rbnAccent0Default, 1, 0);
             this.tlpAccentColour.Controls.Add(this.rbnAccent1Mint, 2, 0);
-            this.tlpAccentColour.Controls.Add(this.rbnAccent6Orange, 7, 0);
+            this.tlpAccentColour.Controls.Add(this.rbnAccent6White, 7, 0);
             this.tlpAccentColour.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpAccentColour.Location = new System.Drawing.Point(0, 140);
             this.tlpAccentColour.Margin = new System.Windows.Forms.Padding(0);
@@ -637,9 +637,9 @@
             // cmdReset
             // 
             this.cmdReset.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cmdReset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(50)))), ((int)(((byte)(60)))));
-            this.cmdReset.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
-            this.cmdReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(100)))), ((int)(((byte)(120)))));
+            this.cmdReset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
+            this.cmdReset.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(110)))), ((int)(((byte)(120)))));
+            this.cmdReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(50)))), ((int)(((byte)(60)))));
             this.cmdReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(80)))));
             this.cmdReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdReset.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -656,9 +656,9 @@
             // cmdApply
             // 
             this.cmdApply.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cmdApply.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(50)))), ((int)(((byte)(60)))));
-            this.cmdApply.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
-            this.cmdApply.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(100)))), ((int)(((byte)(120)))));
+            this.cmdApply.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
+            this.cmdApply.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(110)))), ((int)(((byte)(120)))));
+            this.cmdApply.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(50)))), ((int)(((byte)(60)))));
             this.cmdApply.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(80)))));
             this.cmdApply.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdApply.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -688,9 +688,9 @@
             // cmdOkay
             // 
             this.cmdOkay.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.cmdOkay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(50)))), ((int)(((byte)(60)))));
-            this.cmdOkay.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(80)))), ((int)(((byte)(90)))));
-            this.cmdOkay.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(100)))), ((int)(((byte)(120)))));
+            this.cmdOkay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
+            this.cmdOkay.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(110)))), ((int)(((byte)(120)))));
+            this.cmdOkay.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(50)))), ((int)(((byte)(60)))));
             this.cmdOkay.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(80)))));
             this.cmdOkay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdOkay.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -766,21 +766,21 @@
             this.rbnAccent4Gold.TabIndex = 4;
             this.rbnAccent4Gold.CheckedChanged += new System.EventHandler(this.rbnAccent4Gold_CheckedChanged);
             // 
-            // rbnAccent3Pink
+            // rbnAccent3Purple
             // 
-            this.rbnAccent3Pink.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.rbnAccent3Pink.BackColor = System.Drawing.Color.Transparent;
-            this.rbnAccent3Pink.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
-            this.rbnAccent3Pink.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.rbnAccent3Pink.CheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(100)))), ((int)(((byte)(240)))));
-            this.rbnAccent3Pink.ClientColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.rbnAccent3Pink.ClientColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.rbnAccent3Pink.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.rbnAccent3Pink.Location = new System.Drawing.Point(277, 7);
-            this.rbnAccent3Pink.Name = "rbnAccent3Pink";
-            this.rbnAccent3Pink.Size = new System.Drawing.Size(20, 20);
-            this.rbnAccent3Pink.TabIndex = 3;
-            this.rbnAccent3Pink.CheckedChanged += new System.EventHandler(this.rbnAccent3Pink_CheckedChanged);
+            this.rbnAccent3Purple.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rbnAccent3Purple.BackColor = System.Drawing.Color.Transparent;
+            this.rbnAccent3Purple.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.rbnAccent3Purple.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.rbnAccent3Purple.CheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(40)))), ((int)(((byte)(122)))));
+            this.rbnAccent3Purple.ClientColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.rbnAccent3Purple.ClientColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.rbnAccent3Purple.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.rbnAccent3Purple.Location = new System.Drawing.Point(277, 7);
+            this.rbnAccent3Purple.Name = "rbnAccent3Purple";
+            this.rbnAccent3Purple.Size = new System.Drawing.Size(20, 20);
+            this.rbnAccent3Purple.TabIndex = 3;
+            this.rbnAccent3Purple.CheckedChanged += new System.EventHandler(this.rbnAccent3Pink_CheckedChanged);
             // 
             // rbnAccent2Green
             // 
@@ -832,21 +832,21 @@
             this.rbnAccent1Mint.TabIndex = 1;
             this.rbnAccent1Mint.CheckedChanged += new System.EventHandler(this.rbnAccent1Mint_CheckedChanged);
             // 
-            // rbnAccent6Orange
+            // rbnAccent6White
             // 
-            this.rbnAccent6Orange.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.rbnAccent6Orange.BackColor = System.Drawing.Color.Transparent;
-            this.rbnAccent6Orange.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
-            this.rbnAccent6Orange.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.rbnAccent6Orange.CheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(160)))), ((int)(((byte)(77)))));
-            this.rbnAccent6Orange.ClientColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.rbnAccent6Orange.ClientColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.rbnAccent6Orange.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.rbnAccent6Orange.Location = new System.Drawing.Point(367, 7);
-            this.rbnAccent6Orange.Name = "rbnAccent6Orange";
-            this.rbnAccent6Orange.Size = new System.Drawing.Size(20, 20);
-            this.rbnAccent6Orange.TabIndex = 6;
-            this.rbnAccent6Orange.CheckedChanged += new System.EventHandler(this.rbnAccent6Orange_CheckedChanged);
+            this.rbnAccent6White.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rbnAccent6White.BackColor = System.Drawing.Color.Transparent;
+            this.rbnAccent6White.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.rbnAccent6White.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.rbnAccent6White.CheckedColor = System.Drawing.Color.White;
+            this.rbnAccent6White.ClientColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.rbnAccent6White.ClientColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.rbnAccent6White.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.rbnAccent6White.Location = new System.Drawing.Point(367, 7);
+            this.rbnAccent6White.Name = "rbnAccent6White";
+            this.rbnAccent6White.Size = new System.Drawing.Size(20, 20);
+            this.rbnAccent6White.TabIndex = 6;
+            this.rbnAccent6White.CheckedChanged += new System.EventHandler(this.rbnAccent6Orange_CheckedChanged);
             // 
             // swApiHardwareMode
             // 
@@ -1036,11 +1036,11 @@
         private System.Windows.Forms.Button cmdOkay;
         private UI.Controls.WEIRadioButton rbnAccent5Red;
         private UI.Controls.WEIRadioButton rbnAccent4Gold;
-        private UI.Controls.WEIRadioButton rbnAccent3Pink;
+        private UI.Controls.WEIRadioButton rbnAccent3Purple;
         private UI.Controls.WEIRadioButton rbnAccent2Green;
         private UI.Controls.WEIRadioButton rbnAccent0Default;
         private UI.Controls.WEIRadioButton rbnAccent1Mint;
         private System.Windows.Forms.TextBox tbxImgurApiKey;
-        private UI.Controls.WEIRadioButton rbnAccent6Orange;
+        private UI.Controls.WEIRadioButton rbnAccent6White;
     }
 }

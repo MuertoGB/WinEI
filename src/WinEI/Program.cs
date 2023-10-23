@@ -12,6 +12,7 @@ using System.Drawing;
 using System.IO;
 using System.Net;
 using System.Windows.Forms;
+using WenEI.Winsat;
 using WinEI.Common;
 using WinEI.Utils;
 using WinEI.Winsat;
@@ -28,10 +29,6 @@ namespace WinEI
         internal static readonly string DebugLog = Path.Combine(CurrentDirectory, "debug.log");
         internal static readonly string ApplicationLog = Path.Combine(CurrentDirectory, "application.log");
         internal static readonly string ImgurLinksFile = Path.Combine(CurrentDirectory, "imgur.log");
-        internal static readonly string ImgurTempFile =
-            Path.Combine(Environment.GetFolderPath(
-                Environment.SpecialFolder.LocalApplicationData),
-                "Temp\\imgur.png");
     }
 
     internal readonly struct WEIUrl
@@ -39,6 +36,7 @@ namespace WinEI
         internal const string GithubVersionManifest = "https://raw.githubusercontent.com/MuertoGB/WinEI/main/stream/manifests/version.xml";
         internal const string GithubChangelog = "https://github.com/MuertoGB/WinEI/blob/main/CHANGELOG.md";
         internal const string GithubHomepage = "https://github.com/MuertoGB/WinEI";
+        internal const string GithubSource = "https://github.com/MuertoGB/WinEI/tree/main/src";
         internal const string GithubLatestRelease = "https://github.com/MuertoGB/WinEI/releases/latest";
         internal const string GithubIssues = "https://github.com/MuertoGB/WinEI/issues";
         internal const string ImgurAddress = "https://www.imgur.com";
@@ -47,8 +45,19 @@ namespace WinEI
 
     internal readonly struct WEIVersion
     {
-        internal const string Build = "231020.2045";
+        internal const string Build = "231023.0155";
         internal const string Channel = "Pre-Alpha";
+    }
+    #endregion
+
+    #region Enums
+    internal enum ExportType
+    {
+        None,
+        JPEG,
+        PNG,
+        Bitmap,
+        Text
     }
     #endregion
 
@@ -58,6 +67,8 @@ namespace WinEI
         #region Internal Members
         internal static mainWindow mWindow;
         internal static bool IsElevated;
+        internal static ExportType EXPORT_TYPE =
+            ExportType.None;
 
         internal static Font FONT_MDL2_REG_10;
         internal static Font FONT_MDL2_REG_12;
@@ -120,7 +131,7 @@ namespace WinEI
             ServicePointManager.SecurityProtocol =
                 (SecurityProtocolType)3072;
 
-            // Register application exit event.
+            // Wire application exit event.
             Application.ApplicationExit += OnExiting;
 
             // Create any memory font instances.
@@ -161,6 +172,14 @@ namespace WinEI
 
             // Register low level keyboard hook that disables Win+Up.
             KeyboardHookManager.Hook();
+
+            // Debug, bugged winsat message.
+            if (WinsatBugChecker.IsBuggedVersion())
+                MessageBox.Show(
+                    "You have a bugged version of WinSAT. A hotfix is required.",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
 
             // Create main window instance.
             mWindow = new mainWindow();
@@ -257,7 +276,7 @@ namespace WinEI
                 Environment.Exit(-1);
             }
 
-            // Fix for mainWindow opacity getting stuck at 0.5.
+            // Fix for mainWindow opacity getting stuck.
             if (mWindow.Opacity != 1.0)
                 mWindow.Opacity = 1.0;
         }

@@ -16,7 +16,7 @@ namespace WinEI.UI
         public WEIContextMenuStrip()
         {
             Renderer = new WEIMenuRenderer();
-            BackColor = Color.FromArgb(25,25,25);
+            BackColor = Color.FromArgb(25, 25, 25);
             ForeColor = Color.White;
             Font = new Font("Segoe UI", 10.2f, FontStyle.Regular);
             ShowImageMargin = false;

@@ -15,7 +15,6 @@ using WinEI.Common;
 using WinEI.UI;
 using WinEI.Utils;
 using WinEI.WIN32;
-using WinEI.WinForms;
 using WinEI.Winsat;
 
 namespace WinEI
@@ -383,8 +382,29 @@ namespace WinEI
         private void cmdClose_Click(object sender, EventArgs e) =>
             Close();
 
-        private void cmdExport_Click(object sender, EventArgs e) =>
-            MessageBox.Show("Export menu not implemented yet.");
+        private void cmdExport_Click(object sender, EventArgs e)
+        {
+            SetHalfOpacity();
+
+            DialogResult result =
+                DialogResult.None;
+
+            using (Form form = new exportWindow())
+            {
+                form.FormClosed += ChildWindowClosed;
+                result = form.ShowDialog();
+            }
+
+            if (result == DialogResult.OK)
+            {
+                MessageBox.Show(
+                    Program.EXPORT_TYPE.ToString());
+            }
+
+            // Reset export type.
+            Program.EXPORT_TYPE =
+                ExportType.None;
+        }
 
         private void cmdOptions_Click(object sender, EventArgs e)
         {
@@ -398,10 +418,10 @@ namespace WinEI
         {
             SetHalfOpacity();
 
-            using (Form formWindow = new settingsWindow())
+            using (Form form = new settingsWindow())
             {
-                formWindow.FormClosed += ChildWindowClosed;
-                formWindow.ShowDialog();
+                form.FormClosed += ChildWindowClosed;
+                form.ShowDialog();
             }
         }
 
@@ -409,10 +429,10 @@ namespace WinEI
         {
             SetHalfOpacity();
 
-            using (Form formWindow = new aboutWindow())
+            using (Form form = new aboutWindow())
             {
-                formWindow.FormClosed += ChildWindowClosed;
-                formWindow.ShowDialog();
+                form.FormClosed += ChildWindowClosed;
+                form.ShowDialog();
             }
         }
 
@@ -517,15 +537,15 @@ namespace WinEI
                 }
 
                 // Capture window bitmap.
-                ImageUtils.CaptureControl(
-                    WEIPath.ImgurTempFile,
-                    this);
+                Bitmap bitmap =
+                    ImageUtils.GetBitmapOfControl(
+                        this);
 
                 // Attempt Imgur upload.
                 string url =
-                    ImgurApi.UploadToImgur(
+                    ImgurApi.UploadBitmapToImgur(
                         ImgurApi.API_KEY,
-                        WEIPath.ImgurTempFile,
+                        bitmap,
                         true);
 
                 // Imgur upload returned a URL.
@@ -555,7 +575,6 @@ namespace WinEI
                         // Copy URL to clipboard.
                         if (copyResult == DialogResult.Yes)
                             Clipboard.SetText(url);
-
                     }
 
                     // Exit here, nothing else to do.
