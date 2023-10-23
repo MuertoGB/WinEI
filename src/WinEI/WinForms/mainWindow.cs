@@ -8,7 +8,6 @@
 using System;
 using System.Diagnostics;
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -48,6 +47,7 @@ namespace WinEI
 
             // Attach event handlers.
             Load += mainWindow_Load;
+            Shown += mainWindow_Shown;
             Deactivate += mainWindow_Deactivate;
             Activated += mainWindow_Activated;
             KeyDown += mainWindow_KeyDown;
@@ -66,8 +66,7 @@ namespace WinEI
         private void mainWindow_Load(object sender, EventArgs e)
         {
             // Get the application version.
-            lblAppVersion.Text =
-                Application.ProductVersion;
+            lblAppVersion.Text = Application.ProductVersion;
 
             // Display some Operating System details.
             // Why the fuck does GetWindowsName report as Windows 10 when using Windows 11?
@@ -78,7 +77,7 @@ namespace WinEI
                 $"{OSUtils.GetSystemArchitecture(false)}";
 
             // If the system has not been rated, we should not toggle the show hardware switch.
-            if (WinsatReader.AssessmentSate != WinsatAssessmentState.UNAVAILABLE)
+            if (WinsatReader.ASSESSMENT_STATE != WinsatAssessmentState.UNAVAILABLE)
                 // Check whether to show rated hardware.
                 if (Settings.ReadBool(SettingsBool.ShowHardware))
                     swShowHardware.Checked = true;
@@ -100,6 +99,20 @@ namespace WinEI
             // ***TODO***
         }
 
+        private void mainWindow_Shown(object sender, EventArgs e)
+        {
+            if (Settings.ReadInteger(SettingsInteger.ResumeState) ==
+                Settings.RESUME_STATE_ASSESSMENT)
+            {
+                // Reset resume state.
+                Settings.WriteInteger(
+                    SettingsInteger.ResumeState,
+                    Settings.RESUME_STATE_NORMAL);
+
+                cmdAssessment.PerformClick();
+            }
+        }
+
         internal async void CheckForNewVersion()
         {
             // Check for a new version using the specified URL.
@@ -109,9 +122,7 @@ namespace WinEI
 
             // If a new version is available and update the UI.
             if (result == VersionResult.NewVersionAvailable)
-            {
                 lblAppVersion.ForeColor = AppColours.OUTDATED_VERSION;
-            }
         }
 
         private void mainWindow_Activated(object sender, EventArgs e) =>
@@ -218,7 +229,7 @@ namespace WinEI
         private void UpdateBaseScoreControls()
         {
             lblBaseScore.Text =
-                WinsatReader.ScorePool.BaseScore;
+                WinsatReader.WINSPR.BaseScore;
         }
 
         private void UpdateProcessorScoreControls()
@@ -227,11 +238,11 @@ namespace WinEI
                 (Control)lblSubscoreProcessor;
 
             label.Text =
-                WinsatReader.ScorePool.ProcessorScore;
+                WinsatReader.WINSPR.ProcessorScore;
 
             label.BackColor =
                 string.Equals(
-                    WinsatReader.ScorePool.ProcessorScore, WinsatReader.ScorePool.BaseScore)
+                    WinsatReader.WINSPR.ProcessorScore, WinsatReader.WINSPR.BaseScore)
                     ? AppColours.SUBSCORE_MATCH_BACKCOLOR
                     : AppColours.SUBSCORE_MISMATCH_BACKCOLOR;
         }
@@ -242,11 +253,11 @@ namespace WinEI
                 (Control)lblSubscoreMemory;
 
             label.Text =
-                WinsatReader.ScorePool.MemoryScore;
+                WinsatReader.WINSPR.MemoryScore;
 
             label.BackColor =
                 string.Equals(
-                    WinsatReader.ScorePool.MemoryScore, WinsatReader.ScorePool.BaseScore)
+                    WinsatReader.WINSPR.MemoryScore, WinsatReader.WINSPR.BaseScore)
                     ? AppColours.SUBSCORE_MATCH_BACKCOLOR
                     : AppColours.SUBSCORE_MISMATCH_BACKCOLOR;
         }
@@ -257,11 +268,11 @@ namespace WinEI
                 (Control)lblSubscoreGraphics;
 
             label.Text =
-                WinsatReader.ScorePool.GraphicsScore;
+                WinsatReader.WINSPR.GraphicsScore;
 
             label.BackColor =
                 string.Equals(
-                    WinsatReader.ScorePool.GraphicsScore, WinsatReader.ScorePool.BaseScore)
+                    WinsatReader.WINSPR.GraphicsScore, WinsatReader.WINSPR.BaseScore)
                     ? AppColours.SUBSCORE_MATCH_BACKCOLOR
                     : AppColours.SUBSCORE_MISMATCH_BACKCOLOR;
         }
@@ -272,11 +283,11 @@ namespace WinEI
                 (Control)lblSubscoreD3d;
 
             label.Text =
-                WinsatReader.ScorePool.D3DScore;
+                WinsatReader.WINSPR.D3DScore;
 
             label.BackColor =
                 string.Equals(
-                    WinsatReader.ScorePool.D3DScore, WinsatReader.ScorePool.BaseScore)
+                    WinsatReader.WINSPR.D3DScore, WinsatReader.WINSPR.BaseScore)
                     ? AppColours.SUBSCORE_MATCH_BACKCOLOR
                     : AppColours.SUBSCORE_MISMATCH_BACKCOLOR;
         }
@@ -287,11 +298,11 @@ namespace WinEI
                 (Control)lblSubscoreDisk;
 
             label.Text =
-                WinsatReader.ScorePool.DiskScore;
+                WinsatReader.WINSPR.DiskScore;
 
             label.BackColor =
                 string.Equals(
-                    WinsatReader.ScorePool.DiskScore, WinsatReader.ScorePool.BaseScore)
+                    WinsatReader.WINSPR.DiskScore, WinsatReader.WINSPR.BaseScore)
                     ? AppColours.SUBSCORE_MATCH_BACKCOLOR
                     : AppColours.SUBSCORE_MISMATCH_BACKCOLOR;
         }
@@ -300,10 +311,10 @@ namespace WinEI
         {
             lblScoreValidity.Text =
                 WinsatReader.GetAssessmentStateString(
-                    (int)WinsatReader.AssessmentSate);
+                    (int)WinsatReader.ASSESSMENT_STATE);
 
             pnlValidityStatus.BackColor =
-                WinsatReader.AssessmentSate == WinsatAssessmentState.VALID
+                WinsatReader.ASSESSMENT_STATE == WinsatAssessmentState.VALID
                 ? AppColours.PANEL_VALID
                 : AppColours.PANEL_INVALID;
 
@@ -315,7 +326,7 @@ namespace WinEI
 
             foreach (Control control in controls)
                 control.Enabled =
-                    WinsatReader.AssessmentSate
+                    WinsatReader.ASSESSMENT_STATE
                     != WinsatAssessmentState.UNAVAILABLE;
         }
 
@@ -323,7 +334,7 @@ namespace WinEI
         {
             string stateText =
                 WinsatReader.GetAssessmentStateButtonString(
-                    (int)WinsatReader.AssessmentSate);
+                    (int)WinsatReader.ASSESSMENT_STATE);
 
             string assessmentDate =
                 WinsatAPI.QueryLatestFormalDate().ToString(
@@ -385,8 +396,7 @@ namespace WinEI
 
         private void cmdExport_Click(object sender, EventArgs e)
         {
-
-            if (WinsatReader.AssessmentSate == WinsatAssessmentState.UNAVAILABLE)
+            if (WinsatReader.ASSESSMENT_STATE == WinsatAssessmentState.UNAVAILABLE)
             {
                 WEIMessageBox.Show(
                     this,
@@ -409,6 +419,9 @@ namespace WinEI
                 result = form.ShowDialog();
             }
 
+            if (result == DialogResult.Cancel)
+                return;
+
             if (result == DialogResult.OK)
             {
                 if (Program.EXPORT_TYPE == ExportType.Image)
@@ -417,7 +430,13 @@ namespace WinEI
                         ImageUtils.GetBitmapOfControl(
                             this);
 
-                    SaveAsImageWithDialog(bitmap);
+                    ImageUtils.SaveImageWithDialog(bitmap, this);
+                }
+
+                if (Program.EXPORT_TYPE == ExportType.Text)
+                {
+                    // ***TODO***
+                    // Generate text and send it to SaveAsTextWithDialog().
                 }
             }
 
@@ -479,11 +498,15 @@ namespace WinEI
                         WEIMessageBoxButtons.YesNo);
 
                 // User chose to elevate privilages.
-                // *** TODO ***
-                // We need to set special restart settings integer here to automatically pick
-                // up the assessment after elevation.
                 if (result == DialogResult.Yes)
+                {
+                    // Set restart to assessment value.
+                    Settings.WriteInteger(
+                        SettingsInteger.ResumeState,
+                        Settings.RESUME_STATE_ASSESSMENT);
+
                     OSUtils.RestartElevated();
+                }
 
                 // User chose not to elevate, exit here as we cannot continue.
                 return;
@@ -507,12 +530,14 @@ namespace WinEI
 
             // Assess system.
             // ***TODO***
+            // Debug message
+            MessageBox.Show("Doing Assessment.");
         }
 
         private void cmdShareOnImgur_Click(object sender, EventArgs e)
         {
             // Check if the system is rated.
-            if (WinsatReader.AssessmentSate == WinsatAssessmentState.UNAVAILABLE)
+            if (WinsatReader.ASSESSMENT_STATE == WinsatAssessmentState.UNAVAILABLE)
             {
                 DialogResult result =
                     WEIMessageBox.Show(
@@ -674,7 +699,7 @@ namespace WinEI
                     WEIMessageBox.Show(
                         this,
                         Strings.WARNING,
-                        "This will permanently delete all system scores, and the WinSAT log. Are you sure you want to reset WinSAT?",
+                        Strings.CONFIRM_RESET_WINSAT,
                         WEIMessageBoxType.Warning,
                         WEIMessageBoxButtons.YesNo);
 
@@ -772,7 +797,7 @@ namespace WinEI
                 WEIMessageBox.Show(
                     this,
                     Strings.INFORMATION,
-                    "The application log has not been created yet.",
+                    Strings.LOG_NOT_FOUND,
                     WEIMessageBoxType.Information,
                     WEIMessageBoxButtons.Okay);
 
@@ -844,7 +869,7 @@ namespace WinEI
 
             // If the system rating is now unavailable, and the show hardware switch is toggled
             // on, we need to switch off 'show hardware'.
-            if (WinsatReader.AssessmentSate == WinsatAssessmentState.UNAVAILABLE && swShowHardware.Checked)
+            if (WinsatReader.ASSESSMENT_STATE == WinsatAssessmentState.UNAVAILABLE && swShowHardware.Checked)
             {
                 // Simply toggling the switch will disable 'show hardware' and load default strings.
                 swShowHardware.Checked = false;
@@ -856,12 +881,6 @@ namespace WinEI
                     // The switch was toggled on so we need to refresh hardware data.
                     RefreshHardwareStrings(true);
                 }
-                // We don't need to worry about settings startup bool 'ShowHardware' as this should
-                // only be called when the application is opened; not after a data reload.
-                //else if (Settings.ReadBool(SettingsBool.ShowHardware))
-                //{
-                //    RefreshHardwareStrings(true);
-                //}
             }
 
             // Refresh all window data.
@@ -884,20 +903,20 @@ namespace WinEI
                 if (WinsatReader.XmlHardwareEnabled)
                 {
                     lblProcessor.Text =
-                        WinsatReader.XmlHardware.Processor;
+                        WinsatReader.XML_HARDWARE.Processor;
 
                     lblMemory.Text =
-                        $"{MemoryType.Convert(WinsatReader.XmlHardware.Memory)} " +
-                        $"{FileUtils.GetBytesReadableSize(WinsatReader.XmlHardware.MemorySizeBytes)}";
+                        $"{MemoryType.Convert(WinsatReader.XML_HARDWARE.Memory)} " +
+                        $"{FileUtils.GetBytesReadableSize(WinsatReader.XML_HARDWARE.MemorySizeBytes)}";
 
                     lblGraphics.Text =
-                        WinsatReader.XmlHardware.Graphics;
+                        WinsatReader.XML_HARDWARE.Graphics;
 
                     lblD3d.Text =
-                        $"{FileUtils.ConvertBytesToMB(WinsatReader.XmlHardware.VramSizeMegabytes)} VRAM";
+                        $"{FileUtils.ConvertBytesToMB(WinsatReader.XML_HARDWARE.VramSizeMegabytes)} VRAM";
 
                     lblDisk.Text =
-                        WinsatReader.XmlHardware.Disk;
+                        WinsatReader.XML_HARDWARE.Disk;
 
                     // Exit here, no need to continue.
                     return;
@@ -921,19 +940,19 @@ namespace WinEI
             if (WinsatReader.ApiHardwareEnabled)
             {
                 lblProcessor.Text =
-                    WinsatReader.ApiHardware.Processor;
+                    WinsatReader.API_HARDWARE.Processor;
 
                 lblMemory.Text =
-                    WinsatReader.ApiHardware.Memory;
+                    WinsatReader.API_HARDWARE.Memory;
 
                 lblGraphics.Text =
-                    WinsatReader.ApiHardware.Graphics;
+                    WinsatReader.API_HARDWARE.Graphics;
 
                 lblD3d.Text =
-                    WinsatReader.ApiHardware.D3D;
+                    WinsatReader.API_HARDWARE.D3D;
 
                 lblDisk.Text =
-                    WinsatReader.ApiHardware.Disk;
+                    WinsatReader.API_HARDWARE.Disk;
             }
             else
             {
@@ -957,59 +976,6 @@ namespace WinEI
             lblDisk.Text = Strings.DEFAULT_DISK;
         }
         #endregion
-
-        internal void SaveAsImageWithDialog(Bitmap bitmap)
-        {
-            using (SaveFileDialog saveFileDialog = new SaveFileDialog
-            {
-                InitialDirectory =
-                    Environment.GetFolderPath(
-                        Environment.SpecialFolder.MyPictures),
-
-                Filter = "JPEG Image|*.jpg|PNG Image|*.png|Bitmap Image|*.bmp",
-                FileName = "WinEI",
-            })
-            {
-                if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    string fileName =
-                        saveFileDialog.FileName;
-
-                    ImageFormat format = ImageFormat.Jpeg;
-
-                    if (saveFileDialog.FilterIndex == 2)
-                    {
-                        format = ImageFormat.Png;
-                    }
-                    else if (saveFileDialog.FilterIndex == 3)
-                    {
-                        format = ImageFormat.Bmp;
-                    }
-
-                    bitmap.Save(
-                        fileName,
-                        format);
-                }
-            }
-        }
-
-        internal void SaveAsTextWithDialog(string text)
-        {
-            using (SaveFileDialog saveFileDialog = new SaveFileDialog
-            {
-                InitialDirectory =
-                Environment.GetFolderPath(
-                    Environment.SpecialFolder.MyDocuments),
-                Filter = "Text File|*.txt",
-            })
-            {
-                if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    string fileName = saveFileDialog.FileName;
-                    // Set text and output.
-                }
-            }
-        }
 
     }
 }

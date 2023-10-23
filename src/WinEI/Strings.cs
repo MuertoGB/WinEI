@@ -66,7 +66,7 @@ namespace WinEI
             "Force quit application?";
 
         internal const string LOG_NOT_FOUND =
-            "The log file was not found.";
+            "The log file was not found. It may not have been created yet.";
 
         internal const string EXITED_WITH_CODE =
             "Forced exit with code";
@@ -115,5 +115,11 @@ namespace WinEI
 
         internal const string DEFAULT_DISK =
             "Disk Data Transfer Rate";
+
+        internal const string CONFIRM_RESET_SETTINGS =
+            "This will revert all settings to default, are you sure you want to reset settings?";
+
+        internal const string CONFIRM_RESET_WINSAT =
+            "This will permanently delete all system scores, and the assessment log. Are you sure you want to reset WinSAT?";
     }
 }

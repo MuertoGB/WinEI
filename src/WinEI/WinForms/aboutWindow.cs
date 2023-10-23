@@ -103,19 +103,16 @@ namespace WinEI
             Close();
 
         private void cmdEmail_Click(object sender, EventArgs e) =>
-            Process.Start(
-                "mailto:muertogb@proton.me");
+            Process.Start(WEIUrl.Email);
 
         private void cmdSource_Click(object sender, EventArgs e) =>
             Process.Start(WEIUrl.GithubSource);
 
         private void cmdIssues_Click(object sender, EventArgs e) =>
-            Process.Start(
-                "https://github.com/MuertoGB/WinEI/issues");
+            Process.Start(WEIUrl.GithubIssues);
 
         private void cmdDonate_Click(object sender, EventArgs e) =>
-            Process.Start(
-                "https://www.paypal.com/donate/?hosted_button_id=Z88F3UEZB47SQ");
+            Process.Start(WEIUrl.Donate);
         #endregion
 
         #region Picturebox Events

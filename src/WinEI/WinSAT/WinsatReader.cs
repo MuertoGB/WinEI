@@ -95,11 +95,11 @@ namespace WinEI.Winsat
 
         internal static string FORMAL_XML_PATH = null;
 
-        internal static WinsatAssessmentState AssessmentSate;
+        internal static WinsatAssessmentState ASSESSMENT_STATE;
 
-        internal static ApiHardwareTypes ApiHardware;
-        internal static XmlHardwareTypes XmlHardware;
-        internal static WinsatScores ScorePool;
+        internal static ApiHardwareTypes API_HARDWARE;
+        internal static XmlHardwareTypes XML_HARDWARE;
+        internal static WinsatScores WINSPR;
 
         internal static bool ApiHardwareEnabled = false;
         internal static bool XmlHardwareEnabled = false;
@@ -109,19 +109,19 @@ namespace WinEI.Winsat
         internal static void LoadWinsatData()
         {
             // Get assessment validity
-            AssessmentSate = (WinsatAssessmentState)WinsatAPI.QueryAssessmentState();
+            ASSESSMENT_STATE = (WinsatAssessmentState)WinsatAPI.QueryAssessmentState();
 
             // Get WinSPR
-            ScorePool = GetWinSPR();
+            WINSPR = GetWinSPR();
 
             // Load the latest winsat formal/inital xml path.
             FORMAL_XML_PATH = GetFormalXmlPath(OSUtils.IsWindowsVista());
 
             // Load any API generated hardware details.
-            ApiHardware = GetWinsatApiHardware();
+            API_HARDWARE = GetWinsatApiHardware();
 
             // Load any XML generated hardware details.
-            XmlHardware = GetWinsatXmlHardware(FORMAL_XML_PATH);
+            XML_HARDWARE = GetWinsatXmlHardware(FORMAL_XML_PATH);
         }
 
         internal static string GetFormalXmlPath(bool isWindowsVista)

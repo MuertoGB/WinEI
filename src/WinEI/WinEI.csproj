@@ -66,6 +66,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="UI\Design\WEIRadioButtonDesigner.cs" />
+    <Compile Include="Utils\TextUtils.cs" />
     <Compile Include="WinForms\exportWindow.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -54,6 +54,8 @@ namespace WinEI.Utils
         /// </summary>
         /// <param name="path">The path of the file to open in Windows Explorer.</param>
         internal static void HighlightPathInExplorer(string path) =>
-            Process.Start("explorer.exe", $"/select,\"{path}\"");
+            Process.Start(
+                "explorer.exe",
+                $"/select,\"{path}\"");
     }
 }

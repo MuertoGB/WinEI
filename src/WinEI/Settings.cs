@@ -59,6 +59,11 @@ namespace WinEI
         private const string KEY_BYPASS_POWER_ADAPTER = "BypassPowerAdapter";
         #endregion
 
+        #region Internal Const Members
+        internal const int RESUME_STATE_NORMAL = 0;
+        internal const int RESUME_STATE_ASSESSMENT = 1;
+        #endregion
+
         #region Initialize
         internal static void Initialize()
         {

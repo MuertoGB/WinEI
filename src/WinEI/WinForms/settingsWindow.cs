@@ -112,9 +112,9 @@ namespace WinEI
                 WEIMessageBox.Show(
                 this,
                 Strings.WARNING,
-                "This will revert all settings to default, are you sure you want to reset settings?",
-                 WEIMessageBoxType.Warning,
-                 WEIMessageBoxButtons.YesNo);
+                Strings.CONFIRM_RESET_SETTINGS,
+                WEIMessageBoxType.Warning,
+                WEIMessageBoxButtons.YesNo);
 
             if (result != DialogResult.Yes)
                 return;
@@ -218,40 +218,26 @@ namespace WinEI
         #endregion
 
         #region RadioButton Events
-        private void rbnAccent0Default_CheckedChanged(object sender, EventArgs e)
-        {
+        private void rbnAccent0Default_CheckedChanged(object sender, EventArgs e) =>
             _accentInteger = 0;
-        }
 
-        private void rbnAccent1Mint_CheckedChanged(object sender, EventArgs e)
-        {
+        private void rbnAccent1Mint_CheckedChanged(object sender, EventArgs e) =>
             _accentInteger = 1;
-        }
 
-        private void rbnAccent2Green_CheckedChanged(object sender, EventArgs e)
-        {
+        private void rbnAccent2Green_CheckedChanged(object sender, EventArgs e) =>
             _accentInteger = 2;
-        }
 
-        private void rbnAccent3Pink_CheckedChanged(object sender, EventArgs e)
-        {
+        private void rbnAccent3Pink_CheckedChanged(object sender, EventArgs e) =>
             _accentInteger = 3;
-        }
 
-        private void rbnAccent4Gold_CheckedChanged(object sender, EventArgs e)
-        {
+        private void rbnAccent4Gold_CheckedChanged(object sender, EventArgs e) =>
             _accentInteger = 4;
-        }
 
-        private void rbnAccent5Red_CheckedChanged(object sender, EventArgs e)
-        {
+        private void rbnAccent5Red_CheckedChanged(object sender, EventArgs e) =>
             _accentInteger = 5;
-        }
 
-        private void rbnAccent6Orange_CheckedChanged(object sender, EventArgs e)
-        {
+        private void rbnAccent6Orange_CheckedChanged(object sender, EventArgs e) =>
             _accentInteger = 6;
-        }
         #endregion
 
         #region Picturebox Events
@@ -267,13 +253,16 @@ namespace WinEI
         private void UpdateUI()
         {
             swDisableVersionCheck.Checked =
-                Settings.ReadBool(SettingsBool.DisableVersionCheck);
+                Settings.ReadBool(
+                    SettingsBool.DisableVersionCheck);
 
             swShowHardware.Checked =
-                Settings.ReadBool(SettingsBool.ShowHardware);
+                Settings.ReadBool(
+                    SettingsBool.ShowHardware);
 
             int AccentColour =
-                Settings.ReadInteger(SettingsInteger.AccentColor);
+                Settings.ReadInteger(
+                    SettingsInteger.AccentColor);
 
             switch (AccentColour)
             {
@@ -304,10 +293,12 @@ namespace WinEI
             }
 
             swApiHardwareMode.Checked =
-                Settings.ReadBool(SettingsBool.ApiHardwareMode);
+                Settings.ReadBool(
+                    SettingsBool.ApiHardwareMode);
 
             string apiKey =
-                Settings.ReadString(SettingsString.ImgurApiKey);
+                Settings.ReadString(
+                    SettingsString.ImgurApiKey);
 
             tbxImgurApiKey.Text =
                 !string.IsNullOrEmpty(apiKey)
@@ -315,19 +306,24 @@ namespace WinEI
                 : string.Empty;
 
             swDisableFlashingUiElements.Checked =
-                Settings.ReadBool(SettingsBool.DisableFlashing);
+                Settings.ReadBool(
+                    SettingsBool.DisableFlashing);
 
             swDisableMessageWindowSounds.Checked =
-                Settings.ReadBool(SettingsBool.DisableSounds);
+                Settings.ReadBool(
+                    SettingsBool.DisableSounds);
 
             swLogImgurUrls.Checked =
-                Settings.ReadBool(SettingsBool.LogImgurUrls);
+                Settings.ReadBool(
+                    SettingsBool.LogImgurUrls);
 
             swOpenImgurUrls.Checked =
-                Settings.ReadBool(SettingsBool.OpenImgurUrls);
+                Settings.ReadBool(
+                    SettingsBool.OpenImgurUrls);
 
             swBypassPowerAdapter.Checked =
-                Settings.ReadBool(SettingsBool.BypassPowerAdapter);
+                Settings.ReadBool(
+                    SettingsBool.BypassPowerAdapter);
         }
 
         private void Accent_CheckedChanged(object sender, EventArgs e)

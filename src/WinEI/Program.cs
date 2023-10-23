@@ -12,7 +12,6 @@ using System.Drawing;
 using System.IO;
 using System.Net;
 using System.Windows.Forms;
-using WenEI.Winsat;
 using WinEI.Common;
 using WinEI.Utils;
 using WinEI.Winsat;
@@ -33,12 +32,14 @@ namespace WinEI
 
     internal readonly struct WEIUrl
     {
-        internal const string GithubVersionManifest = "https://raw.githubusercontent.com/MuertoGB/WinEI/main/stream/manifests/version.xml";
+        internal const string Donate = "https://www.paypal.com/donate/?hosted_button_id=Z88F3UEZB47SQ";
+        internal const string Email = "mailto:muertogb@proton.me";
         internal const string GithubChangelog = "https://github.com/MuertoGB/WinEI/blob/main/CHANGELOG.md";
         internal const string GithubHomepage = "https://github.com/MuertoGB/WinEI";
-        internal const string GithubSource = "https://github.com/MuertoGB/WinEI/tree/main/src";
-        internal const string GithubLatestRelease = "https://github.com/MuertoGB/WinEI/releases/latest";
         internal const string GithubIssues = "https://github.com/MuertoGB/WinEI/issues";
+        internal const string GithubLatestRelease = "https://github.com/MuertoGB/WinEI/releases/latest";
+        internal const string GithubSource = "https://github.com/MuertoGB/WinEI/tree/main/src";
+        internal const string GithubVersionManifest = "https://raw.githubusercontent.com/MuertoGB/WinEI/main/stream/manifests/version.xml";
         internal const string ImgurAddress = "https://www.imgur.com";
         internal const string MediaFeaturePackAddress = "http://windows.microsoft.com/en-gb/windows/download-windows-media-player";
     }
@@ -64,7 +65,6 @@ namespace WinEI
 
         #region Internal Members
         internal static mainWindow mWindow;
-        internal static bool IsElevated;
         internal static ExportType EXPORT_TYPE =
             ExportType.None;
 
@@ -122,9 +122,6 @@ namespace WinEI
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            // Check if the program is running with elevated privilages
-            IsElevated = OSUtils.IsElevated();
-
             // Set Web Security Protocol.
             ServicePointManager.SecurityProtocol =
                 (SecurityProtocolType)3072;
@@ -170,14 +167,6 @@ namespace WinEI
 
             // Register low level keyboard hook that disables Win+Up.
             KeyboardHookManager.Hook();
-
-            // Debug, bugged winsat message.
-            if (WinsatBugChecker.IsBuggedVersion())
-                MessageBox.Show(
-                    "You have a bugged version of WinSAT. A hotfix is required.",
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
 
             // Create main window instance.
             mWindow = new mainWindow();
