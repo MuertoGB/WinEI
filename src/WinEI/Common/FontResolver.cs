@@ -13,7 +13,6 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
-using System.Xml;
 using WinEI.WIN32;
 
 namespace WinEI.Common
@@ -78,21 +77,17 @@ namespace WinEI.Common
             }
         }
 
-        public static bool DoesFontExist(string fontFamilyName, FontStyle fontStyle)
+        internal static bool DoesFontExist(string fontName, FontStyle fontStyle)
         {
-            bool result;
-
             try
             {
-                using (FontFamily family = new FontFamily(fontFamilyName))
-                    result = family.IsStyleAvailable(fontStyle);
+                using (FontFamily family = new FontFamily(fontName))
+                    return family.IsStyleAvailable(fontStyle);
             }
-            catch (ArgumentException)
+            catch (Exception)
             {
-                result = false;
+                return false;
             }
-
-            return result;
         }
 
         internal static bool AreProgramFontsAvailable()
@@ -145,38 +140,30 @@ namespace WinEI.Common
         }
 
         // For debugging
-        internal static void WriteAvailableFontsAndStylesToFile(string filePath)
+        internal static void WriteAvailableFontsAndStylesToFile(string path)
         {
-            try
+
+            using (InstalledFontCollection fontsCollection = new InstalledFontCollection())
             {
-                using (InstalledFontCollection fontsCollection = new InstalledFontCollection())
+                FontFamily[] fontFamilies = fontsCollection.Families;
+
+                using (StreamWriter writer = new StreamWriter(path))
                 {
-                    FontFamily[] fontFamilies = fontsCollection.Families;
-
-                    using (StreamWriter writer = new StreamWriter(filePath))
+                    foreach (FontFamily fontFamily in fontFamilies)
                     {
-                        foreach (FontFamily fontFamily in fontFamilies)
+                        writer.WriteLine($"Font Family: {fontFamily.Name}");
+
+                        foreach (FontStyle style in Enum.GetValues(typeof(FontStyle)))
                         {
-                            writer.WriteLine($"Font Family: {fontFamily.Name}");
-
-                            foreach (FontStyle style in Enum.GetValues(typeof(FontStyle)))
+                            if (fontFamily.IsStyleAvailable(style))
                             {
-                                if (fontFamily.IsStyleAvailable(style))
-                                {
-                                    writer.WriteLine($"   - Style: {style}");
-                                }
+                                writer.WriteLine($"   - Style: {style}");
                             }
-
-                            writer.WriteLine();
                         }
-                    }
 
-                    Console.WriteLine($"List of available fonts and styles written to {filePath}");
+                        writer.WriteLine();
+                    }
                 }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine($"Error: {e.Message}");
             }
         }
 
