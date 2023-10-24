@@ -3,7 +3,7 @@
 #### Bugged WinSAT?
 
 **Overview:**\
-The operating system is using a version of WinSAT that may encounter issues while assessing the system. For more details, refer to [this article](https://support.microsoft.com/en-us/topic/-the-parameter-is-incorrect-error-message-when-you-run-winsat-in-windows-7-b8c320cc-ce3f-70a7-593e-8aa3ed3b5b5f). The error can occur during the system assessment, and the message may indicate: "Failed to properly assess the disk. The parameter is incorrect."
+The operating system is using a version of WinSAT that may encounter issues while assessing the system. The error can occur during the system assessment, and the message may indicate: "Failed to properly assess the disk. The parameter is incorrect.". For more details, refer to [this article](https://support.microsoft.com/en-us/topic/-the-parameter-is-incorrect-error-message-when-you-run-winsat-in-windows-7-b8c320cc-ce3f-70a7-593e-8aa3ed3b5b5f).
 
 **Affected Operating Systems:**
 ```
