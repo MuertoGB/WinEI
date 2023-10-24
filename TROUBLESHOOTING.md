@@ -22,5 +22,7 @@ Windows 7 32-bit, and 64-bit.
 
 A hotfix is available from Microsoft, and are available to download from the following links:
 
-For 32-Bit Windows 7: Link
-For 64-Bit Windows 7: Link
+For 32-Bit Windows 7: [Windows6.1-KB2687862-x86.msu](https://github.com/MuertoGB/WinEI/raw/main/stream/hotfix/Windows6.1-KB2687862-x86.msu)\
+For 64-Bit Windows 7: [Windows6.1-KB2687862-x64.msu](https://github.com/MuertoGB/WinEI/raw/main/stream/hotfix/Windows6.1-KB2687862-x64.msu)
+
+---
