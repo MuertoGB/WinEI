@@ -53,6 +53,9 @@ namespace WinEI
         internal const string ERROR_IMGUR_RESPONSE =
             "Did not get a URL back from Imgur. The upload was not successful.";
 
+        internal const string ERROR_EXPORT_NOT_FOUND =
+            "The exported file was not found. Output was unsuccessful.";
+
         internal const string FEATURE_REQUIRES_ELEVATION =
             "This feature requires elevated privilages, would you like to restart as administrator?";
 
@@ -76,6 +79,9 @@ namespace WinEI
 
         internal const string QUESTION_RATE_SYSTEM =
             "Would you like to perform the initial assessment?";
+
+        internal const string QUESTION_EXPORT_NAVIGATE =
+            "Export successful. Navigate to file in explorer?";
 
         internal const string QUESTION_COPY_URL_TO_CLIPBOARD =
             "Copy URL text to clipboard?";
@@ -116,10 +122,10 @@ namespace WinEI
         internal const string DEFAULT_DISK =
             "Disk Data Transfer Rate";
 
-        internal const string CONFIRM_RESET_SETTINGS =
+        internal const string QUESTION_RESET_SETTINGS =
             "This will revert all settings to default, are you sure you want to reset settings?";
 
-        internal const string CONFIRM_RESET_WINSAT =
+        internal const string QUESTION_RESET_WINSAT =
             "This will permanently delete all system scores, and the assessment log. Are you sure you want to reset WinSAT?";
     }
 }

@@ -64,7 +64,7 @@
             this.pnlSplit1.Margin = new System.Windows.Forms.Padding(2);
             this.pnlSplit1.Name = "pnlSplit1";
             this.pnlSplit1.Size = new System.Drawing.Size(438, 2);
-            this.pnlSplit1.TabIndex = 97;
+            this.pnlSplit1.TabIndex = 99;
             // 
             // cmdClose
             // 
@@ -273,7 +273,7 @@
             this.lblChannel.Margin = new System.Windows.Forms.Padding(2, 0, 0, 0);
             this.lblChannel.Name = "lblChannel";
             this.lblChannel.Size = new System.Drawing.Size(20, 22);
-            this.lblChannel.TabIndex = 79;
+            this.lblChannel.TabIndex = 99;
             this.lblChannel.Text = "...";
             this.lblChannel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblChannel.UseMnemonic = false;
@@ -288,7 +288,7 @@
             this.lblInfo.Name = "lblInfo";
             this.lblInfo.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.lblInfo.Size = new System.Drawing.Size(438, 92);
-            this.lblInfo.TabIndex = 0;
+            this.lblInfo.TabIndex = 99;
             this.lblInfo.Text = "This software was created by, and is the intellectual property of David R, aka Mu" +
     "erto, so don\'t eat it.\r\nThe \'Muerto\' avatar was hand crafted by Hammi.";
             this.lblInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -306,7 +306,7 @@
             this.lblBuild.Margin = new System.Windows.Forms.Padding(2, 0, 0, 0);
             this.lblBuild.Name = "lblBuild";
             this.lblBuild.Size = new System.Drawing.Size(23, 22);
-            this.lblBuild.TabIndex = 78;
+            this.lblBuild.TabIndex = 99;
             this.lblBuild.Text = "...";
             this.lblBuild.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblBuild.UseMnemonic = false;
@@ -319,7 +319,7 @@
             this.pnlSplit2.Margin = new System.Windows.Forms.Padding(2);
             this.pnlSplit2.Name = "pnlSplit2";
             this.pnlSplit2.Size = new System.Drawing.Size(438, 1);
-            this.pnlSplit2.TabIndex = 88;
+            this.pnlSplit2.TabIndex = 99;
             // 
             // pnlMain
             // 
@@ -334,6 +334,7 @@
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(438, 238);
             this.pnlMain.TabIndex = 0;
+            this.pnlMain.TabStop = true;
             // 
             // tlpTop
             // 
@@ -368,7 +369,7 @@
             this.tlpTopLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tlpTopLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tlpTopLabels.Size = new System.Drawing.Size(188, 52);
-            this.tlpTopLabels.TabIndex = 86;
+            this.tlpTopLabels.TabIndex = 99;
             // 
             // aboutWindow
             // 

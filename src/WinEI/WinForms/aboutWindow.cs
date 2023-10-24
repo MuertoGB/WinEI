@@ -55,11 +55,8 @@ namespace WinEI
         {
             SetAccentColour();
 
-            lblBuild.Text =
-                $"{Application.ProductVersion}.{WEIVersion.Build}";
-
-            lblChannel.Text =
-                WEIVersion.Channel.ToUpper();
+            lblBuild.Text = WEIVersion.Version;
+            lblChannel.Text = WEIVersion.Channel;
         }
 
         private void SetAccentColour()

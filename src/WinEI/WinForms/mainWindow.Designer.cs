@@ -87,24 +87,24 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cmdShareOnImgur = new System.Windows.Forms.Button();
             this.tlpBottomNestedShowHardware = new System.Windows.Forms.TableLayoutPanel();
+            this.swShowHardware = new WinEI.UI.WEISwitch();
             this.tlpBottomNestedValidity = new System.Windows.Forms.TableLayoutPanel();
             this.lblScoreValidity = new System.Windows.Forms.Label();
             this.pnlValidityStatus = new System.Windows.Forms.Panel();
-            this.swShowHardware = new WinEI.UI.WEISwitch();
             this.cmsApplication = new WinEI.UI.WEIContextMenuStrip();
             this.minimizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resetPositionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsOptions = new WinEI.UI.WEIContextMenuStrip();
-            this.deleteWinSATDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.resetWinsatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.runAssessmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.reloadDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.systemDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toggleShowHardwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewSystemDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.viewImgurLinksFileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewWinSATLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.normalRestartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.elevatedRestartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsMore = new WinEI.UI.WEIContextMenuStrip();
             this.workingDirectoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
@@ -115,9 +115,8 @@
             this.mediaFeaturePackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.viewApplicationLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.elevatedRestartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.restartApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewWinSATLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewImgurLinksFileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tlpMenu.SuspendLayout();
             this.tlpTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
@@ -1144,6 +1143,23 @@
             this.tlpBottomNestedShowHardware.Size = new System.Drawing.Size(110, 38);
             this.tlpBottomNestedShowHardware.TabIndex = 100;
             // 
+            // swShowHardware
+            // 
+            this.swShowHardware.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.swShowHardware.AutoSize = true;
+            this.swShowHardware.BackColor = System.Drawing.Color.Black;
+            this.swShowHardware.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.swShowHardware.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.swShowHardware.CheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
+            this.swShowHardware.ClientColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.swShowHardware.ClientColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.swShowHardware.Location = new System.Drawing.Point(38, 9);
+            this.swShowHardware.Name = "swShowHardware";
+            this.swShowHardware.Size = new System.Drawing.Size(34, 20);
+            this.swShowHardware.SwitchHeadColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.swShowHardware.TabIndex = 0;
+            this.swShowHardware.CheckedChanged += new System.EventHandler(this.swShowHardware_CheckedChanged);
+            // 
             // tlpBottomNestedValidity
             // 
             this.tlpBottomNestedValidity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
@@ -1185,23 +1201,6 @@
             this.pnlValidityStatus.Name = "pnlValidityStatus";
             this.pnlValidityStatus.Size = new System.Drawing.Size(3, 38);
             this.pnlValidityStatus.TabIndex = 99;
-            // 
-            // swShowHardware
-            // 
-            this.swShowHardware.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.swShowHardware.AutoSize = true;
-            this.swShowHardware.BackColor = System.Drawing.Color.Black;
-            this.swShowHardware.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
-            this.swShowHardware.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.swShowHardware.CheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
-            this.swShowHardware.ClientColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.swShowHardware.ClientColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.swShowHardware.Location = new System.Drawing.Point(38, 9);
-            this.swShowHardware.Name = "swShowHardware";
-            this.swShowHardware.Size = new System.Drawing.Size(34, 20);
-            this.swShowHardware.SwitchHeadColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.swShowHardware.TabIndex = 0;
-            this.swShowHardware.CheckedChanged += new System.EventHandler(this.swShowHardware_CheckedChanged);
             // 
             // cmsApplication
             // 
@@ -1252,26 +1251,26 @@
             this.cmsOptions.ForeColor = System.Drawing.Color.White;
             this.cmsOptions.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.cmsOptions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.deleteWinSATDataToolStripMenuItem,
+            this.resetWinsatToolStripMenuItem,
             this.runAssessmentToolStripMenuItem,
             this.toolStripSeparator1,
             this.reloadDataToolStripMenuItem,
-            this.systemDetailsToolStripMenuItem,
             this.toggleShowHardwareToolStripMenuItem,
+            this.viewSystemDetailsToolStripMenuItem,
             this.toolStripSeparator2,
-            this.viewImgurLinksFileToolStripMenuItem1,
-            this.viewWinSATLogToolStripMenuItem});
+            this.normalRestartToolStripMenuItem,
+            this.elevatedRestartToolStripMenuItem});
             this.cmsOptions.Name = "weiContextMenuStrip1";
             this.cmsOptions.ShowImageMargin = false;
             this.cmsOptions.Size = new System.Drawing.Size(301, 212);
             // 
-            // deleteWinSATDataToolStripMenuItem
+            // resetWinsatToolStripMenuItem
             // 
-            this.deleteWinSATDataToolStripMenuItem.Name = "deleteWinSATDataToolStripMenuItem";
-            this.deleteWinSATDataToolStripMenuItem.ShortcutKeyDisplayString = "ALT + D";
-            this.deleteWinSATDataToolStripMenuItem.Size = new System.Drawing.Size(300, 28);
-            this.deleteWinSATDataToolStripMenuItem.Text = "Delete WinSAT Data";
-            this.deleteWinSATDataToolStripMenuItem.Click += new System.EventHandler(this.deleteWinSATDataToolStripMenuItem_Click);
+            this.resetWinsatToolStripMenuItem.Name = "resetWinsatToolStripMenuItem";
+            this.resetWinsatToolStripMenuItem.ShortcutKeyDisplayString = "ALT + R";
+            this.resetWinsatToolStripMenuItem.Size = new System.Drawing.Size(300, 28);
+            this.resetWinsatToolStripMenuItem.Text = "Reset WinSAT";
+            this.resetWinsatToolStripMenuItem.Click += new System.EventHandler(this.resetWinsatToolStripMenuItem_Click);
             // 
             // runAssessmentToolStripMenuItem
             // 
@@ -1294,14 +1293,6 @@
             this.reloadDataToolStripMenuItem.Text = "Reload Data";
             this.reloadDataToolStripMenuItem.Click += new System.EventHandler(this.reloadDataToolStripMenuItem_Click);
             // 
-            // systemDetailsToolStripMenuItem
-            // 
-            this.systemDetailsToolStripMenuItem.Name = "systemDetailsToolStripMenuItem";
-            this.systemDetailsToolStripMenuItem.ShortcutKeyDisplayString = "ALT + S";
-            this.systemDetailsToolStripMenuItem.Size = new System.Drawing.Size(300, 28);
-            this.systemDetailsToolStripMenuItem.Text = "System Details";
-            this.systemDetailsToolStripMenuItem.Click += new System.EventHandler(this.systemDetailsToolStripMenuItem_Click);
-            // 
             // toggleShowHardwareToolStripMenuItem
             // 
             this.toggleShowHardwareToolStripMenuItem.Name = "toggleShowHardwareToolStripMenuItem";
@@ -1310,24 +1301,32 @@
             this.toggleShowHardwareToolStripMenuItem.Text = "Toggle Show Hardware";
             this.toggleShowHardwareToolStripMenuItem.Click += new System.EventHandler(this.toggleShowHardwareToolStripMenuItem_Click);
             // 
+            // viewSystemDetailsToolStripMenuItem
+            // 
+            this.viewSystemDetailsToolStripMenuItem.Name = "viewSystemDetailsToolStripMenuItem";
+            this.viewSystemDetailsToolStripMenuItem.ShortcutKeyDisplayString = "ALT + D";
+            this.viewSystemDetailsToolStripMenuItem.Size = new System.Drawing.Size(300, 28);
+            this.viewSystemDetailsToolStripMenuItem.Text = "View System Details";
+            this.viewSystemDetailsToolStripMenuItem.Click += new System.EventHandler(this.viewSystemDetailsToolStripMenuItem_Click);
+            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(297, 6);
             // 
-            // viewImgurLinksFileToolStripMenuItem1
+            // normalRestartToolStripMenuItem
             // 
-            this.viewImgurLinksFileToolStripMenuItem1.Name = "viewImgurLinksFileToolStripMenuItem1";
-            this.viewImgurLinksFileToolStripMenuItem1.Size = new System.Drawing.Size(300, 28);
-            this.viewImgurLinksFileToolStripMenuItem1.Text = "View Imgur Links File";
-            this.viewImgurLinksFileToolStripMenuItem1.Click += new System.EventHandler(this.viewImgurLinksFileToolStripMenuItem1_Click);
+            this.normalRestartToolStripMenuItem.Name = "normalRestartToolStripMenuItem";
+            this.normalRestartToolStripMenuItem.Size = new System.Drawing.Size(300, 28);
+            this.normalRestartToolStripMenuItem.Text = "Restart (Normal)";
+            this.normalRestartToolStripMenuItem.Click += new System.EventHandler(this.normalRestartToolStripMenuItem_Click);
             // 
-            // viewWinSATLogToolStripMenuItem
+            // elevatedRestartToolStripMenuItem
             // 
-            this.viewWinSATLogToolStripMenuItem.Name = "viewWinSATLogToolStripMenuItem";
-            this.viewWinSATLogToolStripMenuItem.Size = new System.Drawing.Size(300, 28);
-            this.viewWinSATLogToolStripMenuItem.Text = "View WinSAT Log";
-            this.viewWinSATLogToolStripMenuItem.Click += new System.EventHandler(this.viewWinSATLogToolStripMenuItem_Click);
+            this.elevatedRestartToolStripMenuItem.Name = "elevatedRestartToolStripMenuItem";
+            this.elevatedRestartToolStripMenuItem.Size = new System.Drawing.Size(300, 28);
+            this.elevatedRestartToolStripMenuItem.Text = "Restart (Elevated)";
+            this.elevatedRestartToolStripMenuItem.Click += new System.EventHandler(this.elevatedRestartToolStripMenuItem_Click_1);
             // 
             // cmsMore
             // 
@@ -1345,12 +1344,11 @@
             this.mediaFeaturePackToolStripMenuItem,
             this.toolStripSeparator6,
             this.viewApplicationLogToolStripMenuItem,
-            this.toolStripSeparator5,
-            this.elevatedRestartToolStripMenuItem,
-            this.restartApplicationToolStripMenuItem});
+            this.viewImgurLinksFileToolStripMenuItem1,
+            this.viewWinSATLogToolStripMenuItem});
             this.cmsMore.Name = "cmsMore";
             this.cmsMore.ShowImageMargin = false;
-            this.cmsMore.Size = new System.Drawing.Size(239, 252);
+            this.cmsMore.Size = new System.Drawing.Size(239, 274);
             // 
             // workingDirectoryToolStripMenuItem
             // 
@@ -1409,24 +1407,19 @@
             this.viewApplicationLogToolStripMenuItem.Text = "View Application Log";
             this.viewApplicationLogToolStripMenuItem.Click += new System.EventHandler(this.viewApplicationLogToolStripMenuItem_Click);
             // 
-            // toolStripSeparator5
+            // viewWinSATLogToolStripMenuItem
             // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(235, 6);
+            this.viewWinSATLogToolStripMenuItem.Name = "viewWinSATLogToolStripMenuItem";
+            this.viewWinSATLogToolStripMenuItem.Size = new System.Drawing.Size(238, 28);
+            this.viewWinSATLogToolStripMenuItem.Text = "View WinSAT Log";
+            this.viewWinSATLogToolStripMenuItem.Click += new System.EventHandler(this.viewWinSATLogToolStripMenuItem_Click_1);
             // 
-            // elevatedRestartToolStripMenuItem
+            // viewImgurLinksFileToolStripMenuItem1
             // 
-            this.elevatedRestartToolStripMenuItem.Name = "elevatedRestartToolStripMenuItem";
-            this.elevatedRestartToolStripMenuItem.Size = new System.Drawing.Size(238, 28);
-            this.elevatedRestartToolStripMenuItem.Text = "Elevated Restart";
-            this.elevatedRestartToolStripMenuItem.Click += new System.EventHandler(this.elevatedRestartToolStripMenuItem_Click);
-            // 
-            // restartApplicationToolStripMenuItem
-            // 
-            this.restartApplicationToolStripMenuItem.Name = "restartApplicationToolStripMenuItem";
-            this.restartApplicationToolStripMenuItem.Size = new System.Drawing.Size(238, 28);
-            this.restartApplicationToolStripMenuItem.Text = "Restart Application";
-            this.restartApplicationToolStripMenuItem.Click += new System.EventHandler(this.restartApplicationToolStripMenuItem_Click);
+            this.viewImgurLinksFileToolStripMenuItem1.Name = "viewImgurLinksFileToolStripMenuItem1";
+            this.viewImgurLinksFileToolStripMenuItem1.Size = new System.Drawing.Size(238, 28);
+            this.viewImgurLinksFileToolStripMenuItem1.Text = "View Imgur Links File";
+            this.viewImgurLinksFileToolStripMenuItem1.Click += new System.EventHandler(this.viewImgurLinksFileToolStripMenuItem1_Click_1);
             // 
             // mainWindow
             // 
@@ -1545,26 +1538,25 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem reloadDataToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripMenuItem viewWinSATLogToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem runAssessmentToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deleteWinSATDataToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem viewImgurLinksFileToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem systemDetailsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem resetWinsatToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewSystemDetailsToolStripMenuItem;
         private UI.WEIContextMenuStrip cmsMore;
         private System.Windows.Forms.ToolStripMenuItem homepageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem changelogToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mediaFeaturePackToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewApplicationLogToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem restartApplicationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem workingDirectoryToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem reportAnIssueToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem toggleShowHardwareToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem elevatedRestartToolStripMenuItem;
         private System.Windows.Forms.Label lblScoreValidity;
+        private System.Windows.Forms.ToolStripMenuItem normalRestartToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem elevatedRestartToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewWinSATLogToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewImgurLinksFileToolStripMenuItem1;
     }
 }
 

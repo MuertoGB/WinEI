@@ -73,6 +73,12 @@
     <Compile Include="WinForms\exportWindow.Designer.cs">
       <DependentUpon>exportWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="WinForms\detailsWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\detailsWindow.Designer.cs">
+      <DependentUpon>detailsWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="WinForms\settingsWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WinForms\exportWindow.resx">
       <DependentUpon>exportWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\detailsWindow.resx">
+      <DependentUpon>detailsWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinForms\mainWindow.resx">
       <DependentUpon>mainWindow.cs</DependentUpon>

@@ -15,6 +15,7 @@ using WinEI.Common;
 using WinEI.UI;
 using WinEI.Utils;
 using WinEI.WIN32;
+using WinEI.WinForms;
 using WinEI.Winsat;
 
 namespace WinEI
@@ -84,7 +85,7 @@ namespace WinEI
 
             // If we're elevated, remove menu item to an perform elevated restart.
             if (OSUtils.IsElevated())
-                cmsMore.Items.Remove(
+                cmsOptions.Items.Remove(
                     elevatedRestartToolStripMenuItem);
 
             // Update User Interface
@@ -95,22 +96,31 @@ namespace WinEI
             if (!Settings.ReadBool(SettingsBool.DisableVersionCheck))
                 CheckForNewVersion();
 
-            // Check for a bugged WinSAT version, and show button.
             // ***TODO***
+            // Check fonts? Especially on Vista.
         }
 
         private void mainWindow_Shown(object sender, EventArgs e)
         {
-            if (Settings.ReadInteger(SettingsInteger.ResumeState) ==
-                Settings.RESUME_STATE_ASSESSMENT)
-            {
-                // Reset resume state.
-                Settings.WriteInteger(
-                    SettingsInteger.ResumeState,
-                    Settings.RESUME_STATE_NORMAL);
+            // Get resume state value.
+            int resumeState =
+                (Settings.ReadInteger(
+                    SettingsInteger.ResumeState));
 
-                cmdAssessment.PerformClick();
-            }
+            // Reset resume state value.
+            Settings.WriteInteger(
+                SettingsInteger.ResumeState,
+                Settings.RESUME_STATE_NORMAL);
+
+            // Resume state set to assessment.
+            if (resumeState ==
+                Settings.RESUME_STATE_ASSESSMENT)
+                cmdAssessment_Click(sender, e);
+
+            // Resume state set to reset winsat.
+            if (resumeState ==
+                Settings.RESUME_STATE_RESET_WINSAT)
+                resetWinsatToolStripMenuItem_Click(sender, e);
         }
 
         internal async void CheckForNewVersion()
@@ -164,6 +174,7 @@ namespace WinEI
             if (e.KeyCode == Keys.F5)
             {
                 reloadDataToolStripMenuItem.PerformClick();
+                return;
             }
 
             if (e.Modifiers == Keys.Control)
@@ -191,11 +202,11 @@ namespace WinEI
             {
                 switch (e.KeyCode)
                 {
-                    case Keys.D:
-                        deleteWinSATDataToolStripMenuItem.PerformClick();
+                    case Keys.R:
+                        resetWinsatToolStripMenuItem.PerformClick();
                         break;
-                    case Keys.S:
-                        systemDetailsToolStripMenuItem.PerformClick();
+                    case Keys.D:
+                        viewSystemDetailsToolStripMenuItem.PerformClick();
                         break;
                     case Keys.A:
                         cmdAssessment.PerformClick();
@@ -205,6 +216,12 @@ namespace WinEI
                         break;
                     case Keys.H:
                         swShowHardware.Checked = !swShowHardware.Checked;
+                        break;
+                    case Keys.N:
+                        normalRestartToolStripMenuItem.PerformClick();
+                        break;
+                    case Keys.E:
+                        elevatedRestartToolStripMenuItem.PerformClick();
                         break;
                 }
             }
@@ -320,6 +337,7 @@ namespace WinEI
 
             Control[] controls =
             {
+                cmdExport,
                 cmdShareOnImgur,
                 swShowHardware
             };
@@ -435,8 +453,9 @@ namespace WinEI
 
                 if (Program.EXPORT_TYPE == ExportType.Text)
                 {
-                    // ***TODO***
-                    // Generate text and send it to SaveAsTextWithDialog().
+                    TextUtils.SaveAsTextWithDialog(
+                        TextUtils.BuildWinsatTextOutput(),
+                        this);
                 }
             }
 
@@ -500,7 +519,7 @@ namespace WinEI
                 // User chose to elevate privilages.
                 if (result == DialogResult.Yes)
                 {
-                    // Set restart to assessment value.
+                    // Set resume state to assessment.
                     Settings.WriteInteger(
                         SettingsInteger.ResumeState,
                         Settings.RESUME_STATE_ASSESSMENT);
@@ -586,24 +605,31 @@ namespace WinEI
                     ImageUtils.GetBitmapOfControl(
                         this);
 
+                // Get the api key.
+                string apiKey =
+                    string.IsNullOrEmpty(
+                        Settings.ReadString(SettingsString.ImgurApiKey))
+                    ? ImgurApi.API_KEY
+                    : Settings.ReadString(SettingsString.ImgurApiKey);
+
                 // Attempt Imgur upload.
-                string url =
+                string apiGetUrl =
                     ImgurApi.UploadBitmapToImgur(
-                        ImgurApi.API_KEY,
+                        apiKey,
                         bitmap,
                         true);
 
                 // Imgur upload returned a URL.
-                if (!string.IsNullOrEmpty(url))
+                if (!string.IsNullOrEmpty(apiGetUrl))
                 {
                     // Check whether we should log the URL.
                     if (Settings.ReadBool(SettingsBool.LogImgurUrls))
-                        Logger.WriteToLog(url, LogType.ImgurLog);
+                        Logger.WriteToLog(apiGetUrl, LogType.ImgurLog);
 
                     // Check whether we should open a browser window, or show a message.
                     if (Settings.ReadBool(SettingsBool.OpenImgurUrls))
                     {
-                        Process.Start(url);
+                        Process.Start(apiGetUrl);
                     }
                     else
                     {
@@ -613,13 +639,13 @@ namespace WinEI
                             WEIMessageBox.Show(
                                 this,
                                 Strings.INFORMATION,
-                                $"{Strings.IMGUR_UPLOAD_COMPLETE} {url}\r\n{Strings.QUESTION_COPY_URL_TO_CLIPBOARD}",
+                                $"{Strings.IMGUR_UPLOAD_COMPLETE} {apiGetUrl}\r\n{Strings.QUESTION_COPY_URL_TO_CLIPBOARD}",
                                 WEIMessageBoxType.Question,
                                 WEIMessageBoxButtons.YesNo);
 
                         // Copy URL to clipboard.
                         if (copyResult == DialogResult.Yes)
-                            Clipboard.SetText(url);
+                            Clipboard.SetText(apiGetUrl);
                     }
 
                     // Exit here, nothing else to do.
@@ -672,7 +698,7 @@ namespace WinEI
             Close();
 
         // Options Menu
-        private void deleteWinSATDataToolStripMenuItem_Click(object sender, EventArgs e)
+        private void resetWinsatToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // We need elevated privilages to delete anything in the Performance folder.
             if (!OSUtils.IsElevated())
@@ -687,7 +713,14 @@ namespace WinEI
 
                 // User chose to elevate.
                 if (result == DialogResult.Yes)
+                {
+                    // Set resume state to reset winsat.
+                    Settings.WriteInteger(
+                        SettingsInteger.ResumeState,
+                        Settings.RESUME_STATE_RESET_WINSAT);
+
                     OSUtils.RestartElevated();
+                }
 
                 return;
             }
@@ -699,7 +732,7 @@ namespace WinEI
                     WEIMessageBox.Show(
                         this,
                         Strings.WARNING,
-                        Strings.CONFIRM_RESET_WINSAT,
+                        Strings.QUESTION_RESET_WINSAT,
                         WEIMessageBoxType.Warning,
                         WEIMessageBoxButtons.YesNo);
 
@@ -734,45 +767,25 @@ namespace WinEI
         private void reloadDataToolStripMenuItem_Click(object sender, EventArgs e) =>
             ReloadData();
 
-        private void systemDetailsToolStripMenuItem_Click(object sender, EventArgs e) =>
-            MessageBox.Show("System details not imlemented yet.");
+        private void viewSystemDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SetHalfOpacity();
+
+            using (Form form = new detailsWindow())
+            {
+                form.FormClosed += ChildWindowClosed;
+                form.ShowDialog();
+            }
+        }
 
         private void toggleShowHardwareToolStripMenuItem_Click(object sender, EventArgs e) =>
             swShowHardware.Checked = !swShowHardware.Checked;
 
-        private void viewImgurLinksFileToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            if (!File.Exists(WEIPath.ImgurLinksFile))
-            {
-                WEIMessageBox.Show(
-                    this,
-                    Strings.INFORMATION,
-                    Strings.IMGUR_LOG_NOT_FOUND,
-                    WEIMessageBoxType.Information,
-                    WEIMessageBoxButtons.Okay);
+        private void normalRestartToolStripMenuItem_Click(object sender, EventArgs e) =>
+            Program.Restart();
 
-                return;
-            }
-
-            Process.Start(WEIPath.ImgurLinksFile);
-        }
-
-        private void viewWinSATLogToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (!File.Exists(WinsatReader.WinsatLog))
-            {
-                WEIMessageBox.Show(
-                    this,
-                    Strings.INFORMATION,
-                    Strings.WINSAT_LOG_NOT_FOUND,
-                    WEIMessageBoxType.Information,
-                    WEIMessageBoxButtons.Okay);
-
-                return;
-            }
-
-            Process.Start(WinsatReader.WinsatLog);
-        }
+        private void elevatedRestartToolStripMenuItem_Click_1(object sender, EventArgs e) =>
+            OSUtils.RestartElevated();
 
         // More Menu
         private void workingDirectoryToolStripMenuItem_Click(object sender, EventArgs e) =>
@@ -807,11 +820,39 @@ namespace WinEI
             Process.Start(WEIPath.ApplicationLog);
         }
 
-        private void restartApplicationToolStripMenuItem_Click(object sender, EventArgs e) =>
-            Program.Restart();
+        private void viewImgurLinksFileToolStripMenuItem1_Click_1(object sender, EventArgs e)
+        {
+            if (!File.Exists(WEIPath.ImgurLinksFile))
+            {
+                WEIMessageBox.Show(
+                    this,
+                    Strings.INFORMATION,
+                    Strings.IMGUR_LOG_NOT_FOUND,
+                    WEIMessageBoxType.Information,
+                    WEIMessageBoxButtons.Okay);
 
-        private void elevatedRestartToolStripMenuItem_Click(object sender, EventArgs e) =>
-            OSUtils.RestartElevated();
+                return;
+            }
+
+            Process.Start(WEIPath.ImgurLinksFile);
+        }
+
+        private void viewWinSATLogToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            if (!File.Exists(WinsatReader.WinsatLog))
+            {
+                WEIMessageBox.Show(
+                    this,
+                    Strings.INFORMATION,
+                    Strings.WINSAT_LOG_NOT_FOUND,
+                    WEIMessageBoxType.Information,
+                    WEIMessageBoxButtons.Okay);
+
+                return;
+            }
+
+            Process.Start(WinsatReader.WinsatLog);
+        }
         #endregion
 
         #region PictureBox Events
@@ -976,6 +1017,7 @@ namespace WinEI
             lblDisk.Text = Strings.DEFAULT_DISK;
         }
         #endregion
+
 
     }
 }

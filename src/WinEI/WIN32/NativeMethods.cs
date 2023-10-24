@@ -106,5 +106,9 @@ namespace WinEI.WIN32
             IntPtr lpReturnedString,
             uint nSize,
             string lpFileName);
+
+        // https://learn.microsoft.com/en-us/windows/win32/api/sysinfoapi/nf-sysinfoapi-gettickcount
+        [DllImport("kernel32.dll")]
+        internal static extern uint GetTickCount();
     }
 }

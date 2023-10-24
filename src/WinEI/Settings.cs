@@ -62,6 +62,7 @@ namespace WinEI
         #region Internal Const Members
         internal const int RESUME_STATE_NORMAL = 0;
         internal const int RESUME_STATE_ASSESSMENT = 1;
+        internal const int RESUME_STATE_RESET_WINSAT = 2;
         #endregion
 
         #region Initialize

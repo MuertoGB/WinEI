@@ -40,9 +40,9 @@ namespace WinEI.Utils
                 InitialDirectory =
                     Environment.GetFolderPath(
                         Environment.SpecialFolder.MyPictures),
-
-                Filter = "JPEG Image|*.jpg|PNG Image|*.png|Bitmap Image|*.bmp",
-                FileName = "WinEI",
+                Filter = "PNG Image|*.png|Bitmap Image|*.bmp",
+                FileName = "winei-screenshot",
+                OverwritePrompt = true
             })
             {
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
@@ -50,13 +50,13 @@ namespace WinEI.Utils
                     string path = saveFileDialog.FileName;
 
                     ImageFormat format =
-                        ImageFormat.Jpeg;
+                        ImageFormat.Png;
 
-                    if (saveFileDialog.FilterIndex == 2)
+                    if (saveFileDialog.FilterIndex == 1)
                     {
                         format = ImageFormat.Png;
                     }
-                    else if (saveFileDialog.FilterIndex == 3)
+                    else if (saveFileDialog.FilterIndex == 2)
                     {
                         format = ImageFormat.Bmp;
                     }
@@ -69,7 +69,7 @@ namespace WinEI.Utils
                             WEIMessageBox.Show(
                                 owner,
                                 Strings.INFORMATION,
-                                "Export successful. Navigate to file in explorer?",
+                                Strings.QUESTION_EXPORT_NAVIGATE,
                                 WEIMessageBoxType.Question,
                                 WEIMessageBoxButtons.YesNo);
 
@@ -82,8 +82,12 @@ namespace WinEI.Utils
                         return;
                     }
 
-                    // ***TODO***
-                    // The output file was not found.
+                    WEIMessageBox.Show(
+                        owner,
+                        Strings.ERROR,
+                        Strings.ERROR_EXPORT_NOT_FOUND,
+                        WEIMessageBoxType.Error,
+                        WEIMessageBoxButtons.Okay);
                 }
             }
         }

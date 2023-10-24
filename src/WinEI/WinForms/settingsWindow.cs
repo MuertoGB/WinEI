@@ -112,7 +112,7 @@ namespace WinEI
                 WEIMessageBox.Show(
                 this,
                 Strings.WARNING,
-                Strings.CONFIRM_RESET_SETTINGS,
+                Strings.QUESTION_RESET_SETTINGS,
                 WEIMessageBoxType.Warning,
                 WEIMessageBoxButtons.YesNo);
 

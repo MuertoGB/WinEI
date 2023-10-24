@@ -8,6 +8,7 @@ using Microsoft.Win32;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Security.Principal;
 using System.Windows.Forms;
@@ -69,11 +70,72 @@ namespace WinEI.Utils
             Environment.Is64BitOperatingSystem
             ? (shortString ? "x64" : "64-Bit")
             : (shortString ? "x86" : "32-Bit");
+
+        internal static string GetSystemCulture =>
+            CultureInfo.CurrentCulture.Name;
+
+        internal static string GetSystemInstallDate
+        {
+            get
+            {
+                using (RegistryKey key = Registry.LocalMachine.OpenSubKey(
+                    @"SOFTWARE\Microsoft\Windows NT\CurrentVersion"))
+                {
+                    if (key != null && key.GetValue("InstallDate") is int intValue)
+                    {
+                        DateTime installDateTime =
+                            new DateTime(
+                                1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)
+                            .AddSeconds(intValue).ToLocalTime();
+
+                        return installDateTime.ToString();
+                    }
+                }
+
+                return DateTime.MinValue + " (Error)";
+            }
+        }
+
+        internal static string GetKernelUptime(uint kernelValue)
+        {
+            uint tickCount =
+                kernelValue / 1000;
+
+            int days =
+                (int)(tickCount / 3600 / 24);
+
+            int hours =
+                (int)((tickCount / 3600) % 24);
+
+            int minutes =
+                (int)((tickCount % 3600) / 60);
+
+            int seconds =
+                (int)(tickCount % 60);
+
+            return $"{days}d, {hours:D2}h, {minutes:D2}m, {seconds:D2}s";
+        }
+
+        internal static string GetWinsatExePrivateVersion
+        {
+            get
+            {
+                // Get the current winsat executable version.
+                FileVersionInfo fvi = GetWinsatExeVersion;
+
+                // Build version string with the private part, we cannot
+                // do it with ProductVersion alone.
+                return $"{fvi.FileMajorPart}." +
+                       $"{fvi.FileMinorPart}." +
+                       $"{fvi.FileBuildPart}." +
+                       $"{fvi.FilePrivatePart}";
+            }
+        }
         #endregion
 
         #region Integers
         internal static int GetWindowsBuild =>
-            Environment.OSVersion.Version.Build;
+                Environment.OSVersion.Version.Build;
         #endregion
 
         #region Bools
