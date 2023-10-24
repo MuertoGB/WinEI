@@ -83,7 +83,7 @@
             // 
             this.lblTitle.BackColor = System.Drawing.Color.Transparent;
             this.lblTitle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F);
             this.lblTitle.ForeColor = System.Drawing.Color.White;
             this.lblTitle.Location = new System.Drawing.Point(40, 0);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(0);
@@ -192,7 +192,7 @@
             // 
             this.lblTextBuggedWinsat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.lblTextBuggedWinsat.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTextBuggedWinsat.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTextBuggedWinsat.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
             this.lblTextBuggedWinsat.ForeColor = System.Drawing.Color.White;
             this.lblTextBuggedWinsat.Location = new System.Drawing.Point(0, 259);
             this.lblTextBuggedWinsat.Margin = new System.Windows.Forms.Padding(0);
@@ -207,7 +207,7 @@
             // 
             this.lblTextWinsatDll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.lblTextWinsatDll.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTextWinsatDll.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTextWinsatDll.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
             this.lblTextWinsatDll.ForeColor = System.Drawing.Color.White;
             this.lblTextWinsatDll.Location = new System.Drawing.Point(0, 222);
             this.lblTextWinsatDll.Margin = new System.Windows.Forms.Padding(0);
@@ -222,7 +222,7 @@
             // 
             this.lblTextWinsatExe.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.lblTextWinsatExe.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTextWinsatExe.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTextWinsatExe.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
             this.lblTextWinsatExe.ForeColor = System.Drawing.Color.White;
             this.lblTextWinsatExe.Location = new System.Drawing.Point(0, 185);
             this.lblTextWinsatExe.Margin = new System.Windows.Forms.Padding(0);
@@ -282,7 +282,7 @@
             // 
             this.lblTextOperatingSystem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.lblTextOperatingSystem.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTextOperatingSystem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTextOperatingSystem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
             this.lblTextOperatingSystem.ForeColor = System.Drawing.Color.White;
             this.lblTextOperatingSystem.Location = new System.Drawing.Point(0, 0);
             this.lblTextOperatingSystem.Margin = new System.Windows.Forms.Padding(0);
@@ -320,7 +320,7 @@
             this.cmdSeeDetails.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
             this.cmdSeeDetails.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(80)))));
             this.cmdSeeDetails.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdSeeDetails.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdSeeDetails.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
             this.cmdSeeDetails.ForeColor = System.Drawing.Color.White;
             this.cmdSeeDetails.Location = new System.Drawing.Point(225, 0);
             this.cmdSeeDetails.Margin = new System.Windows.Forms.Padding(0);
@@ -351,7 +351,7 @@
             // 
             this.lblTextInstallDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.lblTextInstallDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTextInstallDate.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTextInstallDate.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
             this.lblTextInstallDate.ForeColor = System.Drawing.Color.White;
             this.lblTextInstallDate.Location = new System.Drawing.Point(0, 37);
             this.lblTextInstallDate.Margin = new System.Windows.Forms.Padding(0);
@@ -381,7 +381,7 @@
             // 
             this.lblTextUptime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.lblTextUptime.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTextUptime.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTextUptime.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
             this.lblTextUptime.ForeColor = System.Drawing.Color.White;
             this.lblTextUptime.Location = new System.Drawing.Point(0, 74);
             this.lblTextUptime.Margin = new System.Windows.Forms.Padding(0);
@@ -411,7 +411,7 @@
             // 
             this.lblTextCulture.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.lblTextCulture.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTextCulture.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTextCulture.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
             this.lblTextCulture.ForeColor = System.Drawing.Color.White;
             this.lblTextCulture.Location = new System.Drawing.Point(0, 148);
             this.lblTextCulture.Margin = new System.Windows.Forms.Padding(0);
@@ -441,7 +441,7 @@
             // 
             this.lblTextElevated.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.lblTextElevated.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTextElevated.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTextElevated.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
             this.lblTextElevated.ForeColor = System.Drawing.Color.White;
             this.lblTextElevated.Location = new System.Drawing.Point(0, 111);
             this.lblTextElevated.Margin = new System.Windows.Forms.Padding(0);

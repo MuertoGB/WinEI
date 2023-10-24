@@ -778,8 +778,13 @@ namespace WinEI
             }
         }
 
-        private void toggleShowHardwareToolStripMenuItem_Click(object sender, EventArgs e) =>
+        private void toggleShowHardwareToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (WinsatReader.ASSESSMENT_STATE == WinsatAssessmentState.UNAVAILABLE)
+                return;
+
             swShowHardware.Checked = !swShowHardware.Checked;
+        }
 
         private void normalRestartToolStripMenuItem_Click(object sender, EventArgs e) =>
             Program.Restart();
@@ -1017,7 +1022,6 @@ namespace WinEI
             lblDisk.Text = Strings.DEFAULT_DISK;
         }
         #endregion
-
 
     }
 }

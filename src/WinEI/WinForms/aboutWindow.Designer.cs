@@ -124,7 +124,7 @@
             this.cmdDonate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
             this.cmdDonate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(80)))));
             this.cmdDonate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdDonate.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdDonate.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
             this.cmdDonate.ForeColor = System.Drawing.Color.White;
             this.cmdDonate.Location = new System.Drawing.Point(327, 0);
             this.cmdDonate.Margin = new System.Windows.Forms.Padding(0);
@@ -145,7 +145,7 @@
             this.cmdIssues.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
             this.cmdIssues.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(80)))));
             this.cmdIssues.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdIssues.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdIssues.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
             this.cmdIssues.ForeColor = System.Drawing.Color.White;
             this.cmdIssues.Location = new System.Drawing.Point(218, 0);
             this.cmdIssues.Margin = new System.Windows.Forms.Padding(0);
@@ -166,7 +166,7 @@
             this.cmdEmail.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
             this.cmdEmail.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(80)))));
             this.cmdEmail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdEmail.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdEmail.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
             this.cmdEmail.ForeColor = System.Drawing.Color.White;
             this.cmdEmail.Location = new System.Drawing.Point(0, 0);
             this.cmdEmail.Margin = new System.Windows.Forms.Padding(0);
@@ -187,7 +187,7 @@
             this.cmdSource.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
             this.cmdSource.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(80)))));
             this.cmdSource.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdSource.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdSource.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
             this.cmdSource.ForeColor = System.Drawing.Color.White;
             this.cmdSource.Location = new System.Drawing.Point(109, 0);
             this.cmdSource.Margin = new System.Windows.Forms.Padding(0);
@@ -203,7 +203,7 @@
             // 
             this.lblTitle.BackColor = System.Drawing.Color.Transparent;
             this.lblTitle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F);
             this.lblTitle.ForeColor = System.Drawing.Color.White;
             this.lblTitle.Location = new System.Drawing.Point(40, 0);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(0);
@@ -300,12 +300,12 @@
             this.lblBuild.AutoSize = true;
             this.lblBuild.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.lblBuild.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblBuild.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBuild.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBuild.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.lblBuild.Location = new System.Drawing.Point(2, 2);
             this.lblBuild.Margin = new System.Windows.Forms.Padding(2, 0, 0, 0);
             this.lblBuild.Name = "lblBuild";
-            this.lblBuild.Size = new System.Drawing.Size(23, 22);
+            this.lblBuild.Size = new System.Drawing.Size(20, 22);
             this.lblBuild.TabIndex = 99;
             this.lblBuild.Text = "...";
             this.lblBuild.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

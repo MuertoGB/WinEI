@@ -5,10 +5,15 @@
 // Released under the GNU GLP v3.0
 
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Text;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Text;
+using System.Windows.Forms;
+using System.Xml;
 using WinEI.WIN32;
 
 namespace WinEI.Common
@@ -73,21 +78,107 @@ namespace WinEI.Common
             }
         }
 
-        internal static FontStatus IsFontStyleAvailable(string fontFamily, FontStyle fontStyle)
+        public static bool DoesFontExist(string fontFamilyName, FontStyle fontStyle)
+        {
+            bool result;
+
+            try
+            {
+                using (FontFamily family = new FontFamily(fontFamilyName))
+                    result = family.IsStyleAvailable(fontStyle);
+            }
+            catch (ArgumentException)
+            {
+                result = false;
+            }
+
+            return result;
+        }
+
+        internal static bool AreProgramFontsAvailable()
+        {
+            // Check for Segoe UI
+            if (!FontResolver.DoesFontExist("Segoe UI", FontStyle.Regular))
+                return false;
+
+            // Check for Segoe UI Semibold
+            if (!FontResolver.DoesFontExist("Segoe UI Semibold", FontStyle.Regular))
+                return false;
+
+            // Check for Segoe UI Bold
+            if (!FontResolver.DoesFontExist("Segoe UI", FontStyle.Bold))
+                return false;
+
+            return true;
+        }
+
+        internal static void HandleMissingFontExit()
+        {
+            StringBuilder missingFontsBuilder = new StringBuilder();
+
+            if (!FontResolver.DoesFontExist("Segoe UI", FontStyle.Regular))
+                missingFontsBuilder.AppendLine("Segoe UI Regular");
+
+            if (!FontResolver.DoesFontExist("Segoe UI Semibold", FontStyle.Regular))
+                missingFontsBuilder.AppendLine("Segoe UI Semibold");
+
+            if (!FontResolver.DoesFontExist("Segoe UI", FontStyle.Bold))
+                missingFontsBuilder.AppendLine("Segoe UI Bold");
+
+            string errorMessage =
+                $"{Strings.ERROR_FONTS_MISSING}\r\n\r\n" +
+                $"{missingFontsBuilder}\r\n" +
+                $"{Strings.QUESTION_VIEW_TROUBLESHOOTING}";
+
+            DialogResult result =
+                MessageBox.Show(
+                    errorMessage,
+                    Strings.ERROR,
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Error);
+
+            if (result == DialogResult.Yes)
+                Process.Start(
+                    WEIUrl.GithubTsMissingFonts);
+
+            Environment.Exit(ExitCodes.MISSING_FONT);
+        }
+
+        // For debugging
+        internal static void WriteAvailableFontsAndStylesToFile(string filePath)
         {
             try
             {
-                using (FontFamily family = new FontFamily(fontFamily))
-                    if (family.IsStyleAvailable(fontStyle))
-                        return FontStatus.Available;
+                using (InstalledFontCollection fontsCollection = new InstalledFontCollection())
+                {
+                    FontFamily[] fontFamilies = fontsCollection.Families;
+
+                    using (StreamWriter writer = new StreamWriter(filePath))
+                    {
+                        foreach (FontFamily fontFamily in fontFamilies)
+                        {
+                            writer.WriteLine($"Font Family: {fontFamily.Name}");
+
+                            foreach (FontStyle style in Enum.GetValues(typeof(FontStyle)))
+                            {
+                                if (fontFamily.IsStyleAvailable(style))
+                                {
+                                    writer.WriteLine($"   - Style: {style}");
+                                }
+                            }
+
+                            writer.WriteLine();
+                        }
+                    }
+
+                    Console.WriteLine($"List of available fonts and styles written to {filePath}");
+                }
             }
             catch (Exception e)
             {
-                Logger.WriteExceptionToAppLog(e);
-                return FontStatus.Unknown;
+                Console.WriteLine($"Error: {e.Message}");
             }
-
-            return FontStatus.Missing;
         }
+
     }
 }

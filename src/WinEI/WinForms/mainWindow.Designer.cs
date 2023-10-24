@@ -115,8 +115,8 @@
             this.mediaFeaturePackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.viewApplicationLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewWinSATLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewImgurLinksFileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewWinSATLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tlpMenu.SuspendLayout();
             this.tlpTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
@@ -188,7 +188,7 @@
             this.cmdOptions.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.cmdOptions.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.cmdOptions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdOptions.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdOptions.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
             this.cmdOptions.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
             this.cmdOptions.Location = new System.Drawing.Point(86, 1);
             this.cmdOptions.Margin = new System.Windows.Forms.Padding(1);
@@ -218,7 +218,7 @@
             this.cmdExport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.cmdExport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.cmdExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdExport.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdExport.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
             this.cmdExport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
             this.cmdExport.Location = new System.Drawing.Point(1, 1);
             this.cmdExport.Margin = new System.Windows.Forms.Padding(1);
@@ -238,7 +238,7 @@
             this.cmdAbout.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.cmdAbout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.cmdAbout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdAbout.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdAbout.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
             this.cmdAbout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
             this.cmdAbout.Location = new System.Drawing.Point(275, 1);
             this.cmdAbout.Margin = new System.Windows.Forms.Padding(1);
@@ -268,7 +268,7 @@
             this.cmdSettings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.cmdSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.cmdSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdSettings.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdSettings.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
             this.cmdSettings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
             this.cmdSettings.Location = new System.Drawing.Point(183, 1);
             this.cmdSettings.Margin = new System.Windows.Forms.Padding(1);
@@ -327,7 +327,7 @@
             // 
             this.lblTitle.BackColor = System.Drawing.Color.Transparent;
             this.lblTitle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F);
             this.lblTitle.ForeColor = System.Drawing.Color.White;
             this.lblTitle.Location = new System.Drawing.Point(50, 0);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(0);
@@ -418,7 +418,7 @@
             this.lblAppVersion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.lblAppVersion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblAppVersion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblAppVersion.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAppVersion.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
             this.lblAppVersion.ForeColor = System.Drawing.Color.White;
             this.lblAppVersion.Location = new System.Drawing.Point(132, 14);
             this.lblAppVersion.Margin = new System.Windows.Forms.Padding(0, 0, 5, 0);
@@ -511,7 +511,7 @@
             // 
             this.lblTextComponent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.lblTextComponent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTextComponent.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTextComponent.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
             this.lblTextComponent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(225)))), ((int)(((byte)(240)))));
             this.lblTextComponent.Location = new System.Drawing.Point(0, 0);
             this.lblTextComponent.Margin = new System.Windows.Forms.Padding(0);
@@ -526,7 +526,7 @@
             // 
             this.lblTextBaseScore.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.lblTextBaseScore.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTextBaseScore.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTextBaseScore.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
             this.lblTextBaseScore.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(225)))), ((int)(((byte)(240)))));
             this.lblTextBaseScore.Location = new System.Drawing.Point(645, 0);
             this.lblTextBaseScore.Margin = new System.Windows.Forms.Padding(0);
@@ -540,7 +540,7 @@
             // 
             this.lblTextSubscore.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.lblTextSubscore.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTextSubscore.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTextSubscore.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
             this.lblTextSubscore.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(225)))), ((int)(((byte)(240)))));
             this.lblTextSubscore.Location = new System.Drawing.Point(544, 0);
             this.lblTextSubscore.Margin = new System.Windows.Forms.Padding(0);
@@ -554,7 +554,7 @@
             // 
             this.lblTextWhatIsRated.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.lblTextWhatIsRated.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTextWhatIsRated.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTextWhatIsRated.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
             this.lblTextWhatIsRated.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(225)))), ((int)(((byte)(240)))));
             this.lblTextWhatIsRated.Location = new System.Drawing.Point(151, 0);
             this.lblTextWhatIsRated.Margin = new System.Windows.Forms.Padding(0);
@@ -1262,7 +1262,7 @@
             this.elevatedRestartToolStripMenuItem});
             this.cmsOptions.Name = "weiContextMenuStrip1";
             this.cmsOptions.ShowImageMargin = false;
-            this.cmsOptions.Size = new System.Drawing.Size(301, 212);
+            this.cmsOptions.Size = new System.Drawing.Size(301, 240);
             // 
             // resetWinsatToolStripMenuItem
             // 
@@ -1317,6 +1317,7 @@
             // normalRestartToolStripMenuItem
             // 
             this.normalRestartToolStripMenuItem.Name = "normalRestartToolStripMenuItem";
+            this.normalRestartToolStripMenuItem.ShortcutKeyDisplayString = "ALT + N";
             this.normalRestartToolStripMenuItem.Size = new System.Drawing.Size(300, 28);
             this.normalRestartToolStripMenuItem.Text = "Restart (Normal)";
             this.normalRestartToolStripMenuItem.Click += new System.EventHandler(this.normalRestartToolStripMenuItem_Click);
@@ -1324,6 +1325,7 @@
             // elevatedRestartToolStripMenuItem
             // 
             this.elevatedRestartToolStripMenuItem.Name = "elevatedRestartToolStripMenuItem";
+            this.elevatedRestartToolStripMenuItem.ShortcutKeyDisplayString = "ALT + E";
             this.elevatedRestartToolStripMenuItem.Size = new System.Drawing.Size(300, 28);
             this.elevatedRestartToolStripMenuItem.Text = "Restart (Elevated)";
             this.elevatedRestartToolStripMenuItem.Click += new System.EventHandler(this.elevatedRestartToolStripMenuItem_Click_1);
@@ -1348,7 +1350,7 @@
             this.viewWinSATLogToolStripMenuItem});
             this.cmsMore.Name = "cmsMore";
             this.cmsMore.ShowImageMargin = false;
-            this.cmsMore.Size = new System.Drawing.Size(239, 274);
+            this.cmsMore.Size = new System.Drawing.Size(239, 246);
             // 
             // workingDirectoryToolStripMenuItem
             // 
@@ -1407,19 +1409,19 @@
             this.viewApplicationLogToolStripMenuItem.Text = "View Application Log";
             this.viewApplicationLogToolStripMenuItem.Click += new System.EventHandler(this.viewApplicationLogToolStripMenuItem_Click);
             // 
-            // viewWinSATLogToolStripMenuItem
-            // 
-            this.viewWinSATLogToolStripMenuItem.Name = "viewWinSATLogToolStripMenuItem";
-            this.viewWinSATLogToolStripMenuItem.Size = new System.Drawing.Size(238, 28);
-            this.viewWinSATLogToolStripMenuItem.Text = "View WinSAT Log";
-            this.viewWinSATLogToolStripMenuItem.Click += new System.EventHandler(this.viewWinSATLogToolStripMenuItem_Click_1);
-            // 
             // viewImgurLinksFileToolStripMenuItem1
             // 
             this.viewImgurLinksFileToolStripMenuItem1.Name = "viewImgurLinksFileToolStripMenuItem1";
             this.viewImgurLinksFileToolStripMenuItem1.Size = new System.Drawing.Size(238, 28);
             this.viewImgurLinksFileToolStripMenuItem1.Text = "View Imgur Links File";
             this.viewImgurLinksFileToolStripMenuItem1.Click += new System.EventHandler(this.viewImgurLinksFileToolStripMenuItem1_Click_1);
+            // 
+            // viewWinSATLogToolStripMenuItem
+            // 
+            this.viewWinSATLogToolStripMenuItem.Name = "viewWinSATLogToolStripMenuItem";
+            this.viewWinSATLogToolStripMenuItem.Size = new System.Drawing.Size(238, 28);
+            this.viewWinSATLogToolStripMenuItem.Text = "View WinSAT Log";
+            this.viewWinSATLogToolStripMenuItem.Click += new System.EventHandler(this.viewWinSATLogToolStripMenuItem_Click_1);
             // 
             // mainWindow
             // 

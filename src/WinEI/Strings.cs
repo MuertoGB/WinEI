@@ -127,5 +127,11 @@ namespace WinEI
 
         internal const string QUESTION_RESET_WINSAT =
             "This will permanently delete all system scores, and the assessment log. Are you sure you want to reset WinSAT?";
+
+        internal const string ERROR_FONTS_MISSING =
+            "The following required system fonts are missing, and must be installed to continue:";
+
+        internal const string QUESTION_VIEW_TROUBLESHOOTING =
+            "Would you like to view the online troubleshooting information?";
     }
 }

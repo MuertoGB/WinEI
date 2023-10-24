@@ -37,48 +37,48 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tlpDisableVersionCheck = new System.Windows.Forms.TableLayoutPanel();
             this.lblDisableVersionCheck = new System.Windows.Forms.Label();
+            this.swDisableVersionCheck = new WinEI.UI.WEISwitch();
             this.lblStartup = new System.Windows.Forms.Label();
             this.tlpShowHardware = new System.Windows.Forms.TableLayoutPanel();
             this.lblShowHardware = new System.Windows.Forms.Label();
+            this.swShowHardware = new WinEI.UI.WEISwitch();
             this.lblApplication = new System.Windows.Forms.Label();
             this.tlpAccentColour = new System.Windows.Forms.TableLayoutPanel();
+            this.rbnAccent5Red = new WinEI.UI.Controls.WEIRadioButton();
+            this.rbnAccent4Gold = new WinEI.UI.Controls.WEIRadioButton();
+            this.rbnAccent3Purple = new WinEI.UI.Controls.WEIRadioButton();
+            this.rbnAccent2Green = new WinEI.UI.Controls.WEIRadioButton();
             this.lblAccentColour = new System.Windows.Forms.Label();
+            this.rbnAccent0Default = new WinEI.UI.Controls.WEIRadioButton();
+            this.rbnAccent1Mint = new WinEI.UI.Controls.WEIRadioButton();
+            this.rbnAccent6White = new WinEI.UI.Controls.WEIRadioButton();
             this.tlpApiHardwareMode = new System.Windows.Forms.TableLayoutPanel();
             this.lblApiHardwareMode = new System.Windows.Forms.Label();
+            this.swApiHardwareMode = new WinEI.UI.WEISwitch();
             this.tlpImgurApiKey = new System.Windows.Forms.TableLayoutPanel();
             this.lblImgurApiKey = new System.Windows.Forms.Label();
             this.tbxImgurApiKey = new System.Windows.Forms.TextBox();
             this.tlpDisableFlashingUiElements = new System.Windows.Forms.TableLayoutPanel();
             this.lblDisableFlashingUiElements = new System.Windows.Forms.Label();
+            this.swDisableFlashingUiElements = new WinEI.UI.WEISwitch();
             this.tlpDisableMessageWindowSounds = new System.Windows.Forms.TableLayoutPanel();
             this.lblDisableMessageWindowSounds = new System.Windows.Forms.Label();
+            this.swDisableMessageWindowSounds = new WinEI.UI.WEISwitch();
             this.tlpLogImgurUploads = new System.Windows.Forms.TableLayoutPanel();
             this.lblLogImgurUploads = new System.Windows.Forms.Label();
+            this.swLogImgurUrls = new WinEI.UI.WEISwitch();
             this.tlpOpenImgurUrls = new System.Windows.Forms.TableLayoutPanel();
             this.lblOpenImgurUrls = new System.Windows.Forms.Label();
+            this.swOpenImgurUrls = new WinEI.UI.WEISwitch();
             this.lblOverrides = new System.Windows.Forms.Label();
             this.tlpDisablePowerAdapter = new System.Windows.Forms.TableLayoutPanel();
             this.lblBypassPowerAdapter = new System.Windows.Forms.Label();
+            this.swBypassPowerAdapter = new WinEI.UI.WEISwitch();
             this.tlpButtons = new System.Windows.Forms.TableLayoutPanel();
             this.cmdReset = new System.Windows.Forms.Button();
             this.cmdApply = new System.Windows.Forms.Button();
             this.lblSettingsSaved = new System.Windows.Forms.Label();
             this.cmdOkay = new System.Windows.Forms.Button();
-            this.swDisableVersionCheck = new WinEI.UI.WEISwitch();
-            this.swShowHardware = new WinEI.UI.WEISwitch();
-            this.rbnAccent5Red = new WinEI.UI.Controls.WEIRadioButton();
-            this.rbnAccent4Gold = new WinEI.UI.Controls.WEIRadioButton();
-            this.rbnAccent3Purple = new WinEI.UI.Controls.WEIRadioButton();
-            this.rbnAccent2Green = new WinEI.UI.Controls.WEIRadioButton();
-            this.rbnAccent0Default = new WinEI.UI.Controls.WEIRadioButton();
-            this.rbnAccent1Mint = new WinEI.UI.Controls.WEIRadioButton();
-            this.rbnAccent6White = new WinEI.UI.Controls.WEIRadioButton();
-            this.swApiHardwareMode = new WinEI.UI.WEISwitch();
-            this.swDisableFlashingUiElements = new WinEI.UI.WEISwitch();
-            this.swDisableMessageWindowSounds = new WinEI.UI.WEISwitch();
-            this.swLogImgurUrls = new WinEI.UI.WEISwitch();
-            this.swOpenImgurUrls = new WinEI.UI.WEISwitch();
-            this.swBypassPowerAdapter = new WinEI.UI.WEISwitch();
             this.tlpTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -158,7 +158,7 @@
             // 
             this.lblTitle.BackColor = System.Drawing.Color.Transparent;
             this.lblTitle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F);
             this.lblTitle.ForeColor = System.Drawing.Color.White;
             this.lblTitle.Location = new System.Drawing.Point(40, 0);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(0);
@@ -260,11 +260,26 @@
             this.lblDisableVersionCheck.TabIndex = 99;
             this.lblDisableVersionCheck.Text = "Disable Version Check";
             // 
+            // swDisableVersionCheck
+            // 
+            this.swDisableVersionCheck.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.swDisableVersionCheck.BackColor = System.Drawing.Color.Black;
+            this.swDisableVersionCheck.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.swDisableVersionCheck.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.swDisableVersionCheck.CheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
+            this.swDisableVersionCheck.ClientColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.swDisableVersionCheck.ClientColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.swDisableVersionCheck.Location = new System.Drawing.Point(355, 8);
+            this.swDisableVersionCheck.Name = "swDisableVersionCheck";
+            this.swDisableVersionCheck.Size = new System.Drawing.Size(32, 18);
+            this.swDisableVersionCheck.SwitchHeadColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.swDisableVersionCheck.TabIndex = 0;
+            // 
             // lblStartup
             // 
             this.lblStartup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.lblStartup.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblStartup.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStartup.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F);
             this.lblStartup.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(225)))), ((int)(((byte)(240)))));
             this.lblStartup.Location = new System.Drawing.Point(0, 0);
             this.lblStartup.Margin = new System.Windows.Forms.Padding(0);
@@ -306,11 +321,26 @@
             this.lblShowHardware.TabIndex = 99;
             this.lblShowHardware.Text = "Show Hardware";
             // 
+            // swShowHardware
+            // 
+            this.swShowHardware.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.swShowHardware.BackColor = System.Drawing.Color.Black;
+            this.swShowHardware.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.swShowHardware.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.swShowHardware.CheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
+            this.swShowHardware.ClientColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.swShowHardware.ClientColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.swShowHardware.Location = new System.Drawing.Point(355, 8);
+            this.swShowHardware.Name = "swShowHardware";
+            this.swShowHardware.Size = new System.Drawing.Size(32, 18);
+            this.swShowHardware.SwitchHeadColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.swShowHardware.TabIndex = 0;
+            // 
             // lblApplication
             // 
             this.lblApplication.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.lblApplication.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblApplication.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblApplication.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F);
             this.lblApplication.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(225)))), ((int)(((byte)(240)))));
             this.lblApplication.Location = new System.Drawing.Point(0, 105);
             this.lblApplication.Margin = new System.Windows.Forms.Padding(0);
@@ -351,6 +381,70 @@
             this.tlpAccentColour.Size = new System.Drawing.Size(398, 34);
             this.tlpAccentColour.TabIndex = 2;
             // 
+            // rbnAccent5Red
+            // 
+            this.rbnAccent5Red.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rbnAccent5Red.BackColor = System.Drawing.Color.Transparent;
+            this.rbnAccent5Red.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.rbnAccent5Red.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.rbnAccent5Red.CheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
+            this.rbnAccent5Red.ClientColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.rbnAccent5Red.ClientColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.rbnAccent5Red.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.rbnAccent5Red.Location = new System.Drawing.Point(337, 7);
+            this.rbnAccent5Red.Name = "rbnAccent5Red";
+            this.rbnAccent5Red.Size = new System.Drawing.Size(20, 20);
+            this.rbnAccent5Red.TabIndex = 5;
+            this.rbnAccent5Red.CheckedChanged += new System.EventHandler(this.rbnAccent5Red_CheckedChanged);
+            // 
+            // rbnAccent4Gold
+            // 
+            this.rbnAccent4Gold.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rbnAccent4Gold.BackColor = System.Drawing.Color.Transparent;
+            this.rbnAccent4Gold.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.rbnAccent4Gold.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.rbnAccent4Gold.CheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(75)))));
+            this.rbnAccent4Gold.ClientColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.rbnAccent4Gold.ClientColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.rbnAccent4Gold.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.rbnAccent4Gold.Location = new System.Drawing.Point(307, 7);
+            this.rbnAccent4Gold.Name = "rbnAccent4Gold";
+            this.rbnAccent4Gold.Size = new System.Drawing.Size(20, 20);
+            this.rbnAccent4Gold.TabIndex = 4;
+            this.rbnAccent4Gold.CheckedChanged += new System.EventHandler(this.rbnAccent4Gold_CheckedChanged);
+            // 
+            // rbnAccent3Purple
+            // 
+            this.rbnAccent3Purple.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rbnAccent3Purple.BackColor = System.Drawing.Color.Transparent;
+            this.rbnAccent3Purple.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.rbnAccent3Purple.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.rbnAccent3Purple.CheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(40)))), ((int)(((byte)(122)))));
+            this.rbnAccent3Purple.ClientColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.rbnAccent3Purple.ClientColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.rbnAccent3Purple.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.rbnAccent3Purple.Location = new System.Drawing.Point(277, 7);
+            this.rbnAccent3Purple.Name = "rbnAccent3Purple";
+            this.rbnAccent3Purple.Size = new System.Drawing.Size(20, 20);
+            this.rbnAccent3Purple.TabIndex = 3;
+            this.rbnAccent3Purple.CheckedChanged += new System.EventHandler(this.rbnAccent3Pink_CheckedChanged);
+            // 
+            // rbnAccent2Green
+            // 
+            this.rbnAccent2Green.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rbnAccent2Green.BackColor = System.Drawing.Color.Transparent;
+            this.rbnAccent2Green.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.rbnAccent2Green.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.rbnAccent2Green.CheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(220)))), ((int)(((byte)(110)))));
+            this.rbnAccent2Green.ClientColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.rbnAccent2Green.ClientColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.rbnAccent2Green.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.rbnAccent2Green.Location = new System.Drawing.Point(247, 7);
+            this.rbnAccent2Green.Name = "rbnAccent2Green";
+            this.rbnAccent2Green.Size = new System.Drawing.Size(20, 20);
+            this.rbnAccent2Green.TabIndex = 2;
+            this.rbnAccent2Green.CheckedChanged += new System.EventHandler(this.rbnAccent2Green_CheckedChanged);
+            // 
             // lblAccentColour
             // 
             this.lblAccentColour.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -364,6 +458,56 @@
             this.lblAccentColour.Size = new System.Drawing.Size(110, 20);
             this.lblAccentColour.TabIndex = 99;
             this.lblAccentColour.Text = "Accent Colour";
+            // 
+            // rbnAccent0Default
+            // 
+            this.rbnAccent0Default.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rbnAccent0Default.BackColor = System.Drawing.Color.Transparent;
+            this.rbnAccent0Default.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.rbnAccent0Default.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.rbnAccent0Default.Checked = true;
+            this.rbnAccent0Default.CheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
+            this.rbnAccent0Default.ClientColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.rbnAccent0Default.ClientColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.rbnAccent0Default.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.rbnAccent0Default.Location = new System.Drawing.Point(187, 7);
+            this.rbnAccent0Default.Name = "rbnAccent0Default";
+            this.rbnAccent0Default.Size = new System.Drawing.Size(20, 20);
+            this.rbnAccent0Default.TabIndex = 0;
+            this.rbnAccent0Default.TabStop = true;
+            this.rbnAccent0Default.CheckedChanged += new System.EventHandler(this.rbnAccent0Default_CheckedChanged);
+            // 
+            // rbnAccent1Mint
+            // 
+            this.rbnAccent1Mint.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rbnAccent1Mint.BackColor = System.Drawing.Color.Transparent;
+            this.rbnAccent1Mint.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.rbnAccent1Mint.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.rbnAccent1Mint.CheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(181)))));
+            this.rbnAccent1Mint.ClientColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.rbnAccent1Mint.ClientColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.rbnAccent1Mint.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.rbnAccent1Mint.Location = new System.Drawing.Point(217, 7);
+            this.rbnAccent1Mint.Name = "rbnAccent1Mint";
+            this.rbnAccent1Mint.Size = new System.Drawing.Size(20, 20);
+            this.rbnAccent1Mint.TabIndex = 1;
+            this.rbnAccent1Mint.CheckedChanged += new System.EventHandler(this.rbnAccent1Mint_CheckedChanged);
+            // 
+            // rbnAccent6White
+            // 
+            this.rbnAccent6White.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rbnAccent6White.BackColor = System.Drawing.Color.Transparent;
+            this.rbnAccent6White.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.rbnAccent6White.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.rbnAccent6White.CheckedColor = System.Drawing.Color.White;
+            this.rbnAccent6White.ClientColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.rbnAccent6White.ClientColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.rbnAccent6White.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.rbnAccent6White.Location = new System.Drawing.Point(367, 7);
+            this.rbnAccent6White.Name = "rbnAccent6White";
+            this.rbnAccent6White.Size = new System.Drawing.Size(20, 20);
+            this.rbnAccent6White.TabIndex = 6;
+            this.rbnAccent6White.CheckedChanged += new System.EventHandler(this.rbnAccent6Orange_CheckedChanged);
             // 
             // tlpApiHardwareMode
             // 
@@ -395,6 +539,21 @@
             this.lblApiHardwareMode.Size = new System.Drawing.Size(151, 20);
             this.lblApiHardwareMode.TabIndex = 99;
             this.lblApiHardwareMode.Text = "API Hardware Mode";
+            // 
+            // swApiHardwareMode
+            // 
+            this.swApiHardwareMode.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.swApiHardwareMode.BackColor = System.Drawing.Color.Black;
+            this.swApiHardwareMode.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.swApiHardwareMode.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.swApiHardwareMode.CheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
+            this.swApiHardwareMode.ClientColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.swApiHardwareMode.ClientColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.swApiHardwareMode.Location = new System.Drawing.Point(355, 8);
+            this.swApiHardwareMode.Name = "swApiHardwareMode";
+            this.swApiHardwareMode.Size = new System.Drawing.Size(32, 18);
+            this.swApiHardwareMode.SwitchHeadColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.swApiHardwareMode.TabIndex = 0;
             // 
             // tlpImgurApiKey
             // 
@@ -473,6 +632,21 @@
             this.lblDisableFlashingUiElements.TabIndex = 99;
             this.lblDisableFlashingUiElements.Text = "Disable Flashing UI Elements";
             // 
+            // swDisableFlashingUiElements
+            // 
+            this.swDisableFlashingUiElements.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.swDisableFlashingUiElements.BackColor = System.Drawing.Color.Black;
+            this.swDisableFlashingUiElements.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.swDisableFlashingUiElements.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.swDisableFlashingUiElements.CheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
+            this.swDisableFlashingUiElements.ClientColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.swDisableFlashingUiElements.ClientColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.swDisableFlashingUiElements.Location = new System.Drawing.Point(355, 8);
+            this.swDisableFlashingUiElements.Name = "swDisableFlashingUiElements";
+            this.swDisableFlashingUiElements.Size = new System.Drawing.Size(32, 18);
+            this.swDisableFlashingUiElements.SwitchHeadColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.swDisableFlashingUiElements.TabIndex = 0;
+            // 
             // tlpDisableMessageWindowSounds
             // 
             this.tlpDisableMessageWindowSounds.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
@@ -503,6 +677,21 @@
             this.lblDisableMessageWindowSounds.Size = new System.Drawing.Size(240, 20);
             this.lblDisableMessageWindowSounds.TabIndex = 99;
             this.lblDisableMessageWindowSounds.Text = "Disable Message Window Sounds";
+            // 
+            // swDisableMessageWindowSounds
+            // 
+            this.swDisableMessageWindowSounds.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.swDisableMessageWindowSounds.BackColor = System.Drawing.Color.Black;
+            this.swDisableMessageWindowSounds.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.swDisableMessageWindowSounds.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.swDisableMessageWindowSounds.CheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
+            this.swDisableMessageWindowSounds.ClientColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.swDisableMessageWindowSounds.ClientColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.swDisableMessageWindowSounds.Location = new System.Drawing.Point(355, 8);
+            this.swDisableMessageWindowSounds.Name = "swDisableMessageWindowSounds";
+            this.swDisableMessageWindowSounds.Size = new System.Drawing.Size(32, 18);
+            this.swDisableMessageWindowSounds.SwitchHeadColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.swDisableMessageWindowSounds.TabIndex = 0;
             // 
             // tlpLogImgurUploads
             // 
@@ -535,6 +724,21 @@
             this.lblLogImgurUploads.TabIndex = 99;
             this.lblLogImgurUploads.Text = "Log Imgur URLs";
             // 
+            // swLogImgurUrls
+            // 
+            this.swLogImgurUrls.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.swLogImgurUrls.BackColor = System.Drawing.Color.Black;
+            this.swLogImgurUrls.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.swLogImgurUrls.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.swLogImgurUrls.CheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
+            this.swLogImgurUrls.ClientColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.swLogImgurUrls.ClientColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.swLogImgurUrls.Location = new System.Drawing.Point(355, 8);
+            this.swLogImgurUrls.Name = "swLogImgurUrls";
+            this.swLogImgurUrls.Size = new System.Drawing.Size(32, 18);
+            this.swLogImgurUrls.SwitchHeadColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.swLogImgurUrls.TabIndex = 0;
+            // 
             // tlpOpenImgurUrls
             // 
             this.tlpOpenImgurUrls.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
@@ -566,11 +770,26 @@
             this.lblOpenImgurUrls.TabIndex = 99;
             this.lblOpenImgurUrls.Text = "Open Imgur URLs in Browser Window";
             // 
+            // swOpenImgurUrls
+            // 
+            this.swOpenImgurUrls.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.swOpenImgurUrls.BackColor = System.Drawing.Color.Black;
+            this.swOpenImgurUrls.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.swOpenImgurUrls.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.swOpenImgurUrls.CheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
+            this.swOpenImgurUrls.ClientColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.swOpenImgurUrls.ClientColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.swOpenImgurUrls.Location = new System.Drawing.Point(355, 8);
+            this.swOpenImgurUrls.Name = "swOpenImgurUrls";
+            this.swOpenImgurUrls.Size = new System.Drawing.Size(32, 18);
+            this.swOpenImgurUrls.SwitchHeadColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.swOpenImgurUrls.TabIndex = 0;
+            // 
             // lblOverrides
             // 
             this.lblOverrides.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.lblOverrides.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblOverrides.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOverrides.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F);
             this.lblOverrides.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(225)))), ((int)(((byte)(240)))));
             this.lblOverrides.Location = new System.Drawing.Point(0, 385);
             this.lblOverrides.Margin = new System.Windows.Forms.Padding(0);
@@ -612,6 +831,21 @@
             this.lblBypassPowerAdapter.TabIndex = 99;
             this.lblBypassPowerAdapter.Text = "Bypass Power Adapter Enforcement";
             // 
+            // swBypassPowerAdapter
+            // 
+            this.swBypassPowerAdapter.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.swBypassPowerAdapter.BackColor = System.Drawing.Color.Black;
+            this.swBypassPowerAdapter.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.swBypassPowerAdapter.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.swBypassPowerAdapter.CheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
+            this.swBypassPowerAdapter.ClientColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
+            this.swBypassPowerAdapter.ClientColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.swBypassPowerAdapter.Location = new System.Drawing.Point(355, 8);
+            this.swBypassPowerAdapter.Name = "swBypassPowerAdapter";
+            this.swBypassPowerAdapter.Size = new System.Drawing.Size(32, 18);
+            this.swBypassPowerAdapter.SwitchHeadColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.swBypassPowerAdapter.TabIndex = 0;
+            // 
             // tlpButtons
             // 
             this.tlpButtons.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
@@ -642,7 +876,7 @@
             this.cmdReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(50)))), ((int)(((byte)(60)))));
             this.cmdReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(80)))));
             this.cmdReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdReset.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdReset.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F);
             this.cmdReset.ForeColor = System.Drawing.Color.White;
             this.cmdReset.Location = new System.Drawing.Point(5, 5);
             this.cmdReset.Margin = new System.Windows.Forms.Padding(1);
@@ -661,7 +895,7 @@
             this.cmdApply.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(50)))), ((int)(((byte)(60)))));
             this.cmdApply.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(80)))));
             this.cmdApply.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdApply.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdApply.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F);
             this.cmdApply.ForeColor = System.Drawing.Color.White;
             this.cmdApply.Location = new System.Drawing.Point(305, 5);
             this.cmdApply.Margin = new System.Windows.Forms.Padding(1);
@@ -676,7 +910,7 @@
             // 
             this.lblSettingsSaved.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblSettingsSaved.AutoSize = true;
-            this.lblSettingsSaved.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSettingsSaved.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F);
             this.lblSettingsSaved.ForeColor = System.Drawing.Color.White;
             this.lblSettingsSaved.Location = new System.Drawing.Point(124, 11);
             this.lblSettingsSaved.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -693,7 +927,7 @@
             this.cmdOkay.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(50)))), ((int)(((byte)(60)))));
             this.cmdOkay.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(80)))));
             this.cmdOkay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdOkay.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdOkay.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F);
             this.cmdOkay.ForeColor = System.Drawing.Color.White;
             this.cmdOkay.Location = new System.Drawing.Point(214, 5);
             this.cmdOkay.Margin = new System.Windows.Forms.Padding(1);
@@ -703,240 +937,6 @@
             this.cmdOkay.Text = "Okay";
             this.cmdOkay.UseVisualStyleBackColor = false;
             this.cmdOkay.Click += new System.EventHandler(this.cmdOkay_Click);
-            // 
-            // swDisableVersionCheck
-            // 
-            this.swDisableVersionCheck.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.swDisableVersionCheck.BackColor = System.Drawing.Color.Black;
-            this.swDisableVersionCheck.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
-            this.swDisableVersionCheck.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.swDisableVersionCheck.CheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
-            this.swDisableVersionCheck.ClientColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.swDisableVersionCheck.ClientColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.swDisableVersionCheck.Location = new System.Drawing.Point(355, 8);
-            this.swDisableVersionCheck.Name = "swDisableVersionCheck";
-            this.swDisableVersionCheck.Size = new System.Drawing.Size(32, 18);
-            this.swDisableVersionCheck.SwitchHeadColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.swDisableVersionCheck.TabIndex = 0;
-            // 
-            // swShowHardware
-            // 
-            this.swShowHardware.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.swShowHardware.BackColor = System.Drawing.Color.Black;
-            this.swShowHardware.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
-            this.swShowHardware.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.swShowHardware.CheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
-            this.swShowHardware.ClientColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.swShowHardware.ClientColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.swShowHardware.Location = new System.Drawing.Point(355, 8);
-            this.swShowHardware.Name = "swShowHardware";
-            this.swShowHardware.Size = new System.Drawing.Size(32, 18);
-            this.swShowHardware.SwitchHeadColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.swShowHardware.TabIndex = 0;
-            // 
-            // rbnAccent5Red
-            // 
-            this.rbnAccent5Red.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.rbnAccent5Red.BackColor = System.Drawing.Color.Transparent;
-            this.rbnAccent5Red.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
-            this.rbnAccent5Red.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.rbnAccent5Red.CheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
-            this.rbnAccent5Red.ClientColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.rbnAccent5Red.ClientColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.rbnAccent5Red.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.rbnAccent5Red.Location = new System.Drawing.Point(337, 7);
-            this.rbnAccent5Red.Name = "rbnAccent5Red";
-            this.rbnAccent5Red.Size = new System.Drawing.Size(20, 20);
-            this.rbnAccent5Red.TabIndex = 5;
-            this.rbnAccent5Red.CheckedChanged += new System.EventHandler(this.rbnAccent5Red_CheckedChanged);
-            // 
-            // rbnAccent4Gold
-            // 
-            this.rbnAccent4Gold.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.rbnAccent4Gold.BackColor = System.Drawing.Color.Transparent;
-            this.rbnAccent4Gold.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
-            this.rbnAccent4Gold.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.rbnAccent4Gold.CheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(75)))));
-            this.rbnAccent4Gold.ClientColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.rbnAccent4Gold.ClientColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.rbnAccent4Gold.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.rbnAccent4Gold.Location = new System.Drawing.Point(307, 7);
-            this.rbnAccent4Gold.Name = "rbnAccent4Gold";
-            this.rbnAccent4Gold.Size = new System.Drawing.Size(20, 20);
-            this.rbnAccent4Gold.TabIndex = 4;
-            this.rbnAccent4Gold.CheckedChanged += new System.EventHandler(this.rbnAccent4Gold_CheckedChanged);
-            // 
-            // rbnAccent3Purple
-            // 
-            this.rbnAccent3Purple.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.rbnAccent3Purple.BackColor = System.Drawing.Color.Transparent;
-            this.rbnAccent3Purple.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
-            this.rbnAccent3Purple.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.rbnAccent3Purple.CheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(40)))), ((int)(((byte)(122)))));
-            this.rbnAccent3Purple.ClientColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.rbnAccent3Purple.ClientColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.rbnAccent3Purple.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.rbnAccent3Purple.Location = new System.Drawing.Point(277, 7);
-            this.rbnAccent3Purple.Name = "rbnAccent3Purple";
-            this.rbnAccent3Purple.Size = new System.Drawing.Size(20, 20);
-            this.rbnAccent3Purple.TabIndex = 3;
-            this.rbnAccent3Purple.CheckedChanged += new System.EventHandler(this.rbnAccent3Pink_CheckedChanged);
-            // 
-            // rbnAccent2Green
-            // 
-            this.rbnAccent2Green.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.rbnAccent2Green.BackColor = System.Drawing.Color.Transparent;
-            this.rbnAccent2Green.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
-            this.rbnAccent2Green.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.rbnAccent2Green.CheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(220)))), ((int)(((byte)(110)))));
-            this.rbnAccent2Green.ClientColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.rbnAccent2Green.ClientColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.rbnAccent2Green.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.rbnAccent2Green.Location = new System.Drawing.Point(247, 7);
-            this.rbnAccent2Green.Name = "rbnAccent2Green";
-            this.rbnAccent2Green.Size = new System.Drawing.Size(20, 20);
-            this.rbnAccent2Green.TabIndex = 2;
-            this.rbnAccent2Green.CheckedChanged += new System.EventHandler(this.rbnAccent2Green_CheckedChanged);
-            // 
-            // rbnAccent0Default
-            // 
-            this.rbnAccent0Default.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.rbnAccent0Default.BackColor = System.Drawing.Color.Transparent;
-            this.rbnAccent0Default.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
-            this.rbnAccent0Default.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.rbnAccent0Default.Checked = true;
-            this.rbnAccent0Default.CheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
-            this.rbnAccent0Default.ClientColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.rbnAccent0Default.ClientColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.rbnAccent0Default.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.rbnAccent0Default.Location = new System.Drawing.Point(187, 7);
-            this.rbnAccent0Default.Name = "rbnAccent0Default";
-            this.rbnAccent0Default.Size = new System.Drawing.Size(20, 20);
-            this.rbnAccent0Default.TabIndex = 0;
-            this.rbnAccent0Default.TabStop = true;
-            this.rbnAccent0Default.CheckedChanged += new System.EventHandler(this.rbnAccent0Default_CheckedChanged);
-            // 
-            // rbnAccent1Mint
-            // 
-            this.rbnAccent1Mint.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.rbnAccent1Mint.BackColor = System.Drawing.Color.Transparent;
-            this.rbnAccent1Mint.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
-            this.rbnAccent1Mint.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.rbnAccent1Mint.CheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(181)))));
-            this.rbnAccent1Mint.ClientColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.rbnAccent1Mint.ClientColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.rbnAccent1Mint.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.rbnAccent1Mint.Location = new System.Drawing.Point(217, 7);
-            this.rbnAccent1Mint.Name = "rbnAccent1Mint";
-            this.rbnAccent1Mint.Size = new System.Drawing.Size(20, 20);
-            this.rbnAccent1Mint.TabIndex = 1;
-            this.rbnAccent1Mint.CheckedChanged += new System.EventHandler(this.rbnAccent1Mint_CheckedChanged);
-            // 
-            // rbnAccent6White
-            // 
-            this.rbnAccent6White.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.rbnAccent6White.BackColor = System.Drawing.Color.Transparent;
-            this.rbnAccent6White.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
-            this.rbnAccent6White.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.rbnAccent6White.CheckedColor = System.Drawing.Color.White;
-            this.rbnAccent6White.ClientColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.rbnAccent6White.ClientColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.rbnAccent6White.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.rbnAccent6White.Location = new System.Drawing.Point(367, 7);
-            this.rbnAccent6White.Name = "rbnAccent6White";
-            this.rbnAccent6White.Size = new System.Drawing.Size(20, 20);
-            this.rbnAccent6White.TabIndex = 6;
-            this.rbnAccent6White.CheckedChanged += new System.EventHandler(this.rbnAccent6Orange_CheckedChanged);
-            // 
-            // swApiHardwareMode
-            // 
-            this.swApiHardwareMode.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.swApiHardwareMode.BackColor = System.Drawing.Color.Black;
-            this.swApiHardwareMode.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
-            this.swApiHardwareMode.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.swApiHardwareMode.CheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
-            this.swApiHardwareMode.ClientColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.swApiHardwareMode.ClientColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.swApiHardwareMode.Location = new System.Drawing.Point(355, 8);
-            this.swApiHardwareMode.Name = "swApiHardwareMode";
-            this.swApiHardwareMode.Size = new System.Drawing.Size(32, 18);
-            this.swApiHardwareMode.SwitchHeadColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.swApiHardwareMode.TabIndex = 0;
-            // 
-            // swDisableFlashingUiElements
-            // 
-            this.swDisableFlashingUiElements.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.swDisableFlashingUiElements.BackColor = System.Drawing.Color.Black;
-            this.swDisableFlashingUiElements.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
-            this.swDisableFlashingUiElements.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.swDisableFlashingUiElements.CheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
-            this.swDisableFlashingUiElements.ClientColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.swDisableFlashingUiElements.ClientColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.swDisableFlashingUiElements.Location = new System.Drawing.Point(355, 8);
-            this.swDisableFlashingUiElements.Name = "swDisableFlashingUiElements";
-            this.swDisableFlashingUiElements.Size = new System.Drawing.Size(32, 18);
-            this.swDisableFlashingUiElements.SwitchHeadColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.swDisableFlashingUiElements.TabIndex = 0;
-            // 
-            // swDisableMessageWindowSounds
-            // 
-            this.swDisableMessageWindowSounds.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.swDisableMessageWindowSounds.BackColor = System.Drawing.Color.Black;
-            this.swDisableMessageWindowSounds.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
-            this.swDisableMessageWindowSounds.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.swDisableMessageWindowSounds.CheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
-            this.swDisableMessageWindowSounds.ClientColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.swDisableMessageWindowSounds.ClientColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.swDisableMessageWindowSounds.Location = new System.Drawing.Point(355, 8);
-            this.swDisableMessageWindowSounds.Name = "swDisableMessageWindowSounds";
-            this.swDisableMessageWindowSounds.Size = new System.Drawing.Size(32, 18);
-            this.swDisableMessageWindowSounds.SwitchHeadColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.swDisableMessageWindowSounds.TabIndex = 0;
-            // 
-            // swLogImgurUrls
-            // 
-            this.swLogImgurUrls.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.swLogImgurUrls.BackColor = System.Drawing.Color.Black;
-            this.swLogImgurUrls.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
-            this.swLogImgurUrls.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.swLogImgurUrls.CheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
-            this.swLogImgurUrls.ClientColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.swLogImgurUrls.ClientColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.swLogImgurUrls.Location = new System.Drawing.Point(355, 8);
-            this.swLogImgurUrls.Name = "swLogImgurUrls";
-            this.swLogImgurUrls.Size = new System.Drawing.Size(32, 18);
-            this.swLogImgurUrls.SwitchHeadColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.swLogImgurUrls.TabIndex = 0;
-            // 
-            // swOpenImgurUrls
-            // 
-            this.swOpenImgurUrls.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.swOpenImgurUrls.BackColor = System.Drawing.Color.Black;
-            this.swOpenImgurUrls.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
-            this.swOpenImgurUrls.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.swOpenImgurUrls.CheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
-            this.swOpenImgurUrls.ClientColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.swOpenImgurUrls.ClientColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.swOpenImgurUrls.Location = new System.Drawing.Point(355, 8);
-            this.swOpenImgurUrls.Name = "swOpenImgurUrls";
-            this.swOpenImgurUrls.Size = new System.Drawing.Size(32, 18);
-            this.swOpenImgurUrls.SwitchHeadColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.swOpenImgurUrls.TabIndex = 0;
-            // 
-            // swBypassPowerAdapter
-            // 
-            this.swBypassPowerAdapter.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.swBypassPowerAdapter.BackColor = System.Drawing.Color.Black;
-            this.swBypassPowerAdapter.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
-            this.swBypassPowerAdapter.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.swBypassPowerAdapter.CheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
-            this.swBypassPowerAdapter.ClientColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
-            this.swBypassPowerAdapter.ClientColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.swBypassPowerAdapter.Location = new System.Drawing.Point(355, 8);
-            this.swBypassPowerAdapter.Name = "swBypassPowerAdapter";
-            this.swBypassPowerAdapter.Size = new System.Drawing.Size(32, 18);
-            this.swBypassPowerAdapter.SwitchHeadColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.swBypassPowerAdapter.TabIndex = 0;
             // 
             // settingsWindow
             // 

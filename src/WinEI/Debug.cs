@@ -72,10 +72,10 @@ namespace WinEI
                 builder.AppendLine($"API:      {OSUtils.GetWinsatApiVersion.ProductVersion}");
                 builder.AppendLine($"Bugged:   {WinsatBugChecker.IsBuggedVersion()}\r\n");
 
-                builder.AppendLine("<-- Fonts -->\r\n");
-                builder.AppendLine($"Segoe UI Reg: {FontResolver.IsFontStyleAvailable("Segoe UI", FontStyle.Regular)}");
-                builder.AppendLine($"Segoe UI Sem: {FontResolver.IsFontStyleAvailable("Segoe UI Semibold", FontStyle.Regular)}");
-                builder.AppendLine($"Segoe UI Bol: {FontResolver.IsFontStyleAvailable("Segoe UI", FontStyle.Bold)}\r\n");
+                builder.AppendLine("<-- Font Availability -->\r\n");
+                builder.AppendLine($"Segoe UI Regular:  {FontResolver.DoesFontExist("Segoe UI", FontStyle.Regular)}");
+                builder.AppendLine($"Segoe UI Semibold: {FontResolver.DoesFontExist("Segoe UI Semibold", FontStyle.Regular)}");
+                builder.AppendLine($"Segoe UI Bold:     {FontResolver.DoesFontExist("Segoe UI", FontStyle.Bold)}\r\n");
 
                 builder.AppendLine("<-- Exception Data -->\r\n");
                 builder.AppendLine(GetExceptionData(e));

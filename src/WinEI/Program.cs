@@ -40,6 +40,7 @@ namespace WinEI
         internal const string GithubLatestRelease = "https://github.com/MuertoGB/WinEI/releases/latest";
         internal const string GithubSource = "https://github.com/MuertoGB/WinEI/tree/main/src";
         internal const string GithubTsBuggedWinsat = "https://github.com/MuertoGB/WinEI/blob/main/TROUBLESHOOTING.md#bugged-winsat";
+        internal const string GithubTsMissingFonts = "https://github.com/MuertoGB/WinEI/blob/main/TROUBLESHOOTING.md#missing-fonts";
         internal const string GithubVersionManifest = "https://raw.githubusercontent.com/MuertoGB/WinEI/main/stream/manifests/version.xml";
         internal const string ImgurAddress = "https://www.imgur.com";
         internal const string MediaFeaturePackAddress = "http://windows.microsoft.com/en-gb/windows/download-windows-media-player";
@@ -47,7 +48,7 @@ namespace WinEI
 
     internal readonly struct WEIVersion
     {
-        internal const string Build = "231023.2350";
+        internal const string Build = "231025.0010";
         internal static readonly string Version = $"{Application.ProductVersion}.{Build}";
         internal const string Channel = "PRE-ALPHA";
     }
@@ -89,26 +90,24 @@ namespace WinEI
         {
             // Check Operating System is not < Vista.
             if (OSUtils.GetKernelVersion.ProductMajorPart < 5)
-            {
                 HandleCodeExit(
                     Strings.ERROR_WINSAT_OS,
                     ExitCodes.INCOMPATIBLE_OS);
-            }
 
             // Check winsat capability by looking for the executable and API.
             if (!OSUtils.IsWinSatExePresent())
-            {
                 HandleCodeExit(
                     Strings.ERROR_WINSAT_EXE,
                     ExitCodes.NOT_WINSAT_CAPABLE_EXE);
-            }
 
             if (!OSUtils.IsWinsatApiPresent())
-            {
                 HandleCodeExit(
                     Strings.ERROR_WINSAT_API,
                     ExitCodes.NOT_WINSAT_CAPABLE_API);
-            }
+
+            // Check necessary fonts are available.
+            if (!FontResolver.AreProgramFontsAvailable())
+                FontResolver.HandleMissingFontExit();
 
             // Register exception handler events.
             Application.SetUnhandledExceptionMode(
