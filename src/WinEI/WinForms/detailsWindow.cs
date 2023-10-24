@@ -6,6 +6,7 @@
 // Released under the GNU GLP v3.0
 
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Threading;
@@ -117,10 +118,8 @@ namespace WinEI.WinForms
         #endregion
 
         #region Button Events
-        private void cmdSeeDetails_Click(object sender, EventArgs e)
-        {
-            // do some stuff I guess
-        }
+        private void cmdSeeDetails_Click(object sender, EventArgs e) =>
+            Process.Start(WEIUrl.GithubTsBuggedWinsat);
 
         private void cmdClose_Click(object sender, System.EventArgs e) =>
             Close();

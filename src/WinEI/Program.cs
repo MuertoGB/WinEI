@@ -39,6 +39,7 @@ namespace WinEI
         internal const string GithubIssues = "https://github.com/MuertoGB/WinEI/issues";
         internal const string GithubLatestRelease = "https://github.com/MuertoGB/WinEI/releases/latest";
         internal const string GithubSource = "https://github.com/MuertoGB/WinEI/tree/main/src";
+        internal const string GithubTsBuggedWinsat = "https://github.com/MuertoGB/WinEI/blob/main/TROUBLESHOOTING.md#bugged-winsat";
         internal const string GithubVersionManifest = "https://raw.githubusercontent.com/MuertoGB/WinEI/main/stream/manifests/version.xml";
         internal const string ImgurAddress = "https://www.imgur.com";
         internal const string MediaFeaturePackAddress = "http://windows.microsoft.com/en-gb/windows/download-windows-media-player";
