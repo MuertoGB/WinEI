@@ -43,7 +43,8 @@ Processor: 1.00 GHz Pentium 4, or AMD Athlon
 Memory:    1.00 GB
 Graphics:  64 MB DirectX 9 Compatible, pixel shader 2.0
 Disk:      25 MB recommended
-Software:  Windows Vista to 11, x86, x64.
+Software:  Windows Vista to 11, x86, x64
+Runtime:   .NET Framework 4.6
 
 WinSAT components are required.
 Internet connectivity is necessary for automatic update checking, and Imgur uploads.
