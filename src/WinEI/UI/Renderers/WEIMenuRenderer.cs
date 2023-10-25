@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace WinEI.UI.Renderers
 {
-    class WEIMenuRenderer : ToolStripRenderer
+    internal class WEIMenuRenderer : ToolStripRenderer
     {
         private readonly Color BorderColor = Color.FromArgb(80, 80, 80);
         private readonly Color ItemHoverColor = Color.FromArgb(60, 60, 60);

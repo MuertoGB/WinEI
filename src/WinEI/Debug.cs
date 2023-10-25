@@ -65,17 +65,18 @@ namespace WinEI
                 builder.AppendLine($"SHA256:   {CryptoUtils.GetSha256Digest(appBytes)}\r\n");
 
                 builder.AppendLine("<-- Operating System -->\r\n");
-                builder.AppendLine($"Name:     {OSUtils.GetWindowsName}");
+                builder.AppendLine($"Name:     {OSUtils.GetWindowsName} {OSUtils.GetWindowsBuild}");
                 builder.AppendLine($"Bitness:  {OSUtils.GetSystemArchitecture()}");
                 builder.AppendLine($"Kernel:   {OSUtils.GetKernelVersion.ProductVersion}");
-                builder.AppendLine($"WinSAT:   {OSUtils.GetWinsatExeVersion.ProductVersion}");
+                builder.AppendLine($"WinSAT:   {OSUtils.GetWinsatExePrivateVersion}");
                 builder.AppendLine($"API:      {OSUtils.GetWinsatApiVersion.ProductVersion}");
                 builder.AppendLine($"Bugged:   {WinsatBugChecker.IsBuggedVersion()}\r\n");
 
-                builder.AppendLine("<-- Font Availability -->\r\n");
+                builder.AppendLine("<-- Font Exists -->\r\n");
                 builder.AppendLine($"Segoe UI Regular:  {FontResolver.DoesFontExist("Segoe UI", FontStyle.Regular)}");
                 builder.AppendLine($"Segoe UI Semibold: {FontResolver.DoesFontExist("Segoe UI Semibold", FontStyle.Regular)}");
-                builder.AppendLine($"Segoe UI Bold:     {FontResolver.DoesFontExist("Segoe UI", FontStyle.Bold)}\r\n");
+                builder.AppendLine($"Segoe UI Bold:     {FontResolver.DoesFontExist("Segoe UI", FontStyle.Bold)}");
+                builder.AppendLine($"Consolas Regular:  {FontResolver.DoesFontExist("Consolas", FontStyle.Regular)}\r\n");
 
                 builder.AppendLine("<-- Exception Data -->\r\n");
                 builder.AppendLine(GetExceptionData(e));

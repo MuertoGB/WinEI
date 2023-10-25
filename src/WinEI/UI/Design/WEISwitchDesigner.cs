@@ -10,7 +10,7 @@ using System.Windows.Forms.Design;
 
 namespace WinEI.UI.Design
 {
-    public class WEISwitchDesigner : ControlDesigner
+    internal class WEISwitchDesigner : ControlDesigner
     {
         protected override void PreFilterProperties(IDictionary properties)
         {

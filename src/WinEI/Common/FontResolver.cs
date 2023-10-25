@@ -19,7 +19,7 @@ namespace WinEI.Common
 {
 
     #region Enum
-    enum FontStatus
+    internal enum FontStatus
     {
         Available,
         Missing,
@@ -104,6 +104,9 @@ namespace WinEI.Common
             if (!FontResolver.DoesFontExist("Segoe UI", FontStyle.Bold))
                 return false;
 
+            if (!FontResolver.DoesFontExist("Consolas", FontStyle.Regular))
+                return false;
+
             return true;
         }
 
@@ -112,13 +115,16 @@ namespace WinEI.Common
             StringBuilder missingFontsBuilder = new StringBuilder();
 
             if (!FontResolver.DoesFontExist("Segoe UI", FontStyle.Regular))
-                missingFontsBuilder.AppendLine("Segoe UI Regular");
+                missingFontsBuilder.AppendLine("Segoe UI, Regular");
 
             if (!FontResolver.DoesFontExist("Segoe UI Semibold", FontStyle.Regular))
-                missingFontsBuilder.AppendLine("Segoe UI Semibold");
+                missingFontsBuilder.AppendLine("Segoe UI, Semibold");
 
             if (!FontResolver.DoesFontExist("Segoe UI", FontStyle.Bold))
-                missingFontsBuilder.AppendLine("Segoe UI Bold");
+                missingFontsBuilder.AppendLine("Segoe UI, Bold");
+
+            if (!FontResolver.DoesFontExist("Consolas", FontStyle.Regular))
+                missingFontsBuilder.AppendLine("Consolas, Regular");
 
             string errorMessage =
                 $"{Strings.ERROR_FONTS_MISSING}\r\n\r\n" +

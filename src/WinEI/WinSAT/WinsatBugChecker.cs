@@ -11,7 +11,7 @@ using WinEI.Utils;
 
 namespace WenEI.Winsat
 {
-    public class WinsatBugChecker
+    internal class WinsatBugChecker
     {
         // List of affected WinSAT versions
         // ERROR: Failed to properly assess the disk. The parameter is incorrect.

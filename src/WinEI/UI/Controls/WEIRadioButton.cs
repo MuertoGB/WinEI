@@ -25,7 +25,7 @@ namespace WinEI.UI.Controls
         #endregion
 
         #region Constructor
-        public WEIRadioButton()
+        internal WEIRadioButton()
         {
             SetStyle(
                 ControlStyles.AllPaintingInWmPaint

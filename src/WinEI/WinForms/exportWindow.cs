@@ -13,7 +13,7 @@ using WinEI.WIN32;
 
 namespace WinEI
 {
-    public partial class exportWindow : Form
+    internal partial class exportWindow : Form
     {
 
         #region Overriden Properties
@@ -33,7 +33,7 @@ namespace WinEI
         #endregion
 
         #region Constructor
-        public exportWindow()
+        internal exportWindow()
         {
             InitializeComponent();
 

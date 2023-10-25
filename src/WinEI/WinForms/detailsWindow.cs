@@ -17,7 +17,7 @@ using WinEI.WIN32;
 
 namespace WinEI.WinForms
 {
-    public partial class detailsWindow : Form
+    internal partial class detailsWindow : Form
     {
 
         #region Private Members
@@ -42,7 +42,7 @@ namespace WinEI.WinForms
         #endregion
 
         #region Contructor
-        public detailsWindow()
+        internal detailsWindow()
         {
             InitializeComponent();
 

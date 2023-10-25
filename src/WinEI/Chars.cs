@@ -6,7 +6,7 @@
 
 namespace WinEI
 {
-    class Chars
+    internal class Chars
     {
         internal const string EXIT_CROSS = "\uE947";
         internal const string FORWARD = "\uE72A";

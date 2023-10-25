@@ -2,11 +2,10 @@
 // https://github.com/MuertoGB/WinEI
 
 // WinForms
-// aboutWindow.cs
+// assessWindow.cs
 // Released under the GNU GLP v3.0
 
 using System;
-using System.Diagnostics;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -14,7 +13,7 @@ using WinEI.WIN32;
 
 namespace WinEI
 {
-    internal partial class aboutWindow : Form
+    internal partial class assessWindow : Form
     {
 
         #region Overriden Properties
@@ -34,16 +33,16 @@ namespace WinEI
         #endregion
 
         #region Constructor
-        internal aboutWindow()
+        internal assessWindow()
         {
             InitializeComponent();
 
-            Load += aboutWindow_Load;
-            KeyDown += aboutWindow_KeyDown;
+            Load += assessWindow_Load;
+            KeyDown += assessWindow_KeyDown;
 
-            pbxLogo.MouseMove += aboutWindow_MouseMove;
+            pbxLogo.MouseMove += assessWindow_MouseMove;
             pbxLogo.MouseDoubleClick += pbxLogo_MouseDoubleClick;
-            lblTitle.MouseMove += aboutWindow_MouseMove;
+            lblTitle.MouseMove += assessWindow_MouseMove;
 
             cmdClose.Font = Program.FONT_MDL2_REG_12;
             cmdClose.Text = Chars.EXIT_CROSS;
@@ -51,12 +50,9 @@ namespace WinEI
         #endregion
 
         #region Window Events
-        private void aboutWindow_Load(object sender, EventArgs e)
+        private void assessWindow_Load(object sender, EventArgs e)
         {
             SetAccentColour();
-
-            lblBuild.Text = WEIVersion.Version;
-            lblChannel.Text = WEIVersion.Channel;
         }
 
         private void SetAccentColour()
@@ -66,12 +62,12 @@ namespace WinEI
                     Settings.ReadInteger(
                         SettingsInteger.AccentColor));
 
-            pnlSplit1.BackColor = accentColor;
+            pnlSplit.BackColor = accentColor;
         }
         #endregion
 
         #region Mouse Events
-        private void aboutWindow_MouseMove(object sender, MouseEventArgs e)
+        private void assessWindow_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -88,7 +84,7 @@ namespace WinEI
         #endregion
 
         #region KeyDown Events
-        private void aboutWindow_KeyDown(object sender, KeyEventArgs e)
+        private void assessWindow_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
                 Close();
@@ -96,29 +92,21 @@ namespace WinEI
         #endregion
 
         #region Button Events
-        private void cmdClose_Click(object sender, EventArgs e) =>
+        private void cmdClose_Click(object sender, System.EventArgs e)
+        {
             Close();
-
-        private void cmdEmail_Click(object sender, EventArgs e) =>
-            Process.Start(WEIUrl.Email);
-
-        private void cmdSource_Click(object sender, EventArgs e) =>
-            Process.Start(WEIUrl.GithubSource);
-
-        private void cmdIssues_Click(object sender, EventArgs e) =>
-            Process.Start(WEIUrl.GithubIssues);
-
-        private void cmdDonate_Click(object sender, EventArgs e) =>
-            Process.Start(WEIUrl.Donate);
+        }
         #endregion
 
         #region Picturebox Events
         private void pbxLogo_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
-                CenterToParent();
+                Location =
+                    new Point(
+                        Program.mWindow.Left,
+                        Program.mWindow.Bottom + 1);
         }
         #endregion
-
     }
 }

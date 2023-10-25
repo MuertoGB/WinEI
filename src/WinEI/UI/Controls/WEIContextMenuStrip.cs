@@ -13,7 +13,7 @@ namespace WinEI.UI
 {
     internal class WEIContextMenuStrip : ContextMenuStrip
     {
-        public WEIContextMenuStrip()
+        internal WEIContextMenuStrip()
         {
             Renderer = new WEIMenuRenderer();
             BackColor = Color.FromArgb(25, 25, 25);

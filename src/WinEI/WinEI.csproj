@@ -68,6 +68,13 @@
     </Compile>
     <Compile Include="UI\Design\WEIRadioButtonDesigner.cs" />
     <Compile Include="Utils\TextUtils.cs" />
+    <Compile Include="WinForms\Assessment\assessWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Assessment\assessWindow.Designer.cs">
+      <DependentUpon>assessWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\Assessment\rtbFormatter.cs" />
     <Compile Include="WinForms\exportWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WinForms\aboutWindow.resx">
       <DependentUpon>aboutWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Assessment\assessWindow.resx">
+      <DependentUpon>assessWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinForms\exportWindow.resx">
       <DependentUpon>exportWindow.cs</DependentUpon>

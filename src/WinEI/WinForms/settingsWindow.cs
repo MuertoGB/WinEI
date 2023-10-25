@@ -14,7 +14,7 @@ using WinEI.WIN32;
 
 namespace WinEI
 {
-    public partial class settingsWindow : Form
+    internal partial class settingsWindow : Form
     {
 
         #region Private Members
@@ -40,7 +40,7 @@ namespace WinEI
         #endregion
 
         #region Constructor
-        public settingsWindow()
+        internal settingsWindow()
         {
             InitializeComponent();
 

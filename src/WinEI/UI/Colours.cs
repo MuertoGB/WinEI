@@ -9,7 +9,7 @@ using System.Drawing;
 
 namespace WinEI.UI
 {
-    class Colours
+    internal class Colours
     {
         internal static readonly Color BORDER_INACTIVE = Color.FromArgb(120, 120, 120);
         internal static readonly Color BORDER_ACTIVE = Color.FromArgb(200, 200, 200);

@@ -16,14 +16,14 @@ namespace WinEI.UI
     [DefaultBindingProperty("CheckState")]
     [DefaultProperty("Checked")]
     [Designer(typeof(WEISwitchDesigner))]
-    public class WEISwitch : CheckBox
+    internal class WEISwitch : CheckBox
     {
         #region Fields
         private bool _mouseHovered = false;
         #endregion
 
         #region Constructor
-        public WEISwitch()
+        internal WEISwitch()
         {
             SetStyle(
                 ControlStyles.AllPaintingInWmPaint

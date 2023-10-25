@@ -24,7 +24,7 @@ namespace WinEI
     }
     #endregion
 
-    class AppUpdate
+    internal class AppUpdate
     {
         internal static async Task<VersionResult> CheckForNewVersion(string versionUrl)
         {

@@ -7,7 +7,7 @@
 
 namespace WinEI.UI
 {
-    public enum WEIMessageBoxType
+    internal enum WEIMessageBoxType
     {
         Error,
         Warning,
@@ -15,7 +15,7 @@ namespace WinEI.UI
         Question
     }
 
-    public enum WEIMessageBoxButtons
+    internal enum WEIMessageBoxButtons
     {
         Okay,
         YesNo

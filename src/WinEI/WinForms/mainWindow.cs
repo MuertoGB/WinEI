@@ -20,7 +20,7 @@ using WinEI.Winsat;
 
 namespace WinEI
 {
-    public partial class mainWindow : Form
+    internal partial class mainWindow : Form
     {
 
         #region Overriden Properties
@@ -42,7 +42,7 @@ namespace WinEI
         #endregion
 
         #region Constructor
-        public mainWindow()
+        internal mainWindow()
         {
             InitializeComponent();
 
@@ -504,34 +504,38 @@ namespace WinEI
 
         private void cmdAssessment_Click(object sender, EventArgs e)
         {
-            // Check whether we have appropriate privilages to run an assessment.
-            if (!OSUtils.IsElevated())
+            // Ignore elevated privilages in debug.
+            if (!Debug.GetIsDebugMode())
             {
-                // We need to elevate privilages.
-                DialogResult result =
-                    WEIMessageBox.Show(
-                        this,
-                        Strings.WARNING,
-                        Strings.FEATURE_REQUIRES_ELEVATION,
-                        WEIMessageBoxType.Warning,
-                        WEIMessageBoxButtons.YesNo);
-
-                // User chose to elevate privilages.
-                if (result == DialogResult.Yes)
+                // Check whether we have appropriate privilages to run an assessment.
+                if (!OSUtils.IsElevated())
                 {
-                    // Set resume state to assessment.
-                    Settings.WriteInteger(
-                        SettingsInteger.ResumeState,
-                        Settings.RESUME_STATE_ASSESSMENT);
+                    // We need to elevate privilages.
+                    DialogResult result =
+                        WEIMessageBox.Show(
+                            this,
+                            Strings.WARNING,
+                            Strings.FEATURE_REQUIRES_ELEVATION,
+                            WEIMessageBoxType.Warning,
+                            WEIMessageBoxButtons.YesNo);
 
-                    OSUtils.RestartElevated();
+                    // User chose to elevate privilages.
+                    if (result == DialogResult.Yes)
+                    {
+                        // Set resume state to assessment.
+                        Settings.WriteInteger(
+                            SettingsInteger.ResumeState,
+                            Settings.RESUME_STATE_ASSESSMENT);
+
+                        OSUtils.RestartElevated();
+                    }
+
+                    // User chose not to elevate, exit here as we cannot continue.
+                    return;
                 }
-
-                // User chose not to elevate, exit here as we cannot continue.
-                return;
             }
 
-            // Check to see if power adapter enforcement has been overriden
+            // Check to see if power adapter enforcement has been overriden.
             if (!Settings.ReadBool(SettingsBool.BypassPowerAdapter))
                 // Otherwise check the adapter is plugged in, WinSAT cannot run on battery power.
                 if (!PowerUtils.IsExternalPowerSourceConnected())
@@ -547,10 +551,24 @@ namespace WinEI
                     return;
                 }
 
-            // Assess system.
-            // ***TODO***
-            // Debug message
-            MessageBox.Show("Doing Assessment.");
+            // Run the assessment.
+            SetHalfOpacity();
+
+            using (Form form = new assessWindow())
+            {
+                form.Location = new Point(this.Left, this.Bottom + 2);
+                form.Closed += AssessmentComplete;
+                form.ShowDialog();
+            }
+        }
+
+        private void AssessmentComplete(object sender, EventArgs e)
+        {
+            // Reset Opacity.
+            ChildWindowClosed(sender, e);
+
+            // Reload data and refresh the UI.
+            ReloadData();
         }
 
         private void cmdShareOnImgur_Click(object sender, EventArgs e)

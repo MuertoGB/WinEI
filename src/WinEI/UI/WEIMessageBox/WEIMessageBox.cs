@@ -12,7 +12,7 @@ using WinEI.WIN32;
 
 namespace WinEI.UI
 {
-    public partial class WEIMessageBox : Form
+    internal partial class WEIMessageBox : Form
     {
 
         #region Static Members
@@ -49,7 +49,7 @@ namespace WinEI.UI
         #endregion
 
         #region Contructor
-        public WEIMessageBox()
+        internal WEIMessageBox()
         {
             InitializeComponent();
             lblTitle.MouseMove += metMessage_MouseMove;
@@ -146,7 +146,7 @@ namespace WinEI.UI
         #endregion
 
         #region Overriden Events
-        public static DialogResult Show(
+        internal static DialogResult Show(
             Form owner,
             string title,
             string message,

@@ -8,10 +8,10 @@ namespace WinEI.Common
 {
     internal class MemoryType
     {
-        public static string Convert(string typeValue)
+        internal static string Convert(string value)
         {
             // Need to find DDR5 integer value, not available from MS website.
-            switch (typeValue)
+            switch (value)
             {
                 case "0":
                     return "Unknown";
@@ -66,7 +66,7 @@ namespace WinEI.Common
                 case "26":
                     return "DDR4";
                 default:
-                    return typeValue != null ? typeValue : "Unknown";
+                    return value != null ? value : "Unknown";
             }
         }
     }
