@@ -17,7 +17,7 @@ WinEI
 ## About
 > 🛈 Application is currently in late development. Pre-alpha development almost over.
 
-Formerly known as **Xiret**, WinEI serves as a straightforward tool developed to substitute the Windows Experience Index User Interface, which was removed in Windows 8.1. This tool offers a user-friendly interface, is entirely free of advertisements and spam, and is available for free. It is compatible with all Windows versions capable of running the Experience Index.
+Formerly known as **Xiret**, WinEI serves as a straightforward tool developed to substitute the Windows Experience Index User Interface, which was removed in Windows 8.1. This tool offers a user-friendly interface, is entirely free of advertisements and spam, and is available for free. It is compatible with all Windows versions capable of running the Experience Index. This application is a complete rewrite of [Xiret](https://www.majorgeeks.com/files/details/xiret.html), now in C#.
 
 <kbd>
   <img src="stream/images/winei.png">
