@@ -48,7 +48,7 @@ namespace WinEI
 
     internal readonly struct WEIVersion
     {
-        internal const string Build = "231025.0010";
+        internal const string Build = "231025.0100";
         internal static readonly string Version = $"{Application.ProductVersion}.{Build}";
         internal const string Channel = "PRE-ALPHA";
     }
@@ -265,8 +265,9 @@ namespace WinEI
             }
 
             // Fix for mainWindow opacity getting stuck.
-            if (mWindow.Opacity != 1.0)
-                mWindow.Opacity = 1.0;
+            if (mWindow != null)
+                if (mWindow.Opacity != 1.0)
+                    mWindow.Opacity = 1.0;
         }
         #endregion
 

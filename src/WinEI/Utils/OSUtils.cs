@@ -18,32 +18,12 @@ namespace WinEI.Utils
     internal class OSUtils
     {
 
-        #region Private Members
-        private static readonly string _winsatExeName =
-            "WinSAT.exe";
-
-        private static readonly string _winsatApiName =
-            "WinSATAPI.dll";
-
-        private static readonly string _kernelName =
-            "kernel32.dll";
-        #endregion
-
         #region Internal Members
-        internal static readonly string SystemPath =
-            Environment.SystemDirectory;
-
-        internal static readonly string WindowsPath =
-            Environment.GetFolderPath(Environment.SpecialFolder.Windows);
-
-        internal static readonly string WinsatExePath =
-            Path.Combine(SystemPath, _winsatExeName);
-
-        internal static readonly string WinsatApiPath =
-            Path.Combine(SystemPath, _winsatApiName);
-
-        internal static readonly string KernelPath =
-            Path.Combine(SystemPath, _kernelName);
+        internal static readonly string SystemPath = Environment.GetFolderPath(Environment.SpecialFolder.System);
+        internal static readonly string WindowsPath = Environment.GetFolderPath(Environment.SpecialFolder.Windows);
+        internal static readonly string WinsatExePath = Path.Combine(SystemPath, "WinSAT.exe");
+        internal static readonly string WinsatApiPath = Path.Combine(SystemPath, "winsatapi.dll");
+        internal static readonly string KernelPath = Path.Combine(SystemPath, "kernel32.dll");
         #endregion
 
         #region Strings
@@ -158,8 +138,8 @@ namespace WinEI.Utils
 
         internal static bool IsWindowsVista()
         {
-            if (GetWinsatExeVersion.ProductMajorPart == 6
-                && GetWinsatExeVersion.ProductMinorPart == 0)
+            if (GetKernelVersion.ProductMajorPart == 6
+                && GetKernelVersion.ProductMinorPart == 0)
             {
                 return true;
             }
@@ -169,8 +149,8 @@ namespace WinEI.Utils
 
         internal static bool IsWindowsSeven()
         {
-            if (GetWinsatExeVersion.ProductMajorPart == 6
-                && GetWinsatExeVersion.ProductMinorPart == 1)
+            if (GetKernelVersion.ProductMajorPart == 6
+                && GetKernelVersion.ProductMinorPart == 1)
             {
                 return true;
             }
@@ -180,8 +160,8 @@ namespace WinEI.Utils
 
         internal static bool IsWindowsEight()
         {
-            if (GetWinsatExeVersion.ProductMajorPart == 6
-                && GetWinsatExeVersion.ProductMinorPart > 1)
+            if (GetKernelVersion.ProductMajorPart == 6
+                && GetKernelVersion.ProductMinorPart > 1)
             {
                 return true;
             }
@@ -191,7 +171,7 @@ namespace WinEI.Utils
 
         internal static bool IsWindowsTenPlus()
         {
-            if (GetWinsatExeVersion.ProductMajorPart == 10)
+            if (GetKernelVersion.ProductMajorPart == 10)
             {
                 return true;
             }
@@ -202,16 +182,13 @@ namespace WinEI.Utils
 
         #region File Version
         internal static FileVersionInfo GetWinsatExeVersion =>
-            FileVersionInfo.GetVersionInfo(
-                Path.Combine(WinsatExePath));
+            FileVersionInfo.GetVersionInfo(WinsatExePath);
 
         internal static FileVersionInfo GetWinsatApiVersion =>
-            FileVersionInfo.GetVersionInfo(
-                Path.Combine(WinsatApiPath));
+            FileVersionInfo.GetVersionInfo(WinsatApiPath);
 
         internal static FileVersionInfo GetKernelVersion =>
-            FileVersionInfo.GetVersionInfo(
-                Path.Combine(KernelPath));
+            FileVersionInfo.GetVersionInfo(KernelPath);
         #endregion
 
         #region Elevation
