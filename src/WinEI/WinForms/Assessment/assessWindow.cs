@@ -158,13 +158,19 @@ namespace WinEI
         #region Button Events
         private void cmdClose_Click(object sender, System.EventArgs e)
         {
-            Close();
+            cmdCancel.PerformClick();
         }
 
-        private void cmdAssessment_Click(object sender, EventArgs e)
+        private void cmdCancel_Click(object sender, EventArgs e)
         {
-            StopWatchdog();
-            StopWinsatProcess();
+            if (!_assessmentComplete && !_winsatProcess.HasExited)
+            {
+                // Write to log, assessment interrupted. Confirm dialog?
+                StopWatchdog();
+                StopWinsatProcess();
+            }
+
+            Close();
         }
         #endregion
 
@@ -338,22 +344,18 @@ namespace WinEI
             // Stop the WinSAT watchdog.
             StopWatchdog();
 
-            // No warnings or errors were detected.
-            if (_warningCount == 0 && _errorCount == 0)
-                rtbFormatter.Log(
-                    "No errors, or warnings were detected during the assessment.",
-                     rtbLogType.Okay,
-                    rtbAssessment);
-
+            // Warning and error counts (only supports English lang for now).
             if (_warningCount > 0)
                 rtbFormatter.Log(
-                    $"The assessment ran with {_warningCount} warning(s).",
+                    $"The assessment ran with " +
+                    $"{(_warningCount > 1 ? "warnings." : "warning.")}",
                     rtbLogType.Warning,
                     rtbAssessment);
 
             if (_errorCount > 0)
                 rtbFormatter.Log(
-                    $"The assessment ran with {_errorCount} error(s).",
+                    $"The assessment ran with " +
+                    $"{(_errorCount > 1 ? "errors." : "error.")}",
                     rtbLogType.Error,
                     rtbAssessment);
 
@@ -365,15 +367,59 @@ namespace WinEI
 
         private void UpdateStatusLabelLonghorn(string data)
         {
-            // ***TODO***
+            // Feature enumeration.
+            if (data.Contains("formal -v"))
+                lblStatus.Text = "Running Feature Enumeration";
+
+            // Direct3D 9.
+            if (data.Contains("-wddm -v"))
+                lblStatus.Text = "Running D3D9 Assessments";
+
+            // Media.
+            if (data.Contains("winsatencode.wmv -encode"))
+                lblStatus.Text = "Assessing Windows Media Encoding Performance";
+
+            if (data.Contains("winsat.wmv -nopmp"))
+                lblStatus.Text = "Assessing Windows Media Playback Performance";
+
+            // Processor.
+            if (data.Contains("-encryption"))
+                lblStatus.Text = "Assessing CPU Performance [1/4]";
+
+            if (data.Contains("-compression"))
+                lblStatus.Text = "Assessing CPU Performance [2/4]";
+
+            if (data.Contains("-encryption2"))
+                lblStatus.Text = "Assessing CPU Performance [3/4]";
+
+            if (data.Contains("-compression2"))
+                lblStatus.Text = "Assessing CPU Performance [4/4]";
+
+            // Memory.
+            if (data.Contains("Block size specified as"))
+                lblStatus.Text = "Assessing Memory Performance [1/1]";
+
+            // Disk.
+            if (data.Contains("-ran") && data.Contains("-read"))
+                lblStatus.Text = "Assessing Disk Performance [Ran/Read]";
+
+            if (data.Contains("-ran") && data.Contains("-write"))
+                lblStatus.Text = "Assessing Disk Performance [Ran/Write]";
+
+            if (data.Contains("-seq") && data.Contains("-write"))
+                lblStatus.Text = "Assessing Disk Performance [Seq/Write]";
+
+            if (data.Contains("-seq") && data.Contains("-read"))
+                lblStatus.Text = "Assessing Disk Performance [Seq/Read]";
         }
 
         private void UpdateStatusLabelOther(string data)
         {
+            // Feature enumeration.
             if (data.Contains("formal -v"))
-                lblStatus.Text = "Gathering System Information";
+                lblStatus.Text = "Running Feature Enumeration";
 
-            // Direct3D 9 (Does not run on Windows 10+)
+            // Direct3D 9 (Does not run on Windows 10+).
             if (data.Contains("-aname DWM"))
                 lblStatus.Text = "Running the D3D9 Aero Assessment";
 
@@ -384,12 +430,12 @@ namespace WinEI
                 lblStatus.Text = "Running the D3D9 Alpha Blend Assessment";
 
             if (data.Contains("-aname Tex"))
-                lblStatus.Text = "Running the D3D9 Texture Load Assessment...";
+                lblStatus.Text = "Running the D3D9 Texture Load Assessment";
 
             if (data.Contains("-aname ALU"))
                 lblStatus.Text = "Running the D3D9 ALU Assessment";
 
-            // Direct3D 10 (Does not run on Windows 8.1+)
+            // Direct3D 10 (Does not run on Windows 8.1+).
             if (data.Contains("-dx10  -aname Batch"))
                 lblStatus.Text = "Running the D3D10 Batch Assessment";
 
@@ -408,10 +454,11 @@ namespace WinEI
             if (data.Contains("-dx10  -aname CBuffer"))
                 lblStatus.Text = "Running the D3D10 Constant Buffer Assessment";
 
-            // Media Assessment (Does not run on Windows 10+)
-            // ***TODO***
+            // Media (Does not run on Windows 10+).
+            if (data.Contains("winsat.wmv -nopmp"))
+                lblStatus.Text = "Assessing Windows Media Playback Performance";
 
-            // Processor Assessment
+            // Processor.
             if (data.Contains("'-encryption -up'"))
                 lblStatus.Text = "Assessing CPU Performance [1/8]";
 
@@ -436,11 +483,11 @@ namespace WinEI
             if (data.Contains("'-compression2'"))
                 lblStatus.Text = "Assessing CPU Performance [8/8]";
 
-            // Memory Performance
+            // Memory.
             if (data.Contains("Block size specified as"))
                 lblStatus.Text = "Assessing Memory Performance [1/1]";
 
-            // Primary Disk
+            // Disk.
             if (data.Contains("-ran") && data.Contains("-read"))
                 lblStatus.Text = "Assessing Disk Performance [Ran/Read]";
 
@@ -454,11 +501,7 @@ namespace WinEI
                 lblStatus.Text = "Assessing Disk Performance [Seq/Read]";
 
             if (data.Contains("-scen"))
-                lblStatus.Text = "Assessing Disk Performance [Scen]";
-
-            // Finished
-            if (data.Contains("Composition restarted"))
-                lblStatus.Text = "Assessment Completed. You may now close the window.";
+                lblStatus.Text = "Assessing Disk Performance";
         }
         #endregion
 

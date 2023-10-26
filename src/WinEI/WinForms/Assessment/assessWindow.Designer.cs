@@ -35,8 +35,8 @@
             this.pbxLogo = new System.Windows.Forms.PictureBox();
             this.pnlSplit = new System.Windows.Forms.Panel();
             this.tlpBottom = new System.Windows.Forms.TableLayoutPanel();
-            this.cmdAssessment = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.cmdCancel = new System.Windows.Forms.Button();
+            this.cmdExport = new System.Windows.Forms.Button();
             this.lblStatus = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tlpLog = new System.Windows.Forms.TableLayoutPanel();
@@ -135,16 +135,13 @@
             // 
             this.tlpBottom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.tlpBottom.ColumnCount = 5;
-            this.tlpBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 170F));
+            this.tlpBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tlpBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 1F));
-            this.tlpBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140F));
+            this.tlpBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
             this.tlpBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 1F));
             this.tlpBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpBottom.Controls.Add(this.cmdAssessment, 0, 0);
-            this.tlpBottom.Controls.Add(this.button1, 2, 0);
+            this.tlpBottom.Controls.Add(this.cmdCancel, 0, 0);
+            this.tlpBottom.Controls.Add(this.cmdExport, 2, 0);
             this.tlpBottom.Controls.Add(this.lblStatus, 4, 0);
             this.tlpBottom.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpBottom.Location = new System.Drawing.Point(0, 403);
@@ -155,46 +152,46 @@
             this.tlpBottom.Size = new System.Drawing.Size(805, 38);
             this.tlpBottom.TabIndex = 100;
             // 
-            // cmdAssessment
+            // cmdCancel
             // 
-            this.cmdAssessment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(40)))));
-            this.cmdAssessment.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmdAssessment.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(40)))));
-            this.cmdAssessment.FlatAppearance.BorderSize = 0;
-            this.cmdAssessment.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
-            this.cmdAssessment.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
-            this.cmdAssessment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdAssessment.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdAssessment.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(220)))), ((int)(((byte)(230)))));
-            this.cmdAssessment.Location = new System.Drawing.Point(0, 0);
-            this.cmdAssessment.Margin = new System.Windows.Forms.Padding(0);
-            this.cmdAssessment.Name = "cmdAssessment";
-            this.cmdAssessment.Padding = new System.Windows.Forms.Padding(1, 0, 0, 0);
-            this.cmdAssessment.Size = new System.Drawing.Size(170, 38);
-            this.cmdAssessment.TabIndex = 1;
-            this.cmdAssessment.Text = "QUIT ASSESSMENT";
-            this.cmdAssessment.UseVisualStyleBackColor = false;
-            this.cmdAssessment.Click += new System.EventHandler(this.cmdAssessment_Click);
+            this.cmdCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(40)))));
+            this.cmdCancel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cmdCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(40)))));
+            this.cmdCancel.FlatAppearance.BorderSize = 0;
+            this.cmdCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
+            this.cmdCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
+            this.cmdCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdCancel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(220)))), ((int)(((byte)(230)))));
+            this.cmdCancel.Location = new System.Drawing.Point(0, 0);
+            this.cmdCancel.Margin = new System.Windows.Forms.Padding(0);
+            this.cmdCancel.Name = "cmdCancel";
+            this.cmdCancel.Padding = new System.Windows.Forms.Padding(1, 0, 0, 0);
+            this.cmdCancel.Size = new System.Drawing.Size(100, 38);
+            this.cmdCancel.TabIndex = 1;
+            this.cmdCancel.Text = "CANCEL";
+            this.cmdCancel.UseVisualStyleBackColor = false;
+            this.cmdCancel.Click += new System.EventHandler(this.cmdCancel_Click);
             // 
-            // button1
+            // cmdExport
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(40)))));
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(40)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(220)))), ((int)(((byte)(230)))));
-            this.button1.Location = new System.Drawing.Point(171, 0);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(1, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(140, 38);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "EXPORT LOG";
-            this.button1.UseVisualStyleBackColor = false;
+            this.cmdExport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(40)))));
+            this.cmdExport.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cmdExport.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(40)))));
+            this.cmdExport.FlatAppearance.BorderSize = 0;
+            this.cmdExport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
+            this.cmdExport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
+            this.cmdExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdExport.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdExport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(220)))), ((int)(((byte)(230)))));
+            this.cmdExport.Location = new System.Drawing.Point(101, 0);
+            this.cmdExport.Margin = new System.Windows.Forms.Padding(0);
+            this.cmdExport.Name = "cmdExport";
+            this.cmdExport.Padding = new System.Windows.Forms.Padding(1, 0, 0, 0);
+            this.cmdExport.Size = new System.Drawing.Size(160, 38);
+            this.cmdExport.TabIndex = 2;
+            this.cmdExport.Text = "EXPORT SESSION";
+            this.cmdExport.UseVisualStyleBackColor = false;
             // 
             // lblStatus
             // 
@@ -202,11 +199,11 @@
             this.lblStatus.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblStatus.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
             this.lblStatus.ForeColor = System.Drawing.Color.White;
-            this.lblStatus.Location = new System.Drawing.Point(312, 0);
+            this.lblStatus.Location = new System.Drawing.Point(262, 0);
             this.lblStatus.Margin = new System.Windows.Forms.Padding(0);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
-            this.lblStatus.Size = new System.Drawing.Size(493, 38);
+            this.lblStatus.Size = new System.Drawing.Size(543, 38);
             this.lblStatus.TabIndex = 99;
             this.lblStatus.Text = "...";
             this.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -297,8 +294,8 @@
         private System.Windows.Forms.PictureBox pbxLogo;
         private System.Windows.Forms.Panel pnlSplit;
         private System.Windows.Forms.TableLayoutPanel tlpBottom;
-        private System.Windows.Forms.Button cmdAssessment;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button cmdCancel;
+        private System.Windows.Forms.Button cmdExport;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tlpLog;
         private System.Windows.Forms.RichTextBox rtbAssessment;
