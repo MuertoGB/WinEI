@@ -505,5 +505,26 @@ namespace WinEI.Winsat
         }
         #endregion
 
+        #region Integers
+        internal static int GetWinsatExitCodeFromLog()
+        {
+            try
+            {
+                string[] list = File.ReadAllLines(WinsatLog);
+                string code = list.Last();
+
+                if (code.Contains("exit value ="))
+                    return Convert.ToInt32(code.Substring(code.Length - 2, 1));
+
+                return -1;
+            }
+            catch (Exception e)
+            {
+                Logger.WriteExceptionToAppLog(e);
+                return -1;
+            }
+        }
+        #endregion
+
     }
 }

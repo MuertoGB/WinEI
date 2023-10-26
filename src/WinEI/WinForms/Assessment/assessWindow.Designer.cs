@@ -177,6 +177,7 @@
             // 
             this.cmdExport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(40)))));
             this.cmdExport.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cmdExport.Enabled = false;
             this.cmdExport.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(40)))));
             this.cmdExport.FlatAppearance.BorderSize = 0;
             this.cmdExport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));

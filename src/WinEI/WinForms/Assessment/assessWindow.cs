@@ -84,8 +84,9 @@ namespace WinEI
                 : Encoding.GetEncoding(
                     CultureInfo.CurrentUICulture.TextInfo.OEMCodePage);
 
-            ProcessStartInfo startInfo = new ProcessStartInfo(
-                "winsat", "formal -v")
+            ProcessStartInfo startInfo =
+                new ProcessStartInfo(
+                    "winsat", "formal -v")
             {
                 UseShellExecute = false,
                 RedirectStandardError = true,
@@ -158,7 +159,8 @@ namespace WinEI
         #region Button Events
         private void cmdClose_Click(object sender, System.EventArgs e)
         {
-            cmdCancel.PerformClick();
+            //cmdCancel.PerformClick();
+            Close();
         }
 
         private void cmdCancel_Click(object sender, EventArgs e)
@@ -170,7 +172,7 @@ namespace WinEI
                 StopWinsatProcess();
             }
 
-            Close();
+            //Close();
         }
         #endregion
 
@@ -326,13 +328,9 @@ namespace WinEI
 
             // Update the status label.
             if (OSUtils.IsWindowsVista())
-            {
                 UpdateStatusLabelLonghorn(data);
-            }
             else
-            {
                 UpdateStatusLabelOther(data);
-            }
 
             // Assessment is still running. Leave code.
             if (!data.Contains("Composition restarted"))
@@ -359,9 +357,26 @@ namespace WinEI
                     rtbLogType.Error,
                     rtbAssessment);
 
+            GetAssessmentCompletedData();
+        }
+
+        private void GetAssessmentCompletedData()
+        {
+            lblStatus.Text = "Completed.";
+            cmdCancel.Text = "Close";
+            cmdExport.Enabled = true;
+
+            int exitCode =
+                WinsatReader.GetWinsatExitCodeFromLog();
+
             rtbFormatter.Log(
-                "Assessment completed.",
-                rtbLogType.Information,
+                $"Exit Code:  {exitCode}",
+                rtbLogType.Application,
+                rtbAssessment);
+
+            rtbFormatter.Log(
+                $"Message:    {WinsatReader.GetWinsatExitCodeString(exitCode)}",
+                rtbLogType.Application,
                 rtbAssessment);
         }
 
