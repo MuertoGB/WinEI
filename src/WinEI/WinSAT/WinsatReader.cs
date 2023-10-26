@@ -178,12 +178,13 @@ namespace WinEI.Winsat
         #endregion
 
         #region WinSPR
-
         internal static WinsatScores GetWinSPR()
         {
+            // Get the WInSPR base score.
             string baseScore =
                 $"{WinsatAPI.QueryBaseScore()}";
 
+            // System is not rated.
             if (baseScore == "0")
                 return DefaultWinSatScores();
 

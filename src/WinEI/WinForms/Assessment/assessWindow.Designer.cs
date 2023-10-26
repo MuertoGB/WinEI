@@ -37,6 +37,7 @@
             this.tlpBottom = new System.Windows.Forms.TableLayoutPanel();
             this.cmdAssessment = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.lblStatus = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tlpLog = new System.Windows.Forms.TableLayoutPanel();
             this.rtbAssessment = new System.Windows.Forms.RichTextBox();
@@ -78,7 +79,7 @@
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(725, 40);
             this.lblTitle.TabIndex = 99;
-            this.lblTitle.Text = "Assessment";
+            this.lblTitle.Text = "System Assessment";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // cmdClose
@@ -139,10 +140,14 @@
             this.tlpBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140F));
             this.tlpBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 1F));
             this.tlpBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpBottom.Controls.Add(this.cmdAssessment, 0, 0);
             this.tlpBottom.Controls.Add(this.button1, 2, 0);
+            this.tlpBottom.Controls.Add(this.lblStatus, 4, 0);
             this.tlpBottom.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpBottom.Location = new System.Drawing.Point(0, 248);
+            this.tlpBottom.Location = new System.Drawing.Point(0, 403);
             this.tlpBottom.Margin = new System.Windows.Forms.Padding(0);
             this.tlpBottom.Name = "tlpBottom";
             this.tlpBottom.RowCount = 1;
@@ -169,6 +174,7 @@
             this.cmdAssessment.TabIndex = 1;
             this.cmdAssessment.Text = "QUIT ASSESSMENT";
             this.cmdAssessment.UseVisualStyleBackColor = false;
+            this.cmdAssessment.Click += new System.EventHandler(this.cmdAssessment_Click);
             // 
             // button1
             // 
@@ -190,6 +196,21 @@
             this.button1.Text = "EXPORT LOG";
             this.button1.UseVisualStyleBackColor = false;
             // 
+            // lblStatus
+            // 
+            this.lblStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.lblStatus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblStatus.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
+            this.lblStatus.ForeColor = System.Drawing.Color.White;
+            this.lblStatus.Location = new System.Drawing.Point(312, 0);
+            this.lblStatus.Margin = new System.Windows.Forms.Padding(0);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
+            this.lblStatus.Size = new System.Drawing.Size(493, 38);
+            this.lblStatus.TabIndex = 99;
+            this.lblStatus.Text = "...";
+            this.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
@@ -204,7 +225,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(805, 286);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(805, 441);
             this.tableLayoutPanel1.TabIndex = 101;
             // 
             // tlpLog
@@ -219,19 +240,20 @@
             this.tlpLog.Name = "tlpLog";
             this.tlpLog.RowCount = 1;
             this.tlpLog.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpLog.Size = new System.Drawing.Size(805, 247);
+            this.tlpLog.Size = new System.Drawing.Size(805, 402);
             this.tlpLog.TabIndex = 101;
             // 
             // rtbAssessment
             // 
             this.rtbAssessment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.rtbAssessment.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtbAssessment.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rtbAssessment.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbAssessment.ForeColor = System.Drawing.Color.White;
             this.rtbAssessment.Location = new System.Drawing.Point(6, 6);
             this.rtbAssessment.Margin = new System.Windows.Forms.Padding(6);
             this.rtbAssessment.Name = "rtbAssessment";
-            this.rtbAssessment.Size = new System.Drawing.Size(793, 235);
+            this.rtbAssessment.Size = new System.Drawing.Size(793, 390);
             this.rtbAssessment.TabIndex = 103;
             this.rtbAssessment.Text = "";
             // 
@@ -242,7 +264,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
-            this.ClientSize = new System.Drawing.Size(807, 330);
+            this.ClientSize = new System.Drawing.Size(807, 485);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.pnlSplit);
             this.Controls.Add(this.tlpTitle);
@@ -252,11 +274,11 @@
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(807, 330);
+            this.MinimumSize = new System.Drawing.Size(807, 485);
             this.Name = "assessWindow";
             this.Padding = new System.Windows.Forms.Padding(1);
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Assessment";
             this.tlpTitle.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).EndInit();
@@ -280,5 +302,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tlpLog;
         private System.Windows.Forms.RichTextBox rtbAssessment;
+        private System.Windows.Forms.Label lblStatus;
     }
 }

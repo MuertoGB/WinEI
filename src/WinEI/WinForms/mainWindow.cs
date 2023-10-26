@@ -556,7 +556,6 @@ namespace WinEI
 
             using (Form form = new assessWindow())
             {
-                form.Location = new Point(this.Left, this.Bottom + 2);
                 form.Closed += AssessmentComplete;
                 form.ShowDialog();
             }
