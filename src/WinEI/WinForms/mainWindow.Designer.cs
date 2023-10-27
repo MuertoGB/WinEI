@@ -111,6 +111,7 @@
             this.mediaFeaturePackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.viewApplicationLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewAssessmentLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewImgurLinksFileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.viewWinSATLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.swShowHardware = new WinEI.UI.WEISwitch();
