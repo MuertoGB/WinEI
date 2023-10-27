@@ -455,6 +455,7 @@ namespace WinEI
                 {
                     TextUtils.SaveAsTextWithDialog(
                         TextUtils.BuildWinsatTextOutput(),
+                        "winspr-info",
                         this);
                 }
             }
@@ -641,7 +642,7 @@ namespace WinEI
                 {
                     // Check whether we should log the URL.
                     if (Settings.ReadBool(SettingsBool.LogImgurUrls))
-                        Logger.WriteToLog(apiGetUrl, LogType.ImgurLog);
+                        Logger.WriteToLog(apiGetUrl, LogType.ImgurLinksFile);
 
                     // Check whether we should open a browser window, or show a message.
                     if (Settings.ReadBool(SettingsBool.OpenImgurUrls))
@@ -842,6 +843,23 @@ namespace WinEI
             Process.Start(WEIPath.ApplicationLog);
         }
 
+        private void viewAssessmentLogToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!File.Exists(WEIPath.AssessmentLog))
+            {
+                WEIMessageBox.Show(
+                    this,
+                    Strings.INFORMATION,
+                    Strings.LOG_NOT_FOUND,
+                    WEIMessageBoxType.Information,
+                    WEIMessageBoxButtons.Okay);
+
+                return;
+            }
+
+            Process.Start(WEIPath.AssessmentLog);
+        }
+
         private void viewImgurLinksFileToolStripMenuItem1_Click_1(object sender, EventArgs e)
         {
             if (!File.Exists(WEIPath.ImgurLinksFile))
@@ -1040,5 +1058,9 @@ namespace WinEI
         }
         #endregion
 
+        //this.swShowHardware = new WinEI.UI.WEISwitch();
+        //this.cmsApplication = new WinEI.UI.WEIContextMenuStrip();
+        //this.cmsOptions = new WinEI.UI.WEIContextMenuStrip();
+        //this.cmsMore = new WinEI.UI.WEIContextMenuStrip();
     }
 }

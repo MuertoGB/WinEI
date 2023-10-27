@@ -74,7 +74,7 @@
     <Compile Include="WinForms\Assessment\assessWindow.Designer.cs">
       <DependentUpon>assessWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="WinForms\Assessment\rtbFormatter.cs" />
+    <Compile Include="WinForms\Assessment\rtbLogger.cs" />
     <Compile Include="WinForms\exportWindow.cs">
       <SubType>Form</SubType>
     </Compile>

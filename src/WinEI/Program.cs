@@ -24,10 +24,12 @@ namespace WinEI
     {
         internal static readonly string CurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
         internal static readonly string FriendlyName = AppDomain.CurrentDomain.FriendlyName;
+        internal static readonly string LogsDirectory = Path.Combine(CurrentDirectory, "logs");
         internal static readonly string SettingsIni = Path.Combine(CurrentDirectory, "settings.ini");
-        internal static readonly string DebugLog = Path.Combine(CurrentDirectory, "debug.log");
-        internal static readonly string ApplicationLog = Path.Combine(CurrentDirectory, "application.log");
-        internal static readonly string ImgurLinksFile = Path.Combine(CurrentDirectory, "imgur.log");
+        internal static readonly string AssessmentLog = Path.Combine(LogsDirectory, "assessment.log");
+        internal static readonly string ApplicationLog = Path.Combine(LogsDirectory, "application.log");
+        internal static readonly string DebugLog = Path.Combine(LogsDirectory, "debug.log");
+        internal static readonly string ImgurLinksFile = Path.Combine(LogsDirectory, "imgur.log");
     }
 
     internal readonly struct WEIUrl
@@ -48,9 +50,9 @@ namespace WinEI
 
     internal readonly struct WEIVersion
     {
-        internal const string Build = "231026.2235";
+        internal const string Build = "231027.0840";
         internal static readonly string Version = $"{Application.ProductVersion}.{Build}";
-        internal const string Channel = "PRE-ALPHA";
+        internal const string Channel = "ALPHA";
     }
     #endregion
 
@@ -88,6 +90,10 @@ namespace WinEI
         [STAThread]
         static void Main()
         {
+            // Create the logs folder
+            if (!Directory.Exists(WEIPath.LogsDirectory))
+                Directory.CreateDirectory(WEIPath.LogsDirectory);
+
             // Check Operating System is not < Vista.
             if (OSUtils.GetKernelVersion.ProductMajorPart < 5)
                 HandleCodeExit(
@@ -230,6 +236,12 @@ namespace WinEI
         internal static void ExceptionHandler(Exception e)
         {
             DialogResult result;
+
+            string path = WEIPath.DebugLog;
+            string parent = Path.GetDirectoryName(path);
+
+            if (!Directory.Exists(parent))
+                Directory.CreateDirectory(parent);
 
             File.WriteAllText(
                 WEIPath.DebugLog,

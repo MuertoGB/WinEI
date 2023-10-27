@@ -168,7 +168,7 @@
             this.cmdCancel.Name = "cmdCancel";
             this.cmdCancel.Padding = new System.Windows.Forms.Padding(1, 0, 0, 0);
             this.cmdCancel.Size = new System.Drawing.Size(100, 38);
-            this.cmdCancel.TabIndex = 1;
+            this.cmdCancel.TabIndex = 0;
             this.cmdCancel.Text = "CANCEL";
             this.cmdCancel.UseVisualStyleBackColor = false;
             this.cmdCancel.Click += new System.EventHandler(this.cmdCancel_Click);
@@ -190,9 +190,10 @@
             this.cmdExport.Name = "cmdExport";
             this.cmdExport.Padding = new System.Windows.Forms.Padding(1, 0, 0, 0);
             this.cmdExport.Size = new System.Drawing.Size(160, 38);
-            this.cmdExport.TabIndex = 2;
+            this.cmdExport.TabIndex = 1;
             this.cmdExport.Text = "EXPORT SESSION";
             this.cmdExport.UseVisualStyleBackColor = false;
+            this.cmdExport.Click += new System.EventHandler(this.cmdExport_Click);
             // 
             // lblStatus
             // 

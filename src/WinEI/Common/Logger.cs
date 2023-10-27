@@ -15,7 +15,7 @@ namespace WinEI.Common
     internal enum LogType
     {
         ApplicationLog,
-        ImgurLog
+        ImgurLinksFile
     }
 
     internal class Logger
@@ -23,9 +23,13 @@ namespace WinEI.Common
 
         internal static void WriteToLog(string message, LogType logType)
         {
-            string logPath = GetLogPath(logType);
+            string path = GetLogPath(logType);
+            string parent = Path.GetDirectoryName(path);
 
-            using (StreamWriter writer = new StreamWriter(logPath, true))
+            if (Directory.Exists(parent))
+                Directory.CreateDirectory(parent);
+
+            using (StreamWriter writer = new StreamWriter(path, true))
             {
                 writer.WriteLine($"{DateTime.Now}: {message}");
             }
@@ -38,13 +42,28 @@ namespace WinEI.Common
                 LogType.ApplicationLog);
         }
 
+        internal static void WriteToAssessmentLog(string data)
+        {
+            string path = WEIPath.AssessmentLog;
+            string parent = Path.GetDirectoryName(path);
+
+            if (Directory.Exists(parent))
+                Directory.CreateDirectory(parent);
+
+            using (FileStream stream = new FileStream(path, File.Exists(path) ? FileMode.Append : FileMode.Create))
+            using (StreamWriter writer = new StreamWriter(stream))
+            {
+                writer.Write(data);
+            }
+        }
+
         internal static string GetLogPath(LogType logType)
         {
             switch (logType)
             {
                 case LogType.ApplicationLog:
                     return WEIPath.ApplicationLog;
-                case LogType.ImgurLog:
+                case LogType.ImgurLinksFile:
                     return WEIPath.ImgurLinksFile;
                 default:
                     throw new ArgumentException("Invalid log type");
@@ -67,5 +86,6 @@ namespace WinEI.Common
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Error);
         }
+
     }
 }

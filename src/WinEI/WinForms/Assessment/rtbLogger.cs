@@ -6,10 +6,11 @@
 
 using System.Drawing;
 using System.Windows.Forms;
+using WinEI.Common;
 
 namespace WinEI
 {
-    internal static class rtbFormatter
+    internal static class rtbLogger
     {
         internal static void Log(string inString, rtbLogType type, RichTextBox control)
         {
@@ -52,6 +53,8 @@ namespace WinEI
                 control.AppendText($"{inString}\r\n");
                 control.ScrollToCaret();
             }
+
+            Logger.WriteToAssessmentLog($"{inString}\r\n");
         }
     }
 

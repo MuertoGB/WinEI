@@ -87,15 +87,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cmdShareOnImgur = new System.Windows.Forms.Button();
             this.tlpBottomNestedShowHardware = new System.Windows.Forms.TableLayoutPanel();
-            this.swShowHardware = new WinEI.UI.WEISwitch();
             this.tlpBottomNestedValidity = new System.Windows.Forms.TableLayoutPanel();
             this.lblScoreValidity = new System.Windows.Forms.Label();
             this.pnlValidityStatus = new System.Windows.Forms.Panel();
-            this.cmsApplication = new WinEI.UI.WEIContextMenuStrip();
             this.minimizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resetPositionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmsOptions = new WinEI.UI.WEIContextMenuStrip();
             this.resetWinsatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.runAssessmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -105,7 +102,6 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.normalRestartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.elevatedRestartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmsMore = new WinEI.UI.WEIContextMenuStrip();
             this.workingDirectoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.changelogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -117,6 +113,10 @@
             this.viewApplicationLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewImgurLinksFileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.viewWinSATLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.swShowHardware = new WinEI.UI.WEISwitch();
+            this.cmsApplication = new WinEI.UI.WEIContextMenuStrip();
+            this.cmsOptions = new WinEI.UI.WEIContextMenuStrip();
+            this.cmsMore = new WinEI.UI.WEIContextMenuStrip();
             this.tlpMenu.SuspendLayout();
             this.tlpTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
@@ -1262,7 +1262,7 @@
             this.elevatedRestartToolStripMenuItem});
             this.cmsOptions.Name = "weiContextMenuStrip1";
             this.cmsOptions.ShowImageMargin = false;
-            this.cmsOptions.Size = new System.Drawing.Size(301, 240);
+            this.cmsOptions.Size = new System.Drawing.Size(301, 212);
             // 
             // resetWinsatToolStripMenuItem
             // 
@@ -1346,11 +1346,12 @@
             this.mediaFeaturePackToolStripMenuItem,
             this.toolStripSeparator6,
             this.viewApplicationLogToolStripMenuItem,
+            this.viewAssessmentLogToolStripMenuItem,
             this.viewImgurLinksFileToolStripMenuItem1,
             this.viewWinSATLogToolStripMenuItem});
             this.cmsMore.Name = "cmsMore";
             this.cmsMore.ShowImageMargin = false;
-            this.cmsMore.Size = new System.Drawing.Size(239, 246);
+            this.cmsMore.Size = new System.Drawing.Size(239, 302);
             // 
             // workingDirectoryToolStripMenuItem
             // 
@@ -1408,6 +1409,13 @@
             this.viewApplicationLogToolStripMenuItem.Size = new System.Drawing.Size(238, 28);
             this.viewApplicationLogToolStripMenuItem.Text = "View Application Log";
             this.viewApplicationLogToolStripMenuItem.Click += new System.EventHandler(this.viewApplicationLogToolStripMenuItem_Click);
+            // 
+            // viewAssessmentLogToolStripMenuItem
+            // 
+            this.viewAssessmentLogToolStripMenuItem.Name = "viewAssessmentLogToolStripMenuItem";
+            this.viewAssessmentLogToolStripMenuItem.Size = new System.Drawing.Size(238, 28);
+            this.viewAssessmentLogToolStripMenuItem.Text = "View Assessment Log";
+            this.viewAssessmentLogToolStripMenuItem.Click += new System.EventHandler(this.viewAssessmentLogToolStripMenuItem_Click);
             // 
             // viewImgurLinksFileToolStripMenuItem1
             // 
@@ -1559,6 +1567,6 @@
         private System.Windows.Forms.ToolStripMenuItem elevatedRestartToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewWinSATLogToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewImgurLinksFileToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem viewAssessmentLogToolStripMenuItem;
     }
 }
-

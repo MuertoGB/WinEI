@@ -16,7 +16,7 @@ namespace WinEI.Utils
 {
     internal class TextUtils
     {
-        internal static void SaveAsTextWithDialog(string text, Form owner)
+        internal static void SaveAsTextWithDialog(string text, string name, Form owner)
         {
             using (SaveFileDialog saveFileDialog = new SaveFileDialog
             {
@@ -24,7 +24,7 @@ namespace WinEI.Utils
                 Environment.GetFolderPath(
                     Environment.SpecialFolder.MyDocuments),
                 Filter = "Text File|*.txt",
-                FileName = "winspr-info",
+                FileName = name,
                 OverwritePrompt = true
             })
             {
