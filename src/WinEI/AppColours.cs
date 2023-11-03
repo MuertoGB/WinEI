@@ -24,6 +24,6 @@ namespace WinEI
         internal static readonly Color ACCENT_3_PURPLE = Color.FromArgb(217, 40, 122);
         internal static readonly Color ACCENT_4_YELLOW = Color.FromArgb(230, 230, 75);
         internal static readonly Color ACCENT_5_RED = Color.FromArgb(255, 77, 77);
-        internal static readonly Color ACCENT_6_WHITE = Color.FromArgb(255, 255, 255);
+        internal static readonly Color ACCENT_6_ORANGE = Color.FromArgb(255, 160, 75);
     }
 }

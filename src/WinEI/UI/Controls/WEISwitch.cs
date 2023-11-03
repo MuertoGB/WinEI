@@ -16,23 +16,10 @@ namespace WinEI.UI
     [DefaultBindingProperty("CheckState")]
     [DefaultProperty("Checked")]
     [Designer(typeof(WEISwitchDesigner))]
-    internal class WEISwitch : CheckBox
+    public class WEISwitch : CheckBox
     {
         #region Fields
         private bool _mouseHovered = false;
-        #endregion
-
-        #region Constructor
-        internal WEISwitch()
-        {
-            SetStyle(
-                ControlStyles.AllPaintingInWmPaint
-                | ControlStyles.OptimizedDoubleBuffer
-                | ControlStyles.ResizeRedraw,
-                true);
-
-            BackColor = Color.Black;
-        }
         #endregion
 
         #region Properties
@@ -131,6 +118,19 @@ namespace WinEI.UI
                 _switchHeadColor = value;
                 Invalidate();
             }
+        }
+        #endregion
+
+        #region Constructor
+        public WEISwitch()
+        {
+            SetStyle(
+                ControlStyles.AllPaintingInWmPaint
+                | ControlStyles.OptimizedDoubleBuffer
+                | ControlStyles.ResizeRedraw,
+                true);
+
+            BackColor = Color.Black;
         }
         #endregion
 

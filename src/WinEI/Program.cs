@@ -50,7 +50,7 @@ namespace WinEI
 
     internal readonly struct WEIVersion
     {
-        internal const string Build = "231027.0840";
+        internal const string Build = "231029.0910";
         internal static readonly string Version = $"{Application.ProductVersion}.{Build}";
         internal const string Channel = "ALPHA";
     }

@@ -25,5 +25,6 @@ namespace WinEI.UI
         internal static readonly Color CONTROL_DISABLED_TEXT = Color.FromArgb(140, 140, 140);
         internal static readonly Color CONTROL_WHITE_TEXT = Color.FromArgb(255, 255, 255);
         internal static readonly Color FOCUS_RECTANGLE = Color.FromArgb(150, 150, 150);
+        internal static readonly Color SECURITY = Color.FromArgb(250, 190, 55);
     }
 }

@@ -17,7 +17,7 @@ namespace WinEI.Winsat
 {
 
     #region Structs
-    internal struct ApiHardwareTypes
+    internal struct ApiHardwareStrings
     {
         internal string Processor { get; set; }
         internal string Memory { get; set; }
@@ -26,7 +26,7 @@ namespace WinEI.Winsat
         internal string Disk { get; set; }
     }
 
-    internal struct XmlHardwareTypes
+    internal struct XmlHardwareStrings
     {
         internal string Processor { get; set; }
         internal string Memory { get; set; }
@@ -97,8 +97,8 @@ namespace WinEI.Winsat
 
         internal static WinsatAssessmentState ASSESSMENT_STATE;
 
-        internal static ApiHardwareTypes API_HARDWARE;
-        internal static XmlHardwareTypes XML_HARDWARE;
+        internal static ApiHardwareStrings API_HARDWARE;
+        internal static XmlHardwareStrings XML_HARDWARE;
         internal static WinsatScores WINSPR;
 
         internal static bool ApiHardwareEnabled = false;
@@ -253,7 +253,7 @@ namespace WinEI.Winsat
         #endregion
 
         #region API Hardware
-        internal static ApiHardwareTypes GetWinsatApiHardware()
+        internal static ApiHardwareStrings GetWinsatApiHardware()
         {
             try
             {
@@ -285,7 +285,7 @@ namespace WinEI.Winsat
                 ApiHardwareEnabled = true;
 
                 // Return new ApiHardwarePool object.
-                return new ApiHardwareTypes
+                return new ApiHardwareStrings
                 {
                     Processor = string.IsNullOrEmpty(processor) ? null : processor,
                     Memory = string.IsNullOrEmpty(memory) ? null : memory,
@@ -302,9 +302,9 @@ namespace WinEI.Winsat
             }
         }
 
-        internal static ApiHardwareTypes DefaultApiHardware()
+        internal static ApiHardwareStrings DefaultApiHardware()
         {
-            return new ApiHardwareTypes
+            return new ApiHardwareStrings
             {
                 Processor = null,
                 Memory = null,
@@ -316,16 +316,11 @@ namespace WinEI.Winsat
         #endregion
 
         #region XML Hardware
-        internal static XmlHardwareTypes GetWinsatXmlHardware(string filePath)
+        internal static XmlHardwareStrings GetWinsatXmlHardware(string filePath)
         {
             if (string.IsNullOrEmpty(filePath))
             {
-                Logger.WriteToLog(
-                    $"{MethodBase.GetCurrentMethod().Name}: Bad filepath argument.",
-                    LogType.ApplicationLog);
-
                 XmlHardwareEnabled = false;
-
                 return DefaultXmlHardware();
             }
 
@@ -383,7 +378,7 @@ namespace WinEI.Winsat
 
             XmlHardwareEnabled = true;
 
-            return new XmlHardwareTypes
+            return new XmlHardwareStrings
             {
                 Processor = string.IsNullOrEmpty(processor) ? null : processor,
                 Memory = string.IsNullOrEmpty(memory) ? null : memory,
@@ -394,9 +389,9 @@ namespace WinEI.Winsat
             };
         }
 
-        internal static XmlHardwareTypes DefaultXmlHardware()
+        internal static XmlHardwareStrings DefaultXmlHardware()
         {
-            return new XmlHardwareTypes
+            return new XmlHardwareStrings
             {
                 Processor = null,
                 Memory = null,
@@ -457,7 +452,7 @@ namespace WinEI.Winsat
                 case WinsatAssessmentState.INCOHERENT:
                     return "Incoherent with hardware";
                 case WinsatAssessmentState.UNAVAILABLE:
-                    return "Experience Index has not yet been established";
+                    return "Experience Index has not been established";
                 case WinsatAssessmentState.INVALID:
                     return "Experience Index scores are outdated or invalid";
                 default:

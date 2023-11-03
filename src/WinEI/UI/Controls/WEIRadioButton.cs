@@ -12,32 +12,16 @@ using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using WinEI.UI.Design;
 
-namespace WinEI.UI.Controls
+namespace WinEI.UI
 {
     [DefaultBindingProperty("Checked")]
     [DefaultProperty("Checked")]
     [Designer(typeof(WEIRadioButtonDesigner))]
-    internal class WEIRadioButton : RadioButton
+    public class WEIRadioButton : RadioButton
     {
 
         #region Fields
         private bool MouseHovered = false;
-        #endregion
-
-        #region Constructor
-        internal WEIRadioButton()
-        {
-            SetStyle(
-                ControlStyles.AllPaintingInWmPaint
-                | ControlStyles.OptimizedDoubleBuffer
-                | ControlStyles.ResizeRedraw
-                | ControlStyles.UserPaint, true);
-
-            MouseEnter += new EventHandler(HandleMouseEnter);
-            MouseLeave += new EventHandler(HandleMouseEnter);
-            BackColor = Color.Transparent;
-            ForeColor = Colours.CONTROL_WHITE_TEXT;
-        }
         #endregion
 
         #region Properties
@@ -119,6 +103,22 @@ namespace WinEI.UI.Controls
                 _checkedColor = value;
                 Invalidate();
             }
+        }
+        #endregion
+
+        #region Constructor
+        public WEIRadioButton()
+        {
+            SetStyle(
+                ControlStyles.AllPaintingInWmPaint
+                | ControlStyles.OptimizedDoubleBuffer
+                | ControlStyles.ResizeRedraw
+                | ControlStyles.UserPaint, true);
+
+            MouseEnter += new EventHandler(HandleMouseEnter);
+            MouseLeave += new EventHandler(HandleMouseEnter);
+            BackColor = Color.Transparent;
+            ForeColor = Colours.CONTROL_WHITE_TEXT;
         }
         #endregion
 

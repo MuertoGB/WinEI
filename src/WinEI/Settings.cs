@@ -417,7 +417,7 @@ namespace WinEI
                 case 3: return AppColours.ACCENT_3_PURPLE;
                 case 4: return AppColours.ACCENT_4_YELLOW;
                 case 5: return AppColours.ACCENT_5_RED;
-                case 6: return AppColours.ACCENT_6_WHITE;
+                case 6: return AppColours.ACCENT_6_ORANGE;
                 default: return AppColours.ACCENT_0_DEFAULT;
             }
         }

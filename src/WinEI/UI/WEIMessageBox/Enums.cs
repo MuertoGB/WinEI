@@ -12,7 +12,8 @@ namespace WinEI.UI
         Error,
         Warning,
         Information,
-        Question
+        Question,
+        Security
     }
 
     internal enum WEIMessageBoxButtons

@@ -9,7 +9,6 @@ using System;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using WinEI.UI;
-using WinEI.UI.Controls;
 using WinEI.WIN32;
 
 namespace WinEI
@@ -64,7 +63,7 @@ namespace WinEI
             rbnAccent3Purple.CheckedChanged += Accent_CheckedChanged;
             rbnAccent4Gold.CheckedChanged += Accent_CheckedChanged;
             rbnAccent5Red.CheckedChanged += Accent_CheckedChanged;
-            rbnAccent6White.CheckedChanged += Accent_CheckedChanged;
+            rbnAccent6Orange.CheckedChanged += Accent_CheckedChanged;
         }
         #endregion
 
@@ -249,7 +248,6 @@ namespace WinEI
         #endregion
 
         #region UI Events
-
         private void UpdateUI()
         {
             swDisableVersionCheck.Checked =
@@ -285,7 +283,7 @@ namespace WinEI
                     rbnAccent5Red.Checked = true;
                     break;
                 case 6:
-                    rbnAccent6White.Checked = true;
+                    rbnAccent6Orange.Checked = true;
                     break;
                 default:
                     rbnAccent0Default.Checked = true;
@@ -350,6 +348,22 @@ namespace WinEI
                 control.CheckedColor;
         }
         #endregion
+
+        //this.swDisableVersionCheck = new WinEI.UI.WEISwitch();
+        //this.swShowHardware = new WinEI.UI.WEISwitch();
+        //this.rbnAccent5Red = new WinEI.UI.Controls.WEIRadioButton();
+        //this.rbnAccent4Gold = new WinEI.UI.Controls.WEIRadioButton();
+        //this.rbnAccent3Purple = new WinEI.UI.Controls.WEIRadioButton();
+        //this.rbnAccent2Green = new WinEI.UI.Controls.WEIRadioButton();
+        //this.rbnAccent0Default = new WinEI.UI.Controls.WEIRadioButton();
+        //this.rbnAccent1Mint = new WinEI.UI.Controls.WEIRadioButton();
+        //this.rbnAccent6White = new WinEI.UI.Controls.WEIRadioButton();
+        //this.swApiHardwareMode = new WinEI.UI.WEISwitch();
+        //this.swDisableFlashingUiElements = new WinEI.UI.WEISwitch();
+        //this.swDisableMessageWindowSounds = new WinEI.UI.WEISwitch();
+        //this.swLogImgurUrls = new WinEI.UI.WEISwitch();
+        //this.swOpenImgurUrls = new WinEI.UI.WEISwitch();
+        //this.swBypassPowerAdapter = new WinEI.UI.WEISwitch();
 
     }
 }

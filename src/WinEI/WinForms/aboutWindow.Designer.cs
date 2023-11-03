@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(aboutWindow));
             this.pnlSplit1 = new System.Windows.Forms.Panel();
             this.cmdClose = new System.Windows.Forms.Button();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tlpBottom = new System.Windows.Forms.TableLayoutPanel();
             this.cmdDonate = new System.Windows.Forms.Button();
             this.cmdIssues = new System.Windows.Forms.Button();
             this.cmdEmail = new System.Windows.Forms.Button();
@@ -47,7 +47,7 @@
             this.pnlMain = new System.Windows.Forms.Panel();
             this.tlpTop = new System.Windows.Forms.TableLayoutPanel();
             this.tlpTopLabels = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.tlpBottom.SuspendLayout();
             this.tlpTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxMuerto)).BeginInit();
@@ -92,28 +92,28 @@
             this.cmdClose.UseVisualStyleBackColor = false;
             this.cmdClose.Click += new System.EventHandler(this.cmdClose_Click);
             // 
-            // tableLayoutPanel1
+            // tlpBottom
             // 
-            this.tableLayoutPanel1.ColumnCount = 7;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 1F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 1F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 1F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Controls.Add(this.cmdDonate, 6, 0);
-            this.tableLayoutPanel1.Controls.Add(this.cmdIssues, 4, 0);
-            this.tableLayoutPanel1.Controls.Add(this.cmdEmail, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.cmdSource, 2, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 202);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(438, 36);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.tlpBottom.ColumnCount = 7;
+            this.tlpBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tlpBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 1F));
+            this.tlpBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tlpBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 1F));
+            this.tlpBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tlpBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 1F));
+            this.tlpBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tlpBottom.Controls.Add(this.cmdDonate, 6, 0);
+            this.tlpBottom.Controls.Add(this.cmdIssues, 4, 0);
+            this.tlpBottom.Controls.Add(this.cmdEmail, 0, 0);
+            this.tlpBottom.Controls.Add(this.cmdSource, 2, 0);
+            this.tlpBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tlpBottom.Location = new System.Drawing.Point(0, 202);
+            this.tlpBottom.Margin = new System.Windows.Forms.Padding(2);
+            this.tlpBottom.Name = "tlpBottom";
+            this.tlpBottom.RowCount = 1;
+            this.tlpBottom.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpBottom.Size = new System.Drawing.Size(438, 36);
+            this.tlpBottom.TabIndex = 0;
             // 
             // cmdDonate
             // 
@@ -327,7 +327,7 @@
             this.pnlMain.Controls.Add(this.lblInfo);
             this.pnlMain.Controls.Add(this.pnlSplit2);
             this.pnlMain.Controls.Add(this.tlpTop);
-            this.pnlMain.Controls.Add(this.tableLayoutPanel1);
+            this.pnlMain.Controls.Add(this.tlpBottom);
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMain.Location = new System.Drawing.Point(1, 41);
             this.pnlMain.Margin = new System.Windows.Forms.Padding(2);
@@ -393,7 +393,7 @@
             this.Padding = new System.Windows.Forms.Padding(1);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "About";
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tlpBottom.ResumeLayout(false);
             this.tlpTitle.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxMuerto)).EndInit();
@@ -409,7 +409,7 @@
 
         private System.Windows.Forms.Panel pnlSplit1;
         internal System.Windows.Forms.Button cmdClose;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tlpBottom;
         private System.Windows.Forms.Button cmdDonate;
         private System.Windows.Forms.Button cmdIssues;
         private System.Windows.Forms.Button cmdEmail;

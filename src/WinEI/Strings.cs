@@ -17,6 +17,9 @@ namespace WinEI
         internal const string INFORMATION =
             "Information";
 
+        internal const string SECURITY =
+            "Security";
+
         internal const string UNRATED =
             "Unrated";
 

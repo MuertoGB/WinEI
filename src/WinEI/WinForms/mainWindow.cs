@@ -23,6 +23,11 @@ namespace WinEI
     internal partial class mainWindow : Form
     {
 
+        #region Private Members
+        private Stopwatch _refreshEnable;
+        private TimeSpan _refreshInterval = TimeSpan.FromSeconds(2);
+        #endregion
+
         #region Overriden Properties
         protected override CreateParams CreateParams
         {
@@ -54,6 +59,9 @@ namespace WinEI
             KeyDown += mainWindow_KeyDown;
             tlpTitleVersion.Click += tlpTitleVersion_Click;
             lblAppVersion.MouseClick += lblAppVersion_MouseClick;
+
+            // Start the refresh enable stopwatch.
+            _refreshEnable = new Stopwatch();
 
             // Set mouse move event handlers.
             SetMouseMoveEventHandlers();
@@ -505,35 +513,31 @@ namespace WinEI
 
         private void cmdAssessment_Click(object sender, EventArgs e)
         {
-            // Ignore elevated privilages in debug.
-            if (!Debug.GetIsDebugMode())
+            // Check whether we have appropriate privilages to run an assessment.
+            if (!OSUtils.IsElevated())
             {
-                // Check whether we have appropriate privilages to run an assessment.
-                if (!OSUtils.IsElevated())
+                // We need to elevate privilages.
+                DialogResult result =
+                    WEIMessageBox.Show(
+                        this,
+                        Strings.SECURITY,
+                        Strings.FEATURE_REQUIRES_ELEVATION,
+                        WEIMessageBoxType.Security,
+                        WEIMessageBoxButtons.YesNo);
+
+                // User chose to elevate privilages.
+                if (result == DialogResult.Yes)
                 {
-                    // We need to elevate privilages.
-                    DialogResult result =
-                        WEIMessageBox.Show(
-                            this,
-                            Strings.WARNING,
-                            Strings.FEATURE_REQUIRES_ELEVATION,
-                            WEIMessageBoxType.Warning,
-                            WEIMessageBoxButtons.YesNo);
+                    // Set resume state to assessment.
+                    Settings.WriteInteger(
+                        SettingsInteger.ResumeState,
+                        Settings.RESUME_STATE_ASSESSMENT);
 
-                    // User chose to elevate privilages.
-                    if (result == DialogResult.Yes)
-                    {
-                        // Set resume state to assessment.
-                        Settings.WriteInteger(
-                            SettingsInteger.ResumeState,
-                            Settings.RESUME_STATE_ASSESSMENT);
-
-                        OSUtils.RestartElevated();
-                    }
-
-                    // User chose not to elevate, exit here as we cannot continue.
-                    return;
+                    OSUtils.RestartElevated();
                 }
+
+                // User chose not to elevate, exit here as we cannot continue.
+                return;
             }
 
             // Check to see if power adapter enforcement has been overriden.
@@ -724,9 +728,9 @@ namespace WinEI
                 DialogResult result =
                     WEIMessageBox.Show(
                         this,
-                        Strings.WARNING,
+                        Strings.SECURITY,
                         Strings.FEATURE_REQUIRES_ELEVATION,
-                        WEIMessageBoxType.Warning,
+                        WEIMessageBoxType.Security,
                         WEIMessageBoxButtons.YesNo);
 
                 // User chose to elevate.
@@ -782,8 +786,15 @@ namespace WinEI
         private void runAssessmentToolStripMenuItem_Click(object sender, EventArgs e) =>
             cmdAssessment.PerformClick();
 
-        private void reloadDataToolStripMenuItem_Click(object sender, EventArgs e) =>
-            ReloadData();
+        private void reloadDataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Stop refresh spam.
+            if (!_refreshEnable.IsRunning || _refreshEnable.Elapsed >= _refreshInterval)
+            {
+                ReloadData();
+                _refreshEnable.Restart();
+            }
+        }
 
         private void viewSystemDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {

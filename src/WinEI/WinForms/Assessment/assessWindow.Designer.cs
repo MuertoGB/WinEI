@@ -252,8 +252,10 @@
             this.rtbAssessment.Location = new System.Drawing.Point(6, 6);
             this.rtbAssessment.Margin = new System.Windows.Forms.Padding(6);
             this.rtbAssessment.Name = "rtbAssessment";
+            this.rtbAssessment.ReadOnly = true;
             this.rtbAssessment.Size = new System.Drawing.Size(793, 390);
-            this.rtbAssessment.TabIndex = 103;
+            this.rtbAssessment.TabIndex = 99;
+            this.rtbAssessment.TabStop = false;
             this.rtbAssessment.Text = "";
             // 
             // assessWindow

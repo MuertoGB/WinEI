@@ -218,8 +218,8 @@ namespace WinEI
         private void cmdExport_Click(object sender, EventArgs e)
         {
             TextUtils.SaveAsTextWithDialog(
-                rtbAssessment.Text,
-                "assesment-log",
+                string.Join("\r\n", rtbAssessment.Lines),
+                "assessment-log",
                 this);
         }
         #endregion
@@ -417,15 +417,15 @@ namespace WinEI
             // Warning and error counts (only supports English lang for now).
             if (_warningCount > 0)
                 rtbLogger.Log(
-                    $"The assessment ran with " +
-                    $"{(_warningCount > 1 ? "warnings." : "warning.")}",
+                    $"The assessment ran with {_warningCount} " +
+                    $"{(_warningCount > 1 ? "warnings" : "warning")}",
                     rtbLogType.Warning,
                     rtbAssessment);
 
             if (_errorCount > 0)
                 rtbLogger.Log(
-                    $"The assessment ran with " +
-                    $"{(_errorCount > 1 ? "errors." : "error.")}",
+                    $"The assessment ran with {_errorCount} " +
+                    $"{(_errorCount > 1 ? "errors" : "error")}",
                     rtbLogType.Error,
                     rtbAssessment);
 

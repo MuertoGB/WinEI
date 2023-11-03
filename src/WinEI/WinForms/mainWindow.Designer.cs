@@ -82,9 +82,9 @@
             this.lblOperatingSystem = new System.Windows.Forms.Label();
             this.lblTextAssessmentDate = new System.Windows.Forms.Label();
             this.lblAssessmentDate = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblTextAssessment = new System.Windows.Forms.Label();
+            this.lblTextShareOnImgur = new System.Windows.Forms.Label();
+            this.lblTextShowHardware = new System.Windows.Forms.Label();
             this.cmdShareOnImgur = new System.Windows.Forms.Button();
             this.tlpBottomNestedShowHardware = new System.Windows.Forms.TableLayoutPanel();
             this.tlpBottomNestedValidity = new System.Windows.Forms.TableLayoutPanel();
@@ -947,9 +947,9 @@
             this.tlpBottom.Controls.Add(this.lblOperatingSystem, 2, 4);
             this.tlpBottom.Controls.Add(this.lblTextAssessmentDate, 0, 2);
             this.tlpBottom.Controls.Add(this.lblAssessmentDate, 2, 2);
-            this.tlpBottom.Controls.Add(this.label1, 4, 0);
-            this.tlpBottom.Controls.Add(this.label3, 4, 2);
-            this.tlpBottom.Controls.Add(this.label2, 4, 4);
+            this.tlpBottom.Controls.Add(this.lblTextAssessment, 4, 0);
+            this.tlpBottom.Controls.Add(this.lblTextShareOnImgur, 4, 2);
+            this.tlpBottom.Controls.Add(this.lblTextShowHardware, 4, 4);
             this.tlpBottom.Controls.Add(this.cmdShareOnImgur, 6, 2);
             this.tlpBottom.Controls.Add(this.tlpBottomNestedShowHardware, 6, 4);
             this.tlpBottom.Controls.Add(this.tlpBottomNestedValidity, 2, 0);
@@ -1063,50 +1063,50 @@
             this.lblAssessmentDate.Text = "...";
             this.lblAssessmentDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label1
+            // lblTextAssessment
             // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(225)))), ((int)(((byte)(240)))));
-            this.label1.Location = new System.Drawing.Point(544, 0);
-            this.label1.Margin = new System.Windows.Forms.Padding(0);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
-            this.label1.Size = new System.Drawing.Size(150, 38);
-            this.label1.TabIndex = 99;
-            this.label1.Text = "Assessment";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTextAssessment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.lblTextAssessment.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTextAssessment.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTextAssessment.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(225)))), ((int)(((byte)(240)))));
+            this.lblTextAssessment.Location = new System.Drawing.Point(544, 0);
+            this.lblTextAssessment.Margin = new System.Windows.Forms.Padding(0);
+            this.lblTextAssessment.Name = "lblTextAssessment";
+            this.lblTextAssessment.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.lblTextAssessment.Size = new System.Drawing.Size(150, 38);
+            this.lblTextAssessment.TabIndex = 99;
+            this.lblTextAssessment.Text = "Assessment";
+            this.lblTextAssessment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label3
+            // lblTextShareOnImgur
             // 
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(225)))), ((int)(((byte)(240)))));
-            this.label3.Location = new System.Drawing.Point(544, 39);
-            this.label3.Margin = new System.Windows.Forms.Padding(0);
-            this.label3.Name = "label3";
-            this.label3.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
-            this.label3.Size = new System.Drawing.Size(150, 38);
-            this.label3.TabIndex = 99;
-            this.label3.Text = "Share on Imgur";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTextShareOnImgur.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.lblTextShareOnImgur.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTextShareOnImgur.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTextShareOnImgur.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(225)))), ((int)(((byte)(240)))));
+            this.lblTextShareOnImgur.Location = new System.Drawing.Point(544, 39);
+            this.lblTextShareOnImgur.Margin = new System.Windows.Forms.Padding(0);
+            this.lblTextShareOnImgur.Name = "lblTextShareOnImgur";
+            this.lblTextShareOnImgur.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.lblTextShareOnImgur.Size = new System.Drawing.Size(150, 38);
+            this.lblTextShareOnImgur.TabIndex = 99;
+            this.lblTextShareOnImgur.Text = "Share on Imgur";
+            this.lblTextShareOnImgur.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label2
+            // lblTextShowHardware
             // 
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(225)))), ((int)(((byte)(240)))));
-            this.label2.Location = new System.Drawing.Point(544, 78);
-            this.label2.Margin = new System.Windows.Forms.Padding(0);
-            this.label2.Name = "label2";
-            this.label2.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
-            this.label2.Size = new System.Drawing.Size(150, 38);
-            this.label2.TabIndex = 99;
-            this.label2.Text = "Show Hardware";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTextShowHardware.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.lblTextShowHardware.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTextShowHardware.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTextShowHardware.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(225)))), ((int)(((byte)(240)))));
+            this.lblTextShowHardware.Location = new System.Drawing.Point(544, 78);
+            this.lblTextShowHardware.Margin = new System.Windows.Forms.Padding(0);
+            this.lblTextShowHardware.Name = "lblTextShowHardware";
+            this.lblTextShowHardware.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.lblTextShowHardware.Size = new System.Drawing.Size(150, 38);
+            this.lblTextShowHardware.TabIndex = 99;
+            this.lblTextShowHardware.Text = "Show Hardware";
+            this.lblTextShowHardware.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // cmdShareOnImgur
             // 
@@ -1203,20 +1203,6 @@
             this.pnlValidityStatus.Size = new System.Drawing.Size(3, 38);
             this.pnlValidityStatus.TabIndex = 99;
             // 
-            // cmsApplication
-            // 
-            this.cmsApplication.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.cmsApplication.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmsApplication.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.cmsApplication.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.cmsApplication.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.minimizeToolStripMenuItem,
-            this.resetPositionToolStripMenuItem,
-            this.exitToolStripMenuItem});
-            this.cmsApplication.Name = "weiContextMenuStrip1";
-            this.cmsApplication.ShowImageMargin = false;
-            this.cmsApplication.Size = new System.Drawing.Size(162, 88);
-            // 
             // minimizeToolStripMenuItem
             // 
             this.minimizeToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1244,26 +1230,6 @@
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(161, 28);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
-            // 
-            // cmsOptions
-            // 
-            this.cmsOptions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.cmsOptions.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.cmsOptions.ForeColor = System.Drawing.Color.White;
-            this.cmsOptions.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.cmsOptions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.resetWinsatToolStripMenuItem,
-            this.runAssessmentToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.reloadDataToolStripMenuItem,
-            this.toggleShowHardwareToolStripMenuItem,
-            this.viewSystemDetailsToolStripMenuItem,
-            this.toolStripSeparator2,
-            this.normalRestartToolStripMenuItem,
-            this.elevatedRestartToolStripMenuItem});
-            this.cmsOptions.Name = "weiContextMenuStrip1";
-            this.cmsOptions.ShowImageMargin = false;
-            this.cmsOptions.Size = new System.Drawing.Size(301, 212);
             // 
             // resetWinsatToolStripMenuItem
             // 
@@ -1330,29 +1296,6 @@
             this.elevatedRestartToolStripMenuItem.Size = new System.Drawing.Size(300, 28);
             this.elevatedRestartToolStripMenuItem.Text = "Restart (Elevated)";
             this.elevatedRestartToolStripMenuItem.Click += new System.EventHandler(this.elevatedRestartToolStripMenuItem_Click_1);
-            // 
-            // cmsMore
-            // 
-            this.cmsMore.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.cmsMore.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.cmsMore.ForeColor = System.Drawing.Color.White;
-            this.cmsMore.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.cmsMore.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.workingDirectoryToolStripMenuItem,
-            this.toolStripSeparator4,
-            this.changelogToolStripMenuItem,
-            this.homepageToolStripMenuItem,
-            this.reportAnIssueToolStripMenuItem,
-            this.toolStripSeparator3,
-            this.mediaFeaturePackToolStripMenuItem,
-            this.toolStripSeparator6,
-            this.viewApplicationLogToolStripMenuItem,
-            this.viewAssessmentLogToolStripMenuItem,
-            this.viewImgurLinksFileToolStripMenuItem1,
-            this.viewWinSATLogToolStripMenuItem});
-            this.cmsMore.Name = "cmsMore";
-            this.cmsMore.ShowImageMargin = false;
-            this.cmsMore.Size = new System.Drawing.Size(239, 302);
             // 
             // workingDirectoryToolStripMenuItem
             // 
@@ -1432,6 +1375,63 @@
             this.viewWinSATLogToolStripMenuItem.Text = "View WinSAT Log";
             this.viewWinSATLogToolStripMenuItem.Click += new System.EventHandler(this.viewWinSATLogToolStripMenuItem_Click_1);
             // 
+            // cmsApplication
+            // 
+            this.cmsApplication.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.cmsApplication.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmsApplication.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.cmsApplication.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.cmsApplication.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.minimizeToolStripMenuItem,
+            this.resetPositionToolStripMenuItem,
+            this.exitToolStripMenuItem});
+            this.cmsApplication.Name = "weiContextMenuStrip1";
+            this.cmsApplication.ShowImageMargin = false;
+            this.cmsApplication.Size = new System.Drawing.Size(162, 88);
+            // 
+            // cmsOptions
+            // 
+            this.cmsOptions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.cmsOptions.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.cmsOptions.ForeColor = System.Drawing.Color.White;
+            this.cmsOptions.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.cmsOptions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.resetWinsatToolStripMenuItem,
+            this.runAssessmentToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.reloadDataToolStripMenuItem,
+            this.toggleShowHardwareToolStripMenuItem,
+            this.viewSystemDetailsToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.normalRestartToolStripMenuItem,
+            this.elevatedRestartToolStripMenuItem});
+            this.cmsOptions.Name = "weiContextMenuStrip1";
+            this.cmsOptions.ShowImageMargin = false;
+            this.cmsOptions.Size = new System.Drawing.Size(301, 212);
+            // 
+            // cmsMore
+            // 
+            this.cmsMore.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.cmsMore.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.cmsMore.ForeColor = System.Drawing.Color.White;
+            this.cmsMore.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.cmsMore.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.workingDirectoryToolStripMenuItem,
+            this.toolStripSeparator4,
+            this.changelogToolStripMenuItem,
+            this.homepageToolStripMenuItem,
+            this.reportAnIssueToolStripMenuItem,
+            this.toolStripSeparator3,
+            this.mediaFeaturePackToolStripMenuItem,
+            this.toolStripSeparator6,
+            this.viewApplicationLogToolStripMenuItem,
+            this.viewAssessmentLogToolStripMenuItem,
+            this.viewImgurLinksFileToolStripMenuItem1,
+            this.viewWinSATLogToolStripMenuItem});
+            this.cmsMore.Name = "cmsMore";
+            this.cmsMore.ShowImageMargin = false;
+            this.cmsMore.Size = new System.Drawing.Size(239, 274);
+            // 
             // mainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -1475,9 +1475,7 @@
             this.cmsOptions.ResumeLayout(false);
             this.cmsMore.ResumeLayout(false);
             this.ResumeLayout(false);
-
         }
-
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tlpTitle;
@@ -1531,9 +1529,9 @@
         private System.Windows.Forms.Label lblAssessmentDate;
         private System.Windows.Forms.TableLayoutPanel tlpTitleVersion;
         private System.Windows.Forms.Label lblAppVersion;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblTextAssessment;
+        private System.Windows.Forms.Label lblTextShowHardware;
+        private System.Windows.Forms.Label lblTextShareOnImgur;
         private System.Windows.Forms.Button cmdShareOnImgur;
         private System.Windows.Forms.TableLayoutPanel tlpBottomNestedShowHardware;
         private WinEI.UI.WEISwitch swShowHardware;

@@ -11,9 +11,9 @@ using WinEI.UI.Renderers;
 
 namespace WinEI.UI
 {
-    internal class WEIContextMenuStrip : ContextMenuStrip
+    public class WEIContextMenuStrip : ContextMenuStrip
     {
-        internal WEIContextMenuStrip()
+        public WEIContextMenuStrip()
         {
             Renderer = new WEIMenuRenderer();
             BackColor = Color.FromArgb(25, 25, 25);

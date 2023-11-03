@@ -25,6 +25,7 @@ namespace WinEI.UI
         #endregion
 
         #region Private Members
+        private const string SECURITY = "\uE83D";
         private const string STATUS_ERROR_FULL = "\uEB90";
         private const string INCIDENT_TRIANGLE = "\uE814";
         private const string INFO_SOLID = "\uF167";
@@ -87,6 +88,11 @@ namespace WinEI.UI
                 case WEIMessageBoxType.Question:
                     lblMessageIcon.ForeColor = Colours.INFO_BOX;
                     lblMessageIcon.Text = UNKNOWN;
+                    ssMmbSound = System.Media.SystemSounds.Beep;
+                    break;
+                case WEIMessageBoxType.Security:
+                    lblMessageIcon.ForeColor = Colours.SECURITY;
+                    lblMessageIcon.Text = SECURITY;
                     ssMmbSound = System.Media.SystemSounds.Beep;
                     break;
             }
