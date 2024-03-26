@@ -8,7 +8,6 @@ using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Text;
-using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -127,14 +126,14 @@ namespace WinEI.Common
                 missingFontsBuilder.AppendLine("Consolas, Regular");
 
             string errorMessage =
-                $"{Strings.ERROR_FONTS_MISSING}\r\n\r\n" +
+                $"{ExceptionStrings.EX_FONTS_NF}\r\n\r\n" +
                 $"{missingFontsBuilder}\r\n" +
-                $"{Strings.QUESTION_VIEW_TROUBLESHOOTING}";
+                $"{DialogStrings.Q_VIEW_TROUBLESHOOTING}";
 
             DialogResult result =
                 MessageBox.Show(
                     errorMessage,
-                    Strings.ERROR,
+                    AppStrings.ERROR,
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Error);
 
@@ -143,34 +142,6 @@ namespace WinEI.Common
                     WEIUrl.GithubTsMissingFonts);
 
             Environment.Exit(ExitCodes.MISSING_FONT);
-        }
-
-        // For debugging
-        internal static void WriteAvailableFontsAndStylesToFile(string path)
-        {
-
-            using (InstalledFontCollection fontsCollection = new InstalledFontCollection())
-            {
-                FontFamily[] fontFamilies = fontsCollection.Families;
-
-                using (StreamWriter writer = new StreamWriter(path))
-                {
-                    foreach (FontFamily fontFamily in fontFamilies)
-                    {
-                        writer.WriteLine($"Font Family: {fontFamily.Name}");
-
-                        foreach (FontStyle style in Enum.GetValues(typeof(FontStyle)))
-                        {
-                            if (fontFamily.IsStyleAvailable(style))
-                            {
-                                writer.WriteLine($"   - Style: {style}");
-                            }
-                        }
-
-                        writer.WriteLine();
-                    }
-                }
-            }
         }
 
     }

@@ -74,15 +74,18 @@ namespace WinEI
         #region Window Events
         private void mainWindow_Load(object sender, EventArgs e)
         {
+            // Check elevation.
+            if (OSUtils.IsElevated())
+                lblTitle.Text += $" ({AppStrings.ADMIN})";
+
             // Get the application version.
-            lblAppVersion.Text = Application.ProductVersion;
+            lblAppVersion.Text =
+                Application.ProductVersion;
 
             // Display some Operating System details.
-            // Why the fuck does GetWindowsName report as Windows 10 when using Windows 11?
-            // ***Need to look into this and fix.***
             lblOperatingSystem.Text =
                 $"{OSUtils.GetWindowsName} " +
-                $"{Strings.BUILD} {OSUtils.GetWindowsBuild} " +
+                $"{AppStrings.BUILD} {OSUtils.GetWindowsBuild} " +
                 $"{OSUtils.GetSystemArchitecture(false)}";
 
             // If the system has not been rated, we should not toggle the show hardware switch.
@@ -103,9 +106,6 @@ namespace WinEI
             // Do we need to check for an update?
             if (!Settings.ReadBool(SettingsBool.DisableVersionCheck))
                 CheckForNewVersion();
-
-            // ***TODO***
-            // Check fonts? Especially on Vista.
         }
 
         private void mainWindow_Shown(object sender, EventArgs e)
@@ -347,13 +347,31 @@ namespace WinEI
             {
                 cmdExport,
                 cmdShareOnImgur,
-                swShowHardware
+                swShowHardware,
             };
 
+            ToolStripMenuItem[] menuItems =
+            {
+                reloadDataToolStripMenuItem,
+                toggleShowHardwareToolStripMenuItem
+            };
+
+            EnableControlsBasedOnAssessmentState(
+                controls,
+                menuItems);
+        }
+
+        private void EnableControlsBasedOnAssessmentState(Control[] controls, ToolStripMenuItem[] menuItems)
+        {
+            bool isEnabled =
+                WinsatReader.ASSESSMENT_STATE
+                != WinsatAssessmentState.UNAVAILABLE;
+
             foreach (Control control in controls)
-                control.Enabled =
-                    WinsatReader.ASSESSMENT_STATE
-                    != WinsatAssessmentState.UNAVAILABLE;
+                control.Enabled = isEnabled;
+
+            foreach (ToolStripMenuItem menuItem in menuItems)
+                menuItem.Enabled = isEnabled;
         }
 
         private void UpdateAssessmentDateControls()
@@ -364,16 +382,16 @@ namespace WinEI
 
             string assessmentDate =
                 WinsatAPI.QueryLatestFormalDate().ToString(
-                    Strings.WINSAT_DATE_FORMAT);
+                    WinsatStrings.WINSAT_DATE_FORMAT);
 
             lblAssessmentDate.Text =
-                assessmentDate.Contains("1999") ? Strings.NEVER : assessmentDate;
+                assessmentDate.Contains("1999") ? AppStrings.NEVER : assessmentDate;
 
             cmdAssessment.Text =
                 stateText.ToUpper();
 
             runAssessmentToolStripMenuItem.Text =
-                $"{stateText} {Strings.ASSESSMENT}";
+                $"{stateText} {AppStrings.ASSESSMENT}";
         }
 
         private void UpdateRatingScaleControls()
@@ -426,8 +444,8 @@ namespace WinEI
             {
                 WEIMessageBox.Show(
                     this,
-                    Strings.ERROR,
-                    Strings.SYSTEM_MUST_BE_RATED,
+                    AppStrings.ERROR,
+                    AppStrings.SYSTEM_MUST_BE_RATED,
                     WEIMessageBoxType.Error,
                     WEIMessageBoxButtons.Okay);
 
@@ -520,8 +538,8 @@ namespace WinEI
                 DialogResult result =
                     WEIMessageBox.Show(
                         this,
-                        Strings.SECURITY,
-                        Strings.FEATURE_REQUIRES_ELEVATION,
+                        AppStrings.SECURITY,
+                        AppStrings.FEATURE_REQUIRES_ELEVATION,
                         WEIMessageBoxType.Security,
                         WEIMessageBoxButtons.YesNo);
 
@@ -547,8 +565,8 @@ namespace WinEI
                 {
                     WEIMessageBox.Show(
                             this,
-                            Strings.WARNING,
-                            Strings.ERROR_POWER_ADAPTER,
+                            AppStrings.WARNING,
+                            ExceptionStrings.EX_POWER_ADAPTER,
                             WEIMessageBoxType.Error,
                             WEIMessageBoxButtons.Okay);
 
@@ -583,8 +601,8 @@ namespace WinEI
                 DialogResult result =
                     WEIMessageBox.Show(
                         this,
-                        Strings.WARNING,
-                        $"{Strings.SYSTEM_MUST_BE_RATED} {Strings.QUESTION_RATE_SYSTEM}",
+                        AppStrings.WARNING,
+                        $"{AppStrings.SYSTEM_MUST_BE_RATED} {DialogStrings.Q_RATE_SYSTEM}",
                         WEIMessageBoxType.Warning,
                         WEIMessageBoxButtons.YesNo);
 
@@ -600,8 +618,8 @@ namespace WinEI
             DialogResult uploadResult =
                 WEIMessageBox.Show(
                        this,
-                       Strings.INFORMATION,
-                       Strings.IMGUR_UPLOAD_CONFIRM,
+                       AppStrings.INFORMATION,
+                       AppStrings.IMGUR_UPLOAD_CONFIRM,
                        WEIMessageBoxType.Question,
                        WEIMessageBoxButtons.YesNo);
 
@@ -613,8 +631,8 @@ namespace WinEI
                     // Network is not available, or Imgur could not be reached.
                     WEIMessageBox.Show(
                            this,
-                           Strings.ERROR,
-                           Strings.ERROR_IMGUR_CONNECTION,
+                           AppStrings.ERROR,
+                           ExceptionStrings.EX_IMGUR_CONNECTION,
                            WEIMessageBoxType.Error,
                            WEIMessageBoxButtons.YesNo);
 
@@ -660,8 +678,8 @@ namespace WinEI
                         DialogResult copyResult =
                             WEIMessageBox.Show(
                                 this,
-                                Strings.INFORMATION,
-                                $"{Strings.IMGUR_UPLOAD_COMPLETE} {apiGetUrl}\r\n{Strings.QUESTION_COPY_URL_TO_CLIPBOARD}",
+                                AppStrings.INFORMATION,
+                                $"{AppStrings.IMGUR_UPLOAD_COMPLETE} {apiGetUrl}\r\n{DialogStrings.Q_COPY_URL_TO_CLIPBOARD}",
                                 WEIMessageBoxType.Question,
                                 WEIMessageBoxButtons.YesNo);
 
@@ -677,8 +695,8 @@ namespace WinEI
                 // Imgur upload returned an empty or null URL.
                 WEIMessageBox.Show(
                            this,
-                           Strings.ERROR,
-                           Strings.ERROR_IMGUR_RESPONSE,
+                           AppStrings.ERROR,
+                           ExceptionStrings.EX_IMGUR_NO_URL_RESPONSE,
                            WEIMessageBoxType.Error,
                            WEIMessageBoxButtons.Okay);
             }
@@ -728,8 +746,8 @@ namespace WinEI
                 DialogResult result =
                     WEIMessageBox.Show(
                         this,
-                        Strings.SECURITY,
-                        Strings.FEATURE_REQUIRES_ELEVATION,
+                        AppStrings.SECURITY,
+                        AppStrings.FEATURE_REQUIRES_ELEVATION,
                         WEIMessageBoxType.Security,
                         WEIMessageBoxButtons.YesNo);
 
@@ -753,8 +771,8 @@ namespace WinEI
                 DialogResult result =
                     WEIMessageBox.Show(
                         this,
-                        Strings.WARNING,
-                        Strings.QUESTION_RESET_WINSAT,
+                        AppStrings.WARNING,
+                        DialogStrings.Q_RESET_WINSAT,
                         WEIMessageBoxType.Warning,
                         WEIMessageBoxButtons.YesNo);
 
@@ -776,8 +794,8 @@ namespace WinEI
 
                 WEIMessageBox.Show(
                     this,
-                    Strings.ERROR,
-                    $"{Strings.EXCEPTION_OCCURED} {Strings.DETAILS_SAVED_TO_LOG}",
+                    AppStrings.ERROR,
+                    $"{ExceptionStrings.EXCEPTION_OCCURED} {AppStrings.DETAILS_SAVED_TO_LOG}",
                     WEIMessageBoxType.Error,
                     WEIMessageBoxButtons.Okay);
             }
@@ -843,8 +861,8 @@ namespace WinEI
             {
                 WEIMessageBox.Show(
                     this,
-                    Strings.INFORMATION,
-                    Strings.LOG_NOT_FOUND,
+                    AppStrings.INFORMATION,
+                    AppStrings.LOG_NOT_FOUND,
                     WEIMessageBoxType.Information,
                     WEIMessageBoxButtons.Okay);
 
@@ -860,8 +878,8 @@ namespace WinEI
             {
                 WEIMessageBox.Show(
                     this,
-                    Strings.INFORMATION,
-                    Strings.LOG_NOT_FOUND,
+                    AppStrings.INFORMATION,
+                    AppStrings.LOG_NOT_FOUND,
                     WEIMessageBoxType.Information,
                     WEIMessageBoxButtons.Okay);
 
@@ -877,8 +895,8 @@ namespace WinEI
             {
                 WEIMessageBox.Show(
                     this,
-                    Strings.INFORMATION,
-                    Strings.IMGUR_LOG_NOT_FOUND,
+                    AppStrings.INFORMATION,
+                    AppStrings.IMGUR_LOG_NOT_FOUND,
                     WEIMessageBoxType.Information,
                     WEIMessageBoxButtons.Okay);
 
@@ -894,8 +912,8 @@ namespace WinEI
             {
                 WEIMessageBox.Show(
                     this,
-                    Strings.INFORMATION,
-                    Strings.WINSAT_LOG_NOT_FOUND,
+                    AppStrings.INFORMATION,
+                    WinsatStrings.WINSAT_LOG_NOT_FOUND,
                     WEIMessageBoxType.Information,
                     WEIMessageBoxButtons.Okay);
 
@@ -1005,7 +1023,7 @@ namespace WinEI
                         WinsatReader.XML_HARDWARE.Graphics;
 
                     lblD3d.Text =
-                        $"{FileUtils.ConvertBytesToMB(WinsatReader.XML_HARDWARE.VramSizeMegabytes)} VRAM";
+                        $"{FileUtils.ConvertBytesToMB(WinsatReader.XML_HARDWARE.VramSizeMegabytes)} {AppStrings.VRAM}";
 
                     lblDisk.Text =
                         WinsatReader.XML_HARDWARE.Disk;
@@ -1017,8 +1035,8 @@ namespace WinEI
                 {
                     WEIMessageBox.Show(
                         this,
-                        Strings.ERROR,
-                        "Reading of XML hardware information has been disabled by the WinsatReader.",
+                        AppStrings.ERROR,
+                        ExceptionStrings.EX_XML_DISABLED_BY_WSR,
                         WEIMessageBoxType.Error,
                         WEIMessageBoxButtons.Okay);
 
@@ -1050,8 +1068,8 @@ namespace WinEI
             {
                 WEIMessageBox.Show(
                     this,
-                    Strings.ERROR,
-                    "Reading of API hardware information has been disabled by the WinsatReader.",
+                    AppStrings.ERROR,
+                    ExceptionStrings.EX_API_DISABLED_BY_WSR,
                     WEIMessageBoxType.Error,
                     WEIMessageBoxButtons.Okay);
 
@@ -1061,11 +1079,11 @@ namespace WinEI
 
         private void SetDefaultHardwareStrings()
         {
-            lblProcessor.Text = Strings.DEFAULT_PROCESSOR;
-            lblMemory.Text = Strings.DEFAULT_MEMORY;
-            lblGraphics.Text = Strings.DEFAULT_GRAPHICS;
-            lblD3d.Text = Strings.DEFAULT_D3D;
-            lblDisk.Text = Strings.DEFAULT_DISK;
+            lblProcessor.Text = WinsatStrings.DEFAULT_PROCESSOR;
+            lblMemory.Text = WinsatStrings.DEFAULT_MEMORY;
+            lblGraphics.Text = WinsatStrings.DEFAULT_GRAPHICS;
+            lblD3d.Text = WinsatStrings.DEFAULT_D3D;
+            lblDisk.Text = WinsatStrings.DEFAULT_DISK;
         }
         #endregion
 

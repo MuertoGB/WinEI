@@ -110,8 +110,8 @@ namespace WinEI
             DialogResult result =
                 WEIMessageBox.Show(
                 this,
-                Strings.WARNING,
-                Strings.QUESTION_RESET_SETTINGS,
+                AppStrings.WARNING,
+                DialogStrings.Q_RESET_SETTINGS,
                 WEIMessageBoxType.Warning,
                 WEIMessageBoxButtons.YesNo);
 

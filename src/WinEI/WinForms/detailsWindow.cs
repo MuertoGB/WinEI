@@ -138,7 +138,7 @@ namespace WinEI.WinForms
         {
             lblOperatingSystem.Text =
                 $"{OSUtils.GetWindowsName} " +
-                $"{Strings.BUILD} {OSUtils.GetWindowsBuild} " +
+                $"{AppStrings.BUILD} {OSUtils.GetWindowsBuild} " +
                 $"{OSUtils.GetSystemArchitecture(false)}";
 
             lblInstallDate.Text =
@@ -146,8 +146,8 @@ namespace WinEI.WinForms
 
             lblElevated.Text =
                 OSUtils.IsElevated()
-                ? "Yes"
-                : "No - Some features are disabled";
+                ? AppStrings.YES
+                : $"{AppStrings.NO} ({AppStrings.FEATURES_DISABLED})";
 
             lblCulture.Text =
                 OSUtils.GetSystemCulture;
@@ -161,7 +161,7 @@ namespace WinEI.WinForms
             bool isBugged =
                 WinsatBugChecker.IsBuggedVersion();
 
-            lblBuggedWinsat.Text = isBugged ? "Yes" : "No";
+            lblBuggedWinsat.Text = isBugged ? AppStrings.YES : AppStrings.NO;
             lblBuggedWinsat.ForeColor = isBugged ? Color.Tomato : Color.White;
             cmdSeeDetails.Enabled = isBugged;
         }

@@ -8,7 +8,6 @@ using System;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Xml;
 using WinEI.Common;
 using WinEI.Utils;
@@ -228,12 +227,12 @@ namespace WinEI.Winsat
         {
             return new WinsatScores
             {
-                BaseScore = $"NA",
-                ProcessorScore = Strings.UNRATED,
-                MemoryScore = Strings.UNRATED,
-                GraphicsScore = Strings.UNRATED,
-                D3DScore = Strings.UNRATED,
-                DiskScore = Strings.UNRATED
+                BaseScore = AppStrings.NA,
+                ProcessorScore = AppStrings.UNRATED,
+                MemoryScore = AppStrings.UNRATED,
+                GraphicsScore = AppStrings.UNRATED,
+                D3DScore = AppStrings.UNRATED,
+                DiskScore = AppStrings.UNRATED
             };
         }
 
@@ -409,35 +408,35 @@ namespace WinEI.Winsat
             switch ((WinsatExitCode)code)
             {
                 case WinsatExitCode.SUCCESS:
-                    return "The assesssment completed successfully.";
+                    return WinsatStrings.WINSAT_EXIT_SUCCESS;
                 case WinsatExitCode.ERROR_GENERIC:
-                    return "The assessment did not complete due to a generic error.";
+                    return WinsatStrings.WINSAT_EXIT_ERROR_GENERIC;
                 case WinsatExitCode.ERROR_INTERFERENCE:
-                    return "The assessment did not complete due to interference.";
+                    return WinsatStrings.WINSAT_EXIT_INTERFERENCE;
                 case WinsatExitCode.CANCELLED_BY_USER:
-                    return "The assessment was cancelled by the user.";
+                    return WinsatStrings.WINSAT_EXIT_CANCELLED_BY_USER;
                 case WinsatExitCode.INVALID_COMMAND:
-                    return "The command given to WinSAT was invalid.";
+                    return WinsatStrings.WINSAT_EXIT_INVALID_COMMAND;
                 case WinsatExitCode.INVALID_PRIVILAGES:
-                    return "WinSAT was not run with administrative privilages.";
+                    return WinsatStrings.WINSAT_EXIT_INVALID_PRIVILAGES;
                 case WinsatExitCode.INSTANCE_ALREADY_RUNNING:
-                    return "Another instance of WinSAT is already running.";
+                    return WinsatStrings.WINSAT_EXIT_INSTANCE_ALREADY_RUNNING;
                 case WinsatExitCode.CANNOT_RUN_INDIVIDUAL_RDS:
-                    return "WinSAT cannot run individual assessments on Remote Desktop Server.";
+                    return WinsatStrings.WINSAT_EXIT_CANNOT_RUN_INDIVIDUAL_RDS;
                 case WinsatExitCode.BATTERY_POWER:
-                    return "WinSAT cannot run on battery power.";
+                    return WinsatStrings.WINSAT_EXIT_BATTERY_POWER;
                 case WinsatExitCode.CANNOT_RUN_RDS:
-                    return "WinSAT cannot run a formal assessment on Remote Desktop Server.";
+                    return WinsatStrings.WINSAT_EXIT_CANNOT_RUN_RDS;
                 case WinsatExitCode.NO_MULTIMEDIA_SUPPORT:
-                    return "The assessment cannot run as no multimedia support was detected.";
+                    return WinsatStrings.WINSAT_EXIT_NO_MULTIMEDIA_SUPPORT;
                 case WinsatExitCode.INCOMPATIBLE_OS:
-                    return "WinSAT cannot run on Windows XP.";
+                    return WinsatStrings.WINSAT_EXIT_INCOMPATIBLE_OS;
                 case WinsatExitCode.WATCHDOG_TIMEOUT:
-                    return "The WinSAT watchdog timer timed out, indicating something is causing the tests to run unuusally slow.";
+                    return WinsatStrings.WINSAT_EXIT_WATCHDOG_TIMEOUT;
                 case WinsatExitCode.VIRTUAL_MACHINE:
-                    return "WinSAT cannot run the formal assessment on a virtual machine.";
+                    return WinsatStrings.WINSAT_EXIT_VM;
                 default:
-                    return "An unknown WinSAT exit code was returned.";
+                    return WinsatStrings.WINSAT_EXIT_UNKNOWN;
             }
         }
 
@@ -446,17 +445,17 @@ namespace WinEI.Winsat
             switch ((WinsatAssessmentState)state)
             {
                 case WinsatAssessmentState.UNKNOWN:
-                    return "Could not retrieve assessment validity";
+                    return WinsatStrings.WINSAT_STATE_UNKNOWN;
                 case WinsatAssessmentState.VALID:
-                    return "Experience Index scores are valid";
+                    return WinsatStrings.WINSAT_STATE_VALID;
                 case WinsatAssessmentState.INCOHERENT:
-                    return "Incoherent with hardware";
+                    return WinsatStrings.WINSAT_STATE_INCOHERENT;
                 case WinsatAssessmentState.UNAVAILABLE:
-                    return "Experience Index has not been established";
+                    return WinsatStrings.WINSAT_STATE_UNAVAILABLE;
                 case WinsatAssessmentState.INVALID:
-                    return "Experience Index scores are outdated or invalid";
+                    return WinsatStrings.WINSAT_STATE_INVALID;
                 default:
-                    return "Could not retrieve assessment validity";
+                    return WinsatStrings.WINSAT_STATE_UNKNOWN;
             }
         }
 
@@ -465,36 +464,33 @@ namespace WinEI.Winsat
             switch ((WinsatAssessmentState)state)
             {
                 case WinsatAssessmentState.UNKNOWN:
-                    return "Run";
+                    return WinsatStrings.RUN;
                 case WinsatAssessmentState.VALID:
-                    return "Repeat";
+                    return WinsatStrings.REPEAT;
                 case WinsatAssessmentState.INCOHERENT:
-                    return "Update";
+                    return WinsatStrings.UPDATE;
                 case WinsatAssessmentState.UNAVAILABLE:
-                    return "Run";
+                    return WinsatStrings.RUN;
                 case WinsatAssessmentState.INVALID:
-                    return "Update";
+                    return WinsatStrings.UPDATE;
                 default:
-                    return "Run";
+                    return WinsatStrings.RUN;
             }
         }
 
         internal static string GetRatingScaleString()
         {
             string defaultString =
-                "The Experience Index assesses key system components";
+                WinsatStrings.KEY_COMPONENTS;
 
             if (OSUtils.IsWindowsVista())
-                return $"{defaultString} on a scale of 1.0 to 5.9.";
+                return $"{defaultString} {WinsatStrings.SCALE_OF_59}";
 
             if (OSUtils.IsWindowsSeven())
-                return $"{defaultString} on a scale of 1.0 to 7.9.";
+                return $"{defaultString} {WinsatStrings.SCALE_OF_79}";
 
-            if (OSUtils.IsWindowsEight())
-                return $"{defaultString} on a scale of 1.0 to 9.9.";
-
-            if (OSUtils.IsWindowsTenPlus())
-                return $"{defaultString} on a scale of 1.0 to 9.9.";
+            if (OSUtils.IsWindowsEight() || OSUtils.IsWindowsTenPlus())
+                return $"{defaultString} {WinsatStrings.SCALE_OF_99}";
 
             return $"{defaultString}.";
         }

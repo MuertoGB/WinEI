@@ -39,8 +39,8 @@ namespace WinEI.Utils
                         DialogResult result =
                             WEIMessageBox.Show(
                                 owner,
-                                Strings.INFORMATION,
-                                Strings.QUESTION_EXPORT_NAVIGATE,
+                                AppStrings.INFORMATION,
+                                DialogStrings.Q_EXPORT_NAVIGATE,
                                 WEIMessageBoxType.Question,
                                 WEIMessageBoxButtons.YesNo);
 
@@ -55,8 +55,8 @@ namespace WinEI.Utils
 
                     WEIMessageBox.Show(
                         owner,
-                        Strings.ERROR,
-                        Strings.ERROR_EXPORT_NOT_FOUND,
+                        AppStrings.ERROR,
+                        ExceptionStrings.EX_FILE_EXPORT_NF,
                         WEIMessageBoxType.Error,
                         WEIMessageBoxButtons.Okay);
                 }

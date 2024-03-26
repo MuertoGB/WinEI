@@ -66,7 +66,8 @@ namespace WinEI.Common
                 case LogType.ImgurLinksFile:
                     return WEIPath.ImgurLinksFile;
                 default:
-                    throw new ArgumentException("Invalid log type");
+                    throw new ArgumentException(
+                        ExceptionStrings.EX_INVALID_LOG_TYPE);
             }
         }
 
@@ -81,8 +82,8 @@ namespace WinEI.Common
             }
 
             MessageBox.Show(
-                $"{Strings.LOG_NOT_FOUND}",
-                Strings.ERROR,
+                $"{AppStrings.LOG_NOT_FOUND}",
+                AppStrings.ERROR,
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Error);
         }

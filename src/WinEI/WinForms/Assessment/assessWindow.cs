@@ -132,8 +132,8 @@ namespace WinEI
                 DialogResult result =
                     WEIMessageBox.Show(
                         this,
-                        "Warning",
-                        "The assessment is running, are you sure you want to cancel the assessment?",
+                        AppStrings.WARNING,
+                        DialogStrings.Q_CANCEL_ASSESSMENT,
                         WEIMessageBoxType.Warning,
                         WEIMessageBoxButtons.YesNo);
 
@@ -143,7 +143,7 @@ namespace WinEI
                     {
                         // The asessment completed whilst the warning prompt was open.
                         rtbLogger.Log(
-                            "Could not cancel the assessment as it has completed.",
+                            AssessmentStrings.A_ALREADY_COMPLETED,
                             rtbLogType.Warning,
                             rtbAssessment);
 
@@ -151,7 +151,7 @@ namespace WinEI
                     }
 
                     Logger.WriteToAssessmentLog(
-                        $"Assessment cancelled by user\r\n");
+                        $"{AssessmentStrings.A_CANCELLED_BY_USER}\r\n");
 
                     _windowClosedByUser = true;
 
@@ -241,17 +241,15 @@ namespace WinEI
             if (!_assessmentComplete && _winsatProcess.HasExited)
             {
                 rtbLogger.Log(
-                    "Watchdog: WinSAT was killed, or unexpectedly quit.",
+                    $"{AssessmentStrings.A_WD}: {AssessmentStrings.A_WINSAT_KILLED_OR_QUIT}",
                     rtbLogType.Error,
                     rtbAssessment);
 
                 StopWatchdog();
 
-                cmdCancel.Text =
-                    "CLOSE";
+                cmdCancel.Text = AppStrings.CLOSE.ToUpper();
 
-                lblStatus.Text =
-                    "The assessment did not complete";
+                lblStatus.Text = AssessmentStrings.A_DID_NOT_COMPLETE;
             }
         }
 
@@ -260,7 +258,7 @@ namespace WinEI
             if (_watchdog.Enabled)
             {
                 rtbLogger.Log(
-                    "Shutting down Watchdog...",
+                    AssessmentStrings.A_WD_SHUTDOWN_START,
                     rtbLogType.Application,
                     rtbAssessment);
 
@@ -273,7 +271,7 @@ namespace WinEI
                     catch
                     {
                         rtbLogger.Log(
-                            "Could not stop the Watchdog",
+                            AssessmentStrings.A_WD_SHUTDOWN_FAIL,
                             rtbLogType.Error,
                             rtbAssessment);
                     }
@@ -281,7 +279,7 @@ namespace WinEI
                 }
 
                 rtbLogger.Log(
-                    "Watchdog shutdown completed",
+                    AssessmentStrings.A_WD_SHUTDOWN_SUCCESS,
                     rtbLogType.Okay,
                     rtbAssessment);
             }
@@ -294,7 +292,7 @@ namespace WinEI
             if (_winsatProcess != null && !_winsatProcess.HasExited)
             {
                 rtbLogger.Log(
-                    "Shutting down WinSAT process...",
+                    AssessmentStrings.A_WS_SHUTDOWN_START,
                     rtbLogType.Application,
                     rtbAssessment);
 
@@ -307,14 +305,14 @@ namespace WinEI
                     catch
                     {
                         rtbLogger.Log(
-                            "Could not kill the running WinSAT process",
+                            AssessmentStrings.A_WS_SHUTDOWN_FAIL,
                             rtbLogType.Error,
                             rtbAssessment);
                     }
                 }
 
                 rtbLogger.Log(
-                    "WinSAT process stopped successfully",
+                    AssessmentStrings.A_WS_SHUTDOWN_SUCCESS,
                     rtbLogType.Okay,
                     rtbAssessment);
             }
@@ -325,49 +323,49 @@ namespace WinEI
         private void GetInitialLogData()
         {
             rtbLogger.Log(
-                $"Started:   {DateTime.Now.ToString(Strings.WINSAT_DATE_FORMAT)}",
+                $"{AssessmentStrings.A_STARTED}:   {DateTime.Now.ToString(WinsatStrings.WINSAT_DATE_FORMAT)}",
                 rtbLogType.Information,
                 rtbAssessment);
 
             rtbLogger.Log(
-                $"Version:   {WEIVersion.Version}",
+                $"{AssessmentStrings.A_VERSION}:   {WEIVersion.Version}",
                 rtbLogType.Information,
                 rtbAssessment);
 
             rtbLogger.Log(
-                $"Channel:   {WEIVersion.Channel}",
+                $"{AssessmentStrings.A_CHANNEL}:   {WEIVersion.Channel}",
                 rtbLogType.Information,
                 rtbAssessment);
 
             rtbLogger.Log(
-                $"System:    {OSUtils.GetWindowsName} " +
+                $"{AssessmentStrings.A_SYSTEM}:    {OSUtils.GetWindowsName} " +
                 $"{OSUtils.GetWindowsBuild} " +
                 $"{OSUtils.GetSystemArchitecture()}",
                 rtbLogType.Information,
                 rtbAssessment);
 
             rtbLogger.Log(
-                $"Culture:   {OSUtils.GetSystemCulture}",
+                $"{AssessmentStrings.A_CULTURE}:   {OSUtils.GetSystemCulture}",
                 rtbLogType.Information,
                 rtbAssessment);
 
             rtbLogger.Log(
-                $"EXE:       {OSUtils.GetWinsatExePrivateVersion}",
+                $"{AssessmentStrings.A_EXE}:       {OSUtils.GetWinsatExePrivateVersion}",
                 rtbLogType.Information,
                 rtbAssessment);
 
             rtbLogger.Log(
-                $"API:       {OSUtils.GetWinsatApiVersion.ProductVersion}",
+                $"{AssessmentStrings.A_API}:       {OSUtils.GetWinsatApiVersion.ProductVersion}",
                 rtbLogType.Information,
                 rtbAssessment);
 
             rtbLogger.Log(
-                $"Bugged:    {WinsatBugChecker.IsBuggedVersion()}",
+                $"{AssessmentStrings.A_BUGGED}:    {WinsatBugChecker.IsBuggedVersion()}",
                 rtbLogType.Information,
                 rtbAssessment);
 
             rtbLogger.Log(
-                $"Validity:  {WinsatReader.ASSESSMENT_STATE}",
+                $"{AssessmentStrings.A_VALIDITY}:  {WinsatReader.ASSESSMENT_STATE}",
                 rtbLogType.Information,
                 rtbAssessment);
         }
@@ -417,15 +415,15 @@ namespace WinEI
             // Warning and error counts (only supports English lang for now).
             if (_warningCount > 0)
                 rtbLogger.Log(
-                    $"The assessment ran with {_warningCount} " +
-                    $"{(_warningCount > 1 ? "warnings" : "warning")}",
+                    $"{AssessmentStrings.A_RAN_WITH_COUNT} {_warningCount} " +
+                    $"{(_warningCount > 1 ? AssessmentStrings.A_WARNINGS : AssessmentStrings.A_WARNING)}",
                     rtbLogType.Warning,
                     rtbAssessment);
 
             if (_errorCount > 0)
                 rtbLogger.Log(
-                    $"The assessment ran with {_errorCount} " +
-                    $"{(_errorCount > 1 ? "errors" : "error")}",
+                    $"{AssessmentStrings.A_RAN_WITH_COUNT} {_errorCount} " +
+                    $"{(_errorCount > 1 ? AssessmentStrings.A_ERRORS : AssessmentStrings.A_ERROR)}",
                     rtbLogType.Error,
                     rtbAssessment);
 
@@ -436,12 +434,12 @@ namespace WinEI
         {
             if (!_windowClosedByUser)
             {
-                lblStatus.Text = "Assessment Completed.";
-                cmdCancel.Text = "CLOSE";
+                lblStatus.Text = AssessmentStrings.A_COMPLETED;
+                cmdCancel.Text = AppStrings.CLOSE.ToUpper();
                 cmdExport.Enabled = true;
 
                 rtbLogger.Log(
-                    $"Waiting for WinSAT to exit...",
+                    AssessmentStrings.A_WS_EXIT_WAIT,
                     rtbLogType.Application,
                     rtbAssessment);
 
@@ -470,17 +468,17 @@ namespace WinEI
                     (WinsatAssessmentState)WinsatAPI.QueryAssessmentState();
 
                 rtbLogger.Log(
-                    $"Validity:   {assessmentState}",
+                    $"{AssessmentStrings.A_VALIDITY}:   {assessmentState}",
                     rtbLogType.Information,
                     rtbAssessment);
 
                 rtbLogger.Log(
-                    $"Exit Code:  {exitCode}",
+                    $"{AssessmentStrings.A_EXIT_CODE}:  {exitCode}",
                     rtbLogType.Application,
                     rtbAssessment);
 
                 rtbLogger.Log(
-                    $"Message:    {WinsatReader.GetWinsatExitCodeString(exitCode)}",
+                    $"{AssessmentStrings.A_MESSAGE}:    {WinsatReader.GetWinsatExitCodeString(exitCode)}",
                     rtbLogType.Application,
                     rtbAssessment);
             }

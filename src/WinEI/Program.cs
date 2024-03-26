@@ -50,9 +50,9 @@ namespace WinEI
 
     internal readonly struct WEIVersion
     {
-        internal const string Build = "231029.0910";
+        internal const string Build = "240326.0235";
         internal static readonly string Version = $"{Application.ProductVersion}.{Build}";
-        internal const string Channel = "ALPHA";
+        internal const string Channel = "BETA";
     }
     #endregion
 
@@ -97,18 +97,18 @@ namespace WinEI
             // Check Operating System is not < Vista.
             if (OSUtils.GetKernelVersion.ProductMajorPart < 5)
                 HandleCodeExit(
-                    Strings.ERROR_WINSAT_OS,
+                    ExceptionStrings.EX_WINSAT_INCOMPATIBLE_OS,
                     ExitCodes.INCOMPATIBLE_OS);
 
             // Check winsat capability by looking for the executable and API.
             if (!OSUtils.IsWinSatExePresent())
                 HandleCodeExit(
-                    Strings.ERROR_WINSAT_EXE,
+                    ExceptionStrings.EX_WINSAT_EXE_NF,
                     ExitCodes.NOT_WINSAT_CAPABLE_EXE);
 
             if (!OSUtils.IsWinsatApiPresent())
                 HandleCodeExit(
-                    Strings.ERROR_WINSAT_API,
+                    ExceptionStrings.EX_WINSAT_API_NF,
                     ExitCodes.NOT_WINSAT_CAPABLE_API);
 
             // Check necessary fonts are available.
@@ -160,8 +160,8 @@ namespace WinEI
             else
             {
                 MessageBox.Show(
-                    Strings.SEGOE_MDL2_FAILED_TO_LOAD,
-                    Strings.ERROR,
+                    AppStrings.SEGOE_MDL2_FAILED_TO_LOAD,
+                    AppStrings.ERROR,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
@@ -188,12 +188,12 @@ namespace WinEI
         private static void HandleCodeExit(string message, int exitCode)
         {
             Logger.WriteToLog(
-                $"{Strings.EXITED_WITH_CODE} ({exitCode}). {message}",
+                $"{AppStrings.EXITED_WITH_CODE} ({exitCode}). {message}",
                 LogType.ApplicationLog);
 
             MessageBox.Show(
-                message + $"\r\n\r\n{Strings.APPLICATION_WILL_EXIT}",
-                Strings.ERROR,
+                message + $"\r\n\r\n{AppStrings.APPLICATION_WILL_EXIT}",
+                AppStrings.ERROR,
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Error);
 
@@ -251,9 +251,9 @@ namespace WinEI
             {
                 result =
                     MessageBox.Show(
-                        $"{e.Message}\r\n\r\n{Strings.DETAILS_SAVED_TO} {WEIPath.DebugLog.Replace(" ", Chars.NB_SPACE)}" +
-                        $"\r\n\r\n{Strings.APPLICATION_FORCE_QUIT}",
-                        Strings.EXCEPTION_HANDLER,
+                        $"{e.Message}\r\n\r\n{AppStrings.DETAILS_SAVED_TO} {WEIPath.DebugLog.Replace(" ", Chars.NB_SPACE)}" +
+                        $"\r\n\r\n{AppStrings.APPLICATION_FORCE_QUIT}",
+                        ExceptionStrings.EXCEPTION_HANDLER,
                         MessageBoxButtons.YesNo,
                         MessageBoxIcon.Error);
             }
@@ -261,7 +261,7 @@ namespace WinEI
             {
                 result =
                     MessageBox.Show(
-                        $"{e.Message}\r\n\r\n{e}\r\n\r\n{Strings.APPLICATION_FORCE_QUIT}",
+                        $"{e.Message}\r\n\r\n{e}\r\n\r\n{AppStrings.APPLICATION_FORCE_QUIT}",
                         $"{e.GetType()}",
                         MessageBoxButtons.YesNo,
                         MessageBoxIcon.Error);

@@ -31,19 +31,27 @@ namespace WinEI.Utils
         {
             get
             {
-                string name =
-                    string.Empty;
+                string productName = GetWindowsProductName();
+                string cleanName = CleanProductName(productName);
 
-                using (RegistryKey key =
-                    Registry.LocalMachine.OpenSubKey(
-                        @"SOFTWARE\Microsoft\Windows NT\CurrentVersion"))
-                {
-                    if (key != null)
-                        name = key.GetValue("ProductName") as string;
-                }
+                if (GetWindowsBuild >= 22000 && cleanName.Contains("10"))
+                    cleanName = cleanName.Replace("10", "11");
 
-                return name.Replace(" (TM)", string.Empty);
+                return cleanName;
             }
+        }
+
+        private static string GetWindowsProductName()
+        {
+            using (RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion"))
+            {
+                return key?.GetValue("ProductName") as string ?? string.Empty;
+            }
+        }
+
+        private static string CleanProductName(string productName)
+        {
+            return productName.Replace(" (TM)", string.Empty);
         }
 
         internal static string GetSystemArchitecture(bool shortString = false) =>
@@ -194,34 +202,37 @@ namespace WinEI.Utils
         #region Elevation
         internal static void RestartElevated()
         {
-            var psiInfo = new ProcessStartInfo
-            {
-                UseShellExecute = true,
-                WorkingDirectory = WEIPath.CurrentDirectory,
-                FileName = WEIPath.FriendlyName,
-                Verb = "runas"
-            };
+            ProcessStartInfo startInfo =
+                new ProcessStartInfo
+                {
+                    UseShellExecute = true,
+                    WorkingDirectory = WEIPath.CurrentDirectory,
+                    FileName = WEIPath.FriendlyName,
+                    Verb = "runas"
+                };
 
             try
             {
-                var elevatedInstance = new Process
-                {
-                    StartInfo = psiInfo
-                };
+                Process elevatedProcess =
+                    new Process
+                    {
+                        StartInfo = startInfo
+                    };
 
-                elevatedInstance.Start();
+                elevatedProcess.Start();
 
                 // We need to clean any necessary objects as OnExit will not fire
                 // when Environment.Exit is called.
                 Program.HandleOnExitingCleanup();
 
-                Environment.Exit(ExitCodes.ELEVATED_RESTART);
+                Environment.Exit(
+                    ExitCodes.ELEVATED_RESTART);
             }
-            catch (Win32Exception ex)
+            catch (Win32Exception e)
             {
                 MessageBox.Show(
-                    $"Could not perform elevated restart.\r\n{ex.Message}",
-                    "Error",
+                    $"{ExceptionStrings.EX_ELEVATED_RESTART}\r\n{e.Message}",
+                    AppStrings.ERROR,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
