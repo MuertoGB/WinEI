@@ -1,6 +1,6 @@
 <h4 align="center">Version History</h4>
 <p align="center">
-  <a href="#version-1.0.0.240326.2230-(BETA)">V1.0.0.240326.2230</a>
+  <a href="#version-1002403262230-beta">V1.0.0.240326.2230</a>
 </p>
 
 ## Version 1.0.0.240326.2230 (BETA)
