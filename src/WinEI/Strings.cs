@@ -4,6 +4,10 @@
 // Strings.cs
 // Released under the GNU GLP v3.0
 
+using System.Data;
+using System.Drawing;
+using System.Runtime.Serialization.Formatters;
+
 namespace WinEI
 {
     internal class ExceptionStrings
@@ -56,6 +60,9 @@ namespace WinEI
     internal class AppStrings
     {
         #region Strings
+        internal const string UNKNOWN =
+            "Unknown";
+
         internal const string CLOSE =
             "Close";
 
@@ -254,6 +261,79 @@ namespace WinEI
 
         internal const string A_STARTED =
             "Started";
+
+        // Feature Enum
+        internal const string A_RUN_FEATURE_ENUM =
+            "Running Feature Enumeration";
+
+        // D3D9
+        internal const string A_RUN_ALL_D3D =
+            "Running D3D9 Assessments";
+
+        internal const string A_RUN_DX9_DWM =
+            "Running the D3D9 Aero Assessment";
+
+        internal const string A_RUN_DX9_BATCH =
+            "Running the D3D9 Batch Assessment";
+
+        internal const string A_RUN_DX9_ALPHA =
+            "Running the D3D9 Alpha Blend Assessment";
+
+        internal const string A_RUN_DX9_TEX =
+            "Running the D3D9 Texture Load Assessment";
+
+        internal const string A_RUN_DX9_ALU =
+            "Running the D3D9 ALU Assessment";
+
+        // D3D10
+        internal const string A_RUN_DX10_BATCH =
+            "Running the D3D10 Batch Assessment";
+
+        internal const string A_RUN_DX10_ALPHA =
+            "Running the D3D10 Alpha Blend Assessment";
+
+        internal const string A_RUN_DX10_TEX =
+            "Running the D3D10 Texture Load Assessment";
+
+        internal const string A_RUN_DX10_ALU =
+            "Running the D3D10 ALU Assessment";
+
+        internal const string A_RUN_DX10_GEOM =
+            "Running the Direct3D 10 Geometry Assessment";
+
+        internal const string A_RUN_DX10_CONSTBUFF =
+            "Running the D3D10 Constant Buffer Assessment";
+
+        // Windows Media
+        internal const string A_RUN_WM_ENCODING_PERF =
+            "Assessing Windows Media Encoding Performance";
+
+        internal const string A_RUN_WM_PLAYBACK_PERF =
+            "Assessing Windows Media Playback Performance";
+
+        // CPU
+        internal const string A_RUN_CPU_PERF =
+            "Assessing CPU Performance";
+
+        // MEM
+        internal const string A_RUN_MEM_PERF =
+            "Assessing Memory Performance";
+
+        // DISK
+        internal const string A_RUN_DISK =
+            "Assessing Disk Performance";
+
+        internal const string A_RUN_DISK_RR =
+            "Ran/Read";
+
+        internal const string A_RUN_DISK_RW =
+            "Ran/Write";
+
+        internal const string A_RUN_DISK_SW =
+            "Seq/Write";
+
+        internal const string A_RUN_DISK_SR =
+            "Seq/Read";
         #endregion
     }
 

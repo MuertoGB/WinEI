@@ -488,139 +488,139 @@ namespace WinEI
         {
             // Feature enumeration.
             if (data.Contains("formal -v"))
-                lblStatus.Text = "Running Feature Enumeration";
+                lblStatus.Text = AssessmentStrings.A_RUN_FEATURE_ENUM;
 
             // Direct3D 9.
             if (data.Contains("-wddm -v"))
-                lblStatus.Text = "Running D3D9 Assessments";
+                lblStatus.Text = AssessmentStrings.A_RUN_ALL_D3D;
 
             // Media.
             if (data.Contains("winsatencode.wmv -encode"))
-                lblStatus.Text = "Assessing Windows Media Encoding Performance";
+                lblStatus.Text = AssessmentStrings.A_RUN_WM_ENCODING_PERF;
 
             if (data.Contains("winsat.wmv -nopmp"))
-                lblStatus.Text = "Assessing Windows Media Playback Performance";
+                lblStatus.Text = AssessmentStrings.A_RUN_WM_PLAYBACK_PERF;
 
             // Processor.
             if (data.Contains("-encryption"))
-                lblStatus.Text = "Assessing CPU Performance [1/4]";
+                lblStatus.Text = $"{AssessmentStrings.A_RUN_CPU_PERF} [1/4]";
 
             if (data.Contains("-compression"))
-                lblStatus.Text = "Assessing CPU Performance [2/4]";
+                lblStatus.Text = $"{AssessmentStrings.A_RUN_CPU_PERF} [2/4]";
 
             if (data.Contains("-encryption2"))
-                lblStatus.Text = "Assessing CPU Performance [3/4]";
+                lblStatus.Text = $"{AssessmentStrings.A_RUN_CPU_PERF} [3/4]";
 
             if (data.Contains("-compression2"))
-                lblStatus.Text = "Assessing CPU Performance [4/4]";
+                lblStatus.Text = $"{AssessmentStrings.A_RUN_CPU_PERF} [4/4]";
 
             // Memory.
             if (data.Contains("Block size specified as"))
-                lblStatus.Text = "Assessing Memory Performance";
+                lblStatus.Text = AssessmentStrings.A_RUN_MEM_PERF;
 
             // Disk.
             if (data.Contains("-ran") && data.Contains("-read"))
-                lblStatus.Text = "Assessing Disk Performance [Ran/Read]";
+                lblStatus.Text = $"{AssessmentStrings.A_RUN_DISK} [{AssessmentStrings.A_RUN_DISK_RR}]";
 
             if (data.Contains("-ran") && data.Contains("-write"))
-                lblStatus.Text = "Assessing Disk Performance [Ran/Write]";
+                lblStatus.Text = $"{AssessmentStrings.A_RUN_DISK} [{AssessmentStrings.A_RUN_DISK_RW}]";
 
             if (data.Contains("-seq") && data.Contains("-write"))
-                lblStatus.Text = "Assessing Disk Performance [Seq/Write]";
+                lblStatus.Text = $"{AssessmentStrings.A_RUN_DISK} [{AssessmentStrings.A_RUN_DISK_SR}]";
 
             if (data.Contains("-seq") && data.Contains("-read"))
-                lblStatus.Text = "Assessing Disk Performance [Seq/Read]";
+                lblStatus.Text = $"{AssessmentStrings.A_RUN_DISK} [{AssessmentStrings.A_RUN_DISK_SR}]";
         }
 
         private void UpdateStatusLabelOther(string data)
         {
             // Feature enumeration.
             if (data.Contains("formal -v"))
-                lblStatus.Text = "Running Feature Enumeration";
+                lblStatus.Text = AssessmentStrings.A_RUN_FEATURE_ENUM;
 
             // Direct3D 9 (Does not run on Windows 10+).
             if (data.Contains("-aname DWM"))
-                lblStatus.Text = "Running the D3D9 Aero Assessment";
+                lblStatus.Text = AssessmentStrings.A_RUN_DX9_DWM;
 
             if (data.Contains("-aname Batch"))
-                lblStatus.Text = "Running the D3D9 Batch Assessment";
+                lblStatus.Text = AssessmentStrings.A_RUN_DX9_BATCH;
 
             if (data.Contains("-aname Alpha"))
-                lblStatus.Text = "Running the D3D9 Alpha Blend Assessment";
+                lblStatus.Text = AssessmentStrings.A_RUN_DX9_ALPHA;
 
             if (data.Contains("-aname Tex"))
-                lblStatus.Text = "Running the D3D9 Texture Load Assessment";
+                lblStatus.Text = AssessmentStrings.A_RUN_DX9_TEX;
 
             if (data.Contains("-aname ALU"))
-                lblStatus.Text = "Running the D3D9 ALU Assessment";
+                lblStatus.Text = AssessmentStrings.A_RUN_DX9_ALU;
 
             // Direct3D 10 (Does not run on Windows 8.1+).
             if (data.Contains("-dx10  -aname Batch"))
-                lblStatus.Text = "Running the D3D10 Batch Assessment";
+                lblStatus.Text = AssessmentStrings.A_RUN_DX10_BATCH;
 
             if (data.Contains("-dx10  -aname Alpha"))
-                lblStatus.Text = "Running the D3D10 Alpha Blend Assessment";
+                lblStatus.Text = AssessmentStrings.A_RUN_DX10_ALPHA;
 
             if (data.Contains("-dx10  -aname Tex"))
-                lblStatus.Text = "Running the D3D10 Texture Load Assessment";
+                lblStatus.Text = AssessmentStrings.A_RUN_DX10_TEX;
 
             if (data.Contains("-dx10  -aname ALU"))
-                lblStatus.Text = "Running the D3D10 ALU Assessment";
+                lblStatus.Text = AssessmentStrings.A_RUN_DX10_ALU;
 
             if (data.Contains("-dx10  -aname Geom"))
-                lblStatus.Text = "Running the Direct3D 10 Geometry Assessment";
+                lblStatus.Text = AssessmentStrings.A_RUN_DX10_GEOM;
 
             if (data.Contains("-dx10  -aname CBuffer"))
-                lblStatus.Text = "Running the D3D10 Constant Buffer Assessment";
+                lblStatus.Text = AssessmentStrings.A_RUN_DX10_CONSTBUFF;
 
             // Media (Does not run on Windows 10+).
             if (data.Contains("winsat.wmv -nopmp"))
-                lblStatus.Text = "Assessing Windows Media Playback Performance";
+                lblStatus.Text = AssessmentStrings.A_RUN_WM_PLAYBACK_PERF;
 
             // Processor.
             if (data.Contains("'-encryption -up'"))
-                lblStatus.Text = "Assessing CPU Performance [1/8]";
+                lblStatus.Text = $"{AssessmentStrings.A_RUN_CPU_PERF} [1/8]";
 
             if (data.Contains("'-compression -up'"))
-                lblStatus.Text = "Assessing CPU Performance [2/8]";
+                lblStatus.Text = $"{AssessmentStrings.A_RUN_CPU_PERF} [2/8]";
 
             if (data.Contains("'-encryption2 -up'"))
-                lblStatus.Text = "Assessing CPU Performance [3/8]";
+                lblStatus.Text = $"{AssessmentStrings.A_RUN_CPU_PERF} [3/8]";
 
             if (data.Contains("'-compression2 -up'"))
-                lblStatus.Text = "Assessing CPU Performance [4/8]";
+                lblStatus.Text = $"{AssessmentStrings.A_RUN_CPU_PERF} [4/8]";
 
             if (data.Contains("'-encryption'"))
-                lblStatus.Text = "Assessing CPU Performance [5/8]";
+                lblStatus.Text = $"{AssessmentStrings.A_RUN_CPU_PERF} [5/8]";
 
             if (data.Contains("'-compression'"))
-                lblStatus.Text = "Assessing CPU Performance [6/8]";
+                lblStatus.Text = $"{AssessmentStrings.A_RUN_CPU_PERF} [6/8]";
 
             if (data.Contains("'-encryption2'"))
-                lblStatus.Text = "Assessing CPU Performance [7/8]";
+                lblStatus.Text = $"{AssessmentStrings.A_RUN_CPU_PERF} [7/8]";
 
             if (data.Contains("'-compression2'"))
-                lblStatus.Text = "Assessing CPU Performance [8/8]";
+                lblStatus.Text = $"{AssessmentStrings.A_RUN_CPU_PERF} [8/8]";
 
             // Memory.
             if (data.Contains("Block size specified as"))
-                lblStatus.Text = "Assessing Memory Performance";
+                lblStatus.Text = AssessmentStrings.A_RUN_MEM_PERF;
 
             // Disk.
             if (data.Contains("-ran") && data.Contains("-read"))
-                lblStatus.Text = "Assessing Disk Performance [Ran/Read]";
+                lblStatus.Text = $"{AssessmentStrings.A_RUN_DISK} [{AssessmentStrings.A_RUN_DISK_RR}]";
 
             if (data.Contains("-ran") && data.Contains("-write"))
-                lblStatus.Text = "Assessing Disk Performance [Ran/Write]";
+                lblStatus.Text = $"{AssessmentStrings.A_RUN_DISK} [{AssessmentStrings.A_RUN_DISK_RW}]";
 
             if (data.Contains("-seq") && data.Contains("-write"))
-                lblStatus.Text = "Assessing Disk Performance [Seq/Write]";
+                lblStatus.Text = $"{AssessmentStrings.A_RUN_DISK} [{AssessmentStrings.A_RUN_DISK_SR}]";
 
             if (data.Contains("-seq") && data.Contains("-read"))
-                lblStatus.Text = "Assessing Disk Performance [Seq/Read]";
+                lblStatus.Text = $"{AssessmentStrings.A_RUN_DISK} [{AssessmentStrings.A_RUN_DISK_SR}]";
 
             if (data.Contains("-scen"))
-                lblStatus.Text = "Assessing Disk Performance";
+                lblStatus.Text = AssessmentStrings.A_RUN_DISK;
         }
         #endregion
 

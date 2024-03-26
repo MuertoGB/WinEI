@@ -80,7 +80,7 @@ namespace WinEI.Utils
                     }
                 }
 
-                return DateTime.MinValue + " (Error)";
+                return AppStrings.UNKNOWN;
             }
         }
 

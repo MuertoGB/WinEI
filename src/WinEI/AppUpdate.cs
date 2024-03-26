@@ -26,6 +26,8 @@ namespace WinEI
 
     internal class AppUpdate
     {
+        internal const string versionNode = "data/WEI/Version";
+
         internal static async Task<VersionResult> CheckForNewVersion(string versionUrl)
         {
             try
@@ -45,7 +47,7 @@ namespace WinEI
 
                         XmlNode node =
                             doc.SelectSingleNode(
-                                "data/WEI/Version");
+                                versionNode);
 
                         if (node == null)
                             return VersionResult.Error;

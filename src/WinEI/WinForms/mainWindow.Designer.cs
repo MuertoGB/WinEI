@@ -87,6 +87,7 @@
             this.lblTextShowHardware = new System.Windows.Forms.Label();
             this.cmdShareOnImgur = new System.Windows.Forms.Button();
             this.tlpBottomNestedShowHardware = new System.Windows.Forms.TableLayoutPanel();
+            this.swShowHardware = new WinEI.UI.WEISwitch();
             this.tlpBottomNestedValidity = new System.Windows.Forms.TableLayoutPanel();
             this.lblScoreValidity = new System.Windows.Forms.Label();
             this.pnlValidityStatus = new System.Windows.Forms.Panel();
@@ -114,7 +115,6 @@
             this.viewAssessmentLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewImgurLinksFileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.viewWinSATLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.swShowHardware = new WinEI.UI.WEISwitch();
             this.cmsApplication = new WinEI.UI.WEIContextMenuStrip();
             this.cmsOptions = new WinEI.UI.WEIContextMenuStrip();
             this.cmsMore = new WinEI.UI.WEIContextMenuStrip();
@@ -463,7 +463,7 @@
             this.lblRatingScale.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
             this.lblRatingScale.Size = new System.Drawing.Size(805, 38);
             this.lblRatingScale.TabIndex = 99;
-            this.lblRatingScale.Text = "The Experience Index assesses key system components.";
+            this.lblRatingScale.Text = "...";
             this.lblRatingScale.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tlpMainNestedWinsat
@@ -1286,7 +1286,7 @@
             this.normalRestartToolStripMenuItem.Name = "normalRestartToolStripMenuItem";
             this.normalRestartToolStripMenuItem.ShortcutKeyDisplayString = "ALT + N";
             this.normalRestartToolStripMenuItem.Size = new System.Drawing.Size(300, 28);
-            this.normalRestartToolStripMenuItem.Text = "Restart (Normal)";
+            this.normalRestartToolStripMenuItem.Text = "Restart Application";
             this.normalRestartToolStripMenuItem.Click += new System.EventHandler(this.normalRestartToolStripMenuItem_Click);
             // 
             // elevatedRestartToolStripMenuItem
@@ -1475,6 +1475,7 @@
             this.cmsOptions.ResumeLayout(false);
             this.cmsMore.ResumeLayout(false);
             this.ResumeLayout(false);
+
         }
         #endregion
 
